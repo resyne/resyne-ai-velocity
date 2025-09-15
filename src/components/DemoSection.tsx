@@ -2,6 +2,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Database, Zap, Bot, TrendingUp } from "lucide-react";
+import { ERPDemo } from "./demo/ERPDemo";
+import { AutomationDemo } from "./demo/AutomationDemo";
+import { AIDemo } from "./demo/AIDemo";
 
 export function DemoSection() {
   return (
@@ -60,29 +63,7 @@ export function DemoSection() {
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="relative rounded-lg overflow-hidden border border-border/30">
-                  <iframe 
-                    src="https://demo-erp.resyne.ai" 
-                    width="100%" 
-                    height="600" 
-                    className="w-full"
-                    title="ERP Demo - RESYNE"
-                  >
-                    <div className="flex items-center justify-center h-[600px] bg-muted">
-                      <div className="text-center">
-                        <Database className="w-16 h-16 text-resyne-gold mx-auto mb-4" />
-                        <h3 className="font-subtitle text-xl mb-2">ERP Demo Loading...</h3>
-                        <p className="text-muted-foreground">Simulazione completa del sistema ERP integrato</p>
-                      </div>
-                    </div>
-                  </iframe>
-                  <div className="absolute top-4 right-4">
-                    <Button size="sm" className="bg-resyne-gold/90 text-resyne-dark hover:bg-resyne-gold">
-                      <TrendingUp className="w-4 h-4 mr-2" />
-                      Demo Live
-                    </Button>
-                  </div>
-                </div>
+                <ERPDemo />
                 <div className="mt-6 flex flex-col sm:flex-row gap-4">
                   <Button className="bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light">
                     Richiedi Accesso Completo
@@ -120,29 +101,7 @@ export function DemoSection() {
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="relative rounded-lg overflow-hidden border border-border/30">
-                  <iframe 
-                    src="https://automation-demo.resyne.ai" 
-                    width="100%" 
-                    height="600" 
-                    className="w-full"
-                    title="Automation Demo - RESYNE"
-                  >
-                    <div className="flex items-center justify-center h-[600px] bg-muted">
-                      <div className="text-center">
-                        <Zap className="w-16 h-16 text-tech-blue mx-auto mb-4" />
-                        <h3 className="font-subtitle text-xl mb-2">Automation Demo Loading...</h3>
-                        <p className="text-muted-foreground">Workflow intelligenti Make & Zapier in azione</p>
-                      </div>
-                    </div>
-                  </iframe>
-                  <div className="absolute top-4 right-4">
-                    <Button size="sm" className="bg-tech-blue/90 text-white hover:bg-tech-blue">
-                      <Zap className="w-4 h-4 mr-2" />
-                      Demo Attiva
-                    </Button>
-                  </div>
-                </div>
+                <AutomationDemo />
                 <div className="mt-6 flex flex-col sm:flex-row gap-4">
                   <Button className="bg-tech-blue text-white hover:bg-tech-blue/90">
                     Configura Automation
@@ -180,34 +139,7 @@ export function DemoSection() {
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="relative rounded-lg overflow-hidden border border-border/30">
-                  <iframe 
-                    src="https://ai-demo.resyne.ai" 
-                    width="100%" 
-                    height="600" 
-                    className="w-full"
-                    title="AI Solutions Demo - RESYNE"
-                  >
-                    <div className="flex items-center justify-center h-[600px] bg-muted">
-                      <div className="text-center">
-                        <Bot className="w-16 h-16 text-tech-purple mx-auto mb-4 animate-pulse" />
-                        <h3 className="font-subtitle text-xl mb-2">AI Assistant Loading...</h3>
-                        <p className="text-muted-foreground">Prova i nostri assistenti AI conversazionali</p>
-                        <div className="mt-4">
-                          <Button size="sm" className="bg-tech-purple text-white">
-                            Avvia Chat AI
-                          </Button>
-                        </div>
-                      </div>
-                    </div>
-                  </iframe>
-                  <div className="absolute top-4 right-4">
-                    <Button size="sm" className="bg-tech-purple/90 text-white hover:bg-tech-purple">
-                      <Bot className="w-4 h-4 mr-2" />
-                      AI Attivo
-                    </Button>
-                  </div>
-                </div>
+                <AIDemo />
                 <div className="mt-6 flex flex-col sm:flex-row gap-4">
                   <Button className="bg-tech-purple text-white hover:bg-tech-purple/90">
                     Testa AI Assistant
