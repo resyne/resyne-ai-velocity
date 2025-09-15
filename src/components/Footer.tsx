@@ -1,5 +1,5 @@
 import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
-import resyneLogo from "@/assets/resyne-logo.png";
+import resyneLogoWhite from "@/assets/resyne-logo-white.png";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -12,11 +12,10 @@ export function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
               <img 
-                src={resyneLogo} 
+                src={resyneLogoWhite} 
                 alt="RESYNE Logo" 
-                className="h-8 w-auto" 
+                className="h-12 w-auto" 
               />
-              <span className="font-title text-2xl gradient-text">RESYNE</span>
             </div>
             <p className="text-muted-foreground mb-6 max-w-md leading-relaxed">
               Soluzioni innovative AI-ERP per trasformare la tua azienda. 

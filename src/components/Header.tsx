@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import resyneLogo from "@/assets/resyne-logo.png";
+import resyneLogoWhite from "@/assets/resyne-logo-white.png";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,11 +13,10 @@ export function Header() {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <img 
-              src={resyneLogo} 
+              src={resyneLogoWhite} 
               alt="RESYNE Logo" 
-              className="h-8 w-auto" 
+              className="h-10 w-auto" 
             />
-            <span className="font-title text-xl gradient-text">RESYNE</span>
           </div>
 
           {/* Desktop Navigation */}
