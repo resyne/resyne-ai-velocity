@@ -6,10 +6,10 @@
 
 @layer base {
   :root {
-    /* RESYNE Brand Colors */
-    --resyne-dark: 253 32% 14%;      /* #1a162d */
-    --resyne-gold: 45 65% 47%;       /* #ca9c2a */
-    --resyne-gold-light: 45 65% 57%; /* Lighter gold variant */
+    /* RESYNE Brand Colors (from official brand kit) */
+    --resyne-dark: 252 31% 14%;      /* #1a162d */
+    --resyne-gold: 43 66% 47%;       /* #ca9c2a */
+    --resyne-gold-light: 43 66% 57%; /* Lighter gold variant */
     --resyne-gray: 0 0% 91%;         /* #e7e7e7 */
     --resyne-gray-dark: 0 0% 20%;    /* Dark gray for text */
     
@@ -22,19 +22,19 @@
     --background: var(--resyne-dark);
     --foreground: var(--resyne-gray);
 
-    --card: 253 32% 16%;
+    --card: 252 31% 16%;
     --card-foreground: var(--resyne-gray);
 
-    --popover: 253 32% 16%;
+    --popover: 252 31% 16%;
     --popover-foreground: var(--resyne-gray);
 
     --primary: var(--resyne-gold);
     --primary-foreground: var(--resyne-dark);
 
-    --secondary: 253 20% 25%;
+    --secondary: 252 20% 25%;
     --secondary-foreground: var(--resyne-gray);
 
-    --muted: 253 20% 20%;
+    --muted: 252 20% 20%;
     --muted-foreground: 0 0% 70%;
 
     --accent: var(--tech-blue);
@@ -43,8 +43,8 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 253 20% 30%;
-    --input: 253 20% 25%;
+    --border: 252 20% 30%;
+    --input: 252 20% 25%;
     --ring: var(--resyne-gold);
 
     --radius: 8px;
@@ -52,7 +52,7 @@
     /* Tech Gradients */
     --gradient-tech: linear-gradient(135deg, hsl(var(--tech-blue)) 0%, hsl(var(--tech-purple)) 50%, hsl(var(--tech-cyan)) 100%);
     --gradient-gold: linear-gradient(135deg, hsl(var(--resyne-gold)) 0%, hsl(var(--resyne-gold-light)) 100%);
-    --gradient-dark: linear-gradient(135deg, hsl(var(--resyne-dark)) 0%, hsl(253 32% 20%) 100%);
+    --gradient-dark: linear-gradient(135deg, hsl(var(--resyne-dark)) 0%, hsl(252 31% 20%) 100%);
     
     /* Shadows */
     --shadow-tech: 0 0 30px hsl(var(--resyne-gold) / 0.3);
