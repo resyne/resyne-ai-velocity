@@ -150,30 +150,30 @@ export function AutomationDemo() {
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-3 gap-4 p-4 border-b border-border/30">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 p-2 md:p-4 border-b border-border/30">
           <Card className="bg-card/50">
-            <CardContent className="p-3 text-center">
-              <div className="text-2xl font-bold text-tech-blue">{executionCount}</div>
+            <CardContent className="p-2 md:p-3 text-center">
+              <div className="text-xl md:text-2xl font-bold text-tech-blue">{executionCount}</div>
               <p className="text-xs text-muted-foreground">Esecuzioni Oggi</p>
             </CardContent>
           </Card>
           <Card className="bg-card/50">
-            <CardContent className="p-3 text-center">
-              <div className="text-2xl font-bold text-green-400">97.8%</div>
+            <CardContent className="p-2 md:p-3 text-center">
+              <div className="text-xl md:text-2xl font-bold text-green-400">97.8%</div>
               <p className="text-xs text-muted-foreground">Success Rate</p>
             </CardContent>
           </Card>
           <Card className="bg-card/50">
-            <CardContent className="p-3 text-center">
-              <div className="text-2xl font-bold text-resyne-gold">€12.4K</div>
+            <CardContent className="p-2 md:p-3 text-center">
+              <div className="text-xl md:text-2xl font-bold text-resyne-gold">€12.4K</div>
               <p className="text-xs text-muted-foreground">Risparmiato</p>
             </CardContent>
           </Card>
         </div>
 
         {/* Active Workflows */}
-        <div className="flex-1 overflow-y-auto p-4">
-          <h3 className="font-semibold mb-4 text-sm">Workflow Attivi</h3>
+        <div className="flex-1 overflow-y-auto p-2 md:p-4">
+          <h3 className="font-semibold mb-4 text-sm md:text-base">Workflow Attivi</h3>
           
           <div className="space-y-4">
             {workflows.map((workflow) => (
@@ -216,18 +216,19 @@ export function AutomationDemo() {
                 
                 <CardContent className="pt-0">
                   {/* Workflow Steps */}
-                  <div className="flex items-center gap-2 mb-3 overflow-x-auto pb-2">
+                  <div className="flex items-center gap-1 md:gap-2 mb-3 overflow-x-auto pb-2 scrollbar-thin">
                     {workflow.steps.map((step, index) => {
                       const StatusIcon = getStatusIcon(step.status);
                       return (
-                        <div key={index} className="flex items-center gap-2 flex-shrink-0">
-                          <div className={`flex items-center gap-2 px-2 py-1 rounded-full text-xs ${getStatusColor(step.status)}`}>
+                        <div key={index} className="flex items-center gap-1 md:gap-2 flex-shrink-0">
+                          <div className={`flex items-center gap-1 md:gap-2 px-1 md:px-2 py-1 rounded-full text-xs ${getStatusColor(step.status)}`}>
                             <step.icon className="w-3 h-3" />
-                            <span>{step.label}</span>
+                            <span className="hidden md:inline">{step.label}</span>
+                            <span className="md:hidden">{step.label.split(' ')[0]}</span>
                             <StatusIcon className="w-3 h-3" />
                           </div>
                           {index < workflow.steps.length - 1 && (
-                            <ArrowRight className="w-3 h-3 text-muted-foreground flex-shrink-0" />
+                            <ArrowRight className="w-2 h-2 md:w-3 md:h-3 text-muted-foreground flex-shrink-0" />
                           )}
                         </div>
                       );

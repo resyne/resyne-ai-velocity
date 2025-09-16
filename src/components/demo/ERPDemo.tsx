@@ -72,63 +72,63 @@ export function ERPDemo() {
 
       {/* Navigation Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="h-full flex flex-col">
-        <TabsList className="grid w-full grid-cols-6 bg-muted/30 border-b border-border/30 rounded-none">
-          <TabsTrigger value="dashboard" className="text-xs">Dashboard</TabsTrigger>
-          <TabsTrigger value="crm" className="text-xs">CRM</TabsTrigger>
-          <TabsTrigger value="inventory" className="text-xs">Magazzino</TabsTrigger>
-          <TabsTrigger value="partnership" className="text-xs">Partnership</TabsTrigger>
-          <TabsTrigger value="newsletter" className="text-xs">Newsletter</TabsTrigger>
-          <TabsTrigger value="marketing" className="text-xs">Marketing</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-3 md:grid-cols-6 bg-muted/30 border-b border-border/30 rounded-none">
+          <TabsTrigger value="dashboard" className="text-xs md:text-sm px-1 md:px-3">Dashboard</TabsTrigger>
+          <TabsTrigger value="crm" className="text-xs md:text-sm px-1 md:px-3">CRM</TabsTrigger>
+          <TabsTrigger value="inventory" className="text-xs md:text-sm px-1 md:px-3">Magazzino</TabsTrigger>
+          <TabsTrigger value="partnership" className="text-xs md:text-sm px-1 md:px-3 col-span-3 md:col-span-1">Partnership</TabsTrigger>
+          <TabsTrigger value="newsletter" className="text-xs md:text-sm px-1 md:px-3 hidden md:block">Newsletter</TabsTrigger>
+          <TabsTrigger value="marketing" className="text-xs md:text-sm px-1 md:px-3 hidden md:block">Marketing</TabsTrigger>
         </TabsList>
 
         {/* Dashboard */}
-        <TabsContent value="dashboard" className="flex-1 p-4 overflow-y-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <TabsContent value="dashboard" className="flex-1 p-2 md:p-4 overflow-y-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 mb-4 md:mb-6">
             <Card className="bg-card/50">
-              <CardHeader className="pb-2">
+              <CardHeader className="pb-1 md:pb-2">
                 <div className="flex items-center justify-between">
-                  <CardTitle className="text-sm font-medium">Clienti Attivi</CardTitle>
-                  <Users className="w-4 h-4 text-resyne-gold" />
+                  <CardTitle className="text-xs md:text-sm font-medium">Clienti Attivi</CardTitle>
+                  <Users className="w-3 h-3 md:w-4 md:h-4 text-resyne-gold" />
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-resyne-gold">1,247</div>
+                <div className="text-lg md:text-2xl font-bold text-resyne-gold">1,247</div>
                 <p className="text-xs text-muted-foreground">+12% questo mese</p>
               </CardContent>
             </Card>
             <Card className="bg-card/50">
-              <CardHeader className="pb-2">
+              <CardHeader className="pb-1 md:pb-2">
                 <div className="flex items-center justify-between">
-                  <CardTitle className="text-sm font-medium">Revenue</CardTitle>
-                  <DollarSign className="w-4 h-4 text-tech-blue" />
+                  <CardTitle className="text-xs md:text-sm font-medium">Revenue</CardTitle>
+                  <DollarSign className="w-3 h-3 md:w-4 md:h-4 text-tech-blue" />
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-tech-blue">€148K</div>
+                <div className="text-lg md:text-2xl font-bold text-tech-blue">€148K</div>
                 <p className="text-xs text-muted-foreground">+8% questo mese</p>
               </CardContent>
             </Card>
             <Card className="bg-card/50">
-              <CardHeader className="pb-2">
+              <CardHeader className="pb-1 md:pb-2">
                 <div className="flex items-center justify-between">
-                  <CardTitle className="text-sm font-medium">Progetti</CardTitle>
-                  <Package className="w-4 h-4 text-tech-purple" />
+                  <CardTitle className="text-xs md:text-sm font-medium">Progetti</CardTitle>
+                  <Package className="w-3 h-3 md:w-4 md:h-4 text-tech-purple" />
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-tech-purple">67</div>
+                <div className="text-lg md:text-2xl font-bold text-tech-purple">67</div>
                 <p className="text-xs text-muted-foreground">23 in corso</p>
               </CardContent>
             </Card>
             <Card className="bg-card/50">
-              <CardHeader className="pb-2">
+              <CardHeader className="pb-1 md:pb-2">
                 <div className="flex items-center justify-between">
-                  <CardTitle className="text-sm font-medium">AI Processing</CardTitle>
-                  <TrendingUp className="w-4 h-4 text-tech-cyan" />
+                  <CardTitle className="text-xs md:text-sm font-medium">AI Processing</CardTitle>
+                  <TrendingUp className="w-3 h-3 md:w-4 md:h-4 text-tech-cyan" />
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-tech-cyan">{progress}%</div>
+                <div className="text-lg md:text-2xl font-bold text-tech-cyan">{progress}%</div>
                 <Progress value={progress} className="mt-2" />
               </CardContent>
             </Card>
@@ -183,15 +183,15 @@ export function ERPDemo() {
         </TabsContent>
 
         {/* CRM */}
-        <TabsContent value="crm" className="flex-1 p-4 overflow-y-auto">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="font-semibold">Gestione Clienti</h3>
+        <TabsContent value="crm" className="flex-1 p-2 md:p-4 overflow-y-auto">
+          <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
+            <h3 className="font-semibold text-sm md:text-base">Gestione Clienti</h3>
             <div className="flex items-center gap-2">
-              <Button size="sm" variant="outline" className="text-xs">
+              <Button size="sm" variant="outline" className="text-xs md:text-sm flex-1 md:flex-none">
                 <Search className="w-3 h-3 mr-1" />
                 Cerca
               </Button>
-              <Button size="sm" variant="outline" className="text-xs">
+              <Button size="sm" variant="outline" className="text-xs md:text-sm flex-1 md:flex-none">
                 <Filter className="w-3 h-3 mr-1" />
                 Filtri
               </Button>
@@ -201,18 +201,18 @@ export function ERPDemo() {
           <div className="space-y-3">
             {mockData.crm.map((client) => (
               <Card key={client.id} className="bg-card/50">
-                <CardContent className="p-4">
-                  <div className="flex items-center justify-between">
+                <CardContent className="p-3 md:p-4">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-resyne-gold/20 rounded-full flex items-center justify-center">
-                        <Users className="w-5 h-5 text-resyne-gold" />
+                      <div className="w-8 h-8 md:w-10 md:h-10 bg-resyne-gold/20 rounded-full flex items-center justify-center flex-shrink-0">
+                        <Users className="w-4 h-4 md:w-5 md:h-5 text-resyne-gold" />
                       </div>
-                      <div>
-                        <h4 className="font-medium text-sm">{client.name}</h4>
-                        <p className="text-xs text-muted-foreground">{client.company}</p>
+                      <div className="min-w-0">
+                        <h4 className="font-medium text-sm truncate">{client.name}</h4>
+                        <p className="text-xs text-muted-foreground truncate">{client.company}</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 md:gap-3 flex-wrap">
                       <Badge 
                         variant="outline" 
                         className={`text-xs ${
@@ -224,7 +224,7 @@ export function ERPDemo() {
                         {client.status}
                       </Badge>
                       <span className="text-sm font-semibold text-resyne-gold">{client.value}</span>
-                      <Button size="sm" variant="ghost" className="text-xs">
+                      <Button size="sm" variant="ghost" className="text-xs h-8 w-8 p-0">
                         <MoreHorizontal className="w-3 h-3" />
                       </Button>
                     </div>
@@ -239,10 +239,10 @@ export function ERPDemo() {
         </TabsContent>
 
         {/* Inventory */}
-        <TabsContent value="inventory" className="flex-1 p-4 overflow-y-auto">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="font-semibold">Gestione Magazzino</h3>
-            <Button size="sm" className="text-xs bg-tech-blue text-white">
+        <TabsContent value="inventory" className="flex-1 p-2 md:p-4 overflow-y-auto">
+          <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
+            <h3 className="font-semibold text-sm md:text-base">Gestione Magazzino</h3>
+            <Button size="sm" className="text-xs md:text-sm bg-tech-blue text-white">
               <Plus className="w-3 h-3 mr-1" />
               Nuovo Prodotto
             </Button>
@@ -251,18 +251,18 @@ export function ERPDemo() {
           <div className="space-y-3">
             {mockData.inventory.map((item) => (
               <Card key={item.id} className="bg-card/50">
-                <CardContent className="p-4">
-                  <div className="flex items-center justify-between">
+                <CardContent className="p-3 md:p-4">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-tech-blue/20 rounded-lg flex items-center justify-center">
-                        <Package className="w-5 h-5 text-tech-blue" />
+                      <div className="w-8 h-8 md:w-10 md:h-10 bg-tech-blue/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Package className="w-4 h-4 md:w-5 md:h-5 text-tech-blue" />
                       </div>
-                      <div>
-                        <h4 className="font-medium text-sm">{item.product}</h4>
+                      <div className="min-w-0">
+                        <h4 className="font-medium text-sm truncate">{item.product}</h4>
                         <p className="text-xs text-muted-foreground">Stock: {item.stock} | Disponibili: {item.available}</p>
                       </div>
                     </div>
-                    <div className="text-right">
+                    <div className="flex items-center justify-between md:block md:text-right">
                       <div className="text-sm font-semibold text-tech-blue">{item.price}</div>
                       <Badge variant="outline" className="text-xs bg-green-500/20 text-green-400 border-green-500/30">
                         Disponibile

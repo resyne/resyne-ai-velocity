@@ -128,12 +128,12 @@ export function AIDemo() {
         </div>
       </div>
 
-      <div className="flex h-full">
+      <div className="flex flex-col md:flex-row h-full">
         {/* Agents Sidebar */}
-        <div className="w-1/3 border-r border-border/30 bg-muted/20">
-          <div className="p-4 border-b border-border/30">
+        <div className="w-full md:w-1/3 max-h-60 md:max-h-none border-b md:border-b-0 md:border-r border-border/30 bg-muted/20 overflow-y-auto">
+          <div className="p-2 md:p-4 border-b border-border/30">
             <h4 className="font-semibold text-sm mb-3">AI Agents Active</h4>
-            <div className="space-y-3">
+            <div className="grid grid-cols-3 md:grid-cols-1 gap-2 md:space-y-3 md:gap-0">
               {aiAgents.map((agent) => (
                 <Card 
                   key={agent.id} 
@@ -142,36 +142,40 @@ export function AIDemo() {
                   }`}
                   onClick={() => setSelectedAgent(agent)}
                 >
-                  <CardContent className="p-3">
-                    <div className="flex items-center gap-3 mb-2">
-                      <Avatar className="w-8 h-8">
-                        <AvatarFallback className="bg-tech-purple/20 text-tech-purple">
+                  <CardContent className="p-2 md:p-3">
+                    <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-3 mb-2">
+                      <Avatar className="w-6 h-6 md:w-8 md:h-8 mx-auto md:mx-0">
+                        <AvatarFallback className="bg-tech-purple/20 text-tech-purple text-xs">
                           {agent.name.charAt(0)}
                         </AvatarFallback>
                       </Avatar>
-                      <div className="flex-1">
-                        <div className="flex items-center justify-between">
-                          <h5 className="font-medium text-xs">{agent.name}</h5>
-                          <Badge variant="outline" className={`text-xs ${getStatusColor(agent.status)}`}>
-                            {agent.status}
+                      <div className="flex-1 text-center md:text-left">
+                        <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                          <h5 className="font-medium text-xs truncate">{agent.name}</h5>
+                          <Badge variant="outline" className={`text-xs ${getStatusColor(agent.status)} mt-1 md:mt-0`}>
+                            <span className="hidden md:inline">{agent.status}</span>
+                            <div className={`w-2 h-2 rounded-full md:hidden ${
+                              agent.status === 'active' ? 'bg-green-400' : 'bg-blue-400'
+                            }`}></div>
                           </Badge>
                         </div>
-                        <p className="text-xs text-muted-foreground">{agent.role}</p>
+                        <p className="text-xs text-muted-foreground truncate">{agent.role}</p>
                       </div>
                     </div>
                     
                     <div className="flex justify-between text-xs text-muted-foreground">
-                      <span>{agent.calls_today} chiamate</span>
-                      <span>{agent.success_rate}% success</span>
+                      <span>{agent.calls_today}</span>
+                      <span>{agent.success_rate}%</span>
                     </div>
                     
                     {agent.current_call && (
                       <div className="mt-2 pt-2 border-t border-border/30">
-                        <div className="flex items-center gap-1 text-xs text-green-400">
+                        <div className="flex items-center gap-1 text-xs text-green-400 justify-center md:justify-start">
                           <Phone className="w-3 h-3" />
-                          <span>In chiamata: {agent.current_call.duration}</span>
+                          <span className="hidden md:inline">In chiamata: {agent.current_call.duration}</span>
+                          <span className="md:hidden">{agent.current_call.duration}</span>
                         </div>
-                        <p className="text-xs text-muted-foreground truncate">
+                        <p className="text-xs text-muted-foreground truncate hidden md:block">
                           {agent.current_call.customer} - {agent.current_call.type}
                         </p>
                       </div>
@@ -203,9 +207,9 @@ export function AIDemo() {
         </div>
 
         {/* Main Panel */}
-        <div className="flex-1 flex flex-col">
+        <div className="flex-1 flex flex-col min-h-0">
           {/* Agent Details */}
-          <div className="p-4 border-b border-border/30 bg-card/50">
+          <div className="p-2 md:p-4 border-b border-border/30 bg-card/50 flex-shrink-0">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-3">
                 <Avatar className="w-12 h-12">
@@ -313,26 +317,27 @@ export function AIDemo() {
           </div>
 
           {/* Control Panel */}
-          <div className="border-t border-border/30 p-4 bg-muted/20">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Button size="sm" variant="outline" className="text-xs">
+          <div className="border-t border-border/30 p-2 md:p-4 bg-muted/20 flex-shrink-0">
+            <div className="flex flex-col md:flex-row gap-2 md:items-center md:justify-between">
+              <div className="flex items-center gap-1 md:gap-2">
+                <Button size="sm" variant="outline" className="text-xs flex-1 md:flex-none">
                   <Mic className="w-3 h-3 mr-1" />
-                  Intercetta
+                  <span className="hidden md:inline">Intercetta</span>
                 </Button>
-                <Button size="sm" variant="outline" className="text-xs">
+                <Button size="sm" variant="outline" className="text-xs flex-1 md:flex-none">
                   <MessageCircle className="w-3 h-3 mr-1" />
-                  Chat Support
+                  <span className="hidden md:inline">Chat Support</span>
                 </Button>
               </div>
-              <div className="flex items-center gap-2">
-                <Button size="sm" className="text-xs bg-tech-purple text-white">
+              <div className="flex items-center gap-1 md:gap-2">
+                <Button size="sm" className="text-xs bg-tech-purple text-white flex-1 md:flex-none">
                   <Calendar className="w-3 h-3 mr-1" />
-                  Prenota Follow-up
+                  <span className="hidden md:inline">Prenota Follow-up</span>
+                  <span className="md:hidden">Follow-up</span>
                 </Button>
-                <Button size="sm" variant="outline" className="text-xs">
+                <Button size="sm" variant="outline" className="text-xs flex-1 md:flex-none">
                   <TrendingUp className="w-3 h-3 mr-1" />
-                  Analytics
+                  <span className="hidden md:inline">Analytics</span>
                 </Button>
               </div>
             </div>
