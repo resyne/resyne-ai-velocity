@@ -49,8 +49,11 @@ export function HeroSection() {
           </div>
 
           {/* Description */}
+          <div className="flex justify-center mb-8">
+            <img src={resyneLogoWhite} alt="RESYNE" className="h-12 w-auto" />
+          </div>
           <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto mb-12 leading-relaxed">
-            <img src={resyneLogoWhite} alt="RESYNE" className="inline h-6 w-auto mx-1" /> è specializzata in <strong className="text-resyne-gold">Automation</strong>, 
+            Siamo specializzati in <strong className="text-resyne-gold">Automation</strong>, 
             implementazioni <strong className="text-tech-blue">AI</strong> ed 
             <strong className="gradient-text"> ERP</strong> per trasformare la tua azienda 
             con soluzioni innovative e performanti.

@@ -11,7 +11,7 @@ export function Header() {
       <div className="container mx-auto px-4 lg:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center">
             <img 
               src={resyneLogoWhite} 
               alt="RESYNE Logo" 
