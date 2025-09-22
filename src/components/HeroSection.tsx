@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, TrendingUp } from "lucide-react";
+import resyneLogoWhite from "@/assets/resyne-logo-white.png";
 
 export function HeroSection() {
   return (
@@ -49,7 +50,7 @@ export function HeroSection() {
 
           {/* Description */}
           <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto mb-12 leading-relaxed">
-            RESYNE è specializzata in <strong className="text-resyne-gold">Automation</strong>, 
+            <img src={resyneLogoWhite} alt="RESYNE" className="inline h-6 w-auto mx-1" /> è specializzata in <strong className="text-resyne-gold">Automation</strong>, 
             implementazioni <strong className="text-tech-blue">AI</strong> ed 
             <strong className="gradient-text"> ERP</strong> per trasformare la tua azienda 
             con soluzioni innovative e performanti.
