@@ -10,7 +10,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="lg:col-span-2">
-            <div className="flex items-center mb-6">
+            <div className="flex items-center space-x-3 mb-6">
               <img 
                 src={resyneLogoWhite} 
                 alt="RESYNE Logo" 
@@ -118,7 +118,7 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-border/30">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="text-sm text-muted-foreground mb-4 md:mb-0">
-              © {currentYear} Tutti i diritti riservati.
+              © {currentYear} RESYNE. Tutti i diritti riservati.
             </div>
             <div className="flex items-center space-x-6 text-sm">
               <a 
