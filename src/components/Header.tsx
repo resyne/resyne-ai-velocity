@@ -12,11 +12,12 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <img 
-              src={resyneLogoWhite} 
-              alt="RESYNE Logo" 
-              className="h-10 w-auto" 
-            />
+              <img 
+                src={resyneLogoWhite} 
+                alt="RESYNE Logo" 
+                className="h-10 w-auto" 
+                key="logo-new"
+              />
           </div>
 
           {/* Desktop Navigation */}

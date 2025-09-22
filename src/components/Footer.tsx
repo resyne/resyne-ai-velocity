@@ -15,6 +15,7 @@ export function Footer() {
                 src={resyneLogoWhite} 
                 alt="RESYNE Logo" 
                 className="h-12 w-auto" 
+                key="logo-new"
               />
             </div>
             <p className="text-muted-foreground mb-6 max-w-md leading-relaxed">
