@@ -1,5 +1,6 @@
 import "https://deno.land/x/xhr@0.1.0/mod.ts";
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { Resend } from "npm:resend@2.0.0";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -14,10 +15,17 @@ serve(async (req) => {
 
   try {
     const OPENAI_API_KEY = Deno.env.get('OPENAI_API_KEY');
+    const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY');
+    
     if (!OPENAI_API_KEY) {
       throw new Error('OPENAI_API_KEY is not set');
     }
+    
+    if (!RESEND_API_KEY) {
+      throw new Error('RESEND_API_KEY is not set');
+    }
 
+    const resend = new Resend(RESEND_API_KEY);
     const formData = await req.json();
     console.log('Received form data:', formData);
 
@@ -77,6 +85,40 @@ Formatta la risposta in modo chiaro e professionale, usando elenchi puntati e se
     console.log('OpenAI response received');
     
     const report = data.choices[0].message.content;
+
+    // Invia email tramite Resend
+    if (formData.contactInfo && formData.contactInfo.email) {
+      console.log('Sending email via Resend...');
+      
+      const emailResponse = await resend.emails.send({
+        from: 'Resyne AI <noreply@resend.dev>',
+        to: [formData.contactInfo.email],
+        subject: 'Il tuo Report di Audit ERP personalizzato',
+        html: `
+          <h2>Ciao ${formData.contactInfo.firstName} ${formData.contactInfo.lastName},</h2>
+          <p>Grazie per aver completato il nostro audit ERP. Ecco il tuo report personalizzato:</p>
+          
+          <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <h3>Informazioni Aziendali</h3>
+            <p><strong>Settore:</strong> ${formData.sector}</p>
+            <p><strong>Anni sul mercato:</strong> ${formData.yearsInMarket}</p>
+            <p><strong>Ricavi:</strong> ${formData.revenue}</p>
+          </div>
+          
+          <div style="background: #fff; padding: 20px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
+            <h3>📊 Report di Analisi ERP</h3>
+            <pre style="white-space: pre-wrap; font-family: Arial, sans-serif; line-height: 1.6;">${report}</pre>
+          </div>
+          
+          <p>Per qualsiasi domanda o per procedere con l'implementazione, non esitare a contattarci.</p>
+          
+          <p>Cordiali saluti,<br>
+          Il team Resyne</p>
+        `,
+      });
+
+      console.log('Email sent successfully:', emailResponse);
+    }
 
     return new Response(JSON.stringify({ 
       success: true,
