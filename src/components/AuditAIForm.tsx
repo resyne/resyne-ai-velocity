@@ -17,18 +17,24 @@ import { supabase } from "@/integrations/supabase/client";
 
 const formSchema = z.object({
   settore: z.string().min(1, "Seleziona un settore"),
-  descrizioneAzienda: z.string().min(10, "Descrivi brevemente la tua azienda (minimo 10 caratteri)"),
+  descrizioneAzienda: z.string().min(1, "Descrivi brevemente la tua azienda"),
   tempoMercato: z.string().min(1, "Seleziona da quanto tempo sei sul mercato"),
   ricavi: z.string().min(1, "Seleziona la fascia di ricavi"),
   processiPrincipali: z.array(z.string()).min(1, "Seleziona almeno un processo principale"),
-  excelManuali: z.string().min(5, "Descrivi dove usi Excel o processi manuali"),
-  strumentiLavoro: z.string().min(5, "Indica quali strumenti usate per lavorare"),
-  sediReparti: z.string().min(5, "Descrivi se avete più sedi o reparti"),
-  gestioneClienti: z.string().min(5, "Descrivi come gestisci i clienti"),
-  attivitaRipetitive: z.string().min(5, "Descrivi le attività ripetitive che vi fanno perdere tempo"),
-  reportKPI: z.string().min(5, "Descrivi i report/KPI che richiedono lavoro manuale"),
-  previsioniAnalisi: z.string().min(5, "Descrivi dove servirebbero previsioni automatiche"),
-  assistenteAI: z.string().min(5, "Descrivi dove vedresti utile un assistente AI"),
+  excelManuali: z.string().min(1, "Specifica se usate Excel o processi manuali"),
+  excelManualiDettagli: z.string().optional(),
+  strumentiLavoro: z.string().min(1, "Indica quali strumenti usate per lavorare"),
+  sediReparti: z.string().min(1, "Specifica se avete più sedi o reparti"),
+  sediRepartiDettagli: z.string().optional(),
+  gestioneClienti: z.string().min(1, "Descrivi come gestisci i clienti"),
+  attivitaRipetitive: z.string().min(1, "Specifica se ci sono attività ripetitive"),
+  attivitaRipetitiveDettagli: z.string().optional(),
+  reportKPI: z.string().min(1, "Specifica se avete bisogno di report/KPI"),
+  reportKPIDettagli: z.string().optional(),
+  previsioniAnalisi: z.string().min(1, "Specifica se servono previsioni o analisi"),
+  previsioniAnalisiDettagli: z.string().optional(),
+  assistenteAI: z.string().min(1, "Specifica dove vedresti utile un assistente AI"),
+  assistenteAIDettagli: z.string().optional(),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -98,7 +104,9 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    mode: "onSubmit", // Valida solo al submit, non immediatamente
+    mode: "onSubmit",
+    reValidateMode: "onSubmit",
+    shouldFocusError: false,
     defaultValues: {
       settore: "",
       descrizioneAzienda: "",
@@ -106,13 +114,19 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
       ricavi: "",
       processiPrincipali: [],
       excelManuali: "",
+      excelManualiDettagli: "",
       strumentiLavoro: "",
       sediReparti: "",
+      sediRepartiDettagli: "",
       gestioneClienti: "",
       attivitaRipetitive: "",
+      attivitaRipetitiveDettagli: "",
       reportKPI: "",
+      reportKPIDettagli: "",
       previsioniAnalisi: "",
+      previsioniAnalisiDettagli: "",
       assistenteAI: "",
+      assistenteAIDettagli: "",
     },
   });
 
@@ -126,13 +140,13 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
         yearsInMarket: values.tempoMercato,
         revenue: values.ricavi,
         mainProcesses: values.processiPrincipali.join(', '),
-        currentTools: `${values.strumentiLavoro}. Excel/manuali usati per: ${values.excelManuali}`,
-        multipleLocations: values.sediReparti,
+        currentTools: `${values.strumentiLavoro}. Excel/manuali usati per: ${values.excelManuali === "SI" ? values.excelManualiDettagli || "Sì" : "No"}`,
+        multipleLocations: values.sediReparti === "SI" ? values.sediRepartiDettagli || "Sì" : "No",
         customerManagement: values.gestioneClienti,
-        repetitiveTasks: values.attivitaRipetitive,
-        manualReports: values.reportKPI,
-        forecastAreas: values.previsioniAnalisi,
-        aiAreas: values.assistenteAI,
+        repetitiveTasks: values.attivitaRipetitive === "SI" ? values.attivitaRipetitiveDettagli || "Sì" : "No",
+        manualReports: values.reportKPI === "SI" ? values.reportKPIDettagli || "Sì" : "No",
+        forecastAreas: values.previsioniAnalisi === "SI" ? values.previsioniAnalisiDettagli || "Sì" : "No",
+        aiAreas: values.assistenteAI === "SI" ? values.assistenteAIDettagli || "Sì" : "No",
       };
 
       console.log("Sending data to AI:", formDataForAI);
@@ -553,18 +567,42 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
                     name="excelManuali"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Dove oggi usate Excel o fogli manuali che vi creano rallentamenti? *</FormLabel>
-                        <FormControl>
-                          <Textarea 
-                            placeholder="Es. Gestione inventario, calcolo costi, pianificazione produzione..."
-                            className="min-h-[80px]"
-                            {...field}
-                          />
-                        </FormControl>
+                        <FormLabel>Usate Excel o fogli manuali che vi creano rallentamenti? *</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Seleziona" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="SI">SÌ</SelectItem>
+                            <SelectItem value="NO">NO</SelectItem>
+                          </SelectContent>
+                        </Select>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
+
+                  {form.watch("excelManuali") === "SI" && (
+                    <FormField
+                      control={form.control}
+                      name="excelManualiDettagli"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Dove precisamente?</FormLabel>
+                          <FormControl>
+                            <Textarea 
+                              placeholder="Es. Gestione inventario, calcolo costi, pianificazione produzione..."
+                              className="min-h-[80px]"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  )}
 
                   <FormField
                     control={form.control}
@@ -590,17 +628,41 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Avete più sedi o reparti che devono lavorare insieme e scambiarsi dati? *</FormLabel>
-                        <FormControl>
-                          <Textarea 
-                            placeholder="Es. Sede principale e filiali, reparti produzione/vendite/amministrazione..."
-                            className="min-h-[80px]"
-                            {...field}
-                          />
-                        </FormControl>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Seleziona" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="SI">SÌ</SelectItem>
+                            <SelectItem value="NO">NO</SelectItem>
+                          </SelectContent>
+                        </Select>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
+
+                  {form.watch("sediReparti") === "SI" && (
+                    <FormField
+                      control={form.control}
+                      name="sediRepartiDettagli"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Descrivi la struttura</FormLabel>
+                          <FormControl>
+                            <Textarea 
+                              placeholder="Es. Sede principale e filiali, reparti produzione/vendite/amministrazione..."
+                              className="min-h-[80px]"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  )}
 
                   <FormField
                     control={form.control}
@@ -626,17 +688,41 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Ci sono attività ripetitive che vi fanno perdere tempo ogni giorno? *</FormLabel>
-                        <FormControl>
-                          <Textarea 
-                            placeholder="Es. Inserimento dati manuale, invio email ripetitive, aggiornamento scorte..."
-                            className="min-h-[80px]"
-                            {...field}
-                          />
-                        </FormControl>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Seleziona" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="SI">SÌ</SelectItem>
+                            <SelectItem value="NO">NO</SelectItem>
+                          </SelectContent>
+                        </Select>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
+
+                  {form.watch("attivitaRipetitive") === "SI" && (
+                    <FormField
+                      control={form.control}
+                      name="attivitaRipetitiveDettagli"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Quali attività?</FormLabel>
+                          <FormControl>
+                            <Textarea 
+                              placeholder="Es. Inserimento dati manuale, invio email ripetitive, aggiornamento scorte..."
+                              className="min-h-[80px]"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  )}
                 </CardContent>
               </Card>
             )}
@@ -653,17 +739,41 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Avete bisogno di report/KPI che oggi richiedono molto lavoro manuale? *</FormLabel>
-                        <FormControl>
-                          <Textarea 
-                            placeholder="Es. Report vendite mensili, analisi margini, performance prodotti..."
-                            className="min-h-[80px]"
-                            {...field}
-                          />
-                        </FormControl>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Seleziona" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="SI">SÌ</SelectItem>
+                            <SelectItem value="NO">NO</SelectItem>
+                          </SelectContent>
+                        </Select>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
+
+                  {form.watch("reportKPI") === "SI" && (
+                    <FormField
+                      control={form.control}
+                      name="reportKPIDettagli"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Quali report/KPI?</FormLabel>
+                          <FormControl>
+                            <Textarea 
+                              placeholder="Es. Report vendite mensili, analisi margini, performance prodotti..."
+                              className="min-h-[80px]"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  )}
 
                   <FormField
                     control={form.control}
@@ -671,17 +781,41 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Ci sono aree dove vi servirebbero previsioni o analisi automatiche? *</FormLabel>
-                        <FormControl>
-                          <Textarea 
-                            placeholder="Es. Previsioni vendite, gestione scorte, analisi cash flow..."
-                            className="min-h-[80px]"
-                            {...field}
-                          />
-                        </FormControl>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Seleziona" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="SI">SÌ</SelectItem>
+                            <SelectItem value="NO">NO</SelectItem>
+                          </SelectContent>
+                        </Select>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
+
+                  {form.watch("previsioniAnalisi") === "SI" && (
+                    <FormField
+                      control={form.control}
+                      name="previsioniAnalisiDettagli"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Quali aree?</FormLabel>
+                          <FormControl>
+                            <Textarea 
+                              placeholder="Es. Previsioni vendite, gestione scorte, analisi cash flow..."
+                              className="min-h-[80px]"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  )}
 
                   <FormField
                     control={form.control}
@@ -689,17 +823,41 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Dove vedreste utile un assistente AI? *</FormLabel>
-                        <FormControl>
-                          <Textarea 
-                            placeholder="Es. Customer care, analisi documenti, generazione preventivi, supporto vendite..."
-                            className="min-h-[80px]"
-                            {...field}
-                          />
-                        </FormControl>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Seleziona" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="SI">SÌ</SelectItem>
+                            <SelectItem value="NO">NO</SelectItem>
+                          </SelectContent>
+                        </Select>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
+
+                  {form.watch("assistenteAI") === "SI" && (
+                    <FormField
+                      control={form.control}
+                      name="assistenteAIDettagli"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Dove precisamente?</FormLabel>
+                          <FormControl>
+                            <Textarea 
+                              placeholder="Es. Customer care, analisi documenti, generazione preventivi, supporto vendite..."
+                              className="min-h-[80px]"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  )}
                 </CardContent>
               </Card>
             )}
