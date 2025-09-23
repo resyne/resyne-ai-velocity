@@ -20,7 +20,8 @@ const formSchema = z.object({
   ricavi: z.string().min(1, "Seleziona la fascia di ricavi"),
   processiPrincipali: z.array(z.string()).min(1, "Seleziona almeno un processo principale"),
   excelManuali: z.string().min(5, "Descrivi dove usi Excel o processi manuali"),
-  gestioneAmministrativa: z.string().min(5, "Descrivi come gestisci la parte amministrativa"),
+  strumentiLavoro: z.string().min(5, "Indica quali strumenti usate per lavorare"),
+  sediReparti: z.string().min(5, "Descrivi se avete più sedi o reparti"),
   gestioneClienti: z.string().min(5, "Descrivi come gestisci i clienti"),
   attivitaRipetitive: z.string().min(5, "Descrivi le attività ripetitive che vi fanno perdere tempo"),
   reportKPI: z.string().min(5, "Descrivi i report/KPI che richiedono lavoro manuale"),
@@ -93,7 +94,8 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
       ricavi: "",
       processiPrincipali: [],
       excelManuali: "",
-      gestioneAmministrativa: "",
+      strumentiLavoro: "",
+      sediReparti: "",
       gestioneClienti: "",
       attivitaRipetitive: "",
       reportKPI: "",
@@ -350,13 +352,31 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
 
                   <FormField
                     control={form.control}
-                    name="gestioneAmministrativa"
+                    name="strumentiLavoro"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Come gestite la parte amministrativa e finanziaria? *</FormLabel>
+                        <FormLabel>Quali programmi o strumenti usate oggi per lavorare? *</FormLabel>
                         <FormControl>
                           <Textarea 
-                            placeholder="Es. Software di fatturazione, prima nota manuale, report Excel..."
+                            placeholder="Es. Excel, gestionale esistente, software specifici del settore..."
+                            className="min-h-[80px]"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="sediReparti"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Avete più sedi o reparti che devono lavorare insieme e scambiarsi dati? *</FormLabel>
+                        <FormControl>
+                          <Textarea 
+                            placeholder="Es. Sede principale e filiali, reparti produzione/vendite/amministrazione..."
                             className="min-h-[80px]"
                             {...field}
                           />
