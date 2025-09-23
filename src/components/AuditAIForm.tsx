@@ -90,6 +90,7 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
+    mode: "onSubmit", // Valida solo al submit, non immediatamente
     defaultValues: {
       settore: "",
       descrizioneAzienda: "",
