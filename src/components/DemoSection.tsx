@@ -1,10 +1,11 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Database, Zap, Bot, TrendingUp } from "lucide-react";
+import { Database, Zap, Bot, TrendingUp, Brain } from "lucide-react";
 import { ERPDemo } from "./demo/ERPDemo";
 import { AutomationDemo } from "./demo/AutomationDemo";
 import { AIDemo } from "./demo/AIDemo";
+import { AuditAIForm } from "./AuditAIForm";
 
 export function DemoSection() {
   return (
@@ -64,13 +65,13 @@ export function DemoSection() {
               </CardHeader>
               <CardContent>
                 <ERPDemo />
-                <div className="mt-6 flex flex-col sm:flex-row gap-4">
-                  <Button className="bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light">
-                    Richiedi Accesso Completo
-                  </Button>
-                  <Button variant="outline" className="border-resyne-gold text-resyne-gold hover:bg-resyne-gold hover:text-resyne-dark">
-                    Scarica Brochure ERP
-                  </Button>
+                <div className="mt-6 flex justify-center">
+                  <AuditAIForm>
+                    <Button className="bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light flex items-center gap-2 text-lg px-8 py-6">
+                      <Brain className="w-5 h-5" />
+                      Audit AI - Report Gratuito (€249 gratis)
+                    </Button>
+                  </AuditAIForm>
                 </div>
               </CardContent>
             </Card>
@@ -102,13 +103,13 @@ export function DemoSection() {
               </CardHeader>
               <CardContent>
                 <AutomationDemo />
-                <div className="mt-6 flex flex-col sm:flex-row gap-4">
-                  <Button className="bg-tech-blue text-white hover:bg-tech-blue/90">
-                    Configura Automation
-                  </Button>
-                  <Button variant="outline" className="border-tech-blue text-tech-blue hover:bg-tech-blue hover:text-white">
-                    Guida Workflow
-                  </Button>
+                <div className="mt-6 flex justify-center">
+                  <AuditAIForm>
+                    <Button className="bg-tech-blue text-white hover:bg-tech-blue/90 flex items-center gap-2 text-lg px-8 py-6">
+                      <Brain className="w-5 h-5" />
+                      Audit AI - Report Gratuito (€249 gratis)
+                    </Button>
+                  </AuditAIForm>
                 </div>
               </CardContent>
             </Card>
@@ -140,13 +141,13 @@ export function DemoSection() {
               </CardHeader>
               <CardContent>
                 <AIDemo />
-                <div className="mt-6 flex flex-col sm:flex-row gap-4">
-                  <Button className="bg-tech-purple text-white hover:bg-tech-purple/90">
-                    Testa AI Assistant
-                  </Button>
-                  <Button variant="outline" className="border-tech-purple text-tech-purple hover:bg-tech-purple hover:text-white">
-                    Integra nel tuo Business
-                  </Button>
+                <div className="mt-6 flex justify-center">
+                  <AuditAIForm>
+                    <Button className="bg-tech-purple text-white hover:bg-tech-purple/90 flex items-center gap-2 text-lg px-8 py-6">
+                      <Brain className="w-5 h-5" />
+                      Audit AI - Report Gratuito (€249 gratis)
+                    </Button>
+                  </AuditAIForm>
                 </div>
               </CardContent>
             </Card>
