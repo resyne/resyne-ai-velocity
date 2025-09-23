@@ -10,8 +10,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Brain, FileText, Euro } from "lucide-react";
+import { Brain, FileText, Euro, Loader2, Download, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const formSchema = z.object({
   settore: z.string().min(1, "Seleziona un settore"),
@@ -83,6 +84,8 @@ interface AuditAIFormProps {
 export function AuditAIForm({ children }: AuditAIFormProps) {
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState(1);
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [generatedReport, setGeneratedReport] = useState<string | null>(null);
   const { toast } = useToast();
 
   const form = useForm<FormValues>({
@@ -105,25 +108,75 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
   });
 
   const onSubmit = async (values: FormValues) => {
+    setIsGenerating(true);
     try {
-      // Qui andrebbe la logica per inviare i dati ad OpenAI
-      console.log("Form submitted:", values);
-      
-      toast({
-        title: "Audit AI Richiesto!",
-        description: "Il tuo report personalizzato sarà pronto entro 24 ore. Ti contatteremo via email.",
+      // Converte i dati del form nel formato richiesto dall'edge function
+      const formDataForAI = {
+        sector: values.settore,
+        description: values.descrizioneAzienda,
+        yearsInMarket: values.tempoMercato,
+        revenue: values.ricavi,
+        mainProcesses: values.processiPrincipali.join(', '),
+        currentTools: `${values.strumentiLavoro}. Excel/manuali usati per: ${values.excelManuali}`,
+        multipleLocations: values.sediReparti,
+        customerManagement: values.gestioneClienti,
+        repetitiveTasks: values.attivitaRipetitive,
+        manualReports: values.reportKPI,
+        forecastAreas: values.previsioniAnalisi,
+        aiAreas: values.assistenteAI,
+      };
+
+      console.log("Sending data to AI:", formDataForAI);
+
+      const { data, error } = await supabase.functions.invoke('generate-audit-report', {
+        body: formDataForAI
       });
-      
-      setOpen(false);
-      form.reset();
-      setStep(1);
+
+      if (error) {
+        console.error('Supabase function error:', error);
+        throw new Error(error.message || 'Errore nella chiamata alla funzione');
+      }
+
+      if (data?.success) {
+        setGeneratedReport(data.report);
+        toast({
+          title: "Report generato!",
+          description: "Il tuo report personalizzato è pronto per il download.",
+        });
+      } else {
+        throw new Error(data?.error || 'Errore nella generazione del report');
+      }
     } catch (error) {
+      console.error('Error generating report:', error);
       toast({
         title: "Errore",
-        description: "Si è verificato un errore. Riprova più tardi.",
+        description: "Errore durante la generazione del report. Riprova più tardi.",
         variant: "destructive",
       });
+    } finally {
+      setIsGenerating(false);
     }
+  };
+
+  const downloadReport = () => {
+    if (!generatedReport) return;
+    
+    const blob = new Blob([generatedReport], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `audit-report-${new Date().getTime()}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+  const closeAndReset = () => {
+    setOpen(false);
+    setGeneratedReport(null);
+    form.reset();
+    setStep(1);
   };
 
   const nextStep = () => {
@@ -133,6 +186,43 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
   const prevStep = () => {
     if (step > 1) setStep(step - 1);
   };
+
+  // Visualizza il report se è stato generato
+  if (generatedReport) {
+    return (
+      <Dialog open={open} onOpenChange={closeAndReset}>
+        <DialogTrigger asChild>
+          {children}
+        </DialogTrigger>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2 text-2xl">
+              <CheckCircle className="w-6 h-6 text-green-600" />
+              Report Audit AI Completato
+            </DialogTitle>
+            <DialogDescription>
+              Il tuo report personalizzato del valore di €249,00 è pronto per il download
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="space-y-4">
+            <div className="bg-muted p-4 rounded-lg max-h-96 overflow-y-auto">
+              <pre className="whitespace-pre-wrap text-sm font-mono">{generatedReport}</pre>
+            </div>
+            <div className="flex gap-2">
+              <Button onClick={downloadReport} className="flex items-center gap-2">
+                <Download className="w-4 h-4" />
+                Scarica Report
+              </Button>
+              <Button variant="outline" onClick={closeAndReset}>
+                Chiudi
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+    );
+  }
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -502,8 +592,19 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
                     Avanti
                   </Button>
                 ) : (
-                  <Button type="submit" className="bg-tech-purple text-white hover:bg-tech-purple/90">
-                    Genera Report AI Gratuito
+                  <Button 
+                    type="submit" 
+                    disabled={isGenerating}
+                    className="bg-tech-purple text-white hover:bg-tech-purple/90"
+                  >
+                    {isGenerating ? (
+                      <>
+                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                        Generazione in corso...
+                      </>
+                    ) : (
+                      'Genera Report AI Gratuito (€249,00)'
+                    )}
                   </Button>
                 )}
               </div>
