@@ -14,6 +14,7 @@ import * as z from "zod";
 import { Brain, FileText, Euro, Loader2, Download, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import resyneLogoWhite from "@/assets/resyne-logo-white.png";
 
 const formSchema = z.object({
   settore: z.string().min(1, "Seleziona un settore"),
@@ -198,19 +199,138 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
       
       const doc = new jsPDF();
       
-      // Header del PDF
-      doc.setFontSize(20);
-      doc.text('AUDIT AI - REPORT PERSONALIZZATO', 20, 30);
+      // Colori Resyne (RGB convertiti da HSL)
+      const resyneDark = [26, 22, 45]; // #1a162d
+      const resyneGold = [202, 156, 42]; // #ca9c2a
+      const resyneGray = [231, 231, 231]; // #e7e7e7
       
-      doc.setFontSize(12);
-      doc.text(`Generato per: ${contactData.nome} ${contactData.cognome}`, 20, 45);
-      doc.text(`Email: ${contactData.email}`, 20, 55);
-      doc.text(`Telefono: ${contactData.telefono}`, 20, 65);
-      doc.text(`Data: ${new Date().toLocaleDateString('it-IT')}`, 20, 75);
+      // Background e decorazioni
+      doc.setFillColor(resyneDark[0], resyneDark[1], resyneDark[2]);
+      doc.rect(0, 0, 210, 60, 'F'); // Header background
+      
+      // Logo (converti immagine a base64 per jsPDF)
+      try {
+        const img = new Image();
+        img.crossOrigin = "anonymous";
+        await new Promise((resolve, reject) => {
+          img.onload = resolve;
+          img.onerror = reject;
+          img.src = resyneLogoWhite;
+        });
+        
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+        const logoDataUrl = canvas.toDataURL('image/png');
+        
+        // Aggiungi logo al PDF
+        doc.addImage(logoDataUrl, 'PNG', 15, 10, 40, 15);
+      } catch (logoError) {
+        console.warn('Logo non disponibile, procedo senza:', logoError);
+      }
+      
+      // Titolo principale
+      doc.setTextColor(202, 156, 42); // Gold
+      doc.setFontSize(24);
+      doc.setFont('helvetica', 'bold');
+      doc.text('AUDIT AI', 70, 25);
+      
+      doc.setFontSize(16);
+      doc.setFont('helvetica', 'normal');
+      doc.text('REPORT PERSONALIZZATO', 70, 35);
+      
+      // Reset colore testo per il contenuto
+      doc.setTextColor(26, 22, 45); // Dark
+      
+      // Sezione informazioni cliente
+      doc.setFillColor(248, 249, 251); // Light gray background
+      doc.rect(15, 70, 180, 25, 'F');
+      
+      doc.setFontSize(14);
+      doc.setFont('helvetica', 'bold');
+      doc.text('Generato per:', 20, 80);
+      
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(11);
+      doc.text(`${contactData.nome} ${contactData.cognome}`, 20, 87);
+      doc.text(`Email: ${contactData.email}`, 20, 93);
+      doc.text(`Telefono: ${contactData.telefono}`, 120, 87);
+      doc.text(`Data: ${new Date().toLocaleDateString('it-IT')}`, 120, 93);
       
       // Contenuto del report
-      const lines = doc.splitTextToSize(generatedReport, 170);
-      doc.text(lines, 20, 90);
+      let currentY = 110;
+      
+      // Dividi il report in sezioni
+      const reportSections = generatedReport.split(/\*\*(\d+\.\s[^*]+)\*\*/g);
+      
+      for (let i = 1; i < reportSections.length; i += 2) {
+        const sectionTitle = reportSections[i];
+        const sectionContent = reportSections[i + 1] || '';
+        
+        // Controlla se serve una nuova pagina
+        if (currentY > 250) {
+          doc.addPage();
+          currentY = 30;
+        }
+        
+        // Titolo sezione
+        doc.setFillColor(resyneGold[0], resyneGold[1], resyneGold[2]);
+        doc.rect(15, currentY - 5, 180, 8, 'F');
+        
+        doc.setTextColor(255, 255, 255); // White text
+        doc.setFontSize(12);
+        doc.setFont('helvetica', 'bold');
+        doc.text(sectionTitle.trim(), 20, currentY);
+        
+        currentY += 15;
+        
+        // Contenuto sezione
+        doc.setTextColor(26, 22, 45); // Dark text
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(10);
+        
+        const lines = doc.splitTextToSize(sectionContent.trim(), 170);
+        const lineHeight = 5;
+        
+        for (const line of lines) {
+          if (currentY > 270) {
+            doc.addPage();
+            currentY = 30;
+          }
+          doc.text(line, 20, currentY);
+          currentY += lineHeight;
+        }
+        
+        currentY += 10; // Spazio tra sezioni
+      }
+      
+      // Footer con contatti Resyne
+      const totalPages = doc.getNumberOfPages();
+      
+      for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+        doc.setPage(pageNum);
+        
+        // Background footer
+        doc.setFillColor(resyneDark[0], resyneDark[1], resyneDark[2]);
+        doc.rect(0, 280, 210, 17, 'F');
+        
+        // Contatti
+        doc.setTextColor(202, 156, 42); // Gold
+        doc.setFontSize(10);
+        doc.setFont('helvetica', 'bold');
+        doc.text('RESYNE - Digital Innovation Partners', 20, 290);
+        
+        doc.setFont('helvetica', 'normal');
+        doc.setTextColor(255, 255, 255); // White
+        doc.text('📞 +39 393 063 7643', 20, 295);
+        doc.text('✉️ contact@re-syne.com', 110, 295);
+        
+        // Numero pagina
+        doc.setTextColor(231, 231, 231); // Light gray
+        doc.text(`Pagina ${pageNum} di ${totalPages}`, 170, 290);
+      }
       
       // Salva il PDF
       doc.save(`audit-report-${contactData.cognome}-${new Date().getTime()}.pdf`);
