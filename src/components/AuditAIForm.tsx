@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -86,6 +87,13 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
   const [step, setStep] = useState(1);
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedReport, setGeneratedReport] = useState<string | null>(null);
+  const [showContactForm, setShowContactForm] = useState(false);
+  const [contactData, setContactData] = useState({
+    nome: '',
+    cognome: '',
+    email: '',
+    telefono: ''
+  });
   const { toast } = useToast();
 
   const form = useForm<FormValues>({
@@ -140,9 +148,10 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
 
       if (data?.success) {
         setGeneratedReport(data.report);
+        setShowContactForm(true); // Mostra il form per i dati di contatto
         toast({
           title: "Report generato!",
-          description: "Il tuo report personalizzato è pronto per il download.",
+          description: "Inserisci i tuoi dati per scaricare il report in PDF.",
         });
       } else {
         throw new Error(data?.error || 'Errore nella generazione del report');
@@ -159,23 +168,62 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
     }
   };
 
-  const downloadReport = () => {
-    if (!generatedReport) return;
+  const downloadReport = async () => {
+    if (!generatedReport || !contactData.nome || !contactData.cognome || !contactData.email || !contactData.telefono) {
+      toast({
+        title: "Dati mancanti",
+        description: "Compila tutti i campi per scaricare il report.",
+        variant: "destructive",
+      });
+      return;
+    }
     
-    const blob = new Blob([generatedReport], { type: 'text/plain;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `audit-report-${new Date().getTime()}.txt`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    try {
+      // Dinamicamente importa jsPDF
+      const { jsPDF } = await import('jspdf');
+      
+      const doc = new jsPDF();
+      
+      // Header del PDF
+      doc.setFontSize(20);
+      doc.text('AUDIT AI - REPORT PERSONALIZZATO', 20, 30);
+      
+      doc.setFontSize(12);
+      doc.text(`Generato per: ${contactData.nome} ${contactData.cognome}`, 20, 45);
+      doc.text(`Email: ${contactData.email}`, 20, 55);
+      doc.text(`Telefono: ${contactData.telefono}`, 20, 65);
+      doc.text(`Data: ${new Date().toLocaleDateString('it-IT')}`, 20, 75);
+      
+      // Contenuto del report
+      const lines = doc.splitTextToSize(generatedReport, 170);
+      doc.text(lines, 20, 90);
+      
+      // Salva il PDF
+      doc.save(`audit-report-${contactData.cognome}-${new Date().getTime()}.pdf`);
+      
+      toast({
+        title: "Download completato!",
+        description: "Il report PDF è stato scaricato con successo.",
+      });
+      
+      // Reset del form
+      closeAndReset();
+      
+    } catch (error) {
+      console.error('Errore durante la creazione del PDF:', error);
+      toast({
+        title: "Errore",
+        description: "Errore durante la creazione del PDF. Riprova.",
+        variant: "destructive",
+      });
+    }
   };
 
   const closeAndReset = () => {
     setOpen(false);
     setGeneratedReport(null);
+    setShowContactForm(false);
+    setContactData({ nome: '', cognome: '', email: '', telefono: '' });
     form.reset();
     setStep(1);
   };
@@ -188,8 +236,85 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
     if (step > 1) setStep(step - 1);
   };
 
-  // Visualizza il report se è stato generato
-  if (generatedReport) {
+  // Mostra il form per i dati di contatto se il report è pronto
+  if (generatedReport && showContactForm) {
+    return (
+      <Dialog open={open} onOpenChange={closeAndReset}>
+        <DialogTrigger asChild>
+          {children}
+        </DialogTrigger>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <CheckCircle className="w-6 h-6 text-green-600" />
+              Report Pronto!
+            </DialogTitle>
+            <DialogDescription>
+              Inserisci i tuoi dati per scaricare il report PDF del valore di €249,00
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="space-y-4">
+            <div>
+              <Label htmlFor="nome">Nome *</Label>
+              <Input
+                id="nome"
+                value={contactData.nome}
+                onChange={(e) => setContactData(prev => ({ ...prev, nome: e.target.value }))}
+                placeholder="Il tuo nome"
+              />
+            </div>
+            <div>
+              <Label htmlFor="cognome">Cognome *</Label>
+              <Input
+                id="cognome"
+                value={contactData.cognome}
+                onChange={(e) => setContactData(prev => ({ ...prev, cognome: e.target.value }))}
+                placeholder="Il tuo cognome"
+              />
+            </div>
+            <div>
+              <Label htmlFor="email">Email *</Label>
+              <Input
+                id="email"
+                type="email"
+                value={contactData.email}
+                onChange={(e) => setContactData(prev => ({ ...prev, email: e.target.value }))}
+                placeholder="la-tua-email@esempio.com"
+              />
+            </div>
+            <div>
+              <Label htmlFor="telefono">Telefono *</Label>
+              <Input
+                id="telefono"
+                type="tel"
+                value={contactData.telefono}
+                onChange={(e) => setContactData(prev => ({ ...prev, telefono: e.target.value }))}
+                placeholder="+39 123 456 7890"
+              />
+            </div>
+            
+            <div className="flex gap-2 pt-4">
+              <Button 
+                onClick={downloadReport} 
+                className="flex-1 flex items-center gap-2"
+                disabled={!contactData.nome || !contactData.cognome || !contactData.email || !contactData.telefono}
+              >
+                <Download className="w-4 h-4" />
+                Scarica Report PDF
+              </Button>
+              <Button variant="outline" onClick={closeAndReset}>
+                Annulla
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+    );
+  }
+
+  // Visualizza il report se è stato generato ma non ancora scaricato
+  if (generatedReport && !showContactForm) {
     return (
       <Dialog open={open} onOpenChange={closeAndReset}>
         <DialogTrigger asChild>
@@ -211,9 +336,9 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
               <pre className="whitespace-pre-wrap text-sm font-mono">{generatedReport}</pre>
             </div>
             <div className="flex gap-2">
-              <Button onClick={downloadReport} className="flex items-center gap-2">
+              <Button onClick={() => setShowContactForm(true)} className="flex items-center gap-2">
                 <Download className="w-4 h-4" />
-                Scarica Report
+                Scarica PDF
               </Button>
               <Button variant="outline" onClick={closeAndReset}>
                 Chiudi

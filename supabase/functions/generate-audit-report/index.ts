@@ -21,58 +21,33 @@ serve(async (req) => {
     const formData = await req.json();
     console.log('Received form data:', formData);
 
-    // Costruisce il prompt per OpenAI
-    const prompt = `
-Come consulente esperto in digitalizzazione aziendale e soluzioni ERP, AI e Automazioni, analizza le seguenti informazioni aziendali e genera un report dettagliato e professionale.
+    // Costruisce il prompt per OpenAI con il formato richiesto
+    const risposteAzienda = `
+SETTORE: ${formData.sector}
+DESCRIZIONE ATTIVITÀ: ${formData.description}
+ANNI SUL MERCATO: ${formData.yearsInMarket}
+RICAVI: ${formData.revenue}
+PROCESSI PRINCIPALI: ${formData.mainProcesses}
+STRUMENTI ATTUALI: ${formData.currentTools}
+GESTIONE SEDI/REPARTI: ${formData.multipleLocations}
+GESTIONE CLIENTI: ${formData.customerManagement}
+ATTIVITÀ RIPETITIVE: ${formData.repetitiveTasks}
+REPORT/KPI MANUALI: ${formData.manualReports}
+PREVISIONI/ANALISI: ${formData.forecastAreas}
+ASSISTENTE AI: ${formData.aiAreas}
+    `.trim();
 
-INFORMAZIONI AZIENDA:
-- Settore: ${formData.sector}
-- Descrizione attività: ${formData.description}
-- Anni sul mercato: ${formData.yearsInMarket}
-- Ricavi ultimi 12 mesi: ${formData.revenue}
-- Processi principali: ${formData.mainProcesses}
-- Strumenti attuali: ${formData.currentTools}
-- Gestione multiple sedi/reparti: ${formData.multipleLocations}
-- Gestione clienti: ${formData.customerManagement}
-- Attività ripetitive: ${formData.repetitiveTasks}
-- Report/KPI manuali: ${formData.manualReports}
-- Aree per previsioni/analisi: ${formData.forecastAreas}
-- Utilizzo AI suggerito: ${formData.aiAreas}
+    const prompt = `Ho raccolto i dati preliminari di un audit ERP.
+Le risposte dell'azienda sono queste:
+${risposteAzienda}
 
-GENERA UN REPORT STRUTTURATO CON:
+Genera:
+1. Le principali sezioni dell'ERP da implementare (con breve spiegazione del perché).
+2. Le principali automazioni consigliate (pratiche, immediate, a valore).
+3. Le proposte di utilizzo AI (assistenti, analisi, previsioni).
+4. Un riepilogo sintetico con 3 priorità da affrontare subito.
 
-## 1. ANALISI SITUAZIONE ATTUALE
-- Punti di forza identificati
-- Criticità e inefficienze rilevate
-- Opportunità di miglioramento immediate
-
-## 2. SOLUZIONI ERP CONSIGLIATE
-- Moduli ERP specifici per il settore
-- Benefici attesi dall'implementazione
-- ROI stimato e tempi di rientro
-
-## 3. AUTOMAZIONI PRIORITARIE
-- Processi automatizzabili identificati
-- Tecnologie consigliate
-- Risparmio di tempo stimato
-
-## 4. IMPLEMENTAZIONI AI STRATEGICHE
-- Aree di applicazione dell'AI più vantaggiose
-- Soluzioni specifiche consigliate
-- Impatto previsto sul business
-
-## 5. ROADMAP IMPLEMENTAZIONE
-- Fasi di implementazione consigliate
-- Timeline suggerita
-- Investimenti richiesti per fase
-
-## 6. BENEFICI ECONOMICI ATTESI
-- Risparmi operativi stimati
-- Incremento di produttività
-- ROI complessivo del progetto
-
-Il report deve essere professionale, specifico per il settore, e includere dati quantitativi realistici. Usa un tono consulenziale esperto ma accessibile.
-    `;
+Formatta la risposta in modo chiaro e professionale, usando elenchi puntati e sezioni ben definite.`;
 
     console.log('Sending request to OpenAI...');
     
@@ -85,11 +60,11 @@ Il report deve essere professionale, specifico per il settore, e includere dati 
       body: JSON.stringify({
         model: 'gpt-4o',
         messages: [
-          { role: 'system', content: 'Sei un consulente esperto in digitalizzazione aziendale, ERP, AI e automazioni. Genera report professionali e dettagliati.' },
+          { role: 'system', content: 'Sei un consulente esperto in digitalizzazione aziendale, ERP, AI e automazioni. Genera report professionali, strutturati e actionable.' },
           { role: 'user', content: prompt }
         ],
-        max_tokens: 3000,
-        temperature: 0.7,
+        max_tokens: 4000,
+        temperature: 0.3,
       }),
     });
 
