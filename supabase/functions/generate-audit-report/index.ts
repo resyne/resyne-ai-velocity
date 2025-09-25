@@ -1,6 +1,5 @@
 import "https://deno.land/x/xhr@0.1.0/mod.ts";
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { Resend } from "npm:resend@2.0.0";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -25,7 +24,7 @@ serve(async (req) => {
       throw new Error('RESEND_API_KEY is not set');
     }
 
-    const resend = new Resend(RESEND_API_KEY);
+    // Nessuna istanza Resend necessaria - useremo fetch direttamente
     const formData = await req.json();
     console.log('Received form data:', formData);
 
@@ -90,11 +89,17 @@ Formatta la risposta in modo chiaro e professionale, usando elenchi puntati e se
     if (formData.contactInfo && formData.contactInfo.email) {
       console.log('Sending email via Resend...');
       
-      const emailResponse = await resend.emails.send({
-        from: 'Resyne AI <contact@re-syne.com>',
-        to: [formData.contactInfo.email],
-        subject: 'Report di Audit ERP Personalizzato - Resyne',
-        html: `
+      const emailResponse = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${RESEND_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          from: 'Resyne AI <contact@re-syne.com>',
+          to: [formData.contactInfo.email],
+          subject: 'Report di Audit ERP Personalizzato - Resyne',
+          html: `
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -346,9 +351,14 @@ Formatta la risposta in modo chiaro e professionale, usando elenchi puntati e se
 </body>
 </html>
         `,
+        }),
       });
 
-      console.log('Email sent successfully:', emailResponse);
+      if (!emailResponse.ok) {
+        console.error('Failed to send email:', await emailResponse.text());
+      } else {
+        console.log('Email sent successfully');
+      }
     }
 
     return new Response(JSON.stringify({ 
@@ -359,7 +369,7 @@ Formatta la risposta in modo chiaro e professionale, usando elenchi puntati e se
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
 
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error in generate-audit-report function:', error);
     return new Response(JSON.stringify({ 
       success: false,
