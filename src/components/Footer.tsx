@@ -31,13 +31,6 @@ export function Footer() {
               >
                 <Linkedin className="w-5 h-5 text-resyne-gold" />
               </a>
-              <a 
-                href="https://github.com/resyne" 
-                className="p-2 rounded-lg bg-tech-blue/20 hover:bg-tech-blue/30 transition-colors"
-                aria-label="GitHub RESYNE"
-              >
-                <Github className="w-5 h-5 text-tech-blue" />
-              </a>
             </div>
           </div>
 
