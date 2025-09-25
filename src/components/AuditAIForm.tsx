@@ -384,7 +384,7 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
               Report Pronto!
             </DialogTitle>
             <DialogDescription>
-              Inserisci i tuoi dati per scaricare il report PDF del valore di €249,00
+              Inserisci i tuoi dati per scaricare il report PDF <strong>GRATUITO</strong> del valore di <strong>€249,00</strong>
             </DialogDescription>
           </DialogHeader>
           
@@ -461,7 +461,7 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
               Report Audit AI Completato
             </DialogTitle>
             <DialogDescription>
-              Il tuo report personalizzato del valore di €249,00 è pronto per il download
+              Il tuo report personalizzato <strong>GRATUITO</strong> del valore di <strong>€249,00</strong> è pronto per il download
             </DialogDescription>
           </DialogHeader>
           
