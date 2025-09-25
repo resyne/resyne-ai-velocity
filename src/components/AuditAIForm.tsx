@@ -193,6 +193,52 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
     }
     
     try {
+      // Invia email al cliente con il report
+      const formDataWithContact = {
+        ...form.getValues(),
+        contactInfo: {
+          firstName: contactData.nome,
+          lastName: contactData.cognome,
+          email: contactData.email,
+          phone: contactData.telefono,
+          company: contactData.nomeAzienda
+        }
+      };
+
+      console.log("Sending email to client with contact data:", formDataWithContact.contactInfo);
+      
+      const { error: emailError } = await supabase.functions.invoke('generate-audit-report', {
+        body: {
+          sector: formDataWithContact.settore,
+          description: formDataWithContact.descrizioneAzienda,
+          yearsInMarket: formDataWithContact.tempoMercato,  
+          revenue: formDataWithContact.ricavi,
+          mainProcesses: formDataWithContact.processiPrincipali.join(', '),
+          currentTools: `${formDataWithContact.strumentiLavoro}. Excel/manuali usati per: ${formDataWithContact.excelManuali === "SI" ? formDataWithContact.excelManualiDettagli || "Sì" : "No"}`,
+          multipleLocations: formDataWithContact.sediReparti === "SI" ? formDataWithContact.sediRepartiDettagli || "Sì" : "No",
+          customerManagement: formDataWithContact.gestioneClienti,
+          repetitiveTasks: formDataWithContact.attivitaRipetitive === "SI" ? formDataWithContact.attivitaRipetitiveDettagli || "Sì" : "No",
+          manualReports: formDataWithContact.reportKPI === "SI" ? formDataWithContact.reportKPIDettagli || "Sì" : "No", 
+          forecastAreas: formDataWithContact.previsioniAnalisi === "SI" ? formDataWithContact.previsioniAnalisiDettagli || "Sì" : "No",
+          aiAreas: formDataWithContact.assistenteAI,
+          contactInfo: formDataWithContact.contactInfo
+        }
+      });
+
+      if (emailError) {
+        console.error('Error sending email:', emailError);
+        toast({
+          title: "Avviso",
+          description: "Errore nell'invio dell'email, ma puoi comunque scaricare il report.",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Email inviata!",
+          description: "Il report è stato inviato al tuo indirizzo email.",
+        });
+      }
+
       // Dinamicamente importa jsPDF
       const { jsPDF } = await import('jspdf');
       
