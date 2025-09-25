@@ -104,9 +104,9 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    mode: "onBlur",
-    reValidateMode: "onBlur",
-    shouldFocusError: false,
+    mode: "onSubmit",
+    reValidateMode: "onChange",
+    shouldFocusError: true,
     defaultValues: {
       settore: "",
       descrizioneAzienda: "",
