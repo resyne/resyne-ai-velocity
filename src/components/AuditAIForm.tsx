@@ -34,8 +34,7 @@ const formSchema = z.object({
   reportKPIDettagli: z.string().optional(),
   previsioniAnalisi: z.string().min(1, "Specifica se servono previsioni o analisi"),
   previsioniAnalisiDettagli: z.string().optional(),
-  assistenteAI: z.string().min(1, "Specifica dove vedresti utile un assistente AI"),
-  assistenteAIDettagli: z.string().optional(),
+  assistenteAI: z.string().min(1, "Descrivi dove vedresti utile un assistente AI nella tua azienda"),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -127,7 +126,6 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
       previsioniAnalisi: "",
       previsioniAnalisiDettagli: "",
       assistenteAI: "",
-      assistenteAIDettagli: "",
     },
   });
 
@@ -147,7 +145,7 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
         repetitiveTasks: values.attivitaRipetitive === "SI" ? values.attivitaRipetitiveDettagli || "Sì" : "No",
         manualReports: values.reportKPI === "SI" ? values.reportKPIDettagli || "Sì" : "No",
         forecastAreas: values.previsioniAnalisi === "SI" ? values.previsioniAnalisiDettagli || "Sì" : "No",
-        aiAreas: values.assistenteAI === "SI" ? values.assistenteAIDettagli || "Sì" : "No",
+        aiAreas: values.assistenteAI,
       };
 
       console.log("Sending data to AI:", formDataForAI);
@@ -942,42 +940,18 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
                     name="assistenteAI"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Dove vedreste utile un assistente AI? *</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Seleziona" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            <SelectItem value="SI">SÌ</SelectItem>
-                            <SelectItem value="NO">NO</SelectItem>
-                          </SelectContent>
-                        </Select>
+                        <FormLabel>Dove vedreste utile un assistente AI nella vostra azienda? *</FormLabel>
+                        <FormControl>
+                          <Textarea 
+                            placeholder="Es. Customer care per risposte automatiche, analisi documenti e contratti, generazione preventivi personalizzati, supporto vendite con suggerimenti prodotti, assistenza tecnica 24/7, automazione processo ordini..."
+                            className="min-h-[120px]"
+                            {...field}
+                          />
+                        </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
-
-                  {form.watch("assistenteAI") === "SI" && (
-                    <FormField
-                      control={form.control}
-                      name="assistenteAIDettagli"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Dove precisamente?</FormLabel>
-                          <FormControl>
-                            <Textarea 
-                              placeholder="Es. Customer care, analisi documenti, generazione preventivi, supporto vendite..."
-                              className="min-h-[80px]"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  )}
                 </CardContent>
               </Card>
             )}
