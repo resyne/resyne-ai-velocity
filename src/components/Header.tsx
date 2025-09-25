@@ -6,6 +6,13 @@ import resyneLogoNew from "@/assets/resyne-logo-new.png";
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-border/20">
       <div className="container mx-auto px-4 lg:px-6">
@@ -24,19 +31,31 @@ export function Header() {
           <nav className="hidden md:flex items-center space-x-8">
             <a 
               href="#erp" 
-              className="font-subtitle text-sm hover:text-resyne-gold transition-colors"
+              className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('erp');
+              }}
             >
               ERP Solutions
             </a>
             <a 
               href="#automation" 
-              className="font-subtitle text-sm hover:text-resyne-gold transition-colors"
+              className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('automation');
+              }}
             >
               Automation
             </a>
             <a 
               href="#ai" 
-              className="font-subtitle text-sm hover:text-resyne-gold transition-colors"
+              className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('ai');
+              }}
             >
               AI Solutions
             </a>
@@ -71,22 +90,34 @@ export function Header() {
             <nav className="flex flex-col space-y-4">
               <a 
                 href="#erp" 
-                className="font-subtitle text-sm hover:text-resyne-gold transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('erp');
+                  setIsMenuOpen(false);
+                }}
               >
                 ERP Solutions
               </a>
               <a 
                 href="#automation" 
-                className="font-subtitle text-sm hover:text-resyne-gold transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('automation');
+                  setIsMenuOpen(false);
+                }}
               >
                 Automation
               </a>
               <a 
                 href="#ai" 
-                className="font-subtitle text-sm hover:text-resyne-gold transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('ai');
+                  setIsMenuOpen(false);
+                }}
               >
                 AI Solutions
               </a>
