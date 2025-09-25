@@ -63,10 +63,19 @@ export function Header() {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" size="sm" className="border-resyne-gold text-resyne-gold hover:bg-resyne-gold hover:text-resyne-dark">
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="border-resyne-gold text-resyne-gold hover:bg-resyne-gold hover:text-resyne-dark cursor-pointer"
+              onClick={() => scrollToSection('demos')}
+            >
               Richiedi Demo
             </Button>
-            <Button size="sm" className="bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light">
+            <Button 
+              size="sm" 
+              className="bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light cursor-pointer"
+              onClick={() => scrollToSection('leads')}
+            >
               Contattaci
             </Button>
           </div>
@@ -122,10 +131,25 @@ export function Header() {
                 AI Solutions
               </a>
               <div className="flex flex-col space-y-2 pt-4">
-                <Button variant="outline" size="sm" className="border-resyne-gold text-resyne-gold hover:bg-resyne-gold hover:text-resyne-dark">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="border-resyne-gold text-resyne-gold hover:bg-resyne-gold hover:text-resyne-dark cursor-pointer"
+                  onClick={() => {
+                    scrollToSection('demos');
+                    setIsMenuOpen(false);
+                  }}
+                >
                   Richiedi Demo
                 </Button>
-                <Button size="sm" className="bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light">
+                <Button 
+                  size="sm" 
+                  className="bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light cursor-pointer"
+                  onClick={() => {
+                    scrollToSection('leads');
+                    setIsMenuOpen(false);
+                  }}
+                >
                   Contattaci
                 </Button>
               </div>
