@@ -92,6 +92,7 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState(1);
   const [isGenerating, setIsGenerating] = useState(false);
+  const [isDownloading, setIsDownloading] = useState(false);
   const [generatedReport, setGeneratedReport] = useState<string | null>(null);
   const [showContactForm, setShowContactForm] = useState(false);
   const [contactData, setContactData] = useState({
@@ -192,6 +193,7 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
       return;
     }
     
+    setIsDownloading(true);
     try {
       // Invia email al cliente con il report
       const formDataWithContact = {
@@ -408,6 +410,8 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
         description: "Errore durante la creazione del PDF. Riprova.",
         variant: "destructive",
       });
+    } finally {
+      setIsDownloading(false);
     }
   };
 
@@ -499,12 +503,21 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
               <Button 
                 onClick={downloadReport} 
                 className="flex-1 flex items-center gap-2"
-                disabled={!contactData.nome || !contactData.cognome || !contactData.email || !contactData.telefono || !contactData.nomeAzienda}
+                disabled={!contactData.nome || !contactData.cognome || !contactData.email || !contactData.telefono || !contactData.nomeAzienda || isDownloading}
               >
-                <Download className="w-4 h-4" />
-                Scarica Report PDF
+                {isDownloading ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    Invio in corso...
+                  </>
+                ) : (
+                  <>
+                    <Download className="w-4 h-4" />
+                    Scarica Report PDF
+                  </>
+                )}
               </Button>
-              <Button variant="outline" onClick={closeAndReset}>
+              <Button variant="outline" onClick={closeAndReset} disabled={isDownloading}>
                 Annulla
               </Button>
             </div>
