@@ -14,7 +14,7 @@ import * as z from "zod";
 import { Brain, FileText, Euro, Loader2, Download, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import resyneLogoWhite from "@/assets/resyne-logo-white.png";
+import resyneLogoNew from "@/assets/resyne-logo-new.png";
 
 const formSchema = z.object({
   settore: z.string().min(1, "Seleziona un settore"),
@@ -215,7 +215,7 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
         await new Promise((resolve, reject) => {
           img.onload = resolve;
           img.onerror = reject;
-          img.src = resyneLogoWhite;
+          img.src = resyneLogoNew;
         });
         
         const canvas = document.createElement('canvas');

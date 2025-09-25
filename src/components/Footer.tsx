@@ -1,5 +1,5 @@
 import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
-import resyneLogoWhite from "@/assets/resyne-logo-white.png";
+import resyneLogoNew from "@/assets/resyne-logo-new.png";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -12,7 +12,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
               <img 
-                src={resyneLogoWhite} 
+                src={resyneLogoNew} 
                 alt="RESYNE Logo" 
                 className="h-12 w-auto" 
                 key="logo-new"
