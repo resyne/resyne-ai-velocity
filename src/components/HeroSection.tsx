@@ -2,6 +2,13 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, TrendingUp } from "lucide-react";
 
 export function HeroSection() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center tech-web overflow-hidden">
       {/* Background Elements */}
@@ -60,6 +67,7 @@ export function HeroSection() {
             <Button 
               size="lg" 
               className="bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light font-subtitle text-lg px-8 py-4 h-auto animate-pulse-glow"
+              onClick={() => scrollToSection('demos')}
             >
               Scopri le Demo
               <ArrowRight className="w-5 h-5 ml-2" />
@@ -68,6 +76,7 @@ export function HeroSection() {
               variant="outline" 
               size="lg" 
               className="border-tech-blue text-tech-blue hover:bg-tech-blue hover:text-white font-subtitle text-lg px-8 py-4 h-auto"
+              onClick={() => scrollToSection('leads')}
             >
               Richiedi Consulenza Gratuita
             </Button>
