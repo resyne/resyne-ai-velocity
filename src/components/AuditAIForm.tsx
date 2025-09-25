@@ -207,7 +207,7 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
 
       console.log("Sending email to client with contact data:", formDataWithContact.contactInfo);
       
-      const { error: emailError } = await supabase.functions.invoke('generate-audit-report', {
+      const { data: emailResponse, error: emailError } = await supabase.functions.invoke('generate-audit-report', {
         body: {
           sector: formDataWithContact.settore,
           description: formDataWithContact.descrizioneAzienda,
@@ -225,17 +225,29 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
         }
       });
 
+      console.log("Edge function response:", { emailResponse, emailError });
+
       if (emailError) {
-        console.error('Error sending email:', emailError);
+        console.error('Error calling edge function:', emailError);
         toast({
-          title: "Avviso",
-          description: "Errore nell'invio dell'email, ma puoi comunque scaricare il report.",
+          title: "Errore",
+          description: "Errore durante l'invio dell'email. Riprova più tardi.",
           variant: "destructive",
         });
-      } else {
+        return;
+      }
+
+      if (emailResponse?.success) {
         toast({
           title: "Email inviata!",
           description: "Il report è stato inviato al tuo indirizzo email.",
+        });
+      } else {
+        console.error('Edge function returned error:', emailResponse);
+        toast({
+          title: "Avviso",
+          description: "Problema nell'invio dell'email, ma puoi comunque scaricare il report.",
+          variant: "destructive",
         });
       }
 
