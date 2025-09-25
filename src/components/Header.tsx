@@ -40,12 +40,6 @@ export function Header() {
             >
               AI Solutions
             </a>
-            <a 
-              href="#leads" 
-              className="font-subtitle text-sm hover:text-resyne-gold transition-colors"
-            >
-              Lead Generation
-            </a>
           </nav>
 
           {/* CTA Button */}
@@ -95,13 +89,6 @@ export function Header() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 AI Solutions
-              </a>
-              <a 
-                href="#leads" 
-                className="font-subtitle text-sm hover:text-resyne-gold transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Lead Generation
               </a>
               <div className="flex flex-col space-y-2 pt-4">
                 <Button variant="outline" size="sm" className="border-resyne-gold text-resyne-gold hover:bg-resyne-gold hover:text-resyne-dark">
