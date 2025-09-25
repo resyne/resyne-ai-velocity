@@ -98,7 +98,8 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
     nome: '',
     cognome: '',
     email: '',
-    telefono: ''
+    telefono: '',
+    nomeAzienda: ''
   });
   const { toast } = useToast();
 
@@ -182,7 +183,7 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
   };
 
   const downloadReport = async () => {
-    if (!generatedReport || !contactData.nome || !contactData.cognome || !contactData.email || !contactData.telefono) {
+    if (!generatedReport || !contactData.nome || !contactData.cognome || !contactData.email || !contactData.telefono || !contactData.nomeAzienda) {
       toast({
         title: "Dati mancanti",
         description: "Compila tutti i campi per scaricare il report.",
@@ -253,12 +254,13 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
       doc.setFont('helvetica', 'normal');
       doc.setFontSize(11);
       doc.text(`${contactData.nome} ${contactData.cognome}`, 20, 87);
-      doc.text(`Email: ${contactData.email}`, 20, 93);
+      doc.text(`${contactData.nomeAzienda}`, 20, 93);
+      doc.text(`Email: ${contactData.email}`, 20, 99);
       doc.text(`Telefono: ${contactData.telefono}`, 120, 87);
       doc.text(`Data: ${new Date().toLocaleDateString('it-IT')}`, 120, 93);
       
       // Contenuto del report
-      let currentY = 110;
+      let currentY = 116;
       
       // Dividi il report in sezioni
       const reportSections = generatedReport.split(/\*\*(\d+\.\s[^*]+)\*\*/g);
@@ -355,7 +357,7 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
     setOpen(false);
     setGeneratedReport(null);
     setShowContactForm(false);
-    setContactData({ nome: '', cognome: '', email: '', telefono: '' });
+    setContactData({ nome: '', cognome: '', email: '', telefono: '', nomeAzienda: '' });
     form.reset();
     setStep(1);
   };
@@ -406,6 +408,15 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
               />
             </div>
             <div>
+              <Label htmlFor="nomeAzienda">Nome Azienda *</Label>
+              <Input
+                id="nomeAzienda"
+                value={contactData.nomeAzienda}
+                onChange={(e) => setContactData(prev => ({ ...prev, nomeAzienda: e.target.value }))}
+                placeholder="Nome della tua azienda"
+              />
+            </div>
+            <div>
               <Label htmlFor="email">Email *</Label>
               <Input
                 id="email"
@@ -430,7 +441,7 @@ export function AuditAIForm({ children }: AuditAIFormProps) {
               <Button 
                 onClick={downloadReport} 
                 className="flex-1 flex items-center gap-2"
-                disabled={!contactData.nome || !contactData.cognome || !contactData.email || !contactData.telefono}
+                disabled={!contactData.nome || !contactData.cognome || !contactData.email || !contactData.telefono || !contactData.nomeAzienda}
               >
                 <Download className="w-4 h-4" />
                 Scarica Report PDF
