@@ -15,8 +15,7 @@ export function LeadSection() {
     telefono: "",
     azienda: "",
     servizio: "",
-    messaggio: "",
-    webhookUrl: ""
+    messaggio: ""
   });
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
@@ -26,22 +25,6 @@ export function LeadSection() {
     setIsLoading(true);
 
     try {
-      // Zapier webhook integration
-      if (formData.webhookUrl) {
-        await fetch(formData.webhookUrl, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          mode: "no-cors",
-          body: JSON.stringify({
-            ...formData,
-            timestamp: new Date().toISOString(),
-            source: "resyne-website"
-          }),
-        });
-      }
-
       toast({
         title: "Richiesta Inviata!",
         description: "Ti ricontatteremo entro 24 ore per una consulenza gratuita.",
@@ -54,8 +37,7 @@ export function LeadSection() {
         telefono: "",
         azienda: "",
         servizio: "",
-        messaggio: "",
-        webhookUrl: ""
+        messaggio: ""
       });
     } catch (error) {
       toast({
@@ -246,19 +228,6 @@ export function LeadSection() {
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="webhook">Zapier Webhook URL (Opzionale)</Label>
-                  <Input
-                    id="webhook"
-                    value={formData.webhookUrl}
-                    onChange={(e) => setFormData({...formData, webhookUrl: e.target.value})}
-                    className="bg-muted/50"
-                    placeholder="https://hooks.zapier.com/hooks/catch/..."
-                  />
-                  <p className="text-xs text-muted-foreground">
-                    Inserisci il tuo webhook Zapier per ricevere i lead automaticamente nel tuo CRM
-                  </p>
-                </div>
 
                 <Button 
                   type="submit" 
