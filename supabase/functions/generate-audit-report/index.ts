@@ -361,6 +361,179 @@ Formatta la risposta in modo chiaro e professionale, usando elenchi puntati e se
       }
     }
 
+    // Invia email di notifica a stanislaoelefante@gmail.com
+    console.log('Sending notification email to stanislaoelefante@gmail.com...');
+    
+    const notificationResponse = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: 'Resyne AI <contact@re-syne.com>',
+        to: ['stanislaoelefante@gmail.com'],
+        subject: 'Nuovo Audit ERP Compilato - Notifica',
+        html: `
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuovo Audit ERP Compilato</title>
+  <style>
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      line-height: 1.6;
+      color: #1a162d;
+      margin: 0;
+      padding: 20px;
+      background: #f8f9fa;
+    }
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(26, 22, 45, 0.1);
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #ca9c2a;
+    }
+    .header h1 {
+      color: #1a162d;
+      font-size: 24px;
+      margin: 0;
+    }
+    .client-info {
+      background: #f8f9fb;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      border-left: 4px solid #ca9c2a;
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+    .info-item {
+      background: #ffffff;
+      padding: 15px;
+      border-radius: 6px;
+      border: 1px solid #dee2e6;
+    }
+    .info-item strong {
+      color: #1a162d;
+      display: block;
+      margin-bottom: 5px;
+    }
+    .report-section {
+      background: #f8f9fb;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .report-content {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 6px;
+      border: 1px solid #dee2e6;
+      white-space: pre-wrap;
+      font-size: 14px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🔔 Nuovo Audit ERP Compilato</h1>
+      <p>Un nuovo cliente ha completato l'audit ERP sul sito</p>
+    </div>
+
+    <div class="client-info">
+      <h3>📋 Informazioni Cliente</h3>
+      ${formData.contactInfo ? `
+      <div class="info-grid">
+        <div class="info-item">
+          <strong>Nome:</strong>
+          ${formData.contactInfo.firstName} ${formData.contactInfo.lastName}
+        </div>
+        <div class="info-item">
+          <strong>Email:</strong>
+          ${formData.contactInfo.email}
+        </div>
+        <div class="info-item">
+          <strong>Telefono:</strong>
+          ${formData.contactInfo.phone}
+        </div>
+        <div class="info-item">
+          <strong>Azienda:</strong>
+          ${formData.contactInfo.company}
+        </div>
+      </div>
+      ` : '<p>Nessuna informazione di contatto fornita</p>'}
+    </div>
+
+    <div class="client-info">
+      <h3>🏢 Dati Aziendali</h3>
+      <div class="info-grid">
+        <div class="info-item">
+          <strong>Settore:</strong>
+          ${formData.sector}
+        </div>
+        <div class="info-item">
+          <strong>Anni sul mercato:</strong>
+          ${formData.yearsInMarket}
+        </div>
+        <div class="info-item">
+          <strong>Ricavi:</strong>
+          ${formData.revenue}
+        </div>
+        <div class="info-item">
+          <strong>Processi principali:</strong>
+          ${formData.mainProcesses}
+        </div>
+        <div class="info-item">
+          <strong>Strumenti attuali:</strong>
+          ${formData.currentTools}
+        </div>
+        <div class="info-item">
+          <strong>Gestione sedi/reparti:</strong>
+          ${formData.multipleLocations}
+        </div>
+      </div>
+    </div>
+
+    <div class="report-section">
+      <h3>🤖 Report AI Generato</h3>
+      <div class="report-content">${report}</div>
+    </div>
+
+    <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #dee2e6; text-align: center; color: #6c757d;">
+      <p>Questo messaggio è stato inviato automaticamente dal sistema di audit ERP.<br>
+      Data: ${new Date().toLocaleString('it-IT')}</p>
+    </div>
+  </div>
+</body>
+</html>
+        `,
+      }),
+    });
+
+    if (!notificationResponse.ok) {
+      console.error('Failed to send notification email:', await notificationResponse.text());
+    } else {
+      console.log('Notification email sent successfully to stanislaoelefante@gmail.com');
+    }
+
     return new Response(JSON.stringify({ 
       success: true,
       report: report,
