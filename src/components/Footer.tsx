@@ -82,10 +82,10 @@ export function Footer() {
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
                   <a 
-                    href="mailto:info@resyne.ai" 
+                    href="mailto:contact@re-syne.com" 
                     className="text-foreground hover:text-resyne-gold transition-colors"
                   >
-                    info@resyne.ai
+                    contact@re-syne.com
                   </a>
                 </div>
               </li>
@@ -94,10 +94,10 @@ export function Footer() {
                 <div>
                   <p className="text-sm text-muted-foreground">Telefono</p>
                   <a 
-                    href="tel:+390212345678" 
+                    href="tel:+393911491256" 
                     className="text-foreground hover:text-tech-blue transition-colors"
                   >
-                    +39 02 1234 5678
+                    +393911491256
                   </a>
                 </div>
               </li>

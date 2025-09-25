@@ -154,7 +154,7 @@ export function LeadSection() {
               </p>
               <Button className="bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light">
                 <Phone className="w-4 h-4 mr-2" />
-                +39 02 1234 5678
+                +393911491256
               </Button>
             </div>
           </div>

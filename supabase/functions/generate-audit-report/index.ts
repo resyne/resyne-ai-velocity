@@ -331,7 +331,7 @@ Formatta la risposta in modo chiaro e professionale, usando elenchi puntati e se
       <h3 style="margin-top: 0; color: #ca9c2a; font-family: 'Poppins', sans-serif;">Resyne - Digital Innovation Partners</h3>
       <div class="contact-info">
         <div class="contact-item">
-          <strong>📞</strong> +39 393 063 7643
+          <strong>📞</strong> +393911491256
         </div>
         <div class="contact-item">
           <strong>✉️</strong> contact@re-syne.com
