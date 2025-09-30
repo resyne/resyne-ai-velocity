@@ -9,6 +9,7 @@ import { DemoSection } from "@/components/DemoSection";
 import { LeadSection } from "@/components/LeadSection";
 import { Footer } from "@/components/Footer";
 import Index from "./pages/Index";
+import Audit from "./pages/Audit";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
               <Footer />
             </>
           } />
+          <Route path="/audit" element={<Audit />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

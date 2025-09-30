@@ -5,7 +5,7 @@ import { Database, Zap, Bot, TrendingUp, Brain } from "lucide-react";
 import { ERPDemo } from "./demo/ERPDemo";
 import { AutomationDemo } from "./demo/AutomationDemo";
 import { AIDemo } from "./demo/AIDemo";
-import { AuditAIForm } from "./AuditAIForm";
+import { Link } from "react-router-dom";
 
 export function DemoSection() {
   return (
@@ -66,12 +66,12 @@ export function DemoSection() {
               <CardContent>
                 <ERPDemo />
                 <div className="mt-6 flex justify-center">
-                  <AuditAIForm>
+                  <Link to="/audit">
                     <Button className="bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light flex items-center gap-2 text-lg px-8 py-6">
                       <Brain className="w-5 h-5" />
                       Report Audit AI GRATIS <span className="font-bold">(Valore €249)</span>
                     </Button>
-                  </AuditAIForm>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
@@ -104,12 +104,12 @@ export function DemoSection() {
               <CardContent>
                 <AutomationDemo />
                 <div className="mt-6 flex justify-center">
-                  <AuditAIForm>
+                  <Link to="/audit">
                     <Button className="bg-tech-blue text-white hover:bg-tech-blue/90 flex items-center gap-2 text-lg px-8 py-6">
                       <Brain className="w-5 h-5" />
                       Report Audit AI GRATIS <span className="font-bold">(Valore €249)</span>
                     </Button>
-                  </AuditAIForm>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
@@ -142,12 +142,12 @@ export function DemoSection() {
               <CardContent>
                 <AIDemo />
                 <div className="mt-6 flex justify-center">
-                  <AuditAIForm>
+                  <Link to="/audit">
                     <Button className="bg-tech-purple text-white hover:bg-tech-purple/90 flex items-center gap-2 text-lg px-8 py-6">
                       <Brain className="w-5 h-5" />
                       Report Audit AI GRATIS <span className="font-bold">(Valore €249)</span>
                     </Button>
-                  </AuditAIForm>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
