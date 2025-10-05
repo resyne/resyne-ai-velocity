@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, TrendingUp } from "lucide-react";
+import { ArrowRight, Zap, TrendingUp, Clock } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 export function HeroSection() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -72,6 +74,15 @@ export function HeroSection() {
             >
               {t('hero.discoverDemos')}
               <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="border-tech-purple text-tech-purple hover:bg-tech-purple hover:text-white font-subtitle text-lg px-8 py-4 h-auto"
+              onClick={() => navigate('/website-in-1-day')}
+            >
+              <Clock className="w-5 h-5 mr-2" />
+              {t('hero.websiteInOneDay')}
             </Button>
             <Button 
               variant="outline" 
