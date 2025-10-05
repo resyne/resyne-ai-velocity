@@ -201,6 +201,24 @@
       },
       "closing": "💬 Costruito da veri sviluppatori, potenziato dall'AI — già usato da imprenditori come te."
     },
+    "socialProof": {
+      "title1": "Progetti",
+      "title2": "Realizzati",
+      "subtitle": "Guarda cosa abbiamo creato per imprenditori come te in solo 1 giorno",
+      "visitSite": "Visita il sito",
+      "testimonials": {
+        "vesuviano": "Incredibile! In meno di 24 ore avevo il mio sito online. Professionale, veloce e perfetto per il mio business.",
+        "zapper": "Resyne ha trasformato la mia idea in realtà velocemente. Il risultato ha superato le mie aspettative."
+      },
+      "authors": {
+        "vesuviano": "Marco R.",
+        "zapper": "Giuseppe M."
+      },
+      "roles": {
+        "vesuviano": "Proprietario, Vesuviano Forni",
+        "zapper": "CEO, Zapper Pro"
+      }
+    },
     "formTitle": "Richiedi il Tuo Appuntamento",
     "formSubtitle": "Rispondi a poche semplici domande e saremo pronti a creare il tuo sito in 1 giorno",
     "step": "Passo",
