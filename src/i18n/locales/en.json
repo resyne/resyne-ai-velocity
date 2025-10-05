@@ -192,6 +192,7 @@
     }
   },
   "websiteBooking": {
+    "badge": "Start Now",
     "entrepreneur": {
       "badge": "I'm a Serial Business Owner, so I know what I'm talking about.",
       "intro": "If you:",

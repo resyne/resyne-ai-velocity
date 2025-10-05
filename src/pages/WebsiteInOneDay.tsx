@@ -233,17 +233,38 @@ const WebsiteInOneDay = () => {
       </section>
 
       {/* Booking Form Section */}
-      <section className="py-20 px-4" id="booking-form">
-        <div className="container mx-auto max-w-5xl">
+      <section className="py-20 px-4 relative overflow-hidden" id="booking-form">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/5 to-background pointer-events-none"></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: "1s"}}></div>
+        
+        <div className="container mx-auto max-w-5xl relative z-10">
           <div className="text-center mb-12">
-            <h2 className="font-title text-4xl md:text-5xl mb-6">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/30 rounded-full px-6 py-2 mb-6 animate-pulse-glow">
+              <Sparkles className="w-5 h-5 text-primary" />
+              <span className="text-sm font-subtitle text-primary font-semibold uppercase tracking-wide">
+                {t("websiteBooking.badge")}
+              </span>
+            </div>
+            
+            <h2 className="font-title text-4xl md:text-5xl lg:text-6xl mb-6 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
               {t("websiteBooking.formTitle")}
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
               {t("websiteBooking.formSubtitle")}
             </p>
           </div>
-          <WebsiteBookingForm />
+          
+          <div className="relative">
+            {/* Glow effect behind form */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-3xl blur-2xl -z-10"></div>
+            
+            {/* Form container with enhanced styling */}
+            <div className="glass-card p-8 md:p-10 rounded-3xl border-2 border-primary/20 shadow-2xl">
+              <WebsiteBookingForm />
+            </div>
+          </div>
         </div>
       </section>
 
