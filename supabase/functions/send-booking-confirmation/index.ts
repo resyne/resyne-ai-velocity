@@ -42,7 +42,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send confirmation email to customer
     const customerEmail = await resend.emails.send({
-      from: "Resyne <onboarding@resend.dev>",
+      from: "Resyne <contact@re-syne.com>",
       to: [bookingData.email],
       subject: "Conferma Richiesta Appuntamento - Resyne",
       html: `
@@ -64,7 +64,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send notification email to admin
     const adminEmail = await resend.emails.send({
-      from: "Resyne Bookings <onboarding@resend.dev>",
+      from: "Resyne Bookings <contact@re-syne.com>",
       to: ["stanislaoelefante@gmail.com"],
       subject: `Nuova Richiesta Appuntamento - ${bookingData.firstName} ${bookingData.lastName}`,
       html: `
