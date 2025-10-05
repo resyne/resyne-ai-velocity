@@ -175,6 +175,19 @@
       "title": "Ready to Take Your Business Online?",
       "description": "Contact us today and receive your professional website in just 24 hours, saving 75% compared to traditional methods",
       "button": "Request Your Website Now"
+    },
+    "socialProof": {
+      "title1": "Completed",
+      "title2": "Projects",
+      "subtitle": "Check out some of the websites we created for our clients in just 24 hours",
+      "testimonial1": "Professional and fast website. They perfectly understood our needs and delivered a result that exceeded expectations. Highly recommended!",
+      "author1": "Marco Rossi",
+      "role1": "CEO, Vesuviano Forni",
+      "testimonial2": "Incredible speed without compromising quality. Our site now generates qualified leads every day. Investment that paid for itself in a few weeks.",
+      "author2": "Laura Bianchi",
+      "role2": "Marketing Director, Zapper Pro",
+      "visitSite": "Visit Site",
+      "viewProject": "View Project"
     }
   },
   "websiteBooking": {
