@@ -6,13 +6,25 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Calendar } from "@/components/ui/calendar";
 import { useTranslation } from "react-i18next";
 import { useToast } from "@/hooks/use-toast";
-import { ChevronLeft, ChevronRight, Check, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Check, X, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
+import { z } from "zod";
+import { format } from "date-fns";
+
+const bookingSchema = z.object({
+  firstName: z.string().trim().min(1, "Nome richiesto").max(100),
+  lastName: z.string().trim().min(1, "Cognome richiesto").max(100),
+  email: z.string().trim().email("Email non valida").max(255),
+  city: z.string().trim().max(100),
+  phone: z.string().trim().min(1, "Telefono richiesto").max(50),
+});
 
 export const WebsiteBookingForm = () => {
   const { t } = useTranslation();
   const { toast } = useToast();
   const [step, setStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [hasWebsite, setHasWebsite] = useState<boolean | null>(null);
   const [hasLogo, setHasLogo] = useState<boolean | null>(null);
   const [selectedDate, setSelectedDate] = useState<Date>();
@@ -35,47 +47,75 @@ export const WebsiteBookingForm = () => {
   ];
 
   const handleSubmit = async () => {
-    // Validation
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone) {
-      toast({
-        title: t("websiteBooking.form.error"),
-        description: t("websiteBooking.form.errorDesc"),
-        variant: "destructive",
+    setIsSubmitting(true);
+    
+    try {
+      // Validate form data
+      const validatedData = bookingSchema.parse(formData);
+
+      const bookingData = {
+        ...validatedData,
+        hasWebsite: hasWebsite ?? false,
+        hasLogo: hasLogo ?? false,
+        appointmentDate: selectedDate ? format(selectedDate, "dd/MM/yyyy") : "",
+        appointmentTime: selectedTime,
+        preferWhatsApp: formData.preferWhatsApp,
+        preferEmail: formData.preferEmail,
+        preferPhone: formData.preferPhone,
+        preferConference: formData.preferConference,
+      };
+
+      console.log("Sending booking data:", bookingData);
+
+      const { data, error } = await supabase.functions.invoke('send-booking-confirmation', {
+        body: bookingData,
       });
-      return;
+
+      if (error) throw error;
+
+      console.log("Booking confirmation sent:", data);
+
+      toast({
+        title: t("websiteBooking.form.success"),
+        description: t("websiteBooking.form.successDesc"),
+      });
+
+      // Reset form
+      setStep(1);
+      setHasWebsite(null);
+      setHasLogo(null);
+      setSelectedDate(undefined);
+      setSelectedTime("");
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        city: "",
+        phone: "",
+        preferWhatsApp: false,
+        preferEmail: false,
+        preferPhone: false,
+        preferConference: false,
+      });
+    } catch (error: any) {
+      console.error("Error submitting booking:", error);
+      
+      if (error instanceof z.ZodError) {
+        toast({
+          title: t("websiteBooking.form.error"),
+          description: error.errors[0].message,
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: t("websiteBooking.form.error"),
+          description: error.message || t("websiteBooking.form.errorDesc"),
+          variant: "destructive",
+        });
+      }
+    } finally {
+      setIsSubmitting(false);
     }
-
-    // Here you would send the data to your backend
-    console.log({
-      hasWebsite,
-      hasLogo,
-      appointmentDate: selectedDate,
-      appointmentTime: selectedTime,
-      ...formData,
-    });
-
-    toast({
-      title: t("websiteBooking.form.success"),
-      description: t("websiteBooking.form.successDesc"),
-    });
-
-    // Reset form
-    setStep(1);
-    setHasWebsite(null);
-    setHasLogo(null);
-    setSelectedDate(undefined);
-    setSelectedTime("");
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      city: "",
-      phone: "",
-      preferWhatsApp: false,
-      preferEmail: false,
-      preferPhone: false,
-      preferConference: false,
-    });
   };
 
   const canGoNext = () => {
@@ -335,8 +375,15 @@ export const WebsiteBookingForm = () => {
             <ChevronRight className="w-4 h-4 ml-2" />
           </Button>
         ) : (
-          <Button onClick={handleSubmit}>
-            {t("websiteBooking.submit")}
+          <Button onClick={handleSubmit} disabled={isSubmitting}>
+            {isSubmitting ? (
+              <>
+                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                {t("websiteBooking.sending")}
+              </>
+            ) : (
+              t("websiteBooking.submit")
+            )}
           </Button>
         )}
       </div>

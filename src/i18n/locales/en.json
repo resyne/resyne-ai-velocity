@@ -215,6 +215,7 @@
     "back": "Back",
     "next": "Next",
     "submit": "Submit Request",
+    "sending": "Sending...",
     "form": {
       "firstName": "First Name",
       "lastName": "Last Name",

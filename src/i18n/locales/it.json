@@ -215,6 +215,7 @@
     "back": "Indietro",
     "next": "Avanti",
     "submit": "Invia Richiesta",
+    "sending": "Invio in corso...",
     "form": {
       "firstName": "Nome",
       "lastName": "Cognome",
