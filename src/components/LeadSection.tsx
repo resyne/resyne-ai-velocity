@@ -7,8 +7,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Users, Mail, Phone, Building, ArrowRight, CheckCircle } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export function LeadSection() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     nome: "",
     email: "",
@@ -26,8 +28,8 @@ export function LeadSection() {
 
     try {
       toast({
-        title: "Richiesta Inviata!",
-        description: "Ti ricontatteremo entro 24 ore per una consulenza gratuita.",
+        title: t('leads.toast.success'),
+        description: t('leads.toast.successDesc'),
       });
 
       // Reset form
@@ -41,8 +43,8 @@ export function LeadSection() {
       });
     } catch (error) {
       toast({
-        title: "Errore",
-        description: "Si è verificato un problema. Riprova più tardi.",
+        title: t('leads.toast.error'),
+        description: t('leads.toast.errorDesc'),
         variant: "destructive",
       });
     } finally {
@@ -55,12 +57,11 @@ export function LeadSection() {
       <div className="container mx-auto px-4 lg:px-6">
         <div className="text-center mb-16">
           <h2 className="font-title text-4xl md:text-6xl mb-6">
-            <span className="gradient-text">Trasforma</span> la tua{" "}
-            <span className="text-tech-glow">Azienda</span> oggi
+            <span className="gradient-text">{t('leads.title1')}</span> {t('leads.title2')}{" "}
+            <span className="text-tech-glow">{t('leads.title3')}</span> {t('leads.title4')}
           </h2>
           <p className="font-subtitle text-xl text-muted-foreground max-w-3xl mx-auto">
-            Richiedi una consulenza gratuita personalizzata. I nostri esperti analizzeranno 
-            le tue esigenze e ti proporranno la soluzione AI-ERP perfetta.
+            {t('leads.subtitle')}
           </p>
         </div>
 
@@ -76,11 +77,10 @@ export function LeadSection() {
                     </div>
                     <div>
                       <h3 className="font-subtitle text-lg mb-2 text-resyne-gold">
-                        Consulenza Gratuita
+                        {t('leads.benefit1.title')}
                       </h3>
                       <p className="text-muted-foreground">
-                        Analisi completa dei tuoi processi aziendali senza impegno. 
-                        Identificheremo opportunità di miglioramento immediate.
+                        {t('leads.benefit1.description')}
                       </p>
                     </div>
                   </div>
@@ -95,11 +95,10 @@ export function LeadSection() {
                     </div>
                     <div>
                       <h3 className="font-subtitle text-lg mb-2 text-tech-blue">
-                        Implementazione Rapida
+                        {t('leads.benefit2.title')}
                       </h3>
                       <p className="text-muted-foreground">
-                        Grazie all'AI, riduciamo i tempi di implementazione da mesi a settimane. 
-                        Sistema operativo in tempi record.
+                        {t('leads.benefit2.description')}
                       </p>
                     </div>
                   </div>
@@ -114,11 +113,10 @@ export function LeadSection() {
                     </div>
                     <div>
                       <h3 className="font-subtitle text-lg mb-2 text-tech-purple">
-                        Supporto 24/7
+                        {t('leads.benefit3.title')}
                       </h3>
                       <p className="text-muted-foreground">
-                        Assistenza continua con AI integrata e team di esperti. 
-                        Non rimarrai mai senza supporto.
+                        {t('leads.benefit3.description')}
                       </p>
                     </div>
                   </div>
@@ -129,10 +127,10 @@ export function LeadSection() {
             <div className="text-center space-y-4 p-6 glass-card rounded-lg">
               <div className="flex items-center justify-center gap-2">
                 <Phone className="w-5 h-5 text-resyne-gold" />
-                <span className="font-subtitle text-lg text-resyne-gold">Chiamata Immediata</span>
+                <span className="font-subtitle text-lg text-resyne-gold">{t('leads.callTitle')}</span>
               </div>
               <p className="text-sm text-muted-foreground">
-                Preferisci parlare direttamente? Chiamaci al numero dedicato
+                {t('leads.callDescription')}
               </p>
               <Button className="bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light">
                 <Phone className="w-4 h-4 mr-2" />
@@ -145,17 +143,17 @@ export function LeadSection() {
           <Card className="glass-card shadow-glow">
             <CardHeader>
               <CardTitle className="font-title text-2xl gradient-text text-center">
-                Richiedi Consulenza Gratuita
+                {t('leads.formTitle')}
               </CardTitle>
               <CardDescription className="text-center text-muted-foreground">
-                Compila il modulo e ti ricontatteremo entro 24 ore
+                {t('leads.formDescription')}
               </CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="nome">Nome e Cognome *</Label>
+                    <Label htmlFor="nome">{t('leads.form.name')} *</Label>
                     <Input
                       id="nome"
                       value={formData.nome}
@@ -166,7 +164,7 @@ export function LeadSection() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="azienda">Azienda</Label>
+                    <Label htmlFor="azienda">{t('leads.form.company')}</Label>
                     <Input
                       id="azienda"
                       value={formData.azienda}
@@ -178,7 +176,7 @@ export function LeadSection() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email *</Label>
+                  <Label htmlFor="email">{t('leads.form.email')} *</Label>
                   <Input
                     id="email"
                     type="email"
@@ -191,7 +189,7 @@ export function LeadSection() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="telefono">Telefono</Label>
+                  <Label htmlFor="telefono">{t('leads.form.phone')}</Label>
                   <Input
                     id="telefono"
                     value={formData.telefono}
@@ -202,29 +200,29 @@ export function LeadSection() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="servizio">Servizio di Interesse</Label>
+                  <Label htmlFor="servizio">{t('leads.form.service')}</Label>
                   <Select value={formData.servizio} onValueChange={(value) => setFormData({...formData, servizio: value})}>
                     <SelectTrigger className="bg-muted/50">
-                      <SelectValue placeholder="Seleziona il servizio" />
+                      <SelectValue placeholder={t('leads.form.selectService')} />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="erp">ERP Solutions</SelectItem>
-                      <SelectItem value="automation">Automation</SelectItem>
-                      <SelectItem value="ai">AI Solutions</SelectItem>
-                      <SelectItem value="completo">Soluzione Completa</SelectItem>
-                      <SelectItem value="consulenza">Solo Consulenza</SelectItem>
+                      <SelectItem value="erp">{t('leads.form.services.erp')}</SelectItem>
+                      <SelectItem value="automation">{t('leads.form.services.automation')}</SelectItem>
+                      <SelectItem value="ai">{t('leads.form.services.ai')}</SelectItem>
+                      <SelectItem value="completo">{t('leads.form.services.complete')}</SelectItem>
+                      <SelectItem value="consulenza">{t('leads.form.services.consultation')}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="messaggio">Descrivi le tue Esigenze</Label>
+                  <Label htmlFor="messaggio">{t('leads.form.message')}</Label>
                   <Textarea
                     id="messaggio"
                     value={formData.messaggio}
                     onChange={(e) => setFormData({...formData, messaggio: e.target.value})}
                     className="bg-muted/50 min-h-[100px]"
-                    placeholder="Raccontaci della tua azienda e delle tue esigenze specifiche..."
+                    placeholder={t('leads.form.messagePlaceholder')}
                   />
                 </div>
 
@@ -235,18 +233,18 @@ export function LeadSection() {
                   disabled={isLoading}
                 >
                   {isLoading ? (
-                    "Invio in corso..."
+                    t('leads.form.sending')
                   ) : (
                     <>
                       <Mail className="w-5 h-5 mr-2" />
-                      Invia Richiesta
+                      {t('leads.form.submit')}
                       <ArrowRight className="w-5 h-5 ml-2" />
                     </>
                   )}
                 </Button>
 
                 <p className="text-xs text-center text-muted-foreground">
-                  Rispettiamo la tua privacy. Non condivideremo mai i tuoi dati con terze parti.
+                  {t('leads.form.privacy')}
                 </p>
               </form>
             </CardContent>

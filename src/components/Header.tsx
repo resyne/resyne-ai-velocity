@@ -2,12 +2,15 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import resyneLogoNew from "@/assets/resyne-logo-new.png";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation();
 
   const scrollToSection = (sectionId: string) => {
     if (location.pathname !== '/') {
@@ -50,7 +53,7 @@ export function Header() {
                 scrollToSection('erp');
               }}
             >
-              ERP Solutions
+              {t('header.erp')}
             </a>
             <a 
               href="#automation" 
@@ -60,7 +63,7 @@ export function Header() {
                 scrollToSection('automation');
               }}
             >
-              Automation
+              {t('header.automation')}
             </a>
             <a 
               href="#ai" 
@@ -70,7 +73,7 @@ export function Header() {
                 scrollToSection('ai');
               }}
             >
-              AI Solutions
+              {t('header.ai')}
             </a>
             <a 
               href="/website-in-1-day" 
@@ -80,26 +83,27 @@ export function Header() {
                 navigate('/website-in-1-day');
               }}
             >
-              Website in 1 Day
+              {t('header.websiteInOneDay')}
             </a>
           </nav>
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
+            <LanguageSwitcher />
             <Button 
               variant="outline" 
               size="sm" 
               className="border-resyne-gold text-resyne-gold hover:bg-resyne-gold hover:text-resyne-dark cursor-pointer"
               onClick={() => scrollToSection('demos')}
             >
-              Richiedi Demo
+              {t('header.requestDemo')}
             </Button>
             <Button 
               size="sm" 
               className="bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light cursor-pointer"
               onClick={() => scrollToSection('leads')}
             >
-              Contattaci
+              {t('header.contactUs')}
             </Button>
           </div>
 
@@ -129,7 +133,7 @@ export function Header() {
                   setIsMenuOpen(false);
                 }}
               >
-                ERP Solutions
+                {t('header.erp')}
               </a>
               <a 
                 href="#automation" 
@@ -140,7 +144,7 @@ export function Header() {
                   setIsMenuOpen(false);
                 }}
               >
-                Automation
+                {t('header.automation')}
               </a>
               <a 
                 href="#ai" 
@@ -151,7 +155,7 @@ export function Header() {
                   setIsMenuOpen(false);
                 }}
               >
-                AI Solutions
+                {t('header.ai')}
               </a>
               <a 
                 href="/website-in-1-day" 
@@ -162,9 +166,10 @@ export function Header() {
                   setIsMenuOpen(false);
                 }}
               >
-                Website in 1 Day
+                {t('header.websiteInOneDay')}
               </a>
               <div className="flex flex-col space-y-2 pt-4">
+                <LanguageSwitcher />
                 <Button 
                   variant="outline" 
                   size="sm" 
@@ -174,7 +179,7 @@ export function Header() {
                     setIsMenuOpen(false);
                   }}
                 >
-                  Richiedi Demo
+                  {t('header.requestDemo')}
                 </Button>
                 <Button 
                   size="sm" 
@@ -184,7 +189,7 @@ export function Header() {
                     setIsMenuOpen(false);
                   }}
                 >
-                  Contattaci
+                  {t('header.contactUs')}
                 </Button>
               </div>
             </nav>

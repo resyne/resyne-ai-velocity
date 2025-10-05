@@ -1,25 +1,27 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Database, Zap, Bot, TrendingUp, Brain } from "lucide-react";
+import { Database, Zap, Bot, Brain } from "lucide-react";
 import { ERPDemo } from "./demo/ERPDemo";
 import { AutomationDemo } from "./demo/AutomationDemo";
 import { AIDemo } from "./demo/AIDemo";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export function DemoSection() {
+  const { t } = useTranslation();
+  
   return (
     <section className="py-24 tech-web" id="demos">
       <div className="container mx-auto px-4 lg:px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="font-title text-4xl md:text-6xl mb-6">
-            <span className="gradient-text">Demo Live</span> delle nostre{" "}
-            <span className="text-tech-glow">Soluzioni</span>
+            <span className="gradient-text">{t('demos.title')}</span> {t('demos.title2')}{" "}
+            <span className="text-tech-glow">{t('demos.title3')}</span>
           </h2>
           <p className="font-subtitle text-xl text-muted-foreground max-w-3xl mx-auto">
-            Esplora le nostre piattaforme innovative in azione. Ogni demo è completamente funzionale 
-            e mostra il potere dell'integrazione AI-ERP.
+            {t('demos.subtitle')}
           </p>
         </div>
 
@@ -27,15 +29,15 @@ export function DemoSection() {
           <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 lg:grid-cols-3 mb-12 bg-card/50 backdrop-blur-sm">
             <TabsTrigger value="erp" className="flex items-center gap-2 data-[state=active]:bg-resyne-gold data-[state=active]:text-resyne-dark">
               <Database className="w-4 h-4" />
-              ERP Solutions
+              {t('header.erp')}
             </TabsTrigger>
             <TabsTrigger value="automation" className="flex items-center gap-2 data-[state=active]:bg-tech-blue data-[state=active]:text-white">
               <Zap className="w-4 h-4" />
-              Automation
+              {t('header.automation')}
             </TabsTrigger>
             <TabsTrigger value="ai" className="flex items-center gap-2 data-[state=active]:bg-tech-purple data-[state=active]:text-white">
               <Bot className="w-4 h-4" />
-              AI Solutions
+              {t('header.ai')}
             </TabsTrigger>
           </TabsList>
 
@@ -49,18 +51,18 @@ export function DemoSection() {
                   </div>
                   <div>
                     <CardTitle className="font-title text-2xl gradient-text">
-                      ERP Completo con AI Integration
+                      {t('demos.erp.title')}
                     </CardTitle>
                     <CardDescription className="text-muted-foreground">
-                      CRM, Magazzino, Partnership, Newsletter, Controllo Gestione, Marketing - Tutto in un'unica piattaforma
+                      {t('demos.erp.description')}
                     </CardDescription>
                   </div>
                 </div>
                 <div className="flex gap-2 flex-wrap">
-                  <span className="px-3 py-1 text-xs rounded-full bg-resyne-gold/20 text-resyne-gold">CRM Intelligente</span>
-                  <span className="px-3 py-1 text-xs rounded-full bg-tech-blue/20 text-tech-blue">Gestione Magazzino</span>
-                  <span className="px-3 py-1 text-xs rounded-full bg-tech-purple/20 text-tech-purple">AI Analytics</span>
-                  <span className="px-3 py-1 text-xs rounded-full bg-resyne-gold/20 text-resyne-gold">Marketing Automation</span>
+                  <span className="px-3 py-1 text-xs rounded-full bg-resyne-gold/20 text-resyne-gold">{t('demos.erp.tag1')}</span>
+                  <span className="px-3 py-1 text-xs rounded-full bg-tech-blue/20 text-tech-blue">{t('demos.erp.tag2')}</span>
+                  <span className="px-3 py-1 text-xs rounded-full bg-tech-purple/20 text-tech-purple">{t('demos.erp.tag3')}</span>
+                  <span className="px-3 py-1 text-xs rounded-full bg-resyne-gold/20 text-resyne-gold">{t('demos.erp.tag4')}</span>
                 </div>
               </CardHeader>
               <CardContent>
@@ -69,7 +71,7 @@ export function DemoSection() {
                   <Link to="/audit">
                     <Button className="bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light flex items-center gap-2 text-lg px-8 py-6">
                       <Brain className="w-5 h-5" />
-                      Report Audit AI GRATIS <span className="font-bold">(Valore €249)</span>
+                      {t('demos.auditButton')} <span className="font-bold">{t('demos.auditValue')}</span>
                     </Button>
                   </Link>
                 </div>
@@ -87,18 +89,18 @@ export function DemoSection() {
                   </div>
                   <div>
                     <CardTitle className="font-title text-2xl gradient-tech-text">
-                      Automation Suite con Make & Zapier
+                      {t('demos.automation.title')}
                     </CardTitle>
                     <CardDescription className="text-muted-foreground">
-                      Automazioni intelligenti per ottimizzare i processi aziendali e aumentare l'efficienza
+                      {t('demos.automation.description')}
                     </CardDescription>
                   </div>
                 </div>
                 <div className="flex gap-2 flex-wrap">
-                  <span className="px-3 py-1 text-xs rounded-full bg-tech-blue/20 text-tech-blue">Make Integration</span>
-                  <span className="px-3 py-1 text-xs rounded-full bg-tech-cyan/20 text-tech-cyan">Zapier Workflows</span>
-                  <span className="px-3 py-1 text-xs rounded-full bg-tech-purple/20 text-tech-purple">Smart Triggers</span>
-                  <span className="px-3 py-1 text-xs rounded-full bg-resyne-gold/20 text-resyne-gold">Real-time Sync</span>
+                  <span className="px-3 py-1 text-xs rounded-full bg-tech-blue/20 text-tech-blue">{t('demos.automation.tag1')}</span>
+                  <span className="px-3 py-1 text-xs rounded-full bg-tech-cyan/20 text-tech-cyan">{t('demos.automation.tag2')}</span>
+                  <span className="px-3 py-1 text-xs rounded-full bg-tech-purple/20 text-tech-purple">{t('demos.automation.tag3')}</span>
+                  <span className="px-3 py-1 text-xs rounded-full bg-resyne-gold/20 text-resyne-gold">{t('demos.automation.tag4')}</span>
                 </div>
               </CardHeader>
               <CardContent>
@@ -107,7 +109,7 @@ export function DemoSection() {
                   <Link to="/audit">
                     <Button className="bg-tech-blue text-white hover:bg-tech-blue/90 flex items-center gap-2 text-lg px-8 py-6">
                       <Brain className="w-5 h-5" />
-                      Report Audit AI GRATIS <span className="font-bold">(Valore €249)</span>
+                      {t('demos.auditButton')} <span className="font-bold">{t('demos.auditValue')}</span>
                     </Button>
                   </Link>
                 </div>
@@ -125,18 +127,18 @@ export function DemoSection() {
                   </div>
                   <div>
                     <CardTitle className="font-title text-2xl text-tech-glow">
-                      AI Phone Dealers & Assistenti Virtuali
+                      {t('demos.ai.title')}
                     </CardTitle>
                     <CardDescription className="text-muted-foreground">
-                      Agenti AI che gestiscono ordinazioni, prenotazioni e supporto clienti 24/7
+                      {t('demos.ai.description')}
                     </CardDescription>
                   </div>
                 </div>
                 <div className="flex gap-2 flex-wrap">
-                  <span className="px-3 py-1 text-xs rounded-full bg-tech-purple/20 text-tech-purple">Voice AI</span>
-                  <span className="px-3 py-1 text-xs rounded-full bg-tech-cyan/20 text-tech-cyan">NLP Processing</span>
-                  <span className="px-3 py-1 text-xs rounded-full bg-resyne-gold/20 text-resyne-gold">24/7 Support</span>
-                  <span className="px-3 py-1 text-xs rounded-full bg-tech-blue/20 text-tech-blue">Multi-lingua</span>
+                  <span className="px-3 py-1 text-xs rounded-full bg-tech-purple/20 text-tech-purple">{t('demos.ai.tag1')}</span>
+                  <span className="px-3 py-1 text-xs rounded-full bg-tech-cyan/20 text-tech-cyan">{t('demos.ai.tag2')}</span>
+                  <span className="px-3 py-1 text-xs rounded-full bg-resyne-gold/20 text-resyne-gold">{t('demos.ai.tag3')}</span>
+                  <span className="px-3 py-1 text-xs rounded-full bg-tech-blue/20 text-tech-blue">{t('demos.ai.tag4')}</span>
                 </div>
               </CardHeader>
               <CardContent>
@@ -145,7 +147,7 @@ export function DemoSection() {
                   <Link to="/audit">
                     <Button className="bg-tech-purple text-white hover:bg-tech-purple/90 flex items-center gap-2 text-lg px-8 py-6">
                       <Brain className="w-5 h-5" />
-                      Report Audit AI GRATIS <span className="font-bold">(Valore €249)</span>
+                      {t('demos.auditButton')} <span className="font-bold">{t('demos.auditValue')}</span>
                     </Button>
                   </Link>
                 </div>

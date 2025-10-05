@@ -1,0 +1,180 @@
+{
+  "header": {
+    "erp": "ERP Solutions",
+    "automation": "Automation",
+    "ai": "AI Solutions",
+    "websiteInOneDay": "Website in 1 Day",
+    "requestDemo": "Richiedi Demo",
+    "contactUs": "Contattaci"
+  },
+  "hero": {
+    "badge": "Rivoluzione AI per le Aziende",
+    "title1": "Soluzioni ERP",
+    "title2": "con AI",
+    "title3": "10x Più Veloci",
+    "subtitle": "Implementazioni rivoluzionarie per la tua azienda",
+    "stat1": "10x Più Rapidi",
+    "stat2": "10x Più Economici",
+    "description": "RESYNE è specializzata in <strong>Automation</strong>, implementazioni <strong>AI</strong> ed <strong>ERP</strong> per trasformare la tua azienda con soluzioni innovative e performanti.",
+    "discoverDemos": "Scopri le Demo",
+    "requestConsultation": "Richiedi Consulenza Gratuita",
+    "stats": {
+      "implementations": "Implementazioni Completate",
+      "reduction": "Riduzione Tempi Processo",
+      "support": "Supporto Automatizzato AI"
+    }
+  },
+  "demos": {
+    "title": "Demo Live",
+    "title2": "delle nostre",
+    "title3": "Soluzioni",
+    "subtitle": "Esplora le nostre piattaforme innovative in azione. Ogni demo è completamente funzionale e mostra il potere dell'integrazione AI-ERP.",
+    "erp": {
+      "title": "ERP Completo con AI Integration",
+      "description": "CRM, Magazzino, Partnership, Newsletter, Controllo Gestione, Marketing - Tutto in un'unica piattaforma",
+      "tag1": "CRM Intelligente",
+      "tag2": "Gestione Magazzino",
+      "tag3": "AI Analytics",
+      "tag4": "Marketing Automation"
+    },
+    "automation": {
+      "title": "Automation Suite con Make & Zapier",
+      "description": "Automazioni intelligenti per ottimizzare i processi aziendali e aumentare l'efficienza",
+      "tag1": "Make Integration",
+      "tag2": "Zapier Workflows",
+      "tag3": "Smart Triggers",
+      "tag4": "Real-time Sync"
+    },
+    "ai": {
+      "title": "AI Phone Dealers & Assistenti Virtuali",
+      "description": "Agenti AI che gestiscono ordinazioni, prenotazioni e supporto clienti 24/7",
+      "tag1": "Voice AI",
+      "tag2": "NLP Processing",
+      "tag3": "24/7 Support",
+      "tag4": "Multi-lingua"
+    },
+    "auditButton": "Report Audit AI GRATIS",
+    "auditValue": "(Valore €249)"
+  },
+  "leads": {
+    "title1": "Trasforma",
+    "title2": "la tua",
+    "title3": "Azienda",
+    "title4": "oggi",
+    "subtitle": "Richiedi una consulenza gratuita personalizzata. I nostri esperti analizzeranno le tue esigenze e ti proporranno la soluzione AI-ERP perfetta.",
+    "benefit1": {
+      "title": "Consulenza Gratuita",
+      "description": "Analisi completa dei tuoi processi aziendali senza impegno. Identificheremo opportunità di miglioramento immediate."
+    },
+    "benefit2": {
+      "title": "Implementazione Rapida",
+      "description": "Grazie all'AI, riduciamo i tempi di implementazione da mesi a settimane. Sistema operativo in tempi record."
+    },
+    "benefit3": {
+      "title": "Supporto 24/7",
+      "description": "Assistenza continua con AI integrata e team di esperti. Non rimarrai mai senza supporto."
+    },
+    "callTitle": "Chiamata Immediata",
+    "callDescription": "Preferisci parlare direttamente? Chiamaci al numero dedicato",
+    "formTitle": "Richiedi Consulenza Gratuita",
+    "formDescription": "Compila il modulo e ti ricontatteremo entro 24 ore",
+    "form": {
+      "name": "Nome e Cognome",
+      "company": "Azienda",
+      "email": "Email",
+      "phone": "Telefono",
+      "service": "Servizio di Interesse",
+      "selectService": "Seleziona il servizio",
+      "services": {
+        "erp": "ERP Solutions",
+        "automation": "Automation",
+        "ai": "AI Solutions",
+        "complete": "Soluzione Completa",
+        "consultation": "Solo Consulenza"
+      },
+      "message": "Descrivi le tue Esigenze",
+      "messagePlaceholder": "Raccontaci della tua azienda e delle tue esigenze specifiche...",
+      "submit": "Invia Richiesta",
+      "sending": "Invio in corso...",
+      "privacy": "Rispettiamo la tua privacy. Non condivideremo mai i tuoi dati con terze parti."
+    },
+    "toast": {
+      "success": "Richiesta Inviata!",
+      "successDesc": "Ti ricontatteremo entro 24 ore per una consulenza gratuita.",
+      "error": "Errore",
+      "errorDesc": "Si è verificato un problema. Riprova più tardi."
+    }
+  },
+  "footer": {
+    "description": "Soluzioni innovative AI-ERP per trasformare la tua azienda. Specialisti in automazione, implementazioni AI ed ERP per risultati 10x più veloci ed economici.",
+    "services": "Servizi",
+    "freeConsultation": "Consulenza Gratuita",
+    "support247": "Supporto 24/7",
+    "contacts": "Contatti",
+    "email": "Email",
+    "phone": "Telefono",
+    "location": "Sede",
+    "locationCity": "Milano, Italia",
+    "locationCoverage": "Servizi in tutta Europa",
+    "copyright": "Tutti i diritti riservati.",
+    "privacy": "Privacy Policy",
+    "terms": "Termini di Servizio",
+    "cookies": "Cookie Policy"
+  },
+  "websiteInOneDay": {
+    "badge": "Sviluppo AI-Powered",
+    "title1": "Il Tuo Sito Web in",
+    "title2": "1 Giorno",
+    "subtitle": "Grazie al nostro team di sviluppatori formati sull'intelligenza artificiale, creiamo siti web professionali in tempi record con un risparmio del 75%",
+    "requestSite": "Richiedi il Tuo Sito",
+    "discoverMore": "Scopri di Più",
+    "benefits": {
+      "speed": {
+        "title": "Velocità Estrema",
+        "description": "Il tuo sito web è pronto in sole 24 ore, non settimane o mesi"
+      },
+      "ai": {
+        "title": "AI-Powered Development",
+        "description": "Team di sviluppatori formati sullo sviluppo con intelligenza artificiale"
+      },
+      "savings": {
+        "title": "75% di Risparmio",
+        "description": "Costi drasticamente ridotti senza compromettere la qualità"
+      }
+    },
+    "features": {
+      "title1": "Cosa Include il Tuo",
+      "title2": "Sito Web",
+      "subtitle": "Tutto ciò di cui hai bisogno per una presenza online professionale",
+      "customDomain": "Custom domain",
+      "businessLogo": "Business logo",
+      "personalizedContent": "Personalized content & CTAs",
+      "socialIntegration": "All connected to your social media and WhatsApp",
+      "onlinePresence": {
+        "title": "Presenza Online Completa",
+        "description": "Il tuo sito sarà completamente integrato con tutti i tuoi canali social e WhatsApp per massimizzare il contatto con i tuoi clienti"
+      }
+    },
+    "howItWorks": {
+      "title": "Come",
+      "title2": "Funziona",
+      "step1": {
+        "title": "Contattaci",
+        "description": "Parlaci del tuo business e delle tue esigenze"
+      },
+      "step2": {
+        "title": "Sviluppo AI",
+        "description": "Il nostro team crea il tuo sito con tecnologie AI avanzate"
+      },
+      "step3": {
+        "title": "Vai Online",
+        "description": "In 24 ore il tuo sito è online e pronto a generare business"
+      }
+    },
+    "cta": {
+      "title": "Pronto a Portare il Tuo Business Online?",
+      "description": "Contattaci oggi e ricevi il tuo sito web professionale in sole 24 ore, risparmiando il 75% rispetto ai metodi tradizionali",
+      "button": "Richiedi il Tuo Sito Ora"
+    }
+  }
+}

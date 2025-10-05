@@ -3,32 +3,34 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Check, Zap, Sparkles, Rocket, Globe, MessageCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const WebsiteInOneDay = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const features = [
-    "Custom domain",
-    "Business logo",
-    "Personalized content & CTAs",
-    "All connected to your social media and WhatsApp"
+    t('websiteInOneDay.features.customDomain'),
+    t('websiteInOneDay.features.businessLogo'),
+    t('websiteInOneDay.features.personalizedContent'),
+    t('websiteInOneDay.features.socialIntegration')
   ];
 
   const benefits = [
     {
       icon: Zap,
-      title: "Velocità Estrema",
-      description: "Il tuo sito web è pronto in sole 24 ore, non settimane o mesi"
+      title: t('websiteInOneDay.benefits.speed.title'),
+      description: t('websiteInOneDay.benefits.speed.description')
     },
     {
       icon: Sparkles,
-      title: "AI-Powered Development",
-      description: "Team di sviluppatori formati sullo sviluppo con intelligenza artificiale"
+      title: t('websiteInOneDay.benefits.ai.title'),
+      description: t('websiteInOneDay.benefits.ai.description')
     },
     {
       icon: Rocket,
-      title: "75% di Risparmio",
-      description: "Costi drasticamente ridotti senza compromettere la qualità"
+      title: t('websiteInOneDay.benefits.savings.title'),
+      description: t('websiteInOneDay.benefits.savings.description')
     }
   ];
 
@@ -52,17 +54,16 @@ const WebsiteInOneDay = () => {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-6 py-2 mb-6">
               <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-sm font-subtitle text-primary">Sviluppo AI-Powered</span>
+              <span className="text-sm font-subtitle text-primary">{t('websiteInOneDay.badge')}</span>
             </div>
             
             <h1 className="font-title text-5xl md:text-7xl mb-6">
-              Il Tuo Sito Web in{" "}
-              <span className="gradient-text">1 Giorno</span>
+              {t('websiteInOneDay.title1')}{" "}
+              <span className="gradient-text">{t('websiteInOneDay.title2')}</span>
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              Grazie al nostro team di sviluppatori formati sull'intelligenza artificiale, 
-              creiamo siti web professionali in tempi record con un risparmio del 75%
+              {t('websiteInOneDay.subtitle')}
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center">
@@ -72,14 +73,14 @@ const WebsiteInOneDay = () => {
                 className="gap-2"
               >
                 <Rocket className="w-5 h-5" />
-                Richiedi il Tuo Sito
+                {t('websiteInOneDay.requestSite')}
               </Button>
               <Button 
                 size="lg" 
                 variant="outline"
                 onClick={() => navigate("/")}
               >
-                Scopri di Più
+                {t('websiteInOneDay.discoverMore')}
               </Button>
             </div>
           </div>
@@ -111,11 +112,11 @@ const WebsiteInOneDay = () => {
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-12">
             <h2 className="font-title text-4xl md:text-5xl mb-6">
-              Cosa Include il Tuo{" "}
-              <span className="gradient-text">Sito Web</span>
+              {t('websiteInOneDay.features.title1')}{" "}
+              <span className="gradient-text">{t('websiteInOneDay.features.title2')}</span>
             </h2>
             <p className="text-xl text-muted-foreground">
-              Tutto ciò di cui hai bisogno per una presenza online professionale
+              {t('websiteInOneDay.features.subtitle')}
             </p>
           </div>
 
@@ -138,10 +139,9 @@ const WebsiteInOneDay = () => {
               <div className="flex items-start gap-4 p-4 bg-accent/10 rounded-lg">
                 <Globe className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
                 <div>
-                  <h4 className="font-subtitle text-lg mb-2">Presenza Online Completa</h4>
+                  <h4 className="font-subtitle text-lg mb-2">{t('websiteInOneDay.features.onlinePresence.title')}</h4>
                   <p className="text-muted-foreground">
-                    Il tuo sito sarà completamente integrato con tutti i tuoi canali social 
-                    e WhatsApp per massimizzare il contatto con i tuoi clienti
+                    {t('websiteInOneDay.features.onlinePresence.description')}
                   </p>
                 </div>
               </div>
@@ -155,7 +155,7 @@ const WebsiteInOneDay = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="font-title text-4xl md:text-5xl mb-6">
-              Come <span className="gradient-tech-text">Funziona</span>
+              {t('websiteInOneDay.howItWorks.title')} <span className="gradient-tech-text">{t('websiteInOneDay.howItWorks.title2')}</span>
             </h2>
           </div>
 
@@ -164,9 +164,9 @@ const WebsiteInOneDay = () => {
               <div className="w-16 h-16 rounded-full bg-gradient-gold flex items-center justify-center text-2xl font-bold text-primary-foreground mx-auto mb-4">
                 1
               </div>
-              <h3 className="font-subtitle text-xl mb-3">Contattaci</h3>
+              <h3 className="font-subtitle text-xl mb-3">{t('websiteInOneDay.howItWorks.step1.title')}</h3>
               <p className="text-muted-foreground">
-                Parlaci del tuo business e delle tue esigenze
+                {t('websiteInOneDay.howItWorks.step1.description')}
               </p>
             </div>
 
@@ -174,9 +174,9 @@ const WebsiteInOneDay = () => {
               <div className="w-16 h-16 rounded-full bg-gradient-gold flex items-center justify-center text-2xl font-bold text-primary-foreground mx-auto mb-4">
                 2
               </div>
-              <h3 className="font-subtitle text-xl mb-3">Sviluppo AI</h3>
+              <h3 className="font-subtitle text-xl mb-3">{t('websiteInOneDay.howItWorks.step2.title')}</h3>
               <p className="text-muted-foreground">
-                Il nostro team crea il tuo sito con tecnologie AI avanzate
+                {t('websiteInOneDay.howItWorks.step2.description')}
               </p>
             </div>
 
@@ -184,9 +184,9 @@ const WebsiteInOneDay = () => {
               <div className="w-16 h-16 rounded-full bg-gradient-gold flex items-center justify-center text-2xl font-bold text-primary-foreground mx-auto mb-4">
                 3
               </div>
-              <h3 className="font-subtitle text-xl mb-3">Vai Online</h3>
+              <h3 className="font-subtitle text-xl mb-3">{t('websiteInOneDay.howItWorks.step3.title')}</h3>
               <p className="text-muted-foreground">
-                In 24 ore il tuo sito è online e pronto a generare business
+                {t('websiteInOneDay.howItWorks.step3.description')}
               </p>
             </div>
           </div>
@@ -199,11 +199,10 @@ const WebsiteInOneDay = () => {
           <div className="glass-card p-8 md:p-12 rounded-2xl text-center">
             <MessageCircle className="w-16 h-16 text-primary mx-auto mb-6" />
             <h2 className="font-title text-3xl md:text-4xl mb-6">
-              Pronto a Portare il Tuo Business Online?
+              {t('websiteInOneDay.cta.title')}
             </h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Contattaci oggi e ricevi il tuo sito web professionale in sole 24 ore, 
-              risparmiando il 75% rispetto ai metodi tradizionali
+              {t('websiteInOneDay.cta.description')}
             </p>
             <Button 
               size="lg" 
@@ -211,7 +210,7 @@ const WebsiteInOneDay = () => {
               className="gap-2"
             >
               <Rocket className="w-5 h-5" />
-              Richiedi il Tuo Sito Ora
+              {t('websiteInOneDay.cta.button')}
             </Button>
           </div>
         </div>
