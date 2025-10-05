@@ -176,5 +176,60 @@
       "description": "Contact us today and receive your professional website in just 24 hours, saving 75% compared to traditional methods",
       "button": "Request Your Website Now"
     }
+  },
+  "websiteBooking": {
+    "entrepreneur": {
+      "badge": "I'm a Serial Business Owner, so I know what I'm talking about.",
+      "intro": "If you:",
+      "caseA": {
+        "title": "Already have a business",
+        "description": "You need a website to better express your value and grow your sales."
+      },
+      "caseB": {
+        "title": "Are planning to start one",
+        "description": "You need a website FAST to validate your value proposition — FAST."
+      },
+      "solution": {
+        "title": "In both cases: you must move FASTER and spend LESS than your competitors.",
+        "description": "And that's possible thanks to a dev team I built, specialized in AI development. 🚀 So yes, we can make your website 100% custom — in just 1 DAY. Period.",
+        "features": {
+          "domain": "Custom domain",
+          "logo": "Business Logo",
+          "content": "Custom Contents",
+          "cta": "Sales call to Actions"
+        }
+      },
+      "closing": "💬 Built by real devs, powered by AI — already used by entrepreneurs like you."
+    },
+    "formTitle": "Request Your Appointment",
+    "formSubtitle": "Answer a few simple questions and we'll be ready to create your website in 1 day",
+    "step": "Step",
+    "of": "of",
+    "question1": "Do you already have a website?",
+    "question2": "Do you have a business logo?",
+    "question3": "When would you like to be contacted?",
+    "question4": "Complete your details",
+    "yes": "Yes",
+    "no": "No",
+    "selectTime": "Select time",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit Request",
+    "form": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "city": "City",
+      "contactPreference": "I prefer to be contacted via:",
+      "whatsapp": "WhatsApp",
+      "emailContact": "Email",
+      "phoneContact": "Phone",
+      "conference": "Conference Call",
+      "success": "Request Sent!",
+      "successDesc": "We'll contact you soon to confirm the appointment.",
+      "error": "Error",
+      "errorDesc": "Please fill in all required fields."
+    }
   }
 }

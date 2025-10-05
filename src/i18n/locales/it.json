@@ -176,5 +176,60 @@
       "description": "Contattaci oggi e ricevi il tuo sito web professionale in sole 24 ore, risparmiando il 75% rispetto ai metodi tradizionali",
       "button": "Richiedi il Tuo Sito Ora"
     }
+  },
+  "websiteBooking": {
+    "entrepreneur": {
+      "badge": "Sono un Serial Business Owner, so di cosa parlo.",
+      "intro": "Se tu:",
+      "caseA": {
+        "title": "Hai già un business",
+        "description": "Hai bisogno di un sito web per esprimere meglio il tuo valore e far crescere le tue vendite."
+      },
+      "caseB": {
+        "title": "Stai pianificando di iniziarne uno",
+        "description": "Hai bisogno di un sito web VELOCEMENTE per validare la tua value proposition — VELOCEMENTE."
+      },
+      "solution": {
+        "title": "In entrambi i casi: devi muoverti PIÙ VELOCE e spendere MENO dei tuoi competitor.",
+        "description": "Ed è possibile grazie a un team di sviluppatori che ho costruito, specializzato nello sviluppo AI. 🚀 Quindi sì, possiamo realizzare il tuo sito web 100% custom — in solo 1 GIORNO. Punto.",
+        "features": {
+          "domain": "Custom domain",
+          "logo": "Business Logo",
+          "content": "Custom Contents",
+          "cta": "Sales call to Actions"
+        }
+      },
+      "closing": "💬 Costruito da veri sviluppatori, potenziato dall'AI — già usato da imprenditori come te."
+    },
+    "formTitle": "Richiedi il Tuo Appuntamento",
+    "formSubtitle": "Rispondi a poche semplici domande e saremo pronti a creare il tuo sito in 1 giorno",
+    "step": "Passo",
+    "of": "di",
+    "question1": "Hai già un sito web?",
+    "question2": "Hai un logo aziendale?",
+    "question3": "Quando vorresti essere contattato?",
+    "question4": "Completa i tuoi dati",
+    "yes": "Sì",
+    "no": "No",
+    "selectTime": "Seleziona l'orario",
+    "back": "Indietro",
+    "next": "Avanti",
+    "submit": "Invia Richiesta",
+    "form": {
+      "firstName": "Nome",
+      "lastName": "Cognome",
+      "email": "Email",
+      "phone": "Numero di Telefono",
+      "city": "Città",
+      "contactPreference": "Preferisco essere contattato tramite:",
+      "whatsapp": "WhatsApp",
+      "emailContact": "Email",
+      "phoneContact": "Telefono",
+      "conference": "Conference Call",
+      "success": "Richiesta Inviata!",
+      "successDesc": "Ti contatteremo presto per confermare l'appuntamento.",
+      "error": "Errore",
+      "errorDesc": "Compila tutti i campi obbligatori."
+    }
   }
 }

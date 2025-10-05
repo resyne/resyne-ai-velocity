@@ -1,9 +1,10 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Check, Zap, Sparkles, Rocket, Globe, MessageCircle } from "lucide-react";
+import { Check, Zap, Sparkles, Rocket, Globe, MessageCircle, Briefcase, Target } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { WebsiteBookingForm } from "@/components/WebsiteBookingForm";
 
 const WebsiteInOneDay = () => {
   const navigate = useNavigate();
@@ -150,69 +151,98 @@ const WebsiteInOneDay = () => {
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-20 px-4 bg-card/50">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-12">
-            <h2 className="font-title text-4xl md:text-5xl mb-6">
-              {t('websiteInOneDay.howItWorks.title')} <span className="gradient-tech-text">{t('websiteInOneDay.howItWorks.title2')}</span>
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-gradient-gold flex items-center justify-center text-2xl font-bold text-primary-foreground mx-auto mb-4">
-                1
+      {/* Serial Entrepreneur Section */}
+      <section className="py-20 px-4 bg-gradient-to-br from-card/50 to-background">
+        <div className="container mx-auto max-w-4xl">
+          <div className="glass-card p-8 md:p-12 rounded-2xl">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <Briefcase className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="font-subtitle text-xl mb-3">{t('websiteInOneDay.howItWorks.step1.title')}</h3>
-              <p className="text-muted-foreground">
-                {t('websiteInOneDay.howItWorks.step1.description')}
-              </p>
+              <h2 className="font-title text-3xl md:text-4xl">
+                {t("websiteBooking.entrepreneur.badge")}
+              </h2>
             </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-gradient-gold flex items-center justify-center text-2xl font-bold text-primary-foreground mx-auto mb-4">
-                2
-              </div>
-              <h3 className="font-subtitle text-xl mb-3">{t('websiteInOneDay.howItWorks.step2.title')}</h3>
-              <p className="text-muted-foreground">
-                {t('websiteInOneDay.howItWorks.step2.description')}
+            
+            <div className="prose prose-lg max-w-none text-foreground">
+              <p className="text-xl mb-6 leading-relaxed">
+                {t("websiteBooking.entrepreneur.intro")}
               </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-gradient-gold flex items-center justify-center text-2xl font-bold text-primary-foreground mx-auto mb-4">
-                3
+              
+              <div className="grid md:grid-cols-2 gap-6 my-8">
+                <div className="p-6 rounded-lg bg-primary/5 border border-primary/10">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-primary-foreground font-bold">A</span>
+                    </div>
+                    <div>
+                      <h3 className="font-subtitle text-lg mb-2">{t("websiteBooking.entrepreneur.caseA.title")}</h3>
+                      <p className="text-muted-foreground">{t("websiteBooking.entrepreneur.caseA.description")}</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="p-6 rounded-lg bg-accent/5 border border-accent/10">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-accent-foreground font-bold">B</span>
+                    </div>
+                    <div>
+                      <h3 className="font-subtitle text-lg mb-2">{t("websiteBooking.entrepreneur.caseB.title")}</h3>
+                      <p className="text-muted-foreground">{t("websiteBooking.entrepreneur.caseB.description")}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 className="font-subtitle text-xl mb-3">{t('websiteInOneDay.howItWorks.step3.title')}</h3>
-              <p className="text-muted-foreground">
-                {t('websiteInOneDay.howItWorks.step3.description')}
+
+              <div className="bg-gradient-gold/10 border border-primary/20 rounded-lg p-6 my-8">
+                <div className="flex items-start gap-3">
+                  <Target className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-subtitle text-xl mb-3">{t("websiteBooking.entrepreneur.solution.title")}</h3>
+                    <p className="text-lg mb-4">{t("websiteBooking.entrepreneur.solution.description")}</p>
+                    <ul className="space-y-2">
+                      <li className="flex items-center gap-2">
+                        <Check className="w-5 h-5 text-primary" />
+                        <span>{t("websiteBooking.entrepreneur.solution.features.domain")}</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <Check className="w-5 h-5 text-primary" />
+                        <span>{t("websiteBooking.entrepreneur.solution.features.logo")}</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <Check className="w-5 h-5 text-primary" />
+                        <span>{t("websiteBooking.entrepreneur.solution.features.content")}</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <Check className="w-5 h-5 text-primary" />
+                        <span>{t("websiteBooking.entrepreneur.solution.features.cta")}</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <p className="text-xl font-subtitle text-center mt-8">
+                {t("websiteBooking.entrepreneur.closing")}
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto max-w-4xl">
-          <div className="glass-card p-8 md:p-12 rounded-2xl text-center">
-            <MessageCircle className="w-16 h-16 text-primary mx-auto mb-6" />
-            <h2 className="font-title text-3xl md:text-4xl mb-6">
-              {t('websiteInOneDay.cta.title')}
+      {/* Booking Form Section */}
+      <section className="py-20 px-4" id="booking-form">
+        <div className="container mx-auto max-w-5xl">
+          <div className="text-center mb-12">
+            <h2 className="font-title text-4xl md:text-5xl mb-6">
+              {t("websiteBooking.formTitle")}
             </h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              {t('websiteInOneDay.cta.description')}
+            <p className="text-xl text-muted-foreground">
+              {t("websiteBooking.formSubtitle")}
             </p>
-            <Button 
-              size="lg" 
-              onClick={scrollToContact}
-              className="gap-2"
-            >
-              <Rocket className="w-5 h-5" />
-              {t('websiteInOneDay.cta.button')}
-            </Button>
           </div>
+          <WebsiteBookingForm />
         </div>
       </section>
 
