@@ -134,9 +134,9 @@ export const WebsiteBookingForm = () => {
   };
 
   return (
-    <div className="glass-card p-8 rounded-2xl max-w-3xl mx-auto">
+    <div className="max-w-3xl mx-auto">
       {/* Progress Bar */}
-      <div className="mb-8">
+      <div className="mb-6 md:mb-8">
         <div className="flex justify-between mb-2">
           {[1, 2, 3, 4].map((s) => (
             <div
@@ -148,7 +148,7 @@ export const WebsiteBookingForm = () => {
             />
           ))}
         </div>
-        <p className="text-sm text-muted-foreground text-center">
+        <p className="text-xs md:text-sm text-muted-foreground text-center">
           {t("websiteBooking.step")} {step} {t("websiteBooking.of")} 4
         </p>
       </div>
@@ -156,26 +156,26 @@ export const WebsiteBookingForm = () => {
       {/* Step 1: Do you have a website? */}
       {step === 1 && (
         <div className="space-y-6">
-          <h3 className="text-2xl font-subtitle text-center mb-8">
+          <h3 className="text-xl md:text-2xl font-subtitle text-center mb-6 md:mb-8 px-2">
             {t("websiteBooking.question1")}
           </h3>
-          <div className="flex gap-4 justify-center">
+          <div className="flex gap-3 md:gap-4 justify-center px-4">
             <Button
               size="lg"
               variant={hasWebsite === true ? "default" : "outline"}
               onClick={() => setHasWebsite(true)}
-              className="w-32"
+              className="w-28 md:w-32"
             >
-              <Check className="w-5 h-5 mr-2" />
+              <Check className="w-4 md:w-5 h-4 md:h-5 mr-2" />
               {t("websiteBooking.yes")}
             </Button>
             <Button
               size="lg"
               variant={hasWebsite === false ? "default" : "outline"}
               onClick={() => setHasWebsite(false)}
-              className="w-32"
+              className="w-28 md:w-32"
             >
-              <X className="w-5 h-5 mr-2" />
+              <X className="w-4 md:w-5 h-4 md:h-5 mr-2" />
               {t("websiteBooking.no")}
             </Button>
           </div>
@@ -185,26 +185,26 @@ export const WebsiteBookingForm = () => {
       {/* Step 2: Do you have a logo? */}
       {step === 2 && (
         <div className="space-y-6">
-          <h3 className="text-2xl font-subtitle text-center mb-8">
+          <h3 className="text-xl md:text-2xl font-subtitle text-center mb-6 md:mb-8 px-2">
             {t("websiteBooking.question2")}
           </h3>
-          <div className="flex gap-4 justify-center">
+          <div className="flex gap-3 md:gap-4 justify-center px-4">
             <Button
               size="lg"
               variant={hasLogo === true ? "default" : "outline"}
               onClick={() => setHasLogo(true)}
-              className="w-32"
+              className="w-28 md:w-32"
             >
-              <Check className="w-5 h-5 mr-2" />
+              <Check className="w-4 md:w-5 h-4 md:h-5 mr-2" />
               {t("websiteBooking.yes")}
             </Button>
             <Button
               size="lg"
               variant={hasLogo === false ? "default" : "outline"}
               onClick={() => setHasLogo(false)}
-              className="w-32"
+              className="w-28 md:w-32"
             >
-              <X className="w-5 h-5 mr-2" />
+              <X className="w-4 md:w-5 h-4 md:h-5 mr-2" />
               {t("websiteBooking.no")}
             </Button>
           </div>
@@ -214,7 +214,7 @@ export const WebsiteBookingForm = () => {
       {/* Step 3: When would you like to be contacted? */}
       {step === 3 && (
         <div className="space-y-6">
-          <h3 className="text-2xl font-subtitle text-center mb-8">
+          <h3 className="text-xl md:text-2xl font-subtitle text-center mb-6 md:mb-8 px-2">
             {t("websiteBooking.question3")}
           </h3>
           <div className="flex flex-col items-center gap-6">
@@ -226,7 +226,7 @@ export const WebsiteBookingForm = () => {
               className={cn("rounded-md border pointer-events-auto")}
             />
             {selectedDate && (
-              <div className="w-full">
+              <div className="w-full px-2">
                 <Label className="mb-2 block">{t("websiteBooking.selectTime")}</Label>
                 <div className="grid grid-cols-3 gap-2">
                   {timeSlots.map((time) => (
@@ -249,10 +249,10 @@ export const WebsiteBookingForm = () => {
       {/* Step 4: Contact Form */}
       {step === 4 && (
         <div className="space-y-6">
-          <h3 className="text-2xl font-subtitle text-center mb-8">
+          <h3 className="text-xl md:text-2xl font-subtitle text-center mb-6 md:mb-8 px-2">
             {t("websiteBooking.question4")}
           </h3>
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid md:grid-cols-2 gap-4 px-2">
             <div>
               <Label htmlFor="firstName">{t("websiteBooking.form.firstName")}</Label>
               <Input
@@ -302,7 +302,7 @@ export const WebsiteBookingForm = () => {
             </div>
           </div>
 
-          <div className="space-y-3 pt-4">
+          <div className="space-y-3 pt-4 px-2">
             <Label>{t("websiteBooking.form.contactPreference")}</Label>
             <div className="flex flex-col gap-3">
               <div className="flex items-center space-x-2">
@@ -359,7 +359,7 @@ export const WebsiteBookingForm = () => {
       )}
 
       {/* Navigation Buttons */}
-      <div className="flex justify-between mt-8 pt-6 border-t border-border">
+      <div className="flex justify-between mt-6 md:mt-8 pt-4 md:pt-6 border-t border-border px-2">
         {step > 1 ? (
           <Button variant="outline" onClick={() => setStep(step - 1)}>
             <ChevronLeft className="w-4 h-4 mr-2" />
