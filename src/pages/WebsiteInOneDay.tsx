@@ -35,14 +35,11 @@ const WebsiteInOneDay = () => {
     }
   ];
 
-  const scrollToContact = () => {
-    navigate("/");
-    setTimeout(() => {
-      const section = document.getElementById("contattaci");
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
-      }
-    }, 100);
+  const scrollToBookingForm = () => {
+    const section = document.getElementById("booking-form");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -70,7 +67,7 @@ const WebsiteInOneDay = () => {
             <div className="flex flex-wrap gap-4 justify-center">
               <Button 
                 size="lg" 
-                onClick={scrollToContact}
+                onClick={scrollToBookingForm}
                 className="gap-2"
               >
                 <Rocket className="w-5 h-5" />
