@@ -201,24 +201,6 @@
       },
       "closing": "💬 Built by real devs, powered by AI — already used by entrepreneurs like you."
     },
-    "socialProof": {
-      "title1": "Completed",
-      "title2": "Projects",
-      "subtitle": "See what we've created for entrepreneurs like you in just 1 day",
-      "visitSite": "Visit site",
-      "testimonials": {
-        "vesuviano": "Amazing! In less than 24 hours I had my website online. Professional, fast and perfect for my business.",
-        "zapper": "Resyne turned my idea into reality quickly. The result exceeded my expectations."
-      },
-      "authors": {
-        "vesuviano": "Marco R.",
-        "zapper": "Giuseppe M."
-      },
-      "roles": {
-        "vesuviano": "Owner, Vesuviano Forni",
-        "zapper": "CEO, Zapper Pro"
-      }
-    },
     "formTitle": "Request Your Appointment",
     "formSubtitle": "Answer a few simple questions and we'll be ready to create your website in 1 day",
     "step": "Step",

@@ -5,7 +5,6 @@ import { Check, Zap, Sparkles, Rocket, Globe, MessageCircle, Briefcase, Target }
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { WebsiteBookingForm } from "@/components/WebsiteBookingForm";
-import { SocialProofSection } from "@/components/SocialProofSection";
 
 const WebsiteInOneDay = () => {
   const navigate = useNavigate();
@@ -228,9 +227,6 @@ const WebsiteInOneDay = () => {
           </div>
         </div>
       </section>
-
-      {/* Social Proof Section */}
-      <SocialProofSection />
 
       {/* Booking Form Section */}
       <section className="py-20 px-4" id="booking-form">
