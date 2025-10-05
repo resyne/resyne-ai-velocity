@@ -247,9 +247,5 @@
       "error": "Errore",
       "errorDesc": "Compila tutti i campi obbligatori."
     }
-  },
-  "quickMessage": {
-    "title": "Non sei ancora sicuro?",
-    "description": "Lasciaci un messaggio veloce con la tua domanda. Ti risponderemo entro ~2h."
   }
 }

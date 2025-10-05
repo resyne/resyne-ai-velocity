@@ -247,9 +247,5 @@
       "error": "Error",
       "errorDesc": "Please fill in all required fields."
     }
-  },
-  "quickMessage": {
-    "title": "Not sure yet?",
-    "description": "Leave a quick message with your question. I'll reply within ~2h."
   }
 }
