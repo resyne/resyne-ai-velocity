@@ -153,78 +153,78 @@ const WebsiteInOneDay = () => {
       <SocialProofSection />
 
       {/* Serial Entrepreneur Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-card/50 to-background">
+      <section className="py-12 md:py-20 px-4 bg-gradient-to-br from-card/50 to-background">
         <div className="container mx-auto max-w-4xl">
-          <div className="glass-card p-8 md:p-12 rounded-2xl">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+          <div className="glass-card p-6 md:p-12 rounded-2xl">
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-3 mb-8">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                 <Briefcase className="w-6 h-6 text-primary" />
               </div>
-              <h2 className="font-title text-3xl md:text-4xl">
+              <h2 className="font-title text-2xl sm:text-3xl md:text-4xl leading-tight">
                 {t("websiteBooking.entrepreneur.badge")}
               </h2>
             </div>
             
-            <div className="prose prose-lg max-w-none text-foreground">
-              <p className="text-xl mb-6 leading-relaxed">
+            <div className="space-y-6">
+              <p className="text-base sm:text-lg md:text-xl leading-relaxed">
                 {t("websiteBooking.entrepreneur.intro")}
               </p>
               
-              <div className="grid md:grid-cols-2 gap-6 my-8">
-                <div className="p-6 rounded-lg bg-primary/5 border border-primary/10">
+              <div className="grid gap-6 my-8">
+                <div className="p-5 md:p-6 rounded-lg bg-primary/5 border border-primary/10">
                   <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-primary-foreground font-bold">A</span>
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                      <span className="text-primary-foreground font-bold text-lg md:text-xl">A</span>
                     </div>
-                    <div>
-                      <h3 className="font-subtitle text-lg mb-2">{t("websiteBooking.entrepreneur.caseA.title")}</h3>
-                      <p className="text-muted-foreground">{t("websiteBooking.entrepreneur.caseA.description")}</p>
+                    <div className="flex-1">
+                      <h3 className="font-subtitle text-lg md:text-xl mb-2 leading-snug">{t("websiteBooking.entrepreneur.caseA.title")}</h3>
+                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{t("websiteBooking.entrepreneur.caseA.description")}</p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="p-6 rounded-lg bg-accent/5 border border-accent/10">
+                <div className="p-5 md:p-6 rounded-lg bg-accent/5 border border-accent/10">
                   <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-accent-foreground font-bold">B</span>
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-accent flex items-center justify-center flex-shrink-0">
+                      <span className="text-accent-foreground font-bold text-lg md:text-xl">B</span>
                     </div>
-                    <div>
-                      <h3 className="font-subtitle text-lg mb-2">{t("websiteBooking.entrepreneur.caseB.title")}</h3>
-                      <p className="text-muted-foreground">{t("websiteBooking.entrepreneur.caseB.description")}</p>
+                    <div className="flex-1">
+                      <h3 className="font-subtitle text-lg md:text-xl mb-2 leading-snug">{t("websiteBooking.entrepreneur.caseB.title")}</h3>
+                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{t("websiteBooking.entrepreneur.caseB.description")}</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gradient-gold/10 border border-primary/20 rounded-lg p-6 my-8">
+              <div className="bg-gradient-gold/10 border border-primary/20 rounded-lg p-5 md:p-6">
                 <div className="flex items-start gap-3">
                   <Target className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-subtitle text-xl mb-3">{t("websiteBooking.entrepreneur.solution.title")}</h3>
-                    <p className="text-lg mb-4">{t("websiteBooking.entrepreneur.solution.description")}</p>
-                    <ul className="space-y-2">
-                      <li className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-primary" />
-                        <span>{t("websiteBooking.entrepreneur.solution.features.domain")}</span>
+                  <div className="flex-1">
+                    <h3 className="font-subtitle text-lg md:text-xl mb-3 leading-snug">{t("websiteBooking.entrepreneur.solution.title")}</h3>
+                    <p className="text-base md:text-lg mb-4 leading-relaxed">{t("websiteBooking.entrepreneur.solution.description")}</p>
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-2">
+                        <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span className="text-sm md:text-base leading-relaxed">{t("websiteBooking.entrepreneur.solution.features.domain")}</span>
                       </li>
-                      <li className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-primary" />
-                        <span>{t("websiteBooking.entrepreneur.solution.features.logo")}</span>
+                      <li className="flex items-start gap-2">
+                        <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span className="text-sm md:text-base leading-relaxed">{t("websiteBooking.entrepreneur.solution.features.logo")}</span>
                       </li>
-                      <li className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-primary" />
-                        <span>{t("websiteBooking.entrepreneur.solution.features.content")}</span>
+                      <li className="flex items-start gap-2">
+                        <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span className="text-sm md:text-base leading-relaxed">{t("websiteBooking.entrepreneur.solution.features.content")}</span>
                       </li>
-                      <li className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-primary" />
-                        <span>{t("websiteBooking.entrepreneur.solution.features.cta")}</span>
+                      <li className="flex items-start gap-2">
+                        <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span className="text-sm md:text-base leading-relaxed">{t("websiteBooking.entrepreneur.solution.features.cta")}</span>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
 
-              <p className="text-xl font-subtitle text-center mt-8">
+              <p className="text-base sm:text-lg md:text-xl font-subtitle text-center mt-8 leading-relaxed">
                 {t("websiteBooking.entrepreneur.closing")}
               </p>
             </div>
