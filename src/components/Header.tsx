@@ -72,6 +72,16 @@ export function Header() {
             >
               AI Solutions
             </a>
+            <a 
+              href="/website-in-1-day" 
+              className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate('/website-in-1-day');
+              }}
+            >
+              Website in 1 Day
+            </a>
           </nav>
 
           {/* CTA Button */}
@@ -142,6 +152,17 @@ export function Header() {
                 }}
               >
                 AI Solutions
+              </a>
+              <a 
+                href="/website-in-1-day" 
+                className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate('/website-in-1-day');
+                  setIsMenuOpen(false);
+                }}
+              >
+                Website in 1 Day
               </a>
               <div className="flex flex-col space-y-2 pt-4">
                 <Button 

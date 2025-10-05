@@ -10,6 +10,7 @@ import { LeadSection } from "@/components/LeadSection";
 import { Footer } from "@/components/Footer";
 import Index from "./pages/Index";
 import Audit from "./pages/Audit";
+import WebsiteInOneDay from "./pages/WebsiteInOneDay";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,6 +32,7 @@ const App = () => (
             </>
           } />
           <Route path="/audit" element={<Audit />} />
+          <Route path="/website-in-1-day" element={<WebsiteInOneDay />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
