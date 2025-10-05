@@ -8,6 +8,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { DemoSection } from "@/components/DemoSection";
 import { LeadSection } from "@/components/LeadSection";
 import { Footer } from "@/components/Footer";
+import { QuickMessagePopup } from "@/components/QuickMessagePopup";
 import Index from "./pages/Index";
 import Audit from "./pages/Audit";
 import WebsiteInOneDay from "./pages/WebsiteInOneDay";
@@ -20,6 +21,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <QuickMessagePopup />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={
