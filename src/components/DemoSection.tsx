@@ -44,34 +44,37 @@ export function DemoSection() {
           {/* ERP Demo */}
           <TabsContent value="erp" className="mt-0" id="erp">
             <Card className="glass-card shadow-card">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 rounded-lg bg-resyne-gold/20">
-                    <Database className="w-6 h-6 text-resyne-gold" />
+              <CardHeader className="p-3 md:p-6">
+                <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
+                  <div className="p-1.5 md:p-2 rounded-lg bg-resyne-gold/20">
+                    <Database className="w-4 h-4 md:w-6 md:h-6 text-resyne-gold" />
                   </div>
                   <div>
-                    <CardTitle className="font-title text-2xl gradient-text">
+                    <CardTitle className="font-title text-base md:text-2xl gradient-text">
                       {t('demos.erp.title')}
                     </CardTitle>
-                    <CardDescription className="text-muted-foreground">
+                    <CardDescription className="text-xs md:text-sm text-muted-foreground">
                       {t('demos.erp.description')}
                     </CardDescription>
                   </div>
                 </div>
-                <div className="flex gap-2 flex-wrap">
-                  <span className="px-3 py-1 text-xs rounded-full bg-resyne-gold/20 text-resyne-gold">{t('demos.erp.tag1')}</span>
-                  <span className="px-3 py-1 text-xs rounded-full bg-tech-blue/20 text-tech-blue">{t('demos.erp.tag2')}</span>
-                  <span className="px-3 py-1 text-xs rounded-full bg-tech-purple/20 text-tech-purple">{t('demos.erp.tag3')}</span>
-                  <span className="px-3 py-1 text-xs rounded-full bg-resyne-gold/20 text-resyne-gold">{t('demos.erp.tag4')}</span>
+                <div className="flex gap-1.5 md:gap-2 flex-wrap">
+                  <span className="px-2 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs rounded-full bg-resyne-gold/20 text-resyne-gold">{t('demos.erp.tag1')}</span>
+                  <span className="px-2 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs rounded-full bg-tech-blue/20 text-tech-blue">{t('demos.erp.tag2')}</span>
+                  <span className="px-2 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs rounded-full bg-tech-purple/20 text-tech-purple">{t('demos.erp.tag3')}</span>
+                  <span className="px-2 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs rounded-full bg-resyne-gold/20 text-resyne-gold">{t('demos.erp.tag4')}</span>
                 </div>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-3 md:p-6">
                 <ERPDemo />
-                <div className="mt-6 flex justify-center">
-                  <Link to="/audit">
-                    <Button className="bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light flex items-center gap-2 text-lg px-8 py-6">
-                      <Brain className="w-5 h-5" />
-                      {t('demos.auditButton')} <span className="font-bold">{t('demos.auditValue')}</span>
+                <div className="mt-4 md:mt-6 flex justify-center px-2">
+                  <Link to="/audit" className="w-full md:w-auto">
+                    <Button className="w-full md:w-auto bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light flex items-center justify-center gap-2 text-base md:text-lg px-6 py-6 md:px-8 md:py-7 font-bold shadow-lg hover:shadow-xl transition-all">
+                      <Brain className="w-5 h-5 md:w-6 md:h-6" />
+                      <span className="flex flex-col md:flex-row md:gap-2 items-center">
+                        <span>{t('demos.auditButton')}</span>
+                        <span className="text-sm md:text-lg">{t('demos.auditValue')}</span>
+                      </span>
                     </Button>
                   </Link>
                 </div>
@@ -82,34 +85,37 @@ export function DemoSection() {
           {/* Automation Demo */}
           <TabsContent value="automation" className="mt-0" id="automation">
             <Card className="glass-card shadow-card">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 rounded-lg bg-tech-blue/20">
-                    <Zap className="w-6 h-6 text-tech-blue" />
+              <CardHeader className="p-3 md:p-6">
+                <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
+                  <div className="p-1.5 md:p-2 rounded-lg bg-tech-blue/20">
+                    <Zap className="w-4 h-4 md:w-6 md:h-6 text-tech-blue" />
                   </div>
                   <div>
-                    <CardTitle className="font-title text-2xl gradient-tech-text">
+                    <CardTitle className="font-title text-base md:text-2xl gradient-tech-text">
                       {t('demos.automation.title')}
                     </CardTitle>
-                    <CardDescription className="text-muted-foreground">
+                    <CardDescription className="text-xs md:text-sm text-muted-foreground">
                       {t('demos.automation.description')}
                     </CardDescription>
                   </div>
                 </div>
-                <div className="flex gap-2 flex-wrap">
-                  <span className="px-3 py-1 text-xs rounded-full bg-tech-blue/20 text-tech-blue">{t('demos.automation.tag1')}</span>
-                  <span className="px-3 py-1 text-xs rounded-full bg-tech-cyan/20 text-tech-cyan">{t('demos.automation.tag2')}</span>
-                  <span className="px-3 py-1 text-xs rounded-full bg-tech-purple/20 text-tech-purple">{t('demos.automation.tag3')}</span>
-                  <span className="px-3 py-1 text-xs rounded-full bg-resyne-gold/20 text-resyne-gold">{t('demos.automation.tag4')}</span>
+                <div className="flex gap-1.5 md:gap-2 flex-wrap">
+                  <span className="px-2 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs rounded-full bg-tech-blue/20 text-tech-blue">{t('demos.automation.tag1')}</span>
+                  <span className="px-2 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs rounded-full bg-tech-cyan/20 text-tech-cyan">{t('demos.automation.tag2')}</span>
+                  <span className="px-2 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs rounded-full bg-tech-purple/20 text-tech-purple">{t('demos.automation.tag3')}</span>
+                  <span className="px-2 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs rounded-full bg-resyne-gold/20 text-resyne-gold">{t('demos.automation.tag4')}</span>
                 </div>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-3 md:p-6">
                 <AutomationDemo />
-                <div className="mt-6 flex justify-center">
-                  <Link to="/audit">
-                    <Button className="bg-tech-blue text-white hover:bg-tech-blue/90 flex items-center gap-2 text-lg px-8 py-6">
-                      <Brain className="w-5 h-5" />
-                      {t('demos.auditButton')} <span className="font-bold">{t('demos.auditValue')}</span>
+                <div className="mt-4 md:mt-6 flex justify-center px-2">
+                  <Link to="/audit" className="w-full md:w-auto">
+                    <Button className="w-full md:w-auto bg-tech-blue text-white hover:bg-tech-blue/90 flex items-center justify-center gap-2 text-base md:text-lg px-6 py-6 md:px-8 md:py-7 font-bold shadow-lg hover:shadow-xl transition-all">
+                      <Brain className="w-5 h-5 md:w-6 md:h-6" />
+                      <span className="flex flex-col md:flex-row md:gap-2 items-center">
+                        <span>{t('demos.auditButton')}</span>
+                        <span className="text-sm md:text-lg">{t('demos.auditValue')}</span>
+                      </span>
                     </Button>
                   </Link>
                 </div>
@@ -120,34 +126,37 @@ export function DemoSection() {
           {/* AI Demo */}
           <TabsContent value="ai" className="mt-0" id="ai">
             <Card className="glass-card shadow-card">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 rounded-lg bg-tech-purple/20">
-                    <Bot className="w-6 h-6 text-tech-purple" />
+              <CardHeader className="p-3 md:p-6">
+                <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
+                  <div className="p-1.5 md:p-2 rounded-lg bg-tech-purple/20">
+                    <Bot className="w-4 h-4 md:w-6 md:h-6 text-tech-purple" />
                   </div>
                   <div>
-                    <CardTitle className="font-title text-2xl text-tech-glow">
+                    <CardTitle className="font-title text-base md:text-2xl text-tech-glow">
                       {t('demos.ai.title')}
                     </CardTitle>
-                    <CardDescription className="text-muted-foreground">
+                    <CardDescription className="text-xs md:text-sm text-muted-foreground">
                       {t('demos.ai.description')}
                     </CardDescription>
                   </div>
                 </div>
-                <div className="flex gap-2 flex-wrap">
-                  <span className="px-3 py-1 text-xs rounded-full bg-tech-purple/20 text-tech-purple">{t('demos.ai.tag1')}</span>
-                  <span className="px-3 py-1 text-xs rounded-full bg-tech-cyan/20 text-tech-cyan">{t('demos.ai.tag2')}</span>
-                  <span className="px-3 py-1 text-xs rounded-full bg-resyne-gold/20 text-resyne-gold">{t('demos.ai.tag3')}</span>
-                  <span className="px-3 py-1 text-xs rounded-full bg-tech-blue/20 text-tech-blue">{t('demos.ai.tag4')}</span>
+                <div className="flex gap-1.5 md:gap-2 flex-wrap">
+                  <span className="px-2 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs rounded-full bg-tech-purple/20 text-tech-purple">{t('demos.ai.tag1')}</span>
+                  <span className="px-2 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs rounded-full bg-tech-cyan/20 text-tech-cyan">{t('demos.ai.tag2')}</span>
+                  <span className="px-2 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs rounded-full bg-resyne-gold/20 text-resyne-gold">{t('demos.ai.tag3')}</span>
+                  <span className="px-2 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs rounded-full bg-tech-blue/20 text-tech-blue">{t('demos.ai.tag4')}</span>
                 </div>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-3 md:p-6">
                 <AIDemo />
-                <div className="mt-6 flex justify-center">
-                  <Link to="/audit">
-                    <Button className="bg-tech-purple text-white hover:bg-tech-purple/90 flex items-center gap-2 text-lg px-8 py-6">
-                      <Brain className="w-5 h-5" />
-                      {t('demos.auditButton')} <span className="font-bold">{t('demos.auditValue')}</span>
+                <div className="mt-4 md:mt-6 flex justify-center px-2">
+                  <Link to="/audit" className="w-full md:w-auto">
+                    <Button className="w-full md:w-auto bg-tech-purple text-white hover:bg-tech-purple/90 flex items-center justify-center gap-2 text-base md:text-lg px-6 py-6 md:px-8 md:py-7 font-bold shadow-lg hover:shadow-xl transition-all">
+                      <Brain className="w-5 h-5 md:w-6 md:h-6" />
+                      <span className="flex flex-col md:flex-row md:gap-2 items-center">
+                        <span>{t('demos.auditButton')}</span>
+                        <span className="text-sm md:text-lg">{t('demos.auditValue')}</span>
+                      </span>
                     </Button>
                   </Link>
                 </div>

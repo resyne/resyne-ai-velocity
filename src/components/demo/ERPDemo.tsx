@@ -45,7 +45,7 @@ export function ERPDemo() {
   }, []);
 
   return (
-    <div className="h-[600px] bg-gradient-to-br from-background to-muted/30 border border-border/30 rounded-lg overflow-hidden">
+    <div className="h-[500px] md:h-[600px] bg-gradient-to-br from-background to-muted/30 border border-border/30 rounded-lg overflow-hidden">
       {/* Header */}
       <div className="bg-card/80 backdrop-blur-sm border-b border-border/30 p-4">
         <div className="flex items-center justify-between">
