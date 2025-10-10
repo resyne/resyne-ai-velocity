@@ -38,6 +38,7 @@ export default function BookACall() {
     firstName: "",
     lastName: "",
     email: "",
+    phone: "",
     message: ""
   });
 
@@ -61,6 +62,7 @@ export default function BookACall() {
           firstName: formData.firstName,
           lastName: formData.lastName,
           email: formData.email,
+          phone: formData.phone,
           message: formData.message,
           date: format(selectedDate, 'PPP', { locale: i18n.language === 'it' ? it : enUS }),
           time: selectedTime,
@@ -76,7 +78,7 @@ export default function BookACall() {
       });
 
       // Reset form
-      setFormData({ firstName: "", lastName: "", email: "", message: "" });
+      setFormData({ firstName: "", lastName: "", email: "", phone: "", message: "" });
       setSelectedDate(undefined);
       setSelectedTime("");
       setSelectedPlatform("");
@@ -210,16 +212,30 @@ export default function BookACall() {
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="email">{t('bookCall.form.email')}</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder={t('bookCall.form.emailPlaceholder')}
-                  />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="email">{t('bookCall.form.email')}</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder={t('bookCall.form.emailPlaceholder')}
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="phone">{t('bookCall.form.phone')}</Label>
+                    <Input
+                      id="phone"
+                      type="tel"
+                      required
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      placeholder={t('bookCall.form.phonePlaceholder')}
+                    />
+                  </div>
                 </div>
 
                 <div className="space-y-2">

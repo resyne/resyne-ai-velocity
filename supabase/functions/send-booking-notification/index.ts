@@ -12,6 +12,7 @@ interface BookingRequest {
   firstName: string;
   lastName: string;
   email: string;
+  phone: string;
   message?: string;
   date: string;
   time: string;
@@ -24,9 +25,9 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const { firstName, lastName, email, message, date, time, platform }: BookingRequest = await req.json();
+    const { firstName, lastName, email, phone, message, date, time, platform }: BookingRequest = await req.json();
 
-    console.log("Processing booking notification:", { firstName, lastName, email, date, time, platform });
+    console.log("Processing booking notification:", { firstName, lastName, email, phone, date, time, platform });
 
     // Email to customer
     const customerEmailResponse = await resend.emails.send({
@@ -73,6 +74,7 @@ const handler = async (req: Request): Promise<Response> => {
             <h2 style="color: #333; margin-top: 0;">Dettagli Cliente:</h2>
             <p><strong>Nome:</strong> ${firstName} ${lastName}</p>
             <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+            <p><strong>Telefono:</strong> <a href="tel:${phone}">${phone}</a></p>
             ${message ? `<p><strong>Messaggio:</strong> ${message}</p>` : ''}
           </div>
           

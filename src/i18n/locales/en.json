@@ -265,6 +265,8 @@
       "lastNamePlaceholder": "Your last name",
       "email": "Email",
       "emailPlaceholder": "Your email",
+      "phone": "Phone",
+      "phonePlaceholder": "Your phone number",
       "message": "Tell us about your project (optional)",
       "messagePlaceholder": "Briefly describe your idea or need...",
       "privacyAccept": "I accept the terms and conditions and the",

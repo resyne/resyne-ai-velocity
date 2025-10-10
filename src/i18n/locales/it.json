@@ -265,6 +265,8 @@
       "lastNamePlaceholder": "Il tuo cognome",
       "email": "Email",
       "emailPlaceholder": "La tua email",
+      "phone": "Telefono",
+      "phonePlaceholder": "Il tuo numero di telefono",
       "message": "Raccontaci il tuo progetto (opzionale)",
       "messagePlaceholder": "Descrivi brevemente la tua idea o esigenza...",
       "privacyAccept": "Accetto i termini e condizioni e la",
