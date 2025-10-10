@@ -12,6 +12,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import Index from "./pages/Index";
 import Audit from "./pages/Audit";
 import WebsiteInOneDay from "./pages/WebsiteInOneDay";
+import BookACall from "./pages/BookACall";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const App = () => (
           } />
           <Route path="/audit" element={<Audit />} />
           <Route path="/website-in-1-day" element={<WebsiteInOneDay />} />
+          <Route path="/book-a-call" element={<BookACall />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

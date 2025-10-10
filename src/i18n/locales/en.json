@@ -249,5 +249,33 @@
       "error": "Error",
       "errorDesc": "Please fill in all required fields."
     }
+  },
+  "bookCall": {
+    "title": "Book a Call",
+    "subtitle": "Choose date, time and platform to discuss your project with us",
+    "form": {
+      "selectDate": "Select a date",
+      "selectTime": "Choose a time",
+      "selectPlatform": "Choose the platform",
+      "contactInfo": "Your details",
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Your first name",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Your last name",
+      "email": "Email",
+      "emailPlaceholder": "Your email",
+      "message": "Tell us about your project (optional)",
+      "messagePlaceholder": "Briefly describe your idea or need...",
+      "privacyAccept": "I accept the terms and conditions and the",
+      "privacyLink": "Privacy Policy",
+      "submit": "Confirm Appointment",
+      "sending": "Sending..."
+    },
+    "toast": {
+      "success": "Appointment Confirmed!",
+      "successDescription": "You will receive a confirmation email shortly.",
+      "error": "Error",
+      "errorDescription": "Please complete all required fields."
+    }
   }
 }

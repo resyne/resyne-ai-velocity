@@ -249,5 +249,33 @@
       "error": "Errore",
       "errorDesc": "Compila tutti i campi obbligatori."
     }
+  },
+  "bookCall": {
+    "title": "Prenota una Call",
+    "subtitle": "Scegli data, ora e piattaforma per parlare con noi del tuo progetto",
+    "form": {
+      "selectDate": "Seleziona una data",
+      "selectTime": "Scegli un orario",
+      "selectPlatform": "Scegli la piattaforma",
+      "contactInfo": "I tuoi dati",
+      "firstName": "Nome",
+      "firstNamePlaceholder": "Il tuo nome",
+      "lastName": "Cognome",
+      "lastNamePlaceholder": "Il tuo cognome",
+      "email": "Email",
+      "emailPlaceholder": "La tua email",
+      "message": "Raccontaci il tuo progetto (opzionale)",
+      "messagePlaceholder": "Descrivi brevemente la tua idea o esigenza...",
+      "privacyAccept": "Accetto i termini e condizioni e la",
+      "privacyLink": "Privacy Policy",
+      "submit": "Conferma Appuntamento",
+      "sending": "Invio in corso..."
+    },
+    "toast": {
+      "success": "Appuntamento Confermato!",
+      "successDescription": "Riceverai una email di conferma a breve.",
+      "error": "Errore",
+      "errorDescription": "Completa tutti i campi obbligatori."
+    }
   }
 }
