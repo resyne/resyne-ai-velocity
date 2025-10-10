@@ -30,7 +30,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Email to customer
     const customerEmailResponse = await resend.emails.send({
-      from: "Re-Syne <onboarding@resend.dev>",
+      from: "Re-Syne <contact@re-syne.com>",
       to: [email],
       subject: `Conferma Appuntamento - ${date} alle ${time}`,
       html: `
@@ -62,7 +62,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Email to Re-Syne team
     const teamEmailResponse = await resend.emails.send({
-      from: "Re-Syne Bookings <onboarding@resend.dev>",
+      from: "Re-Syne Bookings <contact@re-syne.com>",
       to: ["contact@re-syne.com"],
       subject: `Nuovo Appuntamento: ${firstName} ${lastName} - ${date} ${time}`,
       html: `
