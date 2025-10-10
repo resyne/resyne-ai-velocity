@@ -97,7 +97,9 @@
       "messagePlaceholder": "Raccontaci della tua azienda e delle tue esigenze specifiche...",
       "submit": "Invia Richiesta",
       "sending": "Invio in corso...",
-      "privacy": "Rispettiamo la tua privacy. Non condivideremo mai i tuoi dati con terze parti."
+      "privacy": "Rispettiamo la tua privacy. Non condivideremo mai i tuoi dati con terze parti.",
+      "privacyAccept": "Accetto i termini e condizioni e la",
+      "privacyLink": "Privacy Policy"
     },
     "toast": {
       "success": "Richiesta Inviata!",

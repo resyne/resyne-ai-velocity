@@ -97,7 +97,9 @@
       "messagePlaceholder": "Tell us about your company and specific requirements...",
       "submit": "Send Request",
       "sending": "Sending...",
-      "privacy": "We respect your privacy. We will never share your data with third parties."
+      "privacy": "We respect your privacy. We will never share your data with third parties.",
+      "privacyAccept": "I accept the terms and conditions and the",
+      "privacyLink": "Privacy Policy"
     },
     "toast": {
       "success": "Request Sent!",

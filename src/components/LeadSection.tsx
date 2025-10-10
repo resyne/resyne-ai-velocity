@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { Users, Mail, Phone, Building, ArrowRight, CheckCircle } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { Checkbox } from "@/components/ui/checkbox";
 
 export function LeadSection() {
   const { t } = useTranslation();
@@ -19,6 +20,7 @@ export function LeadSection() {
     servizio: "",
     messaggio: ""
   });
+  const [acceptedPrivacy, setAcceptedPrivacy] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
@@ -226,11 +228,33 @@ export function LeadSection() {
                   />
                 </div>
 
+                <div className="flex items-start space-x-2">
+                  <Checkbox 
+                    id="privacy" 
+                    checked={acceptedPrivacy}
+                    onCheckedChange={(checked) => setAcceptedPrivacy(checked as boolean)}
+                    required
+                  />
+                  <label
+                    htmlFor="privacy"
+                    className="text-sm text-muted-foreground leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
+                    {t('leads.form.privacyAccept')}{" "}
+                    <a 
+                      href="https://www.iubenda.com/privacy-policy/31200612" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-resyne-gold hover:underline"
+                    >
+                      {t('leads.form.privacyLink')}
+                    </a>
+                  </label>
+                </div>
 
                 <Button 
                   type="submit" 
                   className="w-full bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light font-subtitle text-lg py-6"
-                  disabled={isLoading}
+                  disabled={isLoading || !acceptedPrivacy}
                 >
                   {isLoading ? (
                     t('leads.form.sending')
