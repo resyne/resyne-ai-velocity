@@ -55,15 +55,16 @@ export const SocialProofSection = () => {
                   className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
-                  <Button 
-                    variant="secondary" 
-                    size="sm"
-                    className="gap-2"
-                    onClick={() => window.open(item.url, '_blank')}
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    {t("websiteInOneDay.socialProof.visitSite")}
-                  </Button>
+                  <a href={item.url} target="_blank" rel="noopener noreferrer">
+                    <Button 
+                      variant="secondary" 
+                      size="sm"
+                      className="gap-2"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      {t("websiteInOneDay.socialProof.visitSite")}
+                    </Button>
+                  </a>
                 </div>
               </div>
 
@@ -89,14 +90,15 @@ export const SocialProofSection = () => {
                   </footer>
                 </blockquote>
 
-                <Button 
-                  variant="outline" 
-                  className="w-full gap-2"
-                  onClick={() => window.open(item.url, '_blank')}
-                >
-                  <ExternalLink className="w-4 h-4" />
-                  {t("websiteInOneDay.socialProof.viewProject")}
-                </Button>
+                <a href={item.url} target="_blank" rel="noopener noreferrer" className="block">
+                  <Button 
+                    variant="outline" 
+                    className="w-full gap-2"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    {t("websiteInOneDay.socialProof.viewProject")}
+                  </Button>
+                </a>
               </div>
             </div>
           ))}
