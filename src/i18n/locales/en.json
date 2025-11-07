@@ -528,6 +528,74 @@
       "errorDescGeneric": "An error occurred. Please try again later."
     }
   },
+  "eligibilityFunnel": {
+    "title": "Check Your Eligibility",
+    "subtitle": "Answer a few questions to find out if you can access the grant",
+    "step": "Step",
+    "of": "of",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit Request",
+    "submitting": "Submitting...",
+    "step1": {
+      "title": "What type of tourism business are you?"
+    },
+    "businessTypes": {
+      "hotel": "Hotel",
+      "resort": "Beach Resort",
+      "bnb": "B&B / Guest House",
+      "beach": "Beach Club",
+      "agency": "Travel Agency / Tour Operator",
+      "transport": "Passenger Transport",
+      "other": "Other Tourism Sector"
+    },
+    "step2": {
+      "title": "What projects do you want to implement?",
+      "subtitle": "You can select multiple options"
+    },
+    "projects": {
+      "ai": "Artificial Intelligence",
+      "erp": "Management Software",
+      "booking": "Booking System",
+      "automation": "Process Automation",
+      "analytics": "Data Analytics & Reporting",
+      "experience": "Digital Experiences for Visitors"
+    },
+    "step3": {
+      "title": "What is the maximum budget you can invest?"
+    },
+    "step4": {
+      "title": "Briefly describe your project",
+      "placeholder": "Tell us about your needs, what you would like to digitize or automate, and what goals you want to achieve...",
+      "hint": "The more details you provide, the better we can help you assess eligibility and prepare for the grant."
+    },
+    "step5": {
+      "title": "When would you prefer to be contacted?",
+      "selectDate": "Select a date",
+      "selectTime": "Select a time"
+    },
+    "step6": {
+      "title": "Your Contact Information",
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Your first name",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Your last name",
+      "email": "Email",
+      "emailPlaceholder": "your-email@example.com",
+      "phone": "Phone",
+      "phonePlaceholder": "+39 123 456 7890",
+      "platform": "How would you prefer to be contacted?"
+    },
+    "platforms": {
+      "phone": "Phone"
+    },
+    "toast": {
+      "success": "Request sent successfully!",
+      "successDesc": "We will contact you soon at the indicated time to verify your eligibility.",
+      "error": "Submission Error",
+      "errorDesc": "An error occurred. Please try again later."
+    }
+  },
   "digitSicilia": {
     "hero": {
       "badge": "DIGIT IMPRESE - Sicily Region",

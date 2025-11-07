@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { GrantBookingSection } from "@/components/GrantBookingSection";
+import { EligibilityFunnel } from "@/components/EligibilityFunnel";
 import { useEffect } from "react";
 import { 
   Sparkles, 
@@ -355,10 +355,8 @@ export default function BandoPID() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section id="booking-section">
-        <GrantBookingSection grantName="Bando PID Salerno" />
-      </section>
+      {/* Eligibility Funnel */}
+      <EligibilityFunnel grantName="Bando PID Salerno 2025" />
 
       <Footer />
     </div>

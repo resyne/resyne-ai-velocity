@@ -528,6 +528,74 @@
       "errorDescGeneric": "Si è verificato un problema. Riprova più tardi."
     }
   },
+  "eligibilityFunnel": {
+    "title": "Verifica la tua idoneità",
+    "subtitle": "Rispondi ad alcune domande per scoprire se puoi accedere al bando",
+    "step": "Passo",
+    "of": "di",
+    "back": "Indietro",
+    "next": "Avanti",
+    "submit": "Invia richiesta",
+    "submitting": "Invio in corso...",
+    "step1": {
+      "title": "Che tipo di impresa turistica sei?"
+    },
+    "businessTypes": {
+      "hotel": "Hotel",
+      "resort": "Stabilimento balneare",
+      "bnb": "B&B / Affittacamere",
+      "beach": "Lido / Spiaggia",
+      "agency": "Agenzia viaggi / Tour operator",
+      "transport": "Trasporto passeggeri",
+      "other": "Altro settore turistico"
+    },
+    "step2": {
+      "title": "Quali progetti vuoi implementare?",
+      "subtitle": "Puoi selezionare più opzioni"
+    },
+    "projects": {
+      "ai": "Intelligenza Artificiale",
+      "erp": "Software gestionale",
+      "booking": "Sistema di prenotazioni",
+      "automation": "Automazione processi",
+      "analytics": "Analisi dati e reportistica",
+      "experience": "Esperienze digitali per visitatori"
+    },
+    "step3": {
+      "title": "Qual è il budget massimo che puoi investire?"
+    },
+    "step4": {
+      "title": "Descrivi brevemente il tuo progetto",
+      "placeholder": "Racconta quali sono le tue esigenze, cosa vorresti digitalizzare o automatizzare, e quali obiettivi vuoi raggiungere...",
+      "hint": "Più dettagli fornisci, meglio potremo aiutarti a valutare l'idoneità e prepararti per il bando."
+    },
+    "step5": {
+      "title": "Quando preferisci essere contattato?",
+      "selectDate": "Seleziona una data",
+      "selectTime": "Seleziona un orario"
+    },
+    "step6": {
+      "title": "I tuoi contatti",
+      "firstName": "Nome",
+      "firstNamePlaceholder": "Il tuo nome",
+      "lastName": "Cognome",
+      "lastNamePlaceholder": "Il tuo cognome",
+      "email": "Email",
+      "emailPlaceholder": "la-tua-email@esempio.it",
+      "phone": "Telefono",
+      "phonePlaceholder": "+39 123 456 7890",
+      "platform": "Come preferisci essere contattato?"
+    },
+    "platforms": {
+      "phone": "Telefono"
+    },
+    "toast": {
+      "success": "Richiesta inviata con successo!",
+      "successDesc": "Ti contatteremo presto all'orario indicato per verificare la tua idoneità.",
+      "error": "Errore nell'invio",
+      "errorDesc": "Si è verificato un errore. Riprova più tardi."
+    }
+  },
   "digitSicilia": {
     "hero": {
       "badge": "DIGIT IMPRESE - Regione Sicilia",
