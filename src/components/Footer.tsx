@@ -99,8 +99,7 @@ export function Footer() {
                 <div>
                   <p className="text-sm text-muted-foreground">{t('footer.location')}</p>
                   <p className="text-foreground">
-                    {t('footer.locationCity')}<br />
-                    <span className="text-sm text-muted-foreground">{t('footer.locationCoverage')}</span>
+                    Milano • Roma • Salerno
                   </p>
                 </div>
               </li>
