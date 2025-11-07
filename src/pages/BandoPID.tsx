@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { GrantBookingSection } from "@/components/GrantBookingSection";
+import { useEffect } from "react";
 import { 
   Sparkles, 
   TrendingUp, 
@@ -25,6 +26,10 @@ import {
 export default function BandoPID() {
   const { t } = useTranslation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const solutions = [
     {
