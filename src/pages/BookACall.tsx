@@ -99,40 +99,40 @@ export default function BookACall() {
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-resyne-dark via-resyne-dark to-resyne-black">
       <Header />
       
-      <main className="flex-grow container mx-auto px-4 py-12">
+      <main className="flex-grow container mx-auto px-4 py-8 md:py-12">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-title font-bold mb-4 text-resyne-gold">
+          <div className="text-center mb-8 md:mb-12">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-title font-bold mb-3 md:mb-4 text-resyne-gold">
               {t('bookCall.title')}
             </h1>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-base md:text-lg text-muted-foreground px-4">
               {t('bookCall.subtitle')}
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-8 bg-card/50 backdrop-blur-sm p-8 rounded-lg border border-border">
+          <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8 bg-card/50 backdrop-blur-sm p-4 sm:p-6 md:p-8 rounded-lg border border-border">
             {/* Calendar Section */}
-            <div className="space-y-4">
-              <Label className="text-lg flex items-center gap-2">
-                <CalendarIcon className="h-5 w-5 text-resyne-gold" />
+            <div className="space-y-3 md:space-y-4">
+              <Label className="text-base md:text-lg flex items-center gap-2">
+                <CalendarIcon className="h-4 w-4 md:h-5 md:w-5 text-resyne-gold" />
                 {t('bookCall.form.selectDate')}
               </Label>
-              <div className="flex justify-center">
+              <div className="flex justify-center overflow-x-auto">
                 <Calendar
                   mode="single"
                   selected={selectedDate}
                   onSelect={setSelectedDate}
                   disabled={(date) => date < new Date() || date.getDay() === 0 || date.getDay() === 6}
-                  className="rounded-md border pointer-events-auto"
+                  className="rounded-md border pointer-events-auto scale-90 sm:scale-100"
                 />
               </div>
             </div>
 
             {/* Time Slots */}
             {selectedDate && (
-              <div className="space-y-4">
-                <Label className="text-lg flex items-center gap-2">
-                  <Clock className="h-5 w-5 text-resyne-gold" />
+              <div className="space-y-3 md:space-y-4">
+                <Label className="text-base md:text-lg flex items-center gap-2">
+                  <Clock className="h-4 w-4 md:h-5 md:w-5 text-resyne-gold" />
                   {t('bookCall.form.selectTime')}
                 </Label>
                 <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
@@ -141,7 +141,7 @@ export default function BookACall() {
                       key={time}
                       type="button"
                       variant={selectedTime === time ? "default" : "outline"}
-                      className={selectedTime === time ? "bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light" : ""}
+                      className={`min-h-[44px] text-sm ${selectedTime === time ? "bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light" : ""}`}
                       onClick={() => setSelectedTime(time)}
                     >
                       {time}
@@ -153,11 +153,11 @@ export default function BookACall() {
 
             {/* Platform Selection */}
             {selectedTime && (
-              <div className="space-y-4">
-                <Label className="text-lg">
+              <div className="space-y-3 md:space-y-4">
+                <Label className="text-base md:text-lg">
                   {t('bookCall.form.selectPlatform')}
                 </Label>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
                   {platforms.map((platform) => {
                     const Icon = platform.icon;
                     return (
@@ -165,15 +165,15 @@ export default function BookACall() {
                         key={platform.id}
                         type="button"
                         variant={selectedPlatform === platform.id ? "default" : "outline"}
-                        className={`h-auto py-4 flex flex-col items-center gap-2 ${
+                        className={`h-auto py-3 md:py-4 flex flex-col items-center gap-2 min-h-[80px] ${
                           selectedPlatform === platform.id 
                             ? "bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light" 
                             : ""
                         }`}
                         onClick={() => setSelectedPlatform(platform.id)}
                       >
-                        <Icon className="h-6 w-6" />
-                        <span>{platform.label}</span>
+                        <Icon className="h-5 w-5 md:h-6 md:w-6" />
+                        <span className="text-sm md:text-base">{platform.label}</span>
                       </Button>
                     );
                   })}
@@ -183,8 +183,8 @@ export default function BookACall() {
 
             {/* Contact Information */}
             {selectedPlatform && (
-              <div className="space-y-6 pt-6 border-t border-border">
-                <h3 className="text-xl font-semibold text-resyne-gold">
+              <div className="space-y-4 md:space-y-6 pt-4 md:pt-6 border-t border-border">
+                <h3 className="text-lg md:text-xl font-semibold text-resyne-gold">
                   {t('bookCall.form.contactInfo')}
                 </h3>
                 
@@ -274,7 +274,7 @@ export default function BookACall() {
 
                 <Button 
                   type="submit" 
-                  className="w-full bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light font-subtitle text-lg py-6"
+                  className="w-full bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light font-subtitle text-base md:text-lg py-4 md:py-6 min-h-[52px]"
                   disabled={isLoading || !acceptedPrivacy}
                 >
                   {isLoading ? t('bookCall.form.sending') : t('bookCall.form.submit')}
