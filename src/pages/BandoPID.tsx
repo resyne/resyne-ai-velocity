@@ -139,14 +139,6 @@ export default function BandoPID() {
               >
                 {t('bandoPID.hero.cta')} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button 
-                size="lg"
-                variant="outline"
-                className="border-resyne-gold text-resyne-gold hover:bg-resyne-gold hover:text-resyne-dark"
-                onClick={() => window.open('https://www.sa.camcom.it/it/content/pid-2025-turismo-e-innovazione', '_blank')}
-              >
-                {t('bandoPID.hero.documentation')} <ExternalLink className="ml-2 h-4 w-4" />
-              </Button>
             </div>
           </div>
         </div>
