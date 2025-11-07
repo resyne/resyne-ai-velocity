@@ -5,6 +5,7 @@
     "ai": "AI Solutions",
     "websiteInOneDay": "Website in 1 Day",
     "bookACall": "Book a Call",
+    "bandoPID": "PID Grant",
     "requestDemo": "Request Demo",
     "contactUs": "Contact Us"
   },
@@ -279,6 +280,108 @@
       "successDescription": "You will receive a confirmation email shortly.",
       "error": "Error",
       "errorDescription": "Please complete all required fields."
+    }
+  },
+  "bandoPID": {
+    "hero": {
+      "badge": "PID Grant 2025",
+      "title": "Digital Vouchers 2025",
+      "titleHighlight": "Tourism and Innovation",
+      "subtitle": "The Chamber of Commerce of Salerno supports the digitalization of tourism businesses with grants up to €10,000",
+      "cta": "Request a free consultation",
+      "documentation": "Download documentation"
+    },
+    "intro": {
+      "badge": "Digital Vouchers 2025",
+      "title": "How RESYNE can help you",
+      "description": "RESYNE is a team specialized in developing custom Artificial Intelligence solutions and management software for tourism. We support hotels, B&Bs, tour operators, and accommodation facilities in transforming business processes into automated, intelligent, and integrated systems.",
+      "fundingTitle": "Available funding",
+      "fundingNote": "on a minimum spend of €20,000",
+      "benefit1": "Non-repayable grant",
+      "benefit2": "+€250 bonus with legality rating",
+      "benefit3": "Up to 50% of expenses covered"
+    },
+    "solutions": {
+      "title": "What we build",
+      "subtitle": "We develop and integrate tools that make tourism management more efficient, automated, and data-driven",
+      "management": {
+        "title": "Management systems and integrated solutions",
+        "description": "Customized platforms for managing bookings, customers, payments, inventory, and staff. Cloud solutions and centralized dashboards to control every operational aspect in real-time."
+      },
+      "ai": {
+        "title": "AI and intelligent automation",
+        "description": "Artificial intelligence systems to analyze reviews, demand flows, performance data, and guest behaviors. Automation for check-in, pre/post-stay communications, and multilingual customer responses."
+      },
+      "booking": {
+        "title": "Booking and process optimization",
+        "description": "Smart booking engines, integrations with OTA portals, and dynamic pricing tools that adapt rates based on seasonality and market trends."
+      },
+      "experiences": {
+        "title": "Digital experiences and sustainability",
+        "description": "Solutions to enhance visitor experience with augmented reality, digital paths, and immersive storytelling. Technologies that promote more conscious energy and environmental management."
+      }
+    },
+    "eligibility": {
+      "title": "Who can participate",
+      "registered": "Companies regularly registered in the Business Register",
+      "location": "With operational headquarters in the province of Salerno",
+      "sectors": "Active in sectors: passenger transport, accommodation services, tour operators, travel agencies, beach resorts, and spa centers"
+    },
+    "funding": {
+      "title": "Available funding",
+      "amount": "Non-repayable grant",
+      "minimum": "Minimum eligible expenditure",
+      "bonus": "+€250 bonus for companies with legality rating"
+    },
+    "interventions": {
+      "title": "Eligible intervention areas",
+      "subtitle": "The grant covers several areas of digital innovation for the tourism sector",
+      "digital": {
+        "title": "Digital solutions for management and automation",
+        "description": "Management software for bookings, customers, payments, and inventory. Digital systems to automate check-in, bookings, or orders.",
+        "resyne": "RESYNE creates custom cloud solutions to digitize every operational process and improve team productivity."
+      },
+      "ai": {
+        "title": "Artificial Intelligence and Data Analysis",
+        "description": "AI to analyze reviews, behaviors, and tourist flows. Multilingual chatbots and virtual assistants. Predictive analysis for prices, seasonality, and availability.",
+        "resyne": "RESYNE develops predictive AI models and analysis dashboards integrated with your booking systems."
+      },
+      "experiences": {
+        "title": "Digital Experiences for Visitors",
+        "description": "Augmented and virtual reality for immersive visits. Interactive apps and kiosks with cultural or thematic paths. Solutions for accessibility and experience personalization.",
+        "resyne": "RESYNE designs digital experiences and interactive tools that enrich the tourism offer."
+      },
+      "security": {
+        "title": "Security and Data Management",
+        "description": "Secure backup and cloud. Protection from cyber attacks. Staff training and digital risk management.",
+        "resyne": "RESYNE integrates security systems and GDPR compliance to ensure maximum data protection."
+      },
+      "integrated": {
+        "title": "Integrated Management of Tourism Supply Chain",
+        "description": "Shared platforms between hotels, cultural operators, and local producers. Coordination of logistics, supplies, and integrated bookings. Digital tools for tourism business networks.",
+        "resyne": "RESYNE develops digital ecosystems that connect accommodation facilities, operators, and territorial partners."
+      }
+    },
+    "application": {
+      "title": "How to apply",
+      "deadline": {
+        "title": "Deadlines",
+        "from": "Applications open",
+        "fromDate": "November 17, 2025, at 11:00 AM",
+        "to": "Applications close",
+        "toDate": "December 17, 2025, at 12:00 PM",
+        "warning": "Applications submitted outside the deadline will not be accepted. The procedure may close early if funds are exhausted."
+      },
+      "documentation": {
+        "title": "Official documentation",
+        "description": "Applications must be submitted online with digital signature through Infocamere's RESTART platform.",
+        "download": "Download complete documentation"
+      }
+    },
+    "cta": {
+      "title": "Want to know if your company can access the grant?",
+      "description": "The RESYNE team will analyze your situation for free and guide you in preparing the project to obtain funding.",
+      "button": "Book a free consultation"
     }
   }
 }

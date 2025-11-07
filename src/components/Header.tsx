@@ -95,6 +95,16 @@ export function Header() {
             >
               {t('header.bookACall')}
             </a>
+            <a 
+              href="/bando-pid" 
+              className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate('/bando-pid');
+              }}
+            >
+              {t('header.bandoPID')}
+            </a>
           </nav>
 
           {/* CTA Button */}
@@ -188,6 +198,17 @@ export function Header() {
                 }}
               >
                 {t('header.bookACall')}
+              </a>
+              <a 
+                href="/bando-pid" 
+                className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate('/bando-pid');
+                  setIsMenuOpen(false);
+                }}
+              >
+                {t('header.bandoPID')}
               </a>
               <div className="flex flex-col space-y-2 pt-4">
                 <LanguageSwitcher />
