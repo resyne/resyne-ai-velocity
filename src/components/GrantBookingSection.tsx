@@ -107,30 +107,30 @@ export function GrantBookingSection({ grantName }: GrantBookingSectionProps) {
   };
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-br from-resyne-gold/5 to-tech-blue/5">
+    <section className="py-12 md:py-20 px-4 bg-gradient-to-br from-resyne-gold/5 to-tech-blue/5">
       <div className="container mx-auto max-w-6xl">
         <Card className="glass-card border-resyne-gold/40 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-resyne-gold/10 to-tech-blue/10" />
-          <CardContent className="p-8 md:p-12 relative z-10">
-            <div className="text-center space-y-4 mb-12">
-              <h2 className="font-title text-3xl md:text-4xl">
+          <CardContent className="p-4 sm:p-6 md:p-12 relative z-10">
+            <div className="text-center space-y-3 mb-8 md:mb-12">
+              <h2 className="font-title text-2xl sm:text-3xl md:text-4xl">
                 {t('grantBooking.title')}
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
                 {t('grantBooking.subtitle')}
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-8">
+            <form onSubmit={handleSubmit} className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-8">
               {/* Left Column - Calendar & Platform */}
-              <div className="space-y-6">
+              <div className="space-y-5 md:space-y-6 order-2 md:order-1">
                 <div>
                   <label className="font-subtitle text-sm mb-3 block flex items-center gap-2">
                     <CalendarIcon className="h-4 w-4 text-resyne-gold" />
                     {t('grantBooking.selectDate')}
                   </label>
                   <Card className="glass-card">
-                    <CardContent className="p-4">
+                    <CardContent className="p-2 sm:p-4">
                       <Calendar
                         mode="single"
                         selected={selectedDate}
@@ -138,7 +138,7 @@ export function GrantBookingSection({ grantName }: GrantBookingSectionProps) {
                         disabled={(date) => date < new Date() || date < new Date("2024-01-01")}
                         initialFocus
                         locale={i18n.language === 'it' ? it : enUS}
-                        className={cn("pointer-events-auto w-full")}
+                        className={cn("pointer-events-auto w-full [&_.rdp-month]:w-full [&_table]:w-full")}
                       />
                     </CardContent>
                   </Card>
@@ -148,23 +148,23 @@ export function GrantBookingSection({ grantName }: GrantBookingSectionProps) {
                   <label className="font-subtitle text-sm mb-3 block">
                     {t('grantBooking.selectPlatform')}
                   </label>
-                  <div className="grid grid-cols-3 gap-3">
+                  <div className="grid grid-cols-3 gap-2 sm:gap-3">
                     {platforms.map((platform) => (
                       <button
                         key={platform.id}
                         type="button"
                         onClick={() => setSelectedPlatform(platform.id)}
                         className={cn(
-                          "p-4 rounded-lg glass-card transition-all flex flex-col items-center gap-2",
+                          "p-3 sm:p-4 rounded-lg glass-card transition-all flex flex-col items-center gap-1.5 sm:gap-2 touch-manipulation",
                           selectedPlatform === platform.id
                             ? "border-2 border-resyne-gold bg-resyne-gold/10"
-                            : "border border-border/20 hover:border-resyne-gold/50"
+                            : "border border-border/20 hover:border-resyne-gold/50 active:border-resyne-gold/50"
                         )}
                       >
-                        <platform.icon className={cn("h-6 w-6", platform.color)} />
-                        <span className="text-xs font-subtitle">{platform.label}</span>
+                        <platform.icon className={cn("h-5 w-5 sm:h-6 sm:w-6", platform.color)} />
+                        <span className="text-[10px] sm:text-xs font-subtitle leading-tight text-center">{platform.label}</span>
                         {selectedPlatform === platform.id && (
-                          <CheckCircle className="h-4 w-4 text-resyne-gold" />
+                          <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 text-resyne-gold" />
                         )}
                       </button>
                     ))}
@@ -173,8 +173,8 @@ export function GrantBookingSection({ grantName }: GrantBookingSectionProps) {
               </div>
 
               {/* Right Column - Contact Info */}
-              <div className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-4 order-1 md:order-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="font-subtitle text-sm mb-2 block">
                       {t('grantBooking.form.firstName')}
@@ -246,7 +246,7 @@ export function GrantBookingSection({ grantName }: GrantBookingSectionProps) {
                   type="submit"
                   size="lg"
                   disabled={isLoading || !selectedDate || !selectedPlatform}
-                  className="w-full bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light"
+                  className="w-full bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light touch-manipulation min-h-[44px]"
                 >
                   {isLoading ? t('grantBooking.form.submitting') : t('grantBooking.form.submit')}
                   <ArrowRight className="ml-2 h-4 w-4" />
