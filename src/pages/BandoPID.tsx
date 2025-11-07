@@ -325,7 +325,7 @@ export default function BandoPID() {
               {t('bandoPID.application.title')}
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+          <div className="max-w-2xl mx-auto">
             <Card className="glass-card border-resyne-gold/20">
               <CardContent className="p-4 sm:p-6 md:p-8 space-y-4 md:space-y-6">
                 <div className="flex items-center gap-3">
@@ -345,22 +345,6 @@ export default function BandoPID() {
                     <p className="text-sm text-destructive">{t('bandoPID.application.deadline.warning')}</p>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-            <Card className="glass-card border-tech-blue/20">
-              <CardContent className="p-4 sm:p-6 md:p-8 space-y-4 md:space-y-6">
-                <div className="flex items-center gap-3">
-                  <FileText className="h-8 w-8 text-tech-blue" />
-                  <h3 className="font-subtitle text-xl">{t('bandoPID.application.documentation.title')}</h3>
-                </div>
-                <p className="text-muted-foreground">{t('bandoPID.application.documentation.description')}</p>
-                <Button 
-                  variant="outline"
-                  className="w-full border-tech-blue text-tech-blue hover:bg-tech-blue hover:text-white"
-                  onClick={() => window.open('https://www.sa.camcom.it/it/content/pid-2025-turismo-e-innovazione', '_blank')}
-                >
-                  {t('bandoPID.application.documentation.download')} <ExternalLink className="ml-2 h-4 w-4" />
-                </Button>
               </CardContent>
             </Card>
           </div>
