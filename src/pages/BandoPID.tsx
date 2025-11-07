@@ -336,6 +336,18 @@ export default function BandoPID() {
                   <div className="pt-4 border-t border-border/20">
                     <p className="text-sm text-destructive">{t('bandoPID.application.deadline.warning')}</p>
                   </div>
+                  <div className="pt-4">
+                    <Button 
+                      size="lg"
+                      className="w-full bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light"
+                      onClick={() => {
+                        const bookingSection = document.getElementById('booking-section');
+                        bookingSection?.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                    >
+                      {t('bandoPID.hero.cta')} <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -344,7 +356,9 @@ export default function BandoPID() {
       </section>
 
       {/* CTA Section */}
-      <GrantBookingSection grantName="Bando PID Salerno" />
+      <section id="booking-section">
+        <GrantBookingSection grantName="Bando PID Salerno" />
+      </section>
 
       <Footer />
     </div>
