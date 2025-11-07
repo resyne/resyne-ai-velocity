@@ -24,18 +24,18 @@ export function HeroSection() {
       <div className="absolute top-40 right-20 w-16 h-16 bg-resyne-gold/20 rounded-full animate-float" style={{animationDelay: "2s"}}></div>
       <div className="absolute bottom-32 left-1/4 w-12 h-12 bg-tech-purple/20 rounded-full animate-float" style={{animationDelay: "4s"}}></div>
 
-      <div className="container mx-auto px-4 lg:px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-5xl mx-auto">
           {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-resyne-gold/10 border border-resyne-gold/30 mb-8">
-            <Zap className="w-4 h-4 mr-2 text-resyne-gold" />
-            <span className="text-sm font-subtitle text-resyne-gold">
+          <div className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-resyne-gold/10 border border-resyne-gold/30 mb-6 sm:mb-8">
+            <Zap className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2 text-resyne-gold" />
+            <span className="text-xs sm:text-sm font-subtitle text-resyne-gold">
               {t('hero.badge')}
             </span>
           </div>
 
           {/* Main Title */}
-          <h1 className="font-title text-5xl md:text-7xl lg:text-8xl mb-6">
+          <h1 className="font-title text-3xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-6 px-2">
             <span className="gradient-text">{t('hero.title1')}</span>
             <br />
             <span className="text-glow">{t('hero.title2')}</span>
@@ -44,50 +44,50 @@ export function HeroSection() {
           </h1>
 
           {/* Subtitle */}
-          <p className="font-subtitle text-xl md:text-2xl text-muted-foreground mb-4">
+          <p className="font-subtitle text-base sm:text-lg md:text-xl text-muted-foreground mb-3 sm:mb-4 px-4">
             {t('hero.subtitle')}
           </p>
           
-          <div className="flex items-center justify-center gap-2 mb-12">
-            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-tech-blue/20">
-              <TrendingUp className="w-4 h-4 text-tech-blue" />
-              <span className="text-sm text-tech-blue font-medium">{t('hero.stat1')}</span>
+          <div className="flex items-center justify-center gap-1.5 sm:gap-2 mb-8 sm:mb-12 px-2 flex-wrap">
+            <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-tech-blue/20">
+              <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-tech-blue" />
+              <span className="text-xs sm:text-sm text-tech-blue font-medium whitespace-nowrap">{t('hero.stat1')}</span>
             </div>
-            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-resyne-gold/20">
-              <span className="w-2 h-2 rounded-full bg-resyne-gold"></span>
-              <span className="text-sm text-resyne-gold font-medium">{t('hero.stat2')}</span>
+            <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-resyne-gold/20">
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-resyne-gold"></span>
+              <span className="text-xs sm:text-sm text-resyne-gold font-medium whitespace-nowrap">{t('hero.stat2')}</span>
             </div>
           </div>
 
           {/* Description */}
           <p 
-            className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto mb-12 leading-relaxed"
+            className="text-sm sm:text-base md:text-lg text-foreground/80 max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4"
             dangerouslySetInnerHTML={{ __html: t('hero.description') }}
           />
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center px-4 sm:px-0">
             <Button 
               size="lg" 
-              className="bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light font-subtitle text-lg px-8 py-4 h-auto animate-pulse-glow"
+              className="w-full sm:w-auto bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light font-subtitle text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto animate-pulse-glow"
               onClick={() => scrollToSection('demos')}
             >
               {t('hero.discoverDemos')}
-              <ArrowRight className="w-5 h-5 ml-2" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
             </Button>
             <Button 
               variant="outline" 
               size="lg" 
-              className="border-tech-purple text-tech-purple hover:bg-tech-purple hover:text-white font-subtitle text-lg px-8 py-4 h-auto"
+              className="w-full sm:w-auto border-tech-purple text-tech-purple hover:bg-tech-purple hover:text-white font-subtitle text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto"
               onClick={() => navigate('/website-in-1-day')}
             >
-              <Clock className="w-5 h-5 mr-2" />
+              <Clock className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
               {t('hero.websiteInOneDay')}
             </Button>
             <Button 
               variant="outline" 
               size="lg" 
-              className="border-tech-blue text-tech-blue hover:bg-tech-blue hover:text-white font-subtitle text-lg px-8 py-4 h-auto"
+              className="w-full sm:w-auto border-tech-blue text-tech-blue hover:bg-tech-blue hover:text-white font-subtitle text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto"
               onClick={() => scrollToSection('leads')}
             >
               {t('hero.requestConsultation')}
@@ -95,18 +95,18 @@ export function HeroSection() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
-            <div className="text-center">
-              <div className="text-4xl md:text-5xl font-title gradient-text mb-2">200+</div>
-              <div className="text-sm font-subtitle text-muted-foreground">{t('hero.stats.implementations')}</div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mt-12 sm:mt-20 px-4">
+            <div className="text-center py-4 sm:py-0">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-title gradient-text mb-2">200+</div>
+              <div className="text-xs sm:text-sm font-subtitle text-muted-foreground">{t('hero.stats.implementations')}</div>
             </div>
-            <div className="text-center">
-              <div className="text-4xl md:text-5xl font-title gradient-tech-text mb-2">95%</div>
-              <div className="text-sm font-subtitle text-muted-foreground">{t('hero.stats.reduction')}</div>
+            <div className="text-center py-4 sm:py-0">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-title gradient-tech-text mb-2">95%</div>
+              <div className="text-xs sm:text-sm font-subtitle text-muted-foreground">{t('hero.stats.reduction')}</div>
             </div>
-            <div className="text-center">
-              <div className="text-4xl md:text-5xl font-title text-glow mb-2">24/7</div>
-              <div className="text-sm font-subtitle text-muted-foreground">{t('hero.stats.support')}</div>
+            <div className="text-center py-4 sm:py-0">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-title text-glow mb-2">24/7</div>
+              <div className="text-xs sm:text-sm font-subtitle text-muted-foreground">{t('hero.stats.support')}</div>
             </div>
           </div>
         </div>

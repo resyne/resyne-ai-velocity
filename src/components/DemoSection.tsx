@@ -12,15 +12,15 @@ export function DemoSection() {
   const { t } = useTranslation();
   
   return (
-    <section className="py-24 tech-web" id="demos">
-      <div className="container mx-auto px-4 lg:px-6">
+    <section className="py-12 sm:py-16 md:py-24 tech-web" id="demos">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="font-title text-4xl md:text-6xl mb-6">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <h2 className="font-title text-2xl sm:text-3xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 px-2">
             <span className="gradient-text">{t('demos.title')}</span> {t('demos.title2')}{" "}
             <span className="text-tech-glow">{t('demos.title3')}</span>
           </h2>
-          <p className="font-subtitle text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="font-subtitle text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
             {t('demos.subtitle')}
           </p>
         </div>

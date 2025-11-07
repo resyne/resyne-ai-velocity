@@ -55,33 +55,33 @@ export function LeadSection() {
   };
 
   return (
-    <section className="py-24 tech-web" id="leads">
-      <div className="container mx-auto px-4 lg:px-6">
-        <div className="text-center mb-16">
-          <h2 className="font-title text-4xl md:text-6xl mb-6">
+    <section className="py-12 sm:py-16 md:py-24 tech-web" id="leads">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <h2 className="font-title text-2xl sm:text-3xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 px-2">
             <span className="gradient-text">{t('leads.title1')}</span> {t('leads.title2')}{" "}
             <span className="text-tech-glow">{t('leads.title3')}</span> {t('leads.title4')}
           </h2>
-          <p className="font-subtitle text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="font-subtitle text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
             {t('leads.subtitle')}
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start max-w-7xl mx-auto">
           {/* Benefits Cards */}
-          <div className="space-y-6">
-            <div className="grid gap-6">
+          <div className="space-y-4 sm:space-y-6">
+            <div className="grid gap-4 sm:gap-6">
               <Card className="glass-card shadow-card">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-lg bg-resyne-gold/20">
-                      <CheckCircle className="w-6 h-6 text-resyne-gold" />
+                <CardContent className="p-4 sm:p-6">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="p-2 sm:p-3 rounded-lg bg-resyne-gold/20 shrink-0">
+                      <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-resyne-gold" />
                     </div>
                     <div>
-                      <h3 className="font-subtitle text-lg mb-2 text-resyne-gold">
+                      <h3 className="font-subtitle text-base sm:text-lg mb-1 sm:mb-2 text-resyne-gold">
                         {t('leads.benefit1.title')}
                       </h3>
-                      <p className="text-muted-foreground">
+                      <p className="text-sm sm:text-base text-muted-foreground">
                         {t('leads.benefit1.description')}
                       </p>
                     </div>
@@ -90,16 +90,16 @@ export function LeadSection() {
               </Card>
 
               <Card className="glass-card shadow-card">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-lg bg-tech-blue/20">
-                      <Building className="w-6 h-6 text-tech-blue" />
+                <CardContent className="p-4 sm:p-6">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="p-2 sm:p-3 rounded-lg bg-tech-blue/20 shrink-0">
+                      <Building className="w-5 h-5 sm:w-6 sm:h-6 text-tech-blue" />
                     </div>
                     <div>
-                      <h3 className="font-subtitle text-lg mb-2 text-tech-blue">
+                      <h3 className="font-subtitle text-base sm:text-lg mb-1 sm:mb-2 text-tech-blue">
                         {t('leads.benefit2.title')}
                       </h3>
-                      <p className="text-muted-foreground">
+                      <p className="text-sm sm:text-base text-muted-foreground">
                         {t('leads.benefit2.description')}
                       </p>
                     </div>
@@ -108,16 +108,16 @@ export function LeadSection() {
               </Card>
 
               <Card className="glass-card shadow-card">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-lg bg-tech-purple/20">
-                      <Users className="w-6 h-6 text-tech-purple" />
+                <CardContent className="p-4 sm:p-6">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="p-2 sm:p-3 rounded-lg bg-tech-purple/20 shrink-0">
+                      <Users className="w-5 h-5 sm:w-6 sm:h-6 text-tech-purple" />
                     </div>
                     <div>
-                      <h3 className="font-subtitle text-lg mb-2 text-tech-purple">
+                      <h3 className="font-subtitle text-base sm:text-lg mb-1 sm:mb-2 text-tech-purple">
                         {t('leads.benefit3.title')}
                       </h3>
-                      <p className="text-muted-foreground">
+                      <p className="text-sm sm:text-base text-muted-foreground">
                         {t('leads.benefit3.description')}
                       </p>
                     </div>
@@ -126,16 +126,16 @@ export function LeadSection() {
               </Card>
             </div>
 
-            <div className="text-center space-y-4 p-6 glass-card rounded-lg">
+            <div className="text-center space-y-3 sm:space-y-4 p-4 sm:p-6 glass-card rounded-lg">
               <div className="flex items-center justify-center gap-2">
-                <Phone className="w-5 h-5 text-resyne-gold" />
-                <span className="font-subtitle text-lg text-resyne-gold">{t('leads.callTitle')}</span>
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-resyne-gold" />
+                <span className="font-subtitle text-base sm:text-lg text-resyne-gold">{t('leads.callTitle')}</span>
               </div>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-xs sm:text-sm text-muted-foreground">
                 {t('leads.callDescription')}
               </p>
-              <Button className="bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light">
-                <Phone className="w-4 h-4 mr-2" />
+              <Button className="bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light text-sm sm:text-base">
+                <Phone className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
                 +393911491256
               </Button>
             </div>
@@ -143,16 +143,16 @@ export function LeadSection() {
 
           {/* Contact Form */}
           <Card className="glass-card shadow-glow">
-            <CardHeader>
-              <CardTitle className="font-title text-2xl gradient-text text-center">
+            <CardHeader className="p-4 sm:p-6">
+              <CardTitle className="font-title text-xl sm:text-2xl gradient-text text-center">
                 {t('leads.formTitle')}
               </CardTitle>
-              <CardDescription className="text-center text-muted-foreground">
+              <CardDescription className="text-center text-muted-foreground text-sm sm:text-base">
                 {t('leads.formDescription')}
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
+            <CardContent className="p-4 sm:p-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="nome">{t('leads.form.name')} *</Label>
@@ -253,21 +253,21 @@ export function LeadSection() {
 
                 <Button 
                   type="submit" 
-                  className="w-full bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light font-subtitle text-lg py-6"
+                  className="w-full bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light font-subtitle text-base sm:text-lg py-5 sm:py-6"
                   disabled={isLoading || !acceptedPrivacy}
                 >
                   {isLoading ? (
                     t('leads.form.sending')
                   ) : (
                     <>
-                      <Mail className="w-5 h-5 mr-2" />
+                      <Mail className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                       {t('leads.form.submit')}
-                      <ArrowRight className="w-5 h-5 ml-2" />
+                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
                     </>
                   )}
                 </Button>
 
-                <p className="text-xs text-center text-muted-foreground">
+                <p className="text-[10px] sm:text-xs text-center text-muted-foreground">
                   {t('leads.form.privacy')}
                 </p>
               </form>
