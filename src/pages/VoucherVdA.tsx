@@ -100,22 +100,22 @@ export default function VoucherVdA() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 tech-web overflow-hidden">
+      <section className="relative pt-24 sm:pt-28 md:pt-32 pb-12 md:pb-20 px-4 tech-web overflow-hidden">
         <div className="container mx-auto max-w-6xl relative z-10">
-          <div className="text-center space-y-6">
-            <div className="inline-block px-4 py-2 rounded-full glass-card mb-4">
+          <div className="text-center space-y-4 md:space-y-6">
+            <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 rounded-full glass-card mb-2 sm:mb-4">
               <span className="text-sm font-subtitle text-resyne-gold">
                 {t('voucherVdA.hero.badge')}
               </span>
             </div>
-            <h1 className="font-title text-4xl md:text-5xl lg:text-6xl leading-tight">
+            <h1 className="font-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight px-2">
               {t('voucherVdA.hero.title')} <br />
               <span className="gradient-text">{t('voucherVdA.hero.titleHighlight')}</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
               {t('voucherVdA.hero.subtitle')}
             </p>
-            <div className="flex flex-wrap gap-4 justify-center pt-4">
+            <div className="flex flex-wrap gap-3 sm:gap-4 justify-center pt-3 sm:pt-4">
               <Button 
                 size="lg"
                 className="bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light"
@@ -137,17 +137,17 @@ export default function VoucherVdA() {
       </section>
 
       {/* Introduction */}
-      <section className="py-20 px-4 bg-card/30">
+      <section className="py-12 md:py-20 px-4 bg-card/30">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card">
-                <Lightbulb className="h-5 w-5 text-resyne-gold" />
-                <span className="text-sm font-subtitle text-resyne-gold">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="space-y-4 md:space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full glass-card">
+                <Lightbulb className="h-4 w-4 sm:h-5 sm:w-5 text-resyne-gold" />
+                <span className="text-xs sm:text-sm font-subtitle text-resyne-gold">
                   {t('voucherVdA.intro.badge')}
                 </span>
               </div>
-              <h2 className="font-title text-3xl md:text-4xl">
+              <h2 className="font-title text-2xl sm:text-3xl md:text-4xl">
                 {t('voucherVdA.intro.title')}
               </h2>
               <div className="space-y-4 text-muted-foreground">
@@ -173,7 +173,7 @@ export default function VoucherVdA() {
               </div>
             </div>
             <Card className="glass-card border-resyne-gold/20">
-              <CardContent className="p-8 space-y-6">
+              <CardContent className="p-4 sm:p-6 md:p-8 space-y-4 md:space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="p-3 rounded-lg bg-resyne-gold/10">
                     <Euro className="h-6 w-6 text-resyne-gold" />
@@ -205,20 +205,20 @@ export default function VoucherVdA() {
       </section>
 
       {/* What We Build */}
-      <section className="py-20 px-4">
+      <section className="py-12 md:py-20 px-4">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center space-y-4 mb-12">
-            <h2 className="font-title text-3xl md:text-4xl">
+          <div className="text-center space-y-3 md:space-y-4 mb-8 md:mb-12 px-4">
+            <h2 className="font-title text-2xl sm:text-3xl md:text-4xl">
               {t('voucherVdA.solutions.title')}
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
               {t('voucherVdA.solutions.subtitle')}
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6">
             {solutions.map((solution, index) => (
               <Card key={index} className="glass-card hover:border-resyne-gold/40 transition-all">
-                <CardContent className="p-6 space-y-4">
+                <CardContent className="p-4 sm:p-5 md:p-6 space-y-3 md:space-y-4">
                   <div className="p-3 rounded-lg bg-resyne-gold/10 w-fit">
                     <solution.icon className="h-6 w-6 text-resyne-gold" />
                   </div>
@@ -232,11 +232,11 @@ export default function VoucherVdA() {
       </section>
 
       {/* Eligibility and Funding */}
-      <section className="py-20 px-4 bg-card/30">
+      <section className="py-12 md:py-20 px-4 bg-card/30">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-12 items-start">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-start">
             <Card className="glass-card border-resyne-gold/20">
-              <CardContent className="p-8 space-y-6">
+              <CardContent className="p-4 sm:p-6 md:p-8 space-y-4 md:space-y-6">
                 <div className="flex items-center gap-3">
                   <Building2 className="h-8 w-8 text-resyne-gold" />
                   <h2 className="font-title text-2xl">{t('voucherVdA.eligibility.title')}</h2>
@@ -252,7 +252,7 @@ export default function VoucherVdA() {
               </CardContent>
             </Card>
             <Card className="glass-card border-tech-blue/20">
-              <CardContent className="p-8 space-y-6">
+              <CardContent className="p-4 sm:p-6 md:p-8 space-y-4 md:space-y-6">
                 <div className="flex items-center gap-3">
                   <Euro className="h-8 w-8 text-tech-blue" />
                   <h2 className="font-title text-2xl">{t('voucherVdA.funding.title')}</h2>
@@ -282,27 +282,27 @@ export default function VoucherVdA() {
       </section>
 
       {/* Technologies */}
-      <section className="py-20 px-4">
+      <section className="py-12 md:py-20 px-4">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center space-y-4 mb-12">
-            <h2 className="font-title text-3xl md:text-4xl">
+          <div className="text-center space-y-3 md:space-y-4 mb-8 md:mb-12 px-4">
+            <h2 className="font-title text-2xl sm:text-3xl md:text-4xl">
               {t('voucherVdA.technologies.title')}
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
               {t('voucherVdA.technologies.subtitle')}
             </p>
           </div>
           
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8">
             <div>
-              <h3 className="font-subtitle text-2xl mb-6 flex items-center gap-3">
-                <Zap className="h-6 w-6 text-resyne-gold" />
+              <h3 className="font-subtitle text-xl sm:text-2xl mb-4 md:mb-6 flex items-center gap-3 px-2">
+                <Zap className="h-5 w-5 sm:h-6 sm:w-6 text-resyne-gold" />
                 {t('voucherVdA.technologies.mainTitle')}
               </h3>
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                 {technologiesMain.map((tech, index) => (
                   <Card key={index} className="glass-card hover:border-resyne-gold/40 transition-all">
-                    <CardContent className="p-6 space-y-4">
+                    <CardContent className="p-4 sm:p-5 md:p-6 space-y-3 md:space-y-4">
                       <div className="flex items-center gap-3">
                         <div className="p-2 rounded-lg bg-resyne-gold/10">
                           <tech.icon className="h-5 w-5 text-resyne-gold" />
@@ -324,8 +324,8 @@ export default function VoucherVdA() {
             </div>
 
             <Card className="glass-card border-tech-blue/20">
-              <CardContent className="p-8">
-                <h3 className="font-subtitle text-xl mb-4 flex items-center gap-3">
+              <CardContent className="p-4 sm:p-6 md:p-8">
+                <h3 className="font-subtitle text-lg sm:text-xl mb-4 flex items-center gap-3">
                   <Sparkles className="h-6 w-6 text-tech-blue" />
                   {t('voucherVdA.technologies.complementaryTitle')}
                 </h3>
@@ -362,16 +362,16 @@ export default function VoucherVdA() {
       </section>
 
       {/* Application Process */}
-      <section className="py-20 px-4 bg-card/30">
+      <section className="py-12 md:py-20 px-4 bg-card/30">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center space-y-4 mb-12">
-            <h2 className="font-title text-3xl md:text-4xl">
+          <div className="text-center space-y-3 md:space-y-4 mb-8 md:mb-12 px-4">
+            <h2 className="font-title text-2xl sm:text-3xl md:text-4xl">
               {t('voucherVdA.application.title')}
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
             <Card className="glass-card border-resyne-gold/20">
-              <CardContent className="p-8 space-y-6">
+              <CardContent className="p-4 sm:p-6 md:p-8 space-y-4 md:space-y-6">
                 <div className="flex items-center gap-3">
                   <Calendar className="h-8 w-8 text-resyne-gold" />
                   <h3 className="font-subtitle text-xl">{t('voucherVdA.application.phases.title')}</h3>
@@ -399,7 +399,7 @@ export default function VoucherVdA() {
               </CardContent>
             </Card>
             <Card className="glass-card border-tech-blue/20">
-              <CardContent className="p-8 space-y-6">
+              <CardContent className="p-4 sm:p-6 md:p-8 space-y-4 md:space-y-6">
                 <div className="flex items-center gap-3">
                   <FileText className="h-8 w-8 text-tech-blue" />
                   <h3 className="font-subtitle text-xl">{t('voucherVdA.application.documentation.title')}</h3>

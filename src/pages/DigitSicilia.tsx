@@ -88,22 +88,22 @@ export default function DigitSicilia() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 tech-web overflow-hidden">
+      <section className="relative pt-24 sm:pt-28 md:pt-32 pb-12 md:pb-20 px-4 tech-web overflow-hidden">
         <div className="container mx-auto max-w-6xl relative z-10">
-          <div className="text-center space-y-6">
-            <div className="inline-block px-4 py-2 rounded-full glass-card mb-4">
+          <div className="text-center space-y-4 md:space-y-6">
+            <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 rounded-full glass-card mb-2 sm:mb-4">
               <span className="text-sm font-subtitle text-resyne-gold">
                 {t('digitSicilia.hero.badge')}
               </span>
             </div>
-            <h1 className="font-title text-4xl md:text-5xl lg:text-6xl leading-tight">
+            <h1 className="font-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight px-2">
               {t('digitSicilia.hero.title')} <br />
               <span className="gradient-text">{t('digitSicilia.hero.titleHighlight')}</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
               {t('digitSicilia.hero.subtitle')}
             </p>
-            <div className="flex flex-wrap gap-4 justify-center pt-4">
+            <div className="flex flex-wrap gap-3 sm:gap-4 justify-center pt-3 sm:pt-4">
               <Button 
                 size="lg"
                 className="bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light"
@@ -125,17 +125,17 @@ export default function DigitSicilia() {
       </section>
 
       {/* Introduction */}
-      <section className="py-20 px-4 bg-card/30">
+      <section className="py-12 md:py-20 px-4 bg-card/30">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card">
-                <Lightbulb className="h-5 w-5 text-resyne-gold" />
-                <span className="text-sm font-subtitle text-resyne-gold">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="space-y-4 md:space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full glass-card">
+                <Lightbulb className="h-4 w-4 sm:h-5 sm:w-5 text-resyne-gold" />
+                <span className="text-xs sm:text-sm font-subtitle text-resyne-gold">
                   {t('digitSicilia.intro.badge')}
                 </span>
               </div>
-              <h2 className="font-title text-3xl md:text-4xl">
+              <h2 className="font-title text-2xl sm:text-3xl md:text-4xl">
                 {t('digitSicilia.intro.title')}
               </h2>
               <p className="text-muted-foreground">
@@ -151,7 +151,7 @@ export default function DigitSicilia() {
               </ul>
             </div>
             <Card className="glass-card border-resyne-gold/20">
-              <CardContent className="p-8 space-y-6">
+              <CardContent className="p-4 sm:p-6 md:p-8 space-y-4 md:space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="p-3 rounded-lg bg-resyne-gold/10">
                     <Euro className="h-6 w-6 text-resyne-gold" />
@@ -183,21 +183,21 @@ export default function DigitSicilia() {
       </section>
 
       {/* What We Build - CRM */}
-      <section className="py-20 px-4">
+      <section className="py-12 md:py-20 px-4">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center space-y-4 mb-12">
-            <h2 className="font-title text-3xl md:text-4xl">
+          <div className="text-center space-y-3 md:space-y-4 mb-8 md:mb-12 px-4">
+            <h2 className="font-title text-2xl sm:text-3xl md:text-4xl">
               {t('digitSicilia.solutions.title')}
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
               {t('digitSicilia.solutions.subtitle')}
             </p>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8">
             {/* CRM */}
             <Card className="glass-card border-resyne-gold/20">
-              <CardContent className="p-8">
+              <CardContent className="p-4 sm:p-6 md:p-8">
                 <div className="flex items-start gap-6">
                   <div className="p-4 rounded-lg bg-resyne-gold/10">
                     <Users className="h-8 w-8 text-resyne-gold" />
@@ -219,7 +219,7 @@ export default function DigitSicilia() {
 
             {/* ERP */}
             <Card className="glass-card border-tech-blue/20">
-              <CardContent className="p-8">
+              <CardContent className="p-4 sm:p-6 md:p-8">
                 <div className="flex items-start gap-6">
                   <div className="p-4 rounded-lg bg-tech-blue/10">
                     <Network className="h-8 w-8 text-tech-blue" />
@@ -241,7 +241,7 @@ export default function DigitSicilia() {
 
             {/* AI & Automation */}
             <Card className="glass-card border-resyne-gold/20">
-              <CardContent className="p-8">
+              <CardContent className="p-4 sm:p-6 md:p-8">
                 <div className="flex items-start gap-6">
                   <div className="p-4 rounded-lg bg-resyne-gold/10">
                     <Bot className="h-8 w-8 text-resyne-gold" />
@@ -263,7 +263,7 @@ export default function DigitSicilia() {
 
             {/* Digital Experiences & Security */}
             <Card className="glass-card border-tech-blue/20">
-              <CardContent className="p-8">
+              <CardContent className="p-4 sm:p-6 md:p-8">
                 <div className="flex items-start gap-6">
                   <div className="p-4 rounded-lg bg-tech-blue/10">
                     <Lock className="h-8 w-8 text-tech-blue" />
@@ -287,11 +287,11 @@ export default function DigitSicilia() {
       </section>
 
       {/* Eligibility and Funding */}
-      <section className="py-20 px-4 bg-card/30">
+      <section className="py-12 md:py-20 px-4 bg-card/30">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-12 items-start">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-start">
             <Card className="glass-card border-resyne-gold/20">
-              <CardContent className="p-8 space-y-6">
+              <CardContent className="p-4 sm:p-6 md:p-8 space-y-4 md:space-y-6">
                 <div className="flex items-center gap-3">
                   <Building2 className="h-8 w-8 text-resyne-gold" />
                   <h2 className="font-title text-2xl">{t('digitSicilia.eligibility.title')}</h2>
@@ -307,7 +307,7 @@ export default function DigitSicilia() {
               </CardContent>
             </Card>
             <Card className="glass-card border-tech-blue/20">
-              <CardContent className="p-8 space-y-6">
+              <CardContent className="p-4 sm:p-6 md:p-8 space-y-4 md:space-y-6">
                 <div className="flex items-center gap-3">
                   <Euro className="h-8 w-8 text-tech-blue" />
                   <h2 className="font-title text-2xl">{t('digitSicilia.funding.title')}</h2>
@@ -343,15 +343,15 @@ export default function DigitSicilia() {
       </section>
 
       {/* Application Process */}
-      <section className="py-20 px-4">
+      <section className="py-12 md:py-20 px-4">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center space-y-4 mb-12">
-            <h2 className="font-title text-3xl md:text-4xl">
+          <div className="text-center space-y-3 md:space-y-4 mb-8 md:mb-12 px-4">
+            <h2 className="font-title text-2xl sm:text-3xl md:text-4xl">
               {t('digitSicilia.application.title')}
             </h2>
           </div>
           <Card className="glass-card border-resyne-gold/20 max-w-3xl mx-auto">
-            <CardContent className="p-8 md:p-12 space-y-6">
+            <CardContent className="p-4 sm:p-6 md:p-8 lg:p-12 space-y-4 md:space-y-6">
               <div className="flex items-center gap-3 justify-center">
                 <Calendar className="h-8 w-8 text-resyne-gold" />
                 <h3 className="font-subtitle text-xl">{t('digitSicilia.application.deadline.title')}</h3>
