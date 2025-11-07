@@ -6,6 +6,7 @@
     "websiteInOneDay": "Website in 1 Day",
     "bookACall": "Book a Call",
     "bandoPID": "PID Grant",
+    "voucherVdA": "VdA Voucher",
     "requestDemo": "Request Demo",
     "contactUs": "Contact Us"
   },
@@ -380,6 +381,117 @@
     },
     "cta": {
       "title": "Want to know if your company can access the grant?",
+      "description": "The RESYNE team will analyze your situation for free and guide you in preparing the project to obtain funding.",
+      "button": "Book a free consultation"
+    }
+  },
+  "voucherVdA": {
+    "hero": {
+      "badge": "Voucher Digit VdA 2025",
+      "title": "Voucher Digit VdA 2025",
+      "titleHighlight": "Digitalization and SME Innovation",
+      "subtitle": "The Chambre valdôtaine supports the digitalization of micro, small and medium-sized enterprises in Aosta Valley with grants up to €15,000",
+      "cta": "Request a free consultation",
+      "documentation": "Download documentation"
+    },
+    "intro": {
+      "badge": "Complete Support",
+      "title": "How RESYNE can help you",
+      "description1": "The RESYNE team is ready to support you in understanding, applying for, and implementing your digital project, thanks to:",
+      "service1": "Grant analysis and assessment of your company's eligibility",
+      "service2": "Definition of the digital project consistent with grant requirements",
+      "service3": "Preparation of documentation and submission of the application",
+      "service4": "Implementation of the digital solution compatible with grant criteria",
+      "fundingTitle": "Available funding",
+      "fundingNote": "up to 70% of eligible expenses",
+      "benefit1": "Non-repayable grant",
+      "benefit2": "Minimum investment €5,000",
+      "benefit3": "Total budget €813,008"
+    },
+    "solutions": {
+      "title": "What we build",
+      "subtitle": "Advanced digital solutions to transform your business according to grant requirements",
+      "management": {
+        "title": "Integrated management systems (ERP, CRM, SCM)",
+        "description": "Complete platforms for business management: ERP for planning, CRM for customer relations, SCM for supply chain. All integrated in a single cloud solution."
+      },
+      "ai": {
+        "title": "Artificial Intelligence",
+        "description": "AI systems for predictive analytics, process automation, intelligent chatbots, and decision support systems based on machine learning."
+      },
+      "cloud": {
+        "title": "Cloud Computing and IoT",
+        "description": "Scalable cloud infrastructure, IoT systems for monitoring and control, sustainable home automation solutions, and High Performance Computing."
+      },
+      "security": {
+        "title": "Cyber Security",
+        "description": "Advanced protection of corporate data, backup and disaster recovery systems, GDPR compliance, and business continuity."
+      }
+    },
+    "eligibility": {
+      "title": "Who can participate",
+      "mpmi": "Micro, small or medium-sized enterprises (SMEs) according to EU Regulation No. 651/2014",
+      "location": "Legal and operational headquarters in the Chambre valdôtaine territory",
+      "registered": "Registered in the Business Register and active at the application date",
+      "sectors": "Belonging to the economic sectors admitted by the grant"
+    },
+    "funding": {
+      "title": "Available resources",
+      "budget": "Total grant budget",
+      "range": "Grant per company",
+      "intensity": "Maximum aid intensity",
+      "minimum": "Minimum required investment"
+    },
+    "technologies": {
+      "title": "Eligible technologies",
+      "subtitle": "The project must involve at least one technology from List 1, possibly integrated with technologies from List 2",
+      "mainTitle": "List 1 – Main Technologies",
+      "complementaryTitle": "List 2 – Complementary Technologies",
+      "main": {
+        "robotics": "Robotics and IoT",
+        "roboticsItems": ["Advanced and collaborative robotics", "Internet of Things and sustainable home automation systems"],
+        "iot": "Cloud and Computing",
+        "iotItems": ["Cloud computing, HPC, fog computing", "Distributed processing systems"],
+        "ai": "AI and Blockchain",
+        "aiItems": ["Artificial intelligence and machine learning", "Blockchain and distributed ledger"],
+        "security": "Management Systems and Security",
+        "securityItems": ["ERP, CRM, SCM and integrated systems", "Cyber security and business continuity"]
+      },
+      "complementary": {
+        "ecommerce": "Advanced e-commerce systems",
+        "fintech": "Fintech and mobile payments",
+        "marketing": "Digital marketing",
+        "green": "Technologies for ecological transition",
+        "automation": "Process automation and system integration"
+      }
+    },
+    "application": {
+      "title": "How to apply",
+      "phases": {
+        "title": "Application phases",
+        "phase1": "Phase 1 – Application preparation",
+        "phase1Dates": "From 10:00 AM on November 3, 2025 to 4:00 PM on November 20, 2025",
+        "phase2": "Phase 2 – Formal submission",
+        "phase2Dates": "From 10:00 AM on November 24, 2025 to 4:00 PM on December 5, 2025",
+        "ranking": "Ranking according to chronological order of submission",
+        "warning": "Possible early closure due to fund depletion"
+      },
+      "documentation": {
+        "title": "Official documentation",
+        "description": "The procedure is carried out exclusively online through the RESTART platform (Infocamere).",
+        "download": "Download complete documentation"
+      }
+    },
+    "whyResyne": {
+      "title": "Why choose RESYNE for this grant?",
+      "reason1": "Experience in the digital sector and ability to adapt the project to eligible intervention areas",
+      "reason2": "Support in project sizing to comply with minimum investment and eligible expenses",
+      "reason3": "Consulting in choosing the most appropriate List 1 and List 2 technologies for your business",
+      "reason4": "Complete management of documentation, submission, and technical implementation",
+      "reason5": "Planning compatible with grant timelines (reporting within 120 days)"
+    },
+    "cta": {
+      "title": "Want to know if your company can access the voucher?",
       "description": "The RESYNE team will analyze your situation for free and guide you in preparing the project to obtain funding.",
       "button": "Book a free consultation"
     }

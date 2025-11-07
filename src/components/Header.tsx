@@ -105,6 +105,16 @@ export function Header() {
             >
               {t('header.bandoPID')}
             </a>
+            <a 
+              href="/voucher-vda" 
+              className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate('/voucher-vda');
+              }}
+            >
+              {t('header.voucherVdA')}
+            </a>
           </nav>
 
           {/* CTA Button */}
@@ -209,6 +219,17 @@ export function Header() {
                 }}
               >
                 {t('header.bandoPID')}
+              </a>
+              <a 
+                href="/voucher-vda" 
+                className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate('/voucher-vda');
+                  setIsMenuOpen(false);
+                }}
+              >
+                {t('header.voucherVdA')}
               </a>
               <div className="flex flex-col space-y-2 pt-4">
                 <LanguageSwitcher />

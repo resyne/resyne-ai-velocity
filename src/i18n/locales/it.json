@@ -6,6 +6,7 @@
     "websiteInOneDay": "Website in 1 Day",
     "bookACall": "Prenota una Call",
     "bandoPID": "Bando PID",
+    "voucherVdA": "Voucher VdA",
     "requestDemo": "Richiedi Demo",
     "contactUs": "Contattaci"
   },
@@ -380,6 +381,117 @@
     },
     "cta": {
       "title": "Vuoi sapere se la tua azienda può accedere al contributo?",
+      "description": "Il team RESYNE analizzerà gratuitamente la tua situazione e ti guiderà nella preparazione del progetto per ottenere il finanziamento.",
+      "button": "Prenota una consulenza gratuita"
+    }
+  },
+  "voucherVdA": {
+    "hero": {
+      "badge": "Voucher Digit VdA 2025",
+      "title": "Voucher Digit VdA 2025",
+      "titleHighlight": "Digitalizzazione e Innovazione MPMI",
+      "subtitle": "La Chambre valdôtaine sostiene la digitalizzazione delle micro, piccole e medie imprese valdostane con contributi fino a €15.000",
+      "cta": "Richiedi una consulenza gratuita",
+      "documentation": "Scarica la documentazione"
+    },
+    "intro": {
+      "badge": "Supporto Completo",
+      "title": "Come può aiutarti RESYNE",
+      "description1": "Il team RESYNE è pronto a supportarti nel conoscere, candidarti e implementare il tuo progetto digitale, grazie a:",
+      "service1": "Analisi del bando e valutazione dell'ammissibilità della tua impresa",
+      "service2": "Definizione del progetto digitale coerente con i requisiti del bando",
+      "service3": "Preparazione della documentazione e presentazione della domanda",
+      "service4": "Implementazione della soluzione digitale compatibile con i criteri del bando",
+      "fundingTitle": "Contributo disponibile",
+      "fundingNote": "fino al 70% delle spese ammissibili",
+      "benefit1": "Contributo a fondo perduto",
+      "benefit2": "Investimento minimo €5.000",
+      "benefit3": "Budget totale €813.008"
+    },
+    "solutions": {
+      "title": "Cosa realizziamo",
+      "subtitle": "Soluzioni digitali avanzate per trasformare la tua impresa secondo i requisiti del bando",
+      "management": {
+        "title": "Sistemi gestionali integrati (ERP, CRM, SCM)",
+        "description": "Piattaforme complete per la gestione aziendale: ERP per la pianificazione, CRM per le relazioni con i clienti, SCM per la supply chain. Tutto integrato in un'unica soluzione cloud."
+      },
+      "ai": {
+        "title": "Intelligenza Artificiale",
+        "description": "Sistemi di AI per analisi predittive, automazione dei processi, chatbot intelligenti e sistemi di supporto decisionale basati su machine learning."
+      },
+      "cloud": {
+        "title": "Cloud Computing e IoT",
+        "description": "Infrastrutture cloud scalabili, sistemi IoT per il monitoraggio e controllo, soluzioni domotiche sostenibili e High Performance Computing."
+      },
+      "security": {
+        "title": "Cyber Security",
+        "description": "Protezione avanzata dei dati aziendali, sistemi di backup e disaster recovery, conformità GDPR e business continuity."
+      }
+    },
+    "eligibility": {
+      "title": "Chi può partecipare",
+      "mpmi": "Micro, piccole o medie imprese (MPMI) secondo il Regolamento UE n. 651/2014",
+      "location": "Sede legale e operativa nella circoscrizione territoriale della Chambre valdôtaine",
+      "registered": "Iscritte al Registro delle Imprese e attive alla data di presentazione",
+      "sectors": "Appartenenti ai settori economici ammessi dal bando"
+    },
+    "funding": {
+      "title": "Risorse disponibili",
+      "budget": "Budget totale del bando",
+      "range": "Contributo per singola impresa",
+      "intensity": "Intensità massima dell'agevolazione",
+      "minimum": "Investimento minimo richiesto"
+    },
+    "technologies": {
+      "title": "Tecnologie ammissibili",
+      "subtitle": "Il progetto deve riguardare almeno una tecnologia dell'Elenco 1, eventualmente integrata con tecnologie dell'Elenco 2",
+      "mainTitle": "Elenco 1 – Tecnologie Principali",
+      "complementaryTitle": "Elenco 2 – Tecnologie Complementari",
+      "main": {
+        "robotics": "Robotica e IoT",
+        "roboticsItems": ["Robotica avanzata e collaborativa", "Internet delle cose e sistemi domotici sostenibili"],
+        "iot": "Cloud e Computing",
+        "iotItems": ["Cloud computing, HPC, fog computing", "Sistemi di elaborazione distribuita"],
+        "ai": "AI e Blockchain",
+        "aiItems": ["Intelligenza artificiale e machine learning", "Blockchain e distributed ledger"],
+        "security": "Sistemi Gestionali e Sicurezza",
+        "securityItems": ["ERP, CRM, SCM e sistemi integrati", "Cyber security e business continuity"]
+      },
+      "complementary": {
+        "ecommerce": "Sistemi e-commerce avanzati",
+        "fintech": "Fintech e pagamenti mobile",
+        "marketing": "Digital marketing",
+        "green": "Tecnologie per la transizione ecologica",
+        "automation": "Automazione processi e system integration"
+      }
+    },
+    "application": {
+      "title": "Come presentare la domanda",
+      "phases": {
+        "title": "Fasi di presentazione",
+        "phase1": "Fase 1 – Predisposizione domanda",
+        "phase1Dates": "Dalle ore 10:00 del 03 novembre 2025 alle ore 16:00 del 20 novembre 2025",
+        "phase2": "Fase 2 – Presentazione formale",
+        "phase2Dates": "Dalle ore 10:00 del 24 novembre 2025 alle ore 16:00 del 05 dicembre 2025",
+        "ranking": "Graduatoria secondo ordine cronologico di presentazione",
+        "warning": "Possibile chiusura anticipata per esaurimento fondi"
+      },
+      "documentation": {
+        "title": "Documentazione ufficiale",
+        "description": "La procedura si svolge esclusivamente online tramite la piattaforma RESTART (Infocamere).",
+        "download": "Scarica la modulistica completa"
+      }
+    },
+    "whyResyne": {
+      "title": "Perché scegliere RESYNE per questo bando?",
+      "reason1": "Esperienza nel settore digitale e capacità di adattare il progetto agli ambiti di intervento ammessi",
+      "reason2": "Supporto nella dimensione del progetto per rispettare investimento minimo e spese ammissibili",
+      "reason3": "Consulenza nella scelta delle tecnologie Elenco 1 e Elenco 2 più appropriate per la tua impresa",
+      "reason4": "Gestione completa della documentazione, presentazione e implementazione tecnica",
+      "reason5": "Pianificazione compatibile con i tempi del bando (rendicontazione entro 120 giorni)"
+    },
+    "cta": {
+      "title": "Vuoi sapere se la tua azienda può accedere al voucher?",
       "description": "Il team RESYNE analizzerà gratuitamente la tua situazione e ti guiderà nella preparazione del progetto per ottenere il finanziamento.",
       "button": "Prenota una consulenza gratuita"
     }
