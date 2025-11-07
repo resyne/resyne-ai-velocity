@@ -174,7 +174,7 @@ export function EligibilityFunnel({ grantName }: EligibilityFunnelProps) {
   };
 
   return (
-    <section id="booking-section" className="py-12 md:py-20 px-4 bg-gradient-to-br from-resyne-gold/5 to-tech-blue/5">
+    <section className="py-12 md:py-20 px-4 bg-gradient-to-br from-resyne-gold/5 to-tech-blue/5">
       <div className="container mx-auto max-w-4xl">
         <Card className="glass-card border-resyne-gold/40 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-resyne-gold/10 to-tech-blue/10" />

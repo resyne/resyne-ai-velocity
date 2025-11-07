@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { EligibilityFunnel } from "@/components/EligibilityFunnel";
+import { GrantBookingSection } from "@/components/GrantBookingSection";
 import { useEffect } from "react";
 import { 
   Sparkles, 
@@ -135,7 +136,10 @@ export default function BandoPID() {
               <Button 
                 size="lg"
                 className="bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light"
-                onClick={() => navigate('/book-a-call')}
+                onClick={() => {
+                  const eligibilitySection = document.getElementById('eligibility-funnel');
+                  eligibilitySection?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
                 {t('bandoPID.hero.cta')} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -341,8 +345,8 @@ export default function BandoPID() {
                       size="lg"
                       className="w-full bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light"
                       onClick={() => {
-                        const bookingSection = document.getElementById('booking-section');
-                        bookingSection?.scrollIntoView({ behavior: 'smooth' });
+                        const eligibilitySection = document.getElementById('eligibility-funnel');
+                        eligibilitySection?.scrollIntoView({ behavior: 'smooth' });
                       }}
                     >
                       {t('bandoPID.hero.cta')} <ArrowRight className="ml-2 h-4 w-4" />
@@ -356,7 +360,14 @@ export default function BandoPID() {
       </section>
 
       {/* Eligibility Funnel */}
-      <EligibilityFunnel grantName="Bando PID Salerno 2025" />
+      <div id="eligibility-funnel">
+        <EligibilityFunnel grantName="Bando PID Salerno 2025" />
+      </div>
+
+      {/* Call Booking Section */}
+      <div id="call-booking">
+        <GrantBookingSection grantName="Bando PID Salerno 2025" />
+      </div>
 
       <Footer />
     </div>
