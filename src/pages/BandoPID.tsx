@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { GrantBookingSection } from "@/components/GrantBookingSection";
 import { 
   Sparkles, 
   TrendingUp, 
@@ -349,28 +350,7 @@ export default function BandoPID() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto max-w-4xl">
-          <Card className="glass-card border-resyne-gold/40 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-resyne-gold/10 to-tech-blue/10" />
-            <CardContent className="p-12 relative z-10 text-center space-y-6">
-              <h2 className="font-title text-3xl md:text-4xl">
-                {t('bandoPID.cta.title')}
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                {t('bandoPID.cta.description')}
-              </p>
-              <Button 
-                size="lg"
-                className="bg-resyne-gold text-resyne-dark hover:bg-resyne-gold-light"
-                onClick={() => navigate('/book-a-call')}
-              >
-                {t('bandoPID.cta.button')} <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+      <GrantBookingSection grantName="Bando PID Salerno" />
 
       <Footer />
     </div>

@@ -498,6 +498,38 @@
       "button": "Book a free consultation"
     }
   },
+  "grantBooking": {
+    "title": "Book a Call",
+    "subtitle": "Choose date, time and platform to talk with our team about your project. We'll contact you to confirm the appointment.",
+    "selectDate": "Select date",
+    "selectPlatform": "Choose platform",
+    "platforms": {
+      "whatsapp": "WhatsApp",
+      "phone": "Phone",
+      "meet": "Google Meet"
+    },
+    "form": {
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Your first name",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Your last name",
+      "email": "Email",
+      "emailPlaceholder": "Your email",
+      "phone": "Phone",
+      "phonePlaceholder": "Your phone number",
+      "message": "Notes (optional)",
+      "messagePlaceholder": "Tell us briefly about your project or needs...",
+      "submit": "Book Call",
+      "submitting": "Submitting..."
+    },
+    "toast": {
+      "success": "Request Sent!",
+      "successDesc": "We'll contact you soon to confirm the appointment.",
+      "error": "Error",
+      "errorDesc": "Please select a date and platform.",
+      "errorDescGeneric": "An error occurred. Please try again later."
+    }
+  },
   "digitSicilia": {
     "hero": {
       "badge": "DIGIT IMPRESE - Sicily Region",

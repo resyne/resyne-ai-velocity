@@ -498,6 +498,38 @@
       "button": "Prenota una consulenza gratuita"
     }
   },
+  "grantBooking": {
+    "title": "Prenota una Chiamata",
+    "subtitle": "Scegli data, orario e piattaforma per parlare con il nostro team del tuo progetto. Ti ricontatteremo per confermare l'appuntamento.",
+    "selectDate": "Seleziona la data",
+    "selectPlatform": "Scegli la piattaforma",
+    "platforms": {
+      "whatsapp": "WhatsApp",
+      "phone": "Telefono",
+      "meet": "Google Meet"
+    },
+    "form": {
+      "firstName": "Nome",
+      "firstNamePlaceholder": "Il tuo nome",
+      "lastName": "Cognome",
+      "lastNamePlaceholder": "Il tuo cognome",
+      "email": "Email",
+      "emailPlaceholder": "La tua email",
+      "phone": "Telefono",
+      "phonePlaceholder": "Il tuo numero",
+      "message": "Note (opzionale)",
+      "messagePlaceholder": "Raccontaci brevemente il tuo progetto o esigenza...",
+      "submit": "Prenota Chiamata",
+      "submitting": "Invio in corso..."
+    },
+    "toast": {
+      "success": "Richiesta Inviata!",
+      "successDesc": "Ti ricontatteremo presto per confermare l'appuntamento.",
+      "error": "Errore",
+      "errorDesc": "Seleziona una data e una piattaforma.",
+      "errorDescGeneric": "Si è verificato un problema. Riprova più tardi."
+    }
+  },
   "digitSicilia": {
     "hero": {
       "badge": "DIGIT IMPRESE - Regione Sicilia",
