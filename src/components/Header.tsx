@@ -1,10 +1,16 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import resyneLogoNew from "@/assets/resyne-logo-new.png";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -95,26 +101,26 @@ export function Header() {
             >
               {t('header.bookACall')}
             </a>
-            <a 
-              href="/bando-pid" 
-              className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
-              onClick={(e) => {
-                e.preventDefault();
-                navigate('/bando-pid');
-              }}
-            >
-              {t('header.bandoPID')}
-            </a>
-            <a 
-              href="/voucher-vda" 
-              className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
-              onClick={(e) => {
-                e.preventDefault();
-                navigate('/voucher-vda');
-              }}
-            >
-              {t('header.voucherVdA')}
-            </a>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer flex items-center gap-1">
+                {t('header.grants')}
+                <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="glass-card border-border/20">
+                <DropdownMenuItem 
+                  className="font-subtitle cursor-pointer hover:text-resyne-gold"
+                  onClick={() => navigate('/bando-pid')}
+                >
+                  {t('header.bandoPID')}
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  className="font-subtitle cursor-pointer hover:text-resyne-gold"
+                  onClick={() => navigate('/voucher-vda')}
+                >
+                  {t('header.voucherVdA')}
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
 
           {/* CTA Button */}
@@ -209,28 +215,38 @@ export function Header() {
               >
                 {t('header.bookACall')}
               </a>
-              <a 
-                href="/bando-pid" 
-                className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate('/bando-pid');
-                  setIsMenuOpen(false);
-                }}
-              >
-                {t('header.bandoPID')}
-              </a>
-              <a 
-                href="/voucher-vda" 
-                className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate('/voucher-vda');
-                  setIsMenuOpen(false);
-                }}
-              >
-                {t('header.voucherVdA')}
-              </a>
+              
+              {/* Grants Submenu */}
+              <div className="border-t border-border/20 pt-4">
+                <p className="font-subtitle text-xs text-muted-foreground mb-2 uppercase tracking-wider">
+                  {t('header.grants')}
+                </p>
+                <div className="flex flex-col space-y-3 pl-4">
+                  <a 
+                    href="/bando-pid" 
+                    className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate('/bando-pid');
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    {t('header.bandoPID')}
+                  </a>
+                  <a 
+                    href="/voucher-vda" 
+                    className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate('/voucher-vda');
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    {t('header.voucherVdA')}
+                  </a>
+                </div>
+              </div>
+              
               <div className="flex flex-col space-y-2 pt-4">
                 <LanguageSwitcher />
                 <Button 
