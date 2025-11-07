@@ -8,6 +8,7 @@
     "grants": "Bandi",
     "bandoPID": "Bando PID Salerno",
     "voucherVdA": "Voucher VdA",
+    "digitSicilia": "DIGIT Sicilia",
     "requestDemo": "Richiedi Demo",
     "contactUs": "Contattaci"
   },
@@ -493,6 +494,91 @@
     },
     "cta": {
       "title": "Vuoi sapere se la tua azienda può accedere al voucher?",
+      "description": "Il team RESYNE analizzerà gratuitamente la tua situazione e ti guiderà nella preparazione del progetto per ottenere il finanziamento.",
+      "button": "Prenota una consulenza gratuita"
+    }
+  },
+  "digitSicilia": {
+    "hero": {
+      "badge": "DIGIT IMPRESE - Regione Sicilia",
+      "title": "DIGIT IMPRESE",
+      "titleHighlight": "Digitalizzazione MPMI Sicilia",
+      "subtitle": "La Regione Sicilia sostiene la transizione digitale delle micro, piccole e medie imprese siciliane con contributi fino all'80%",
+      "cta": "Richiedi una consulenza gratuita",
+      "documentation": "Scarica la documentazione"
+    },
+    "intro": {
+      "badge": "Supporto Completo",
+      "title": "Come può aiutarti RESYNE",
+      "description": "Il team RESYNE ti supporta in ogni fase del percorso:",
+      "service1": "Verifica dei requisiti di accesso e analisi della fattibilità del progetto digitale",
+      "service2": "Definizione del progetto: selezione delle tecnologie CRM/ERP/AI/automazione più favorevoli",
+      "service3": "Preparazione della domanda e della documentazione necessaria",
+      "service4": "Implementazione tecnica e personalizzazione della soluzione",
+      "service5": "Formazione del personale, avvio operativo e affiancamento post-implementazione",
+      "fundingTitle": "Intensità dell'agevolazione",
+      "fundingNote": "delle spese ammissibili",
+      "microLabel": "Micro imprese",
+      "smallLabel": "Piccole imprese",
+      "mediumLabel": "Medie imprese"
+    },
+    "solutions": {
+      "title": "Cosa realizziamo come CRM / ERP e tecnologie correlate",
+      "subtitle": "Soluzioni complete per la digitalizzazione della tua impresa turistica",
+      "crm": {
+        "title": "CRM - Customer Relationship Management",
+        "feature1": "Sistemi CRM per gestire il ciclo cliente completo: acquisizione, profilazione, fidelizzazione",
+        "feature2": "Integrazione dati da tutti i touch-point per una visione unificata del cliente",
+        "feature3": "Automazione comunicazioni: email, follow-up, upsell, segmentazione clienti",
+        "feature4": "Dashboard e reportistica in tempo reale per performance e soddisfazione"
+      },
+      "erp": {
+        "title": "ERP - Enterprise Resource Planning per strutture turistiche",
+        "feature1": "Centralizzazione gestione operativa: magazzino, acquisti, forniture, personale, contabilità",
+        "feature2": "Integrazione con canali di prenotazione e software hospitality",
+        "feature3": "Automazione processi back-office: ordini, fatturazione, incassi, documenti",
+        "feature4": "Integrazione CRM/ERP per visione combinata e decisioni strategiche"
+      },
+      "ai": {
+        "title": "Automazione e Intelligenza Artificiale",
+        "feature1": "AI per analizzare recensioni, comportamenti clienti, flussi turistici e prevedere domanda",
+        "feature2": "Chatbot e assistenti virtuali multilingua per supporto clienti 24/7",
+        "feature3": "Modelli predittivi per tariffazione dinamica e ottimizzazione risorse"
+      },
+      "digital": {
+        "title": "Esperienze Digitali & Sicurezza",
+        "feature1": "Soluzioni per migliorare l'esperienza visitatore: app, realtà aumentata/virtuale, totem interattivi",
+        "feature2": "Sistemi backup, cloud e cyber security, conformità GDPR, business continuity"
+      }
+    },
+    "eligibility": {
+      "title": "Chi può partecipare",
+      "active": "Micro, piccole e medie imprese (MPMI) attive da almeno 12 mesi",
+      "location": "Sede legale o unità locale operativa in Sicilia",
+      "registered": "Iscritte al Registro delle Imprese e in regola con i requisiti dell'avviso"
+    },
+    "funding": {
+      "title": "Importi e contributi",
+      "budget": "Dotazione complessiva",
+      "intensity": "Intensità dell'agevolazione",
+      "microRange": "Micro imprese",
+      "smallRange": "Piccole imprese",
+      "mediumRange": "Medie imprese"
+    },
+    "application": {
+      "title": "Scadenza e modalità di presentazione",
+      "deadline": {
+        "title": "Scadenza",
+        "label": "Presentazione domande entro",
+        "date": "27 Novembre 2025, ore 12:00",
+        "online": "Presentazione online in modalità telematica",
+        "procedure": "Procedura a sportello: valutazione in ordine cronologico",
+        "warning": "Chiusura anticipata in caso di esaurimento risorse"
+      },
+      "documentation": "Scarica la modulistica completa"
+    },
+    "cta": {
+      "title": "Vuoi sapere se la tua azienda può accedere al bando?",
       "description": "Il team RESYNE analizzerà gratuitamente la tua situazione e ti guiderà nella preparazione del progetto per ottenere il finanziamento.",
       "button": "Prenota una consulenza gratuita"
     }

@@ -8,6 +8,7 @@
     "grants": "Grants",
     "bandoPID": "PID Grant Salerno",
     "voucherVdA": "VdA Voucher",
+    "digitSicilia": "DIGIT Sicily",
     "requestDemo": "Request Demo",
     "contactUs": "Contact Us"
   },
@@ -493,6 +494,91 @@
     },
     "cta": {
       "title": "Want to know if your company can access the voucher?",
+      "description": "The RESYNE team will analyze your situation for free and guide you in preparing the project to obtain funding.",
+      "button": "Book a free consultation"
+    }
+  },
+  "digitSicilia": {
+    "hero": {
+      "badge": "DIGIT IMPRESE - Sicily Region",
+      "title": "DIGIT IMPRESE",
+      "titleHighlight": "SME Digitalization Sicily",
+      "subtitle": "The Sicily Region supports the digital transition of micro, small and medium-sized Sicilian enterprises with grants up to 80%",
+      "cta": "Request a free consultation",
+      "documentation": "Download documentation"
+    },
+    "intro": {
+      "badge": "Complete Support",
+      "title": "How RESYNE can help you",
+      "description": "The RESYNE team supports you at every stage:",
+      "service1": "Verification of access requirements and feasibility analysis of the digital project",
+      "service2": "Project definition: selection of the most favorable CRM/ERP/AI/automation technologies",
+      "service3": "Preparation of the application and necessary documentation",
+      "service4": "Technical implementation and solution customization",
+      "service5": "Staff training, operational start-up and post-implementation support",
+      "fundingTitle": "Aid intensity",
+      "fundingNote": "of eligible expenses",
+      "microLabel": "Micro enterprises",
+      "smallLabel": "Small enterprises",
+      "mediumLabel": "Medium enterprises"
+    },
+    "solutions": {
+      "title": "What we build as CRM / ERP and related technologies",
+      "subtitle": "Complete solutions for the digitalization of your tourism business",
+      "crm": {
+        "title": "CRM - Customer Relationship Management",
+        "feature1": "CRM systems to manage the complete customer cycle: acquisition, profiling, loyalty",
+        "feature2": "Data integration from all touch-points for a unified customer view",
+        "feature3": "Communication automation: email, follow-up, upsell, customer segmentation",
+        "feature4": "Real-time dashboard and reporting for performance and satisfaction"
+      },
+      "erp": {
+        "title": "ERP - Enterprise Resource Planning for tourism facilities",
+        "feature1": "Centralization of operational management: warehouse, purchases, supplies, personnel, accounting",
+        "feature2": "Integration with booking channels and hospitality software",
+        "feature3": "Back-office process automation: orders, invoicing, receipts, documents",
+        "feature4": "CRM/ERP integration for combined view and strategic decisions"
+      },
+      "ai": {
+        "title": "Automation and Artificial Intelligence",
+        "feature1": "AI to analyze reviews, customer behavior, tourist flows and predict demand",
+        "feature2": "Multilingual chatbots and virtual assistants for 24/7 customer support",
+        "feature3": "Predictive models for dynamic pricing and resource optimization"
+      },
+      "digital": {
+        "title": "Digital Experiences & Security",
+        "feature1": "Solutions to improve visitor experience: apps, augmented/virtual reality, interactive kiosks",
+        "feature2": "Backup systems, cloud and cyber security, GDPR compliance, business continuity"
+      }
+    },
+    "eligibility": {
+      "title": "Who can participate",
+      "active": "Micro, small and medium enterprises (SMEs) active for at least 12 months",
+      "location": "Legal or operational office in Sicily",
+      "registered": "Registered in the Business Register and compliant with notice requirements"
+    },
+    "funding": {
+      "title": "Amounts and grants",
+      "budget": "Total budget",
+      "intensity": "Aid intensity",
+      "microRange": "Micro enterprises",
+      "smallRange": "Small enterprises",
+      "mediumRange": "Medium enterprises"
+    },
+    "application": {
+      "title": "Deadline and submission methods",
+      "deadline": {
+        "title": "Deadline",
+        "label": "Application submission by",
+        "date": "November 27, 2025, 12:00 PM",
+        "online": "Online submission",
+        "procedure": "Service desk procedure: chronological evaluation",
+        "warning": "Early closure in case of resource depletion"
+      },
+      "documentation": "Download complete documentation"
+    },
+    "cta": {
+      "title": "Want to know if your company can access the grant?",
       "description": "The RESYNE team will analyze your situation for free and guide you in preparing the project to obtain funding.",
       "button": "Book a free consultation"
     }

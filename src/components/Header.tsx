@@ -119,6 +119,12 @@ export function Header() {
                 >
                   {t('header.voucherVdA')}
                 </DropdownMenuItem>
+                <DropdownMenuItem 
+                  className="font-subtitle cursor-pointer hover:text-resyne-gold"
+                  onClick={() => navigate('/digit-sicilia')}
+                >
+                  {t('header.digitSicilia')}
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </nav>
@@ -243,6 +249,17 @@ export function Header() {
                     }}
                   >
                     {t('header.voucherVdA')}
+                  </a>
+                  <a 
+                    href="/digit-sicilia" 
+                    className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate('/digit-sicilia');
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    {t('header.digitSicilia')}
                   </a>
                 </div>
               </div>
