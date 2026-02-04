@@ -13,7 +13,7 @@ import * as z from "zod";
 import { Brain, FileText, Euro, Loader2, Download, CheckCircle, ArrowLeft, ArrowRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import resyneLogoNew from "@/assets/resyne-logo-new.png";
+import resyneLogoMain from "@/assets/resyne-logo-main.png";
 
 const formSchema = z.object({
   settore: z.string().min(1, "Seleziona un settore"),
@@ -254,7 +254,7 @@ export function AuditForm() {
         await new Promise((resolve, reject) => {
           img.onload = resolve;
           img.onerror = reject;
-          img.src = resyneLogoNew;
+          img.src = resyneLogoMain;
         });
         
         const canvas = document.createElement('canvas');

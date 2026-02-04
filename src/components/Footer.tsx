@@ -1,5 +1,5 @@
 import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
-import resyneLogoNew from "@/assets/resyne-logo-new.png";
+import resyneLogoMain from "@/assets/resyne-logo-main.png";
 import { useTranslation } from "react-i18next";
 
 export function Footer() {
@@ -14,10 +14,9 @@ export function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
               <img 
-                src={resyneLogoNew} 
+                src={resyneLogoMain} 
                 alt="RESYNE Logo" 
                 className="h-12 w-auto" 
-                key="logo-new"
               />
             </div>
             <p className="text-muted-foreground mb-6 max-w-md leading-relaxed">
