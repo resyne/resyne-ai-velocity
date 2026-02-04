@@ -1,7 +1,6 @@
 import { Linkedin, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import founderWorkspace from "@/assets/founder-workspace.jpg";
 
 export function FounderSection() {
   const navigate = useNavigate();
@@ -21,13 +20,8 @@ export function FounderSection() {
 
   return (
     <section 
-      className="py-12 sm:py-16 md:py-20 px-4 relative" 
+      className="py-12 sm:py-16 md:py-20 px-4 relative bg-gradient-to-br from-gunmetal-light via-background to-gunmetal-light" 
       id="founder"
-      style={{ 
-        backgroundImage: `linear-gradient(to right, rgba(31, 31, 31, 0.95), rgba(31, 31, 31, 0.7)), url(${founderWorkspace})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
-      }}
     >
       <div className="container mx-auto max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
