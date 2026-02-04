@@ -397,60 +397,61 @@ export default function QuoteGGroup() {
       <div className="min-h-screen bg-background">
         <Header />
         
-        <main className="pt-24 pb-16 px-4">
+        <main className="pt-20 pb-32 lg:pb-16 px-3 sm:px-4">
           <div className="container mx-auto max-w-6xl">
             {/* Header */}
-            <div className="text-center mb-12">
-              <Badge className="mb-4 bg-resyne-gold/20 text-resyne-gold border-resyne-gold/30">
+            <div className="text-center mb-6 sm:mb-12">
+              <Badge className="mb-3 sm:mb-4 bg-resyne-gold/20 text-resyne-gold border-resyne-gold/30 text-xs sm:text-sm">
                 Preventivo Personalizzato
               </Badge>
-              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+              <h1 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4">
                 Configuratore <span className="text-resyne-gold">G-Group ERP</span>
               </h1>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Seleziona i moduli e servizi di cui hai bisogno, poi usa lo slider per personalizzare il pagamento
+              <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto px-2">
+                Seleziona i moduli di cui hai bisogno
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-8">
+            <div className="grid lg:grid-cols-3 gap-4 sm:gap-8">
               {/* Servizi selezionabili */}
-              <div className="lg:col-span-2 space-y-6">
+              <div className="lg:col-span-2 space-y-4 sm:space-y-6">
                 {Object.entries(groupedServices).map(([category, categoryServices]) => (
                   <Card key={category} className="glass-card border-border/30">
-                    <CardHeader className="pb-4">
-                      <CardTitle className="text-lg font-subtitle text-resyne-gold">
+                    <CardHeader className="pb-2 sm:pb-4 px-3 sm:px-6 pt-3 sm:pt-6">
+                      <CardTitle className="text-base sm:text-lg font-subtitle text-resyne-gold">
                         {category}
                       </CardTitle>
                     </CardHeader>
-                    <CardContent className="space-y-4">
+                    <CardContent className="space-y-2 sm:space-y-4 px-3 sm:px-6 pb-3 sm:pb-6">
                       {categoryServices.map(service => (
                         <div 
                           key={service.id}
-                          className={`p-4 rounded-lg border transition-all cursor-pointer ${
+                          className={`p-3 sm:p-4 rounded-lg border transition-all cursor-pointer ${
                             selectedServices.includes(service.id) 
                               ? 'border-resyne-gold/50 bg-resyne-gold/5' 
                               : 'border-border/30 hover:border-border/50'
                           }`}
                           onClick={() => toggleService(service.id)}
                         >
-                          <div className="flex items-start gap-4">
+                          <div className="flex items-start gap-3 sm:gap-4">
                             <Checkbox
                               checked={selectedServices.includes(service.id)}
                               onCheckedChange={() => toggleService(service.id)}
-                              className="mt-1"
+                              className="mt-0.5 sm:mt-1"
                             />
-                            <div className="flex-1">
-                              <div className="flex items-center justify-between flex-wrap gap-2">
-                                <h3 className="font-subtitle font-semibold">{service.name}</h3>
-                                <span className="font-mono text-resyne-gold font-semibold">
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center justify-between flex-wrap gap-1 sm:gap-2">
+                                <h3 className="font-subtitle font-semibold text-sm sm:text-base">{service.name}</h3>
+                                <span className="font-mono text-resyne-gold font-semibold text-sm sm:text-base">
                                   €{service.basePrice.toLocaleString('it-IT')}
                                 </span>
                               </div>
-                              <p className="text-sm text-muted-foreground mt-1">
+                              <p className="text-xs sm:text-sm text-muted-foreground mt-1 line-clamp-2 sm:line-clamp-none">
                                 {service.description}
                               </p>
+                              {/* Features hidden on mobile for compactness */}
                               {service.features && service.features.length > 0 && (
-                                <ul className="mt-3 space-y-1">
+                                <ul className="hidden sm:block mt-3 space-y-1">
                                   {service.features.map((feature, idx) => (
                                     <li key={idx} className="text-xs text-muted-foreground flex items-start gap-2">
                                       <Check className="h-3 w-3 text-resyne-gold mt-0.5 shrink-0" />
@@ -460,7 +461,7 @@ export default function QuoteGGroup() {
                                 </ul>
                               )}
                               {service.monthlyMultiplier > 0 && (
-                                <p className="text-xs text-muted-foreground/70 mt-3 pt-2 border-t border-border/20">
+                                <p className="hidden sm:block text-xs text-muted-foreground/70 mt-3 pt-2 border-t border-border/20">
                                   Fee mensile base: €{Math.round(service.basePrice * service.monthlyMultiplier).toLocaleString('it-IT')}/mese
                                 </p>
                               )}
@@ -818,6 +819,29 @@ export default function QuoteGGroup() {
             </Card>
           </div>
         </main>
+
+        {/* Mobile Fixed Bottom Bar */}
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-background/95 backdrop-blur-lg border-t border-border/50 p-3 z-50 no-print">
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex-1 min-w-0">
+              <p className="text-xs text-muted-foreground">
+                {selectedServices.length} moduli · €{Math.round(monthlyFee).toLocaleString('it-IT')}/mese
+              </p>
+              <p className="text-lg font-bold font-mono text-resyne-gold truncate">
+                €{Math.round(upfrontAmount).toLocaleString('it-IT')} anticipo
+              </p>
+            </div>
+            <Button 
+              className="bg-primary text-primary-foreground hover:bg-primary/90 shrink-0"
+              size="sm"
+              disabled={selectedServices.length === 0}
+              onClick={handlePrint}
+            >
+              <Printer className="h-4 w-4 mr-1" />
+              Scarica
+            </Button>
+          </div>
+        </div>
         
         <Footer />
       </div>
