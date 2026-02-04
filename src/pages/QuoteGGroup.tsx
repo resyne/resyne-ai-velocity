@@ -243,12 +243,27 @@ export default function QuoteGGroup() {
   const [selectedServices, setSelectedServices] = useState<string[]>(["dashboard"]);
   const [upfrontPercentage, setUpfrontPercentage] = useState<number>(50);
 
-  // Calcola il totale dei servizi selezionati
-  const selectedTotal = useMemo(() => {
+  // Calcola il totale lordo dei servizi selezionati (senza sconto)
+  const grossTotal = useMemo(() => {
     return services
       .filter(s => selectedServices.includes(s.id))
       .reduce((sum, s) => sum + s.basePrice, 0);
   }, [services, selectedServices]);
+
+  // Calcola lo sconto volume: più moduli = più sconto (max 50%)
+  // Formula: 0 moduli = 0%, tutti i moduli = 50%
+  const volumeDiscountPercent = useMemo(() => {
+    const totalModules = services.length;
+    const selectedCount = selectedServices.length;
+    if (selectedCount <= 1) return 0;
+    // Scala lineare: da 0% (1 modulo) a 50% (tutti i moduli)
+    return Math.round((selectedCount - 1) / (totalModules - 1) * 50);
+  }, [services.length, selectedServices.length]);
+
+  // Totale con sconto volume applicato
+  const selectedTotal = useMemo(() => {
+    return grossTotal * (1 - volumeDiscountPercent / 100);
+  }, [grossTotal, volumeDiscountPercent]);
 
   // Calcola l'importo upfront
   const upfrontAmount = useMemo(() => {
@@ -397,11 +412,26 @@ export default function QuoteGGroup() {
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-6">
-                      {/* Totale servizi */}
+                      {/* Totale servizi con sconto volume */}
                       <div>
-                        <Label className="text-muted-foreground text-sm">Totale servizi selezionati</Label>
+                        <div className="flex items-center justify-between mb-1">
+                          <Label className="text-muted-foreground text-sm">Totale servizi ({selectedServices.length} moduli)</Label>
+                          {volumeDiscountPercent > 0 && (
+                            <Badge className="bg-resyne-gold/20 text-resyne-gold border-resyne-gold/30 text-xs">
+                              -{volumeDiscountPercent}% sconto volume
+                            </Badge>
+                          )}
+                        </div>
+                        {volumeDiscountPercent > 0 && (
+                          <p className="text-sm text-muted-foreground line-through">
+                            €{Math.round(grossTotal).toLocaleString('it-IT')}
+                          </p>
+                        )}
                         <p className="text-2xl font-bold font-mono">
-                          €{selectedTotal.toLocaleString('it-IT')}
+                          €{Math.round(selectedTotal).toLocaleString('it-IT')}
+                        </p>
+                        <p className="text-xs text-muted-foreground mt-1">
+                          Più moduli selezioni, più risparmi (fino al 50%)
                         </p>
                       </div>
 
