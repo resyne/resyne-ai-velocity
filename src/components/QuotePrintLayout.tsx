@@ -143,73 +143,60 @@ export function QuotePrintLayout({
           </table>
         </section>
 
-        {/* Pricing Summary - Side by Side */}
-        <section className="mb-5 grid grid-cols-2 gap-4">
+        {/* Pricing Summary - Side by Side - More Compact */}
+        <section className="mb-4 grid grid-cols-2 gap-3">
           {/* Upfront Payment */}
-          <div className="p-4 bg-[#30c9b0]/10 rounded-lg border-2 border-[#30c9b0]">
-            <div className="flex items-center gap-1 mb-2">
-              <Euro className="h-4 w-4 text-[#30c9b0]" />
-              <p className="font-semibold text-[#30c9b0] text-xs uppercase">Pagamento Iniziale ({upfrontPercentage}%)</p>
+          <div className="p-3 bg-[#30c9b0]/10 rounded-lg border-2 border-[#30c9b0]">
+            <div className="flex items-center gap-1 mb-1">
+              <Euro className="h-3 w-3 text-[#30c9b0]" />
+              <p className="font-semibold text-[#30c9b0] text-[10px] uppercase">Pagamento Iniziale ({upfrontPercentage}%)</p>
             </div>
-            <p className="text-2xl font-bold font-mono text-[#1f1f1f]">
+            <p className="text-xl font-bold font-mono text-[#1f1f1f]">
               €{Math.round(upfrontAmount).toLocaleString('it-IT')}
             </p>
-            <div className="flex items-center gap-1 text-[10px] text-gray-600 mt-2 pt-2 border-t border-[#30c9b0]/30">
-              <Landmark className="h-3 w-3" />
+            <div className="flex items-center gap-1 text-[9px] text-gray-600 mt-1">
+              <Landmark className="h-2.5 w-2.5" />
               <span>Bonifico bancario</span>
             </div>
           </div>
 
           {/* Monthly Fee */}
-          <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
-            <div className="flex items-center gap-1 mb-2">
-              <CreditCard className="h-4 w-4 text-gray-500" />
-              <p className="font-semibold text-gray-700 text-xs uppercase">Canone Mensile</p>
+          <div className="p-3 bg-gray-50 rounded-lg border border-gray-200">
+            <div className="flex items-center gap-1 mb-1">
+              <CreditCard className="h-3 w-3 text-gray-500" />
+              <p className="font-semibold text-gray-700 text-[10px] uppercase">Canone Mensile</p>
             </div>
-            <p className="text-2xl font-bold font-mono text-[#1f1f1f]">
-              €{Math.round(monthlyFee).toLocaleString('it-IT')}<span className="text-sm font-normal">/mese</span>
+            <p className="text-xl font-bold font-mono text-[#1f1f1f]">
+              €{Math.round(monthlyFee).toLocaleString('it-IT')}<span className="text-xs font-normal">/mese</span>
             </p>
             {monthlyDiscount > 0 && (
-              <p className="text-[10px] text-[#30c9b0] font-medium">
-                Risparmio del {monthlyDiscount}% sulla fee base
+              <p className="text-[9px] text-[#30c9b0] font-medium">
+                Risparmio del {monthlyDiscount}%
               </p>
             )}
             
-            {/* Variable costs breakdown */}
-            <div className="text-[10px] text-gray-600 mt-2 pt-2 border-t border-gray-200 space-y-0.5">
-              <div className="flex justify-between">
-                <span>Fee fissa:</span>
-                <span className="font-mono">€{Math.round(fixedMonthlyFee).toLocaleString('it-IT')}</span>
-              </div>
+            {/* Variable costs breakdown - inline */}
+            <div className="text-[9px] text-gray-600 mt-1 pt-1 border-t border-gray-200 grid grid-cols-2 gap-x-2 gap-y-0.5">
+              <span>Fee fissa:</span>
+              <span className="font-mono text-right">€{Math.round(fixedMonthlyFee).toLocaleString('it-IT')}</span>
               {variableMonthlyFee.vehicleCost > 0 && (
-                <div className="flex justify-between">
-                  <span className="flex items-center gap-0.5">
-                    <Truck className="h-2.5 w-2.5" /> GPS ({numVehicles} × €8):
-                  </span>
-                  <span className="font-mono">€{variableMonthlyFee.vehicleCost.toLocaleString('it-IT')}</span>
-                </div>
+                <>
+                  <span className="flex items-center gap-0.5"><Truck className="h-2 w-2" /> GPS:</span>
+                  <span className="font-mono text-right">€{variableMonthlyFee.vehicleCost}</span>
+                </>
               )}
               {variableMonthlyFee.employeeCost > 0 && (
-                <div className="flex justify-between">
-                  <span className="flex items-center gap-0.5">
-                    <Users className="h-2.5 w-2.5" /> Timbrature ({numEmployees} × €2):
-                  </span>
-                  <span className="font-mono">€{variableMonthlyFee.employeeCost.toLocaleString('it-IT')}</span>
-                </div>
+                <>
+                  <span className="flex items-center gap-0.5"><Users className="h-2 w-2" /> Timb:</span>
+                  <span className="font-mono text-right">€{variableMonthlyFee.employeeCost}</span>
+                </>
               )}
               {variableMonthlyFee.storageCost > 0 && (
-                <div className="flex justify-between">
-                  <span className="flex items-center gap-0.5">
-                    <HardDrive className="h-2.5 w-2.5" /> Storage:
-                  </span>
-                  <span className="font-mono">€{variableMonthlyFee.storageCost.toLocaleString('it-IT')}</span>
-                </div>
+                <>
+                  <span className="flex items-center gap-0.5"><HardDrive className="h-2 w-2" /> Storage:</span>
+                  <span className="font-mono text-right">€{variableMonthlyFee.storageCost}</span>
+                </>
               )}
-            </div>
-            
-            <div className="flex items-center gap-1 text-[10px] text-gray-400 mt-2 pt-2 border-t border-gray-200">
-              <CreditCard className="h-2.5 w-2.5" />
-              <span>Addebito automatico carta di credito</span>
             </div>
           </div>
         </section>
