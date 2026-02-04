@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, TrendingUp } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import heroBackground from "@/assets/hero-background.jpg";
 
 export function HeroSection() {
   const { t } = useTranslation();
@@ -13,7 +14,15 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+    <section 
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      style={{ 
+        backgroundImage: `url(${heroBackground})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-5xl mx-auto">
           {/* Badge */}
