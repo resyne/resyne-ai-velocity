@@ -8,6 +8,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { DemoSection } from "@/components/DemoSection";
 import { LeadSection } from "@/components/LeadSection";
 import { Footer } from "@/components/Footer";
+import { FounderSection } from "@/components/FounderSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Index from "./pages/Index";
 import Audit from "./pages/Audit";
@@ -32,6 +33,7 @@ const App = () => (
             <>
               <Header />
               <HeroSection />
+              <FounderSection />
               <DemoSection />
               <LeadSection />
               <Footer />
