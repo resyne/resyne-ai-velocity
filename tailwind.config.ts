@@ -19,15 +19,15 @@ export default {
         'inter': ['Inter', 'sans-serif'],
       },
       colors: {
-        /* RESYNE Brand Colors */
-        'resyne-dark': 'hsl(var(--resyne-dark))',
-        'resyne-gold': 'hsl(var(--resyne-gold))',
-        'resyne-gold-light': 'hsl(var(--resyne-gold-light))',
-        'resyne-gray': 'hsl(var(--resyne-gray))',
-        'resyne-gray-dark': 'hsl(var(--resyne-gray-dark))',
-        'tech-blue': 'hsl(var(--tech-blue))',
-        'tech-cyan': 'hsl(var(--tech-cyan))',
-        'tech-purple': 'hsl(var(--tech-purple))',
+        /* Professional Brand Colors */
+        'gunmetal': 'hsl(var(--gunmetal))',
+        'gunmetal-light': 'hsl(var(--gunmetal-light))',
+        'charcoal': 'hsl(var(--charcoal))',
+        'gray': 'hsl(var(--gray))',
+        'gray-light': 'hsl(var(--gray-light))',
+        'tiffany': 'hsl(var(--tiffany))',
+        'tiffany-light': 'hsl(var(--tiffany-light))',
+        'tiffany-dark': 'hsl(var(--tiffany-dark))',
         
         /* System Colors */
         border: "hsl(var(--border))",
@@ -65,18 +65,15 @@ export default {
         },
       },
       backgroundImage: {
-        'gradient-tech': 'var(--gradient-tech)',
-        'gradient-gold': 'var(--gradient-gold)',
+        'gradient-tiffany': 'var(--gradient-tiffany)',
         'gradient-dark': 'var(--gradient-dark)',
       },
       boxShadow: {
-        'tech': 'var(--shadow-tech)',
+        'tiffany': 'var(--shadow-tiffany)',
         'glow': 'var(--shadow-glow)', 
         'card': 'var(--shadow-card)',
       },
       animation: {
-        'web-move': 'web-move 20s linear infinite',
-        'web-pulse': 'web-pulse 15s ease-in-out infinite',
         'float': 'float 6s ease-in-out infinite',
         'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -104,20 +101,12 @@ export default {
             height: "0",
           },
         },
-        'web-move': {
-          '0%': { transform: 'translate(0, 0)' },
-          '100%': { transform: 'translate(50px, 50px)' },
-        },
-        'web-pulse': {
-          '0%, 100%': { opacity: '0.3' },
-          '50%': { opacity: '0.6' },
-        },
         'float': {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-20px)' },
         },
         'pulse-glow': {
-          '0%, 100%': { boxShadow: 'var(--shadow-tech)' },
+          '0%, 100%': { boxShadow: 'var(--shadow-tiffany)' },
           '50%': { boxShadow: 'var(--shadow-glow)' },
         },
       },

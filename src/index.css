@@ -2,62 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
-/* RESYNE Design System - Dark Tech Theme */
+/* RESYNE Design System - Professional Dark Theme */
 
 @layer base {
   :root {
-    /* RESYNE Brand Colors (from official brand kit) */
-    --resyne-dark: 252 31% 14%;      /* #1a162d */
-    --resyne-gold: 43 66% 47%;       /* #ca9c2a */
-    --resyne-gold-light: 43 66% 57%; /* Lighter gold variant */
-    --resyne-gray: 0 0% 91%;         /* #e7e7e7 */
-    --resyne-gray-dark: 0 0% 20%;    /* Dark gray for text */
+    /* Core Brand Colors - Gunmetal, Gray, White, Tiffany */
+    --gunmetal: 0 0% 12%;            /* #1f1f1f - Dark gunmetal */
+    --gunmetal-light: 0 0% 16%;      /* #292929 - Lighter gunmetal */
+    --charcoal: 0 0% 20%;            /* #333333 - Charcoal */
+    --gray: 0 0% 45%;                /* #737373 - Medium gray */
+    --gray-light: 0 0% 75%;          /* #bfbfbf - Light gray */
+    --white: 0 0% 98%;               /* #fafafa - Off-white */
+    --tiffany: 168 62% 50%;          /* #30c9b0 - Tiffany green */
+    --tiffany-light: 168 62% 60%;    /* Lighter Tiffany */
+    --tiffany-dark: 168 62% 40%;     /* Darker Tiffany */
     
-    /* Tech Accents */
-    --tech-blue: 210 100% 60%;       /* Electric blue */
-    --tech-cyan: 180 100% 50%;       /* Cyan for tech elements */
-    --tech-purple: 270 100% 70%;     /* Purple for highlights */
-    
-    /* System Colors - Dark Theme */
-    --background: var(--resyne-dark);
-    --foreground: var(--resyne-gray);
+    /* System Colors - Professional Dark Theme */
+    --background: var(--gunmetal);
+    --foreground: var(--white);
 
-    --card: 252 31% 16%;
-    --card-foreground: var(--resyne-gray);
+    --card: var(--gunmetal-light);
+    --card-foreground: var(--white);
 
-    --popover: 252 31% 16%;
-    --popover-foreground: var(--resyne-gray);
+    --popover: var(--gunmetal-light);
+    --popover-foreground: var(--white);
 
-    --primary: var(--resyne-gold);
-    --primary-foreground: var(--resyne-dark);
+    --primary: var(--tiffany);
+    --primary-foreground: var(--gunmetal);
 
-    --secondary: 252 20% 25%;
-    --secondary-foreground: var(--resyne-gray);
+    --secondary: var(--charcoal);
+    --secondary-foreground: var(--gray-light);
 
-    --muted: 252 20% 20%;
-    --muted-foreground: 0 0% 70%;
+    --muted: var(--charcoal);
+    --muted-foreground: var(--gray);
 
-    --accent: var(--tech-blue);
-    --accent-foreground: 0 0% 98%;
+    --accent: var(--tiffany);
+    --accent-foreground: var(--gunmetal);
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 252 20% 30%;
-    --input: 252 20% 25%;
-    --ring: var(--resyne-gold);
+    --border: 0 0% 25%;
+    --input: var(--charcoal);
+    --ring: var(--tiffany);
 
     --radius: 8px;
 
-    /* Tech Gradients */
-    --gradient-tech: linear-gradient(135deg, hsl(var(--tech-blue)) 0%, hsl(var(--tech-purple)) 50%, hsl(var(--tech-cyan)) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(var(--resyne-gold)) 0%, hsl(var(--resyne-gold-light)) 100%);
-    --gradient-dark: linear-gradient(135deg, hsl(var(--resyne-dark)) 0%, hsl(252 31% 20%) 100%);
+    /* Gradients */
+    --gradient-tiffany: linear-gradient(135deg, hsl(var(--tiffany)) 0%, hsl(var(--tiffany-light)) 100%);
+    --gradient-dark: linear-gradient(135deg, hsl(var(--gunmetal)) 0%, hsl(var(--gunmetal-light)) 100%);
     
     /* Shadows */
-    --shadow-tech: 0 0 30px hsl(var(--resyne-gold) / 0.3);
-    --shadow-glow: 0 0 50px hsl(var(--tech-blue) / 0.4);
-    --shadow-card: 0 10px 40px -10px hsl(var(--resyne-dark) / 0.8);
+    --shadow-tiffany: 0 0 30px hsl(var(--tiffany) / 0.3);
+    --shadow-glow: 0 0 50px hsl(var(--tiffany) / 0.4);
+    --shadow-card: 0 10px 40px -10px hsl(0 0% 0% / 0.5);
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -73,9 +71,8 @@
   body {
     @apply bg-background text-foreground font-inter;
     background-image: 
-      radial-gradient(circle at 20% 80%, hsl(var(--tech-blue) / 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, hsl(var(--resyne-gold) / 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, hsl(var(--tech-purple) / 0.05) 0%, transparent 50%);
+      radial-gradient(circle at 20% 80%, hsl(var(--tiffany) / 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(var(--tiffany) / 0.03) 0%, transparent 50%);
   }
 }
 
@@ -95,7 +92,7 @@
     font-family: 'Inter', sans-serif;
   }
   
-  /* Tech Web Pattern */
+  /* Subtle Grid Pattern */
   .tech-web {
     position: relative;
     overflow: hidden;
@@ -109,45 +106,31 @@
     right: 0;
     bottom: 0;
     background-image: 
-      linear-gradient(90deg, hsl(var(--resyne-gold) / 0.1) 1px, transparent 1px),
-      linear-gradient(hsl(var(--resyne-gold) / 0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
-    animation: web-move 20s linear infinite;
-    pointer-events: none;
-  }
-  
-  .tech-web::after {
-    content: '';
-    position: absolute;
-    top: 20%;
-    left: 20%;
-    width: 60%;
-    height: 60%;
-    background: radial-gradient(circle, hsl(var(--tech-cyan) / 0.1) 2px, transparent 2px);
-    background-size: 30px 30px;
-    animation: web-pulse 15s ease-in-out infinite;
+      linear-gradient(90deg, hsl(var(--white) / 0.03) 1px, transparent 1px),
+      linear-gradient(hsl(var(--white) / 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
     pointer-events: none;
   }
 
   /* Glowing Text Effect */
   .text-glow {
-    text-shadow: 0 0 20px hsl(var(--resyne-gold) / 0.5);
+    text-shadow: 0 0 30px hsl(var(--tiffany) / 0.4);
   }
   
-  .text-tech-glow {
-    text-shadow: 0 0 20px hsl(var(--tech-blue) / 0.5);
+  .text-tiffany-glow {
+    text-shadow: 0 0 20px hsl(var(--tiffany) / 0.5);
   }
 
   /* Hero Gradient Text */
   .gradient-text {
-    background: var(--gradient-gold);
+    background: var(--gradient-tiffany);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   
-  .gradient-tech-text {
-    background: var(--gradient-tech);
+  .gradient-tiffany-text {
+    background: var(--gradient-tiffany);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -155,31 +138,27 @@
 
   /* Glassmorphism Cards */
   .glass-card {
-    background: rgba(255, 255, 255, 0.05);
+    background: hsl(var(--gunmetal-light) / 0.8);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid hsl(var(--white) / 0.1);
+  }
+  
+  /* Tiffany accent card */
+  .tiffany-card {
+    background: hsl(var(--tiffany));
+    color: hsl(var(--gunmetal));
   }
 }
 
 @layer utilities {
   /* Animation Keyframes */
-  @keyframes web-move {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(50px, 50px); }
-  }
-  
-  @keyframes web-pulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.6; }
-  }
-  
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-20px); }
   }
   
   @keyframes pulse-glow {
-    0%, 100% { box-shadow: var(--shadow-tech); }
+    0%, 100% { box-shadow: var(--shadow-tiffany); }
     50% { box-shadow: var(--shadow-glow); }
   }
 }
