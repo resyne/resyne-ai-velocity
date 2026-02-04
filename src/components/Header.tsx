@@ -71,11 +71,11 @@ export function Header() {
               {t('header.automation')}
             </a>
             <a 
-              href="#ai" 
+              href="/ai-solutions" 
               className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
               onClick={(e) => {
                 e.preventDefault();
-                scrollToSection('ai');
+                navigate('/ai-solutions');
               }}
             >
               {t('header.ai')}
@@ -188,11 +188,11 @@ export function Header() {
                 {t('header.automation')}
               </a>
               <a 
-                href="#ai" 
+                href="/ai-solutions" 
                 className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
                 onClick={(e) => {
                   e.preventDefault();
-                  scrollToSection('ai');
+                  navigate('/ai-solutions');
                   setIsMenuOpen(false);
                 }}
               >
