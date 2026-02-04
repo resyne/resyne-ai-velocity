@@ -740,13 +740,13 @@ export default function QuoteGGroup() {
 
                       {/* CTA */}
                       <Button 
-                        className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                        className="w-full bg-primary text-primary-foreground hover:bg-primary/90 no-print"
                         size="lg"
                         disabled={selectedServices.length === 0}
                         onClick={handlePrint}
                       >
                         <Printer className="h-4 w-4 mr-2" />
-                        Richiedi preventivo dettagliato
+                        Scarica preventivo
                       </Button>
                     </CardContent>
                   </Card>
