@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { Calculator, Check, Clock, CreditCard, Euro, HardDrive, Landmark, Percent, Printer, TrendingDown, Truck, Users } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import equipeResынеLogo from "@/assets/equipe-resyne-logo.png";
 
 // Opzioni storage
 const STORAGE_OPTIONS = [
@@ -476,10 +477,15 @@ export default function QuoteGGroup() {
                 <div className="sticky top-24 space-y-6">
                   {/* Riepilogo prezzi */}
                   <Card className="glass-card border-resyne-gold/30">
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
+                    <CardHeader className="text-center pb-4">
+                      <img 
+                        src={equipeResынеLogo} 
+                        alt="Equipe Resyne" 
+                        className="h-16 mx-auto mb-2 print:h-20"
+                      />
+                      <CardTitle className="flex items-center justify-center gap-2">
                         <Calculator className="h-5 w-5 text-resyne-gold" />
-                        Riepilogo
+                        Riepilogo Preventivo
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-6">
