@@ -11,7 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { Calculator, Check, Clock, CreditCard, Euro, HardDrive, Landmark, Percent, Printer, TrendingDown, Truck, Users } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import equipeResынеLogo from "@/assets/equipe-resyne-logo.png";
+import equipeResyneLogo from "@/assets/equipe-resyne-logo.png";
 import { QuotePrintLayout } from "@/components/QuotePrintLayout";
 
 // Opzioni storage
@@ -480,7 +480,7 @@ export default function QuoteGGroup() {
                   <Card className="glass-card border-resyne-gold/30">
                     <CardHeader className="text-center pb-4">
                       <img 
-                        src={equipeResынеLogo} 
+                        src={equipeResyneLogo} 
                         alt="Equipe Resyne" 
                         className="h-16 mx-auto mb-2 print:h-20"
                       />
