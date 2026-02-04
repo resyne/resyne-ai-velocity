@@ -16,6 +16,7 @@ import BookACall from "./pages/BookACall";
 import BandoPID from "./pages/BandoPID";
 import VoucherVdA from "./pages/VoucherVdA";
 import DigitSicilia from "./pages/DigitSicilia";
+import Automation from "./pages/Automation";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/bando-pid" element={<BandoPID />} />
           <Route path="/voucher-vda" element={<VoucherVdA />} />
           <Route path="/digit-sicilia" element={<DigitSicilia />} />
+          <Route path="/automation" element={<Automation />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

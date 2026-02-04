@@ -61,11 +61,11 @@ export function Header() {
               {t('header.erp')}
             </a>
             <a 
-              href="#automation" 
+              href="/automation" 
               className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
               onClick={(e) => {
                 e.preventDefault();
-                scrollToSection('automation');
+                navigate('/automation');
               }}
             >
               {t('header.automation')}
@@ -177,11 +177,11 @@ export function Header() {
                 {t('header.erp')}
               </a>
               <a 
-                href="#automation" 
+                href="/automation" 
                 className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
                 onClick={(e) => {
                   e.preventDefault();
-                  scrollToSection('automation');
+                  navigate('/automation');
                   setIsMenuOpen(false);
                 }}
               >
