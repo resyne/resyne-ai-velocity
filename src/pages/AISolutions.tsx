@@ -97,7 +97,7 @@ export default function AISolutions() {
       
       {/* Hero Section */}
       <section 
-        className="relative pt-32 pb-20 px-4"
+        className="relative pt-24 sm:pt-32 pb-12 sm:pb-20 px-3 sm:px-4"
         style={{ 
           backgroundImage: `linear-gradient(to bottom, rgba(31, 31, 31, 0.7), rgba(31, 31, 31, 0.95)), url(${aiHeroImage})`,
           backgroundSize: 'cover',
@@ -106,35 +106,35 @@ export default function AISolutions() {
       >
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-tiffany/10 border border-tiffany/30 mb-8">
-              <Brain className="w-4 h-4 mr-2 text-tiffany" />
-              <span className="text-sm font-medium text-tiffany">AI Solutions</span>
+            <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-tiffany/10 border border-tiffany/30 mb-4 sm:mb-8">
+              <Brain className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2 text-tiffany" />
+              <span className="text-xs sm:text-sm font-medium text-tiffany">AI Solutions</span>
             </div>
             
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6">
+            <h1 className="font-heading text-2xl sm:text-4xl md:text-5xl lg:text-7xl mb-4 sm:mb-6">
               <span className="text-foreground">Intelligenza</span>
               <br />
               <span className="gradient-text">Artificiale Applicata</span>
             </h1>
             
-            <p className="font-body text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            <p className="font-body text-sm sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 sm:mb-8 px-2">
               Trasformiamo l'AI da buzzword a vantaggio competitivo concreto. 
               Soluzioni pratiche che generano risultati misurabili per la tua azienda.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0">
               <Button 
                 size="lg" 
-                className="bg-tiffany text-gunmetal hover:bg-tiffany-light font-medium text-lg px-8 py-4 h-auto"
+                className="bg-tiffany text-gunmetal hover:bg-tiffany-light font-medium text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto"
                 onClick={() => navigate('/book-a-call')}
               >
                 Richiedi Consulenza AI
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
               </Button>
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border-foreground/30 text-foreground hover:bg-foreground hover:text-background font-medium text-lg px-8 py-4 h-auto"
+                className="border-foreground/30 text-foreground hover:bg-foreground hover:text-background font-medium text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto"
                 onClick={() => navigate('/audit')}
               >
                 Audit AI Gratuito
@@ -145,33 +145,33 @@ export default function AISolutions() {
       </section>
 
       {/* AI Capabilities Grid */}
-      <section className="py-20 px-4 bg-gunmetal-light">
+      <section className="py-12 sm:py-20 px-3 sm:px-4 bg-gunmetal-light">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl mb-4">
+          <div className="text-center mb-8 sm:mb-16">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-5xl mb-3 sm:mb-4">
               Le Nostre <span className="gradient-text">Soluzioni AI</span>
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-sm sm:text-lg max-w-2xl mx-auto px-2">
               Tecnologie all'avanguardia applicate ai tuoi processi di business
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {aiCapabilities.map((capability, index) => (
               <div 
                 key={index}
-                className="group bg-background/50 backdrop-blur-sm border border-border/30 rounded-xl p-6 hover:border-tiffany/50 transition-all hover:-translate-y-1"
+                className="group bg-background/50 backdrop-blur-sm border border-border/30 rounded-xl p-3 sm:p-6 hover:border-tiffany/50 transition-all hover:-translate-y-1"
               >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-12 h-12 rounded-lg bg-tiffany/20 flex items-center justify-center group-hover:bg-tiffany/30 transition-colors">
-                    <capability.icon className="w-6 h-6 text-tiffany" />
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-2 sm:mb-4 gap-2">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-tiffany/20 flex items-center justify-center group-hover:bg-tiffany/30 transition-colors">
+                    <capability.icon className="w-5 h-5 sm:w-6 sm:h-6 text-tiffany" />
                   </div>
-                  <span className="text-xs font-medium px-2 py-1 rounded-full bg-tiffany/10 text-tiffany">
+                  <span className="text-[10px] sm:text-xs font-medium px-2 py-0.5 sm:py-1 rounded-full bg-tiffany/10 text-tiffany w-fit">
                     {capability.highlight}
                   </span>
                 </div>
-                <h3 className="font-heading text-lg mb-2">{capability.title}</h3>
-                <p className="text-muted-foreground text-sm">{capability.description}</p>
+                <h3 className="font-heading text-sm sm:text-lg mb-1 sm:mb-2">{capability.title}</h3>
+                <p className="text-muted-foreground text-xs sm:text-sm line-clamp-3 sm:line-clamp-none">{capability.description}</p>
               </div>
             ))}
           </div>

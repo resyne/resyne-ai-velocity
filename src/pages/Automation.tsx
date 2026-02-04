@@ -95,7 +95,7 @@ export default function Automation() {
       
       {/* Hero Section */}
       <section 
-        className="relative pt-32 pb-20 px-4"
+        className="relative pt-24 sm:pt-32 pb-12 sm:pb-20 px-3 sm:px-4"
         style={{ 
           backgroundImage: `linear-gradient(to bottom, rgba(31, 31, 31, 0.7), rgba(31, 31, 31, 0.95)), url(${automationHeroImage})`,
           backgroundSize: 'cover',
@@ -104,35 +104,35 @@ export default function Automation() {
       >
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-tiffany/10 border border-tiffany/30 mb-8">
-              <Zap className="w-4 h-4 mr-2 text-tiffany" />
-              <span className="text-sm font-medium text-tiffany">Automation Solutions</span>
+            <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-tiffany/10 border border-tiffany/30 mb-4 sm:mb-8">
+              <Zap className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2 text-tiffany" />
+              <span className="text-xs sm:text-sm font-medium text-tiffany">Automation Solutions</span>
             </div>
             
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6">
+            <h1 className="font-heading text-2xl sm:text-4xl md:text-5xl lg:text-7xl mb-4 sm:mb-6">
               <span className="text-foreground">Automatizza</span>
               <br />
               <span className="gradient-text">i Tuoi Processi</span>
             </h1>
             
-            <p className="font-body text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            <p className="font-body text-sm sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 sm:mb-8 px-2">
               Libera il tuo team dalle attività ripetitive. Con le nostre soluzioni di automazione, 
               i tuoi processi aziendali lavorano in modo intelligente, 24 ore su 24.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0">
               <Button 
                 size="lg" 
-                className="bg-tiffany text-gunmetal hover:bg-tiffany-light font-medium text-lg px-8 py-4 h-auto"
+                className="bg-tiffany text-gunmetal hover:bg-tiffany-light font-medium text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto"
                 onClick={() => navigate('/book-a-call')}
               >
                 Richiedi Consulenza
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
               </Button>
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border-foreground/30 text-foreground hover:bg-foreground hover:text-background font-medium text-lg px-8 py-4 h-auto"
+                className="border-foreground/30 text-foreground hover:bg-foreground hover:text-background font-medium text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto"
                 onClick={() => {
                   const element = document.getElementById('use-cases');
                   element?.scrollIntoView({ behavior: 'smooth' });
@@ -146,30 +146,30 @@ export default function Automation() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 px-4 bg-gunmetal-light">
+      <section className="py-12 sm:py-20 px-3 sm:px-4 bg-gunmetal-light">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl mb-4">
+          <div className="text-center mb-8 sm:mb-16">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-5xl mb-3 sm:mb-4">
               Perché <span className="gradient-text">Automatizzare</span>?
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-sm sm:text-lg max-w-2xl mx-auto px-2">
               L'automazione non è un lusso, è una necessità competitiva
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8">
             {benefits.map((benefit, index) => (
               <div 
                 key={index}
-                className="bg-background/50 backdrop-blur-sm border border-border/30 rounded-2xl p-8 text-center hover:border-tiffany/50 transition-colors"
+                className="bg-background/50 backdrop-blur-sm border border-border/30 rounded-xl sm:rounded-2xl p-4 sm:p-8 text-center hover:border-tiffany/50 transition-colors"
               >
-                <div className="w-16 h-16 rounded-full bg-tiffany/20 flex items-center justify-center mx-auto mb-6">
-                  <benefit.icon className="w-8 h-8 text-tiffany" />
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-tiffany/20 flex items-center justify-center mx-auto mb-3 sm:mb-6">
+                  <benefit.icon className="w-6 h-6 sm:w-8 sm:h-8 text-tiffany" />
                 </div>
-                <div className="text-4xl font-heading text-tiffany mb-2">{benefit.stat}</div>
-                <div className="text-sm text-muted-foreground mb-4">{benefit.statLabel}</div>
-                <h3 className="font-heading text-xl mb-3">{benefit.title}</h3>
-                <p className="text-muted-foreground">{benefit.description}</p>
+                <div className="text-2xl sm:text-4xl font-heading text-tiffany mb-1 sm:mb-2">{benefit.stat}</div>
+                <div className="text-xs sm:text-sm text-muted-foreground mb-2 sm:mb-4">{benefit.statLabel}</div>
+                <h3 className="font-heading text-lg sm:text-xl mb-2 sm:mb-3">{benefit.title}</h3>
+                <p className="text-muted-foreground text-sm">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -177,28 +177,28 @@ export default function Automation() {
       </section>
 
       {/* Use Cases Section */}
-      <section id="use-cases" className="py-20 px-4">
+      <section id="use-cases" className="py-12 sm:py-20 px-3 sm:px-4">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl mb-4">
+          <div className="text-center mb-8 sm:mb-16">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-5xl mb-3 sm:mb-4">
               Cosa Possiamo <span className="gradient-text">Automatizzare</span>
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-sm sm:text-lg max-w-2xl mx-auto px-2">
               Ogni processo ripetitivo nella tua azienda può essere automatizzato
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {useCases.map((useCase, index) => (
               <div 
                 key={index}
-                className="group bg-gunmetal-light border border-border/30 rounded-xl p-6 hover:border-tiffany/50 transition-all hover:-translate-y-1"
+                className="group bg-gunmetal-light border border-border/30 rounded-xl p-4 sm:p-6 hover:border-tiffany/50 transition-all hover:-translate-y-1"
               >
-                <div className="w-12 h-12 rounded-lg bg-tiffany/20 flex items-center justify-center mb-4 group-hover:bg-tiffany/30 transition-colors">
-                  <useCase.icon className="w-6 h-6 text-tiffany" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-tiffany/20 flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-tiffany/30 transition-colors">
+                  <useCase.icon className="w-5 h-5 sm:w-6 sm:h-6 text-tiffany" />
                 </div>
-                <h3 className="font-heading text-lg mb-2">{useCase.title}</h3>
-                <p className="text-muted-foreground text-sm">{useCase.description}</p>
+                <h3 className="font-heading text-base sm:text-lg mb-2">{useCase.title}</h3>
+                <p className="text-muted-foreground text-xs sm:text-sm">{useCase.description}</p>
               </div>
             ))}
           </div>
