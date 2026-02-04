@@ -8,8 +8,18 @@ import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Calculator, Check, Euro, Percent, TrendingDown, Truck, Users } from "lucide-react";
+import { Calculator, Check, Euro, HardDrive, Percent, TrendingDown, Truck, Users } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
+// Opzioni storage
+const STORAGE_OPTIONS = [
+  { id: "50gb", label: "50 GB", price: 0, description: "Incluso" },
+  { id: "100gb", label: "100 GB", price: 10, description: "€10/mese" },
+  { id: "250gb", label: "250 GB", price: 30, description: "€30/mese" },
+  { id: "500gb", label: "500 GB", price: 50, description: "€50/mese" },
+  { id: "1tb", label: "1 TB", price: 80, description: "€80/mese" },
+];
 
 interface Service {
   id: string;
@@ -248,9 +258,16 @@ export default function QuoteGGroup() {
   // Costi variabili: automezzi e dipendenti
   const [numVehicles, setNumVehicles] = useState<number>(10);
   const [numEmployees, setNumEmployees] = useState<number>(25);
+  const [selectedStorage, setSelectedStorage] = useState<string>("50gb");
   
   const VEHICLE_MONTHLY_COST = 8; // €8/mese per automezzo
   const EMPLOYEE_MONTHLY_COST = 2; // €2/mese per dipendente
+  
+  // Costo storage selezionato
+  const storageCost = useMemo(() => {
+    const option = STORAGE_OPTIONS.find(o => o.id === selectedStorage);
+    return option?.price || 0;
+  }, [selectedStorage]);
 
   // Calcola il totale lordo dei servizi selezionati (senza sconto)
   const grossTotal = useMemo(() => {
@@ -297,8 +314,13 @@ export default function QuoteGGroup() {
       employeeCost = numEmployees * EMPLOYEE_MONTHLY_COST;
     }
     
-    return { vehicleCost, employeeCost, total: vehicleCost + employeeCost };
-  }, [selectedServices, numVehicles, numEmployees]);
+    return { 
+      vehicleCost, 
+      employeeCost, 
+      storageCost,
+      total: vehicleCost + employeeCost + storageCost 
+    };
+  }, [selectedServices, numVehicles, numEmployees, storageCost]);
 
   // Calcola la fee mensile fissa con moltiplicatore basato su upfront
   const fixedMonthlyFee = useMemo(() => {
@@ -564,6 +586,41 @@ export default function QuoteGGroup() {
                             </p>
                           )}
                         </div>
+
+                        {/* Storage */}
+                        <div className="space-y-2 pt-3 border-t border-border/20">
+                          <div className="flex items-center justify-between">
+                            <Label htmlFor="storage" className="text-sm flex items-center gap-2">
+                              <HardDrive className="h-4 w-4 text-muted-foreground" />
+                              Storage Totale
+                            </Label>
+                          </div>
+                          <Select value={selectedStorage} onValueChange={setSelectedStorage}>
+                            <SelectTrigger className="font-mono">
+                              <SelectValue />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {STORAGE_OPTIONS.map(option => (
+                                <SelectItem key={option.id} value={option.id}>
+                                  <span className="flex items-center justify-between gap-4">
+                                    <span>{option.label}</span>
+                                    <span className="text-muted-foreground text-xs">{option.description}</span>
+                                  </span>
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                          {storageCost > 0 && (
+                            <p className="text-xs text-resyne-gold">
+                              = €{storageCost.toLocaleString('it-IT')}/mese
+                            </p>
+                          )}
+                          {storageCost === 0 && (
+                            <p className="text-xs text-muted-foreground">
+                              50 GB inclusi nel piano base
+                            </p>
+                          )}
+                        </div>
                       </div>
 
                       {/* Importo upfront */}
@@ -610,6 +667,12 @@ export default function QuoteGGroup() {
                             <div className="flex justify-between">
                               <span>Timbrature ({numEmployees}×€2):</span>
                               <span className="font-mono">€{variableMonthlyFee.employeeCost.toLocaleString('it-IT')}</span>
+                            </div>
+                          )}
+                          {variableMonthlyFee.storageCost > 0 && (
+                            <div className="flex justify-between">
+                              <span>Storage ({STORAGE_OPTIONS.find(o => o.id === selectedStorage)?.label}):</span>
+                              <span className="font-mono">€{variableMonthlyFee.storageCost.toLocaleString('it-IT')}</span>
                             </div>
                           )}
                         </div>
