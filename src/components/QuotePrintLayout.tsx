@@ -284,7 +284,7 @@ export function QuotePrintLayout({
                   <p className="font-bold text-amber-700 text-[9px] mb-0.5">Industria 4.0 – Iperammortamento 180%</p>
                   <p className="text-gray-600 leading-tight">
                     Software 4.0 funzionali alla trasformazione digitale (ERP, MES, APS). 
-                    Credito d'imposta fino al 20% per investimenti fino a 1M€.
+                    Maggiorazione del 80% delle quote di ammortamento.
                   </p>
                   <p className="text-[7px] text-gray-400 mt-0.5 italic">Rif: Allegato B – L. 232/2016 e L. 205/2017</p>
                 </div>
@@ -476,7 +476,7 @@ export function QuotePrintLayout({
                 <p className="font-bold text-amber-700 text-[9px] mb-0.5">Industria 4.0 – Iperammortamento 180%</p>
                 <p className="text-gray-600 leading-tight">
                   Software 4.0 funzionali alla trasformazione digitale (ERP, MES, APS). 
-                  Credito d'imposta fino al 20% per investimenti fino a 1M€.
+                  Maggiorazione del 80% delle quote di ammortamento.
                 </p>
                 <p className="text-[7px] text-gray-400 mt-0.5 italic">Rif: Allegato B – L. 232/2016 e L. 205/2017</p>
               </div>

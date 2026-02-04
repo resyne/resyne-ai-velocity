@@ -776,7 +776,7 @@ export default function QuoteGGroup() {
                     </p>
                     <div className="flex items-center gap-2 text-sm">
                       <Badge variant="outline" className="bg-tiffany/10 text-tiffany border-tiffany/30">
-                        Credito d'imposta fino al 20%
+                        Iperammortamento 180%
                       </Badge>
                     </div>
                     <p className="text-xs text-muted-foreground mt-3">
