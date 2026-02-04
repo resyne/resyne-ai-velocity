@@ -19,6 +19,7 @@ import VoucherVdA from "./pages/VoucherVdA";
 import DigitSicilia from "./pages/DigitSicilia";
 import Automation from "./pages/Automation";
 import AISolutions from "./pages/AISolutions";
+import QuoteGGroup from "./pages/QuoteGGroup";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -48,6 +49,7 @@ const App = () => (
           <Route path="/digit-sicilia" element={<DigitSicilia />} />
           <Route path="/automation" element={<Automation />} />
           <Route path="/ai-solutions" element={<AISolutions />} />
+          <Route path="/quote-ggroup" element={<QuoteGGroup />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
