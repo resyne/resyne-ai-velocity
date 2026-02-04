@@ -755,18 +755,18 @@ export default function QuoteGGroup() {
             </div>
 
             {/* Incentives Section */}
-            <Card className="mt-8 bg-amber-50/50 dark:bg-amber-950/20 border-amber-300/50">
+            <Card className="mt-8 bg-tiffany/5 border-tiffany/30">
               <CardHeader className="pb-3">
-                <CardTitle className="text-lg font-subtitle text-amber-700 dark:text-amber-400 flex items-center gap-2">
-                  <span className="text-amber-500">★</span>
+                <CardTitle className="text-lg font-subtitle text-tiffany flex items-center gap-2">
+                  <span>★</span>
                   Agevolazioni e Incentivi Fiscali
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid md:grid-cols-2 gap-4">
                   {/* Industria 4.0 */}
-                  <div className="p-4 bg-white dark:bg-background rounded-lg border border-amber-200 dark:border-amber-800">
-                    <h4 className="font-semibold text-amber-700 dark:text-amber-400 mb-2">
+                  <div className="p-4 bg-background rounded-lg border border-tiffany/20">
+                    <h4 className="font-semibold text-tiffany mb-2">
                       Industria 4.0 – Iperammortamento 180%
                     </h4>
                     <p className="text-sm text-muted-foreground mb-3">
@@ -774,7 +774,7 @@ export default function QuoteGGroup() {
                       Include software, sistemi, piattaforme e applicazioni (come ERP, MES, APS) necessari per la gestione e il coordinamento della produzione.
                     </p>
                     <div className="flex items-center gap-2 text-sm">
-                      <Badge variant="outline" className="bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300 border-amber-300">
+                      <Badge variant="outline" className="bg-tiffany/10 text-tiffany border-tiffany/30">
                         Credito d'imposta fino al 20%
                       </Badge>
                     </div>
@@ -784,7 +784,7 @@ export default function QuoteGGroup() {
                         href="https://www.mimit.gov.it/images/stories/documenti/Allegato_B_2016.pdf" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-amber-600 hover:underline"
+                        className="text-tiffany hover:underline"
                       >
                         Vedi Allegato B MiMIT →
                       </a>
@@ -792,8 +792,8 @@ export default function QuoteGGroup() {
                   </div>
 
                   {/* Nuova Sabatini */}
-                  <div className="p-4 bg-white dark:bg-background rounded-lg border border-amber-200 dark:border-amber-800">
-                    <h4 className="font-semibold text-amber-700 dark:text-amber-400 mb-2">
+                  <div className="p-4 bg-background rounded-lg border border-tiffany/20">
+                    <h4 className="font-semibold text-tiffany mb-2">
                       Nuova Sabatini – Beni Strumentali
                     </h4>
                     <p className="text-sm text-muted-foreground mb-3">
@@ -801,7 +801,7 @@ export default function QuoteGGroup() {
                       Agevola l'accesso al credito per investimenti in macchinari, impianti, attrezzature e software.
                     </p>
                     <div className="flex items-center gap-2 text-sm">
-                      <Badge variant="outline" className="bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300 border-amber-300">
+                      <Badge variant="outline" className="bg-tiffany/10 text-tiffany border-tiffany/30">
                         Contributo fino al 7,7%
                       </Badge>
                     </div>
@@ -811,7 +811,7 @@ export default function QuoteGGroup() {
                   </div>
                 </div>
 
-                <p className="text-xs text-center text-muted-foreground mt-4 pt-4 border-t border-amber-200/50">
+                <p className="text-xs text-center text-muted-foreground mt-4 pt-4 border-t border-tiffany/20">
                   Le agevolazioni sopra indicate sono soggette a requisiti specifici. Contattaci per una consulenza personalizzata sulla tua situazione fiscale.
                 </p>
               </CardContent>
