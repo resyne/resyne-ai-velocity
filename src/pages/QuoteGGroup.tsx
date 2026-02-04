@@ -60,13 +60,12 @@ const defaultServices: Service[] = [
   {
     id: "mezzi",
     name: "Mezzi & Attrezzature",
-    description: "Parco mezzi, tracking GPS real-time, scadenze e manutenzioni",
+    description: "Parco mezzi, scadenze e manutenzioni (tracking GPS richiede integrazione Mapbox)",
     basePrice: 6000,
-    monthlyMultiplier: 0.01,
+    monthlyMultiplier: 0.008,
     category: "Moduli Core",
     features: [
       "Parco mezzi con schede tecniche e stato",
-      "Live Tracking GPS su mappa Mapbox",
       "Scadenze: assicurazione, revisione, bollo",
       "Registro manutenzioni e storico costi",
       "Alert e promemoria automatici"
@@ -110,14 +109,15 @@ const defaultServices: Service[] = [
     name: "Personale",
     description: "Anagrafica dipendenti, presenze GPS, ferie e buste paga",
     basePrice: 5500,
-    monthlyMultiplier: 0.01,
+    monthlyMultiplier: 0,
     category: "Moduli Operativi",
     features: [
       "Anagrafica completa con contratti e qualifiche",
       "Presenze con mappa GPS per cantiere",
       "Richieste ferie/permessi con approvazione",
       "Archivio buste paga e cedolini",
-      "Assegnazioni cantiere e certificazioni"
+      "Assegnazioni cantiere e certificazioni",
+      "Costo variabile: €1,50/mese per dipendente"
     ]
   },
   // 7. Sicurezza
