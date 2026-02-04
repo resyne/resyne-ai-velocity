@@ -64,7 +64,7 @@ export function QuotePrintLayout({
   const selectedServicesList = services.filter(s => selectedServices.includes(s.id));
 
   return (
-    <div className="print-layout hidden print:block bg-white text-black p-8 min-h-screen">
+    <div className="print-layout invisible print:visible bg-white text-black p-8 min-h-screen fixed inset-0 z-[-1] print:z-[99999]">
       {/* Header */}
       <header className="flex justify-between items-start border-b-2 border-[#30c9b0] pb-6 mb-8">
         <div>
