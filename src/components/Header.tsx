@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import resyneLogoNew from "@/assets/resyne-logo-new.png";
+import resyneLogoBrand from "@/assets/resyne-logo-brand.png";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import {
   DropdownMenu,
@@ -42,10 +42,9 @@ export function Header() {
           {/* Logo */}
           <div className="flex items-center space-x-3 cursor-pointer" onClick={() => navigate('/')}>
               <img 
-                src={resyneLogoNew} 
+                src={resyneLogoBrand} 
                 alt="RESYNE Logo" 
-                className="h-10 w-auto" 
-                key="logo-new"
+                className="h-8 w-auto" 
               />
           </div>
 
