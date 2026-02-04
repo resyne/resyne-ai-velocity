@@ -8,7 +8,7 @@ import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Calculator, Check, Euro, HardDrive, Percent, TrendingDown, Truck, Users } from "lucide-react";
+import { Calculator, Check, CreditCard, Euro, HardDrive, Landmark, Percent, TrendingDown, Truck, Users } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
@@ -632,6 +632,10 @@ export default function QuoteGGroup() {
                         <p className="text-3xl font-bold font-mono text-resyne-gold">
                           €{Math.round(upfrontAmount).toLocaleString('it-IT')}
                         </p>
+                        <div className="flex items-center gap-2 mt-2 text-xs text-muted-foreground">
+                          <Landmark className="h-3 w-3" />
+                          <span>Bonifico bancario</span>
+                        </div>
                       </div>
 
                       {/* Fee mensile */}
@@ -675,6 +679,10 @@ export default function QuoteGGroup() {
                               <span className="font-mono">€{variableMonthlyFee.storageCost.toLocaleString('it-IT')}</span>
                             </div>
                           )}
+                        </div>
+                        <div className="flex items-center gap-2 mt-3 pt-3 border-t border-tiffany/20 text-xs text-muted-foreground">
+                          <CreditCard className="h-3 w-3" />
+                          <span>Addebito automatico su carta di credito</span>
                         </div>
                       </div>
 
