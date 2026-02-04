@@ -13,27 +13,19 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center tech-web overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-dark opacity-90"></div>
-      
-      {/* Subtle Floating Elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 bg-tiffany/10 rounded-full animate-float"></div>
-      <div className="absolute top-40 right-20 w-16 h-16 bg-tiffany/5 rounded-full animate-float" style={{animationDelay: "2s"}}></div>
-      <div className="absolute bottom-32 left-1/4 w-12 h-12 bg-tiffany/10 rounded-full animate-float" style={{animationDelay: "4s"}}></div>
-
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-5xl mx-auto">
           {/* Badge */}
           <div className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-tiffany/10 border border-tiffany/30 mb-6 sm:mb-8">
             <Zap className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2 text-tiffany" />
-            <span className="text-xs sm:text-sm font-subtitle text-tiffany">
+            <span className="text-xs sm:text-sm font-medium text-tiffany">
               {t('hero.badge')}
             </span>
           </div>
 
           {/* Main Title */}
-          <h1 className="font-title text-3xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-6 px-2">
+          <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-6 px-2 leading-tight">
             <span className="text-foreground">{t('hero.title1')}</span>
             <br />
             <span className="gradient-text">{t('hero.title2')}</span>
@@ -42,7 +34,7 @@ export function HeroSection() {
           </h1>
 
           {/* Subtitle */}
-          <p className="font-subtitle text-base sm:text-lg md:text-xl text-muted-foreground mb-3 sm:mb-4 px-4">
+          <p className="font-body text-base sm:text-lg md:text-xl text-muted-foreground mb-3 sm:mb-4 px-4">
             {t('hero.subtitle')}
           </p>
           
@@ -67,7 +59,7 @@ export function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center px-4 sm:px-0">
             <Button 
               size="lg" 
-              className="w-full sm:w-auto bg-tiffany text-gunmetal hover:bg-tiffany-light font-subtitle text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto"
+              className="w-full sm:w-auto bg-tiffany text-gunmetal hover:bg-tiffany-light font-medium text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto transition-colors"
               onClick={() => scrollToSection('demos')}
             >
               {t('hero.discoverDemos')}
@@ -76,7 +68,7 @@ export function HeroSection() {
             <Button 
               variant="outline" 
               size="lg" 
-              className="w-full sm:w-auto border-foreground/30 text-foreground hover:bg-foreground hover:text-background font-subtitle text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto"
+              className="w-full sm:w-auto border-foreground/30 text-foreground hover:bg-foreground hover:text-background font-medium text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto transition-colors"
               onClick={() => scrollToSection('leads')}
             >
               {t('hero.requestConsultation')}
@@ -86,16 +78,16 @@ export function HeroSection() {
           {/* Stats */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mt-12 sm:mt-20 px-4">
             <div className="text-center py-4 sm:py-0">
-              <div className="text-3xl sm:text-4xl md:text-5xl font-title text-tiffany mb-2">200+</div>
-              <div className="text-xs sm:text-sm font-subtitle text-muted-foreground">{t('hero.stats.implementations')}</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl font-heading text-tiffany mb-2">200+</div>
+              <div className="text-xs sm:text-sm font-body text-muted-foreground">{t('hero.stats.implementations')}</div>
             </div>
             <div className="text-center py-4 sm:py-0">
-              <div className="text-3xl sm:text-4xl md:text-5xl font-title text-foreground mb-2">95%</div>
-              <div className="text-xs sm:text-sm font-subtitle text-muted-foreground">{t('hero.stats.reduction')}</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl font-heading text-foreground mb-2">95%</div>
+              <div className="text-xs sm:text-sm font-body text-muted-foreground">{t('hero.stats.reduction')}</div>
             </div>
             <div className="text-center py-4 sm:py-0">
-              <div className="text-3xl sm:text-4xl md:text-5xl font-title text-tiffany mb-2">24/7</div>
-              <div className="text-xs sm:text-sm font-subtitle text-muted-foreground">{t('hero.stats.support')}</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl font-heading text-tiffany mb-2">24/7</div>
+              <div className="text-xs sm:text-sm font-body text-muted-foreground">{t('hero.stats.support')}</div>
             </div>
           </div>
         </div>
