@@ -117,7 +117,7 @@ const defaultServices: Service[] = [
       "Richieste ferie/permessi con approvazione",
       "Archivio buste paga e cedolini",
       "Assegnazioni cantiere e certificazioni",
-      "Costo variabile: €1,50/mese per dipendente"
+      "Costo variabile: €2/mese per dipendente"
     ]
   },
   // 7. Sicurezza
@@ -250,7 +250,7 @@ export default function QuoteGGroup() {
   const [numEmployees, setNumEmployees] = useState<number>(25);
   
   const VEHICLE_MONTHLY_COST = 8; // €8/mese per automezzo
-  const EMPLOYEE_MONTHLY_COST = 1.5; // €1,50/mese per dipendente
+  const EMPLOYEE_MONTHLY_COST = 2; // €2/mese per dipendente
 
   // Calcola il totale lordo dei servizi selezionati (senza sconto)
   const grossTotal = useMemo(() => {
@@ -541,7 +541,7 @@ export default function QuoteGGroup() {
                               <Users className="h-4 w-4 text-muted-foreground" />
                               N° Dipendenti
                             </Label>
-                            <span className="text-xs text-muted-foreground">€1,50/mese cad.</span>
+                            <span className="text-xs text-muted-foreground">€2/mese cad.</span>
                           </div>
                           <Input
                             id="employees"
@@ -608,7 +608,7 @@ export default function QuoteGGroup() {
                           )}
                           {variableMonthlyFee.employeeCost > 0 && (
                             <div className="flex justify-between">
-                              <span>Timbrature ({numEmployees}×€1,50):</span>
+                              <span>Timbrature ({numEmployees}×€2):</span>
                               <span className="font-mono">€{variableMonthlyFee.employeeCost.toLocaleString('it-IT')}</span>
                             </div>
                           )}
