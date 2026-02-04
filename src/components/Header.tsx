@@ -81,16 +81,6 @@ export function Header() {
               {t('header.ai')}
             </a>
             <a 
-              href="/website-in-1-day" 
-              className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
-              onClick={(e) => {
-                e.preventDefault();
-                navigate('/website-in-1-day');
-              }}
-            >
-              {t('header.websiteInOneDay')}
-            </a>
-            <a 
               href="/book-a-call" 
               className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
               onClick={(e) => {
@@ -197,17 +187,6 @@ export function Header() {
                 }}
               >
                 {t('header.ai')}
-              </a>
-              <a 
-                href="/website-in-1-day" 
-                className="font-subtitle text-sm hover:text-resyne-gold transition-colors cursor-pointer"
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate('/website-in-1-day');
-                  setIsMenuOpen(false);
-                }}
-              >
-                {t('header.websiteInOneDay')}
               </a>
               <a 
                 href="/book-a-call" 

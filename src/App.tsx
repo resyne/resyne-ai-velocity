@@ -12,7 +12,7 @@ import { FounderSection } from "@/components/FounderSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Index from "./pages/Index";
 import Audit from "./pages/Audit";
-import WebsiteInOneDay from "./pages/WebsiteInOneDay";
+
 import BookACall from "./pages/BookACall";
 import BandoPID from "./pages/BandoPID";
 import VoucherVdA from "./pages/VoucherVdA";
@@ -41,7 +41,7 @@ const App = () => (
             </>
           } />
           <Route path="/audit" element={<Audit />} />
-          <Route path="/website-in-1-day" element={<WebsiteInOneDay />} />
+          
           <Route path="/book-a-call" element={<BookACall />} />
           <Route path="/bando-pid" element={<BandoPID />} />
           <Route path="/voucher-vda" element={<VoucherVdA />} />
