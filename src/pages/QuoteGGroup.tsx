@@ -753,6 +753,69 @@ export default function QuoteGGroup() {
                 </div>
               </div>
             </div>
+
+            {/* Incentives Section */}
+            <Card className="mt-8 bg-amber-50/50 dark:bg-amber-950/20 border-amber-300/50">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg font-subtitle text-amber-700 dark:text-amber-400 flex items-center gap-2">
+                  <span className="text-amber-500">★</span>
+                  Agevolazioni e Incentivi Fiscali
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {/* Industria 4.0 */}
+                  <div className="p-4 bg-white dark:bg-background rounded-lg border border-amber-200 dark:border-amber-800">
+                    <h4 className="font-semibold text-amber-700 dark:text-amber-400 mb-2">
+                      Industria 4.0 – Iperammortamento 180%
+                    </h4>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Investimenti in beni strumentali immateriali (software 4.0) funzionali ai processi di trasformazione 4.0. 
+                      Include software, sistemi, piattaforme e applicazioni (come ERP, MES, APS) necessari per la gestione e il coordinamento della produzione.
+                    </p>
+                    <div className="flex items-center gap-2 text-sm">
+                      <Badge variant="outline" className="bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300 border-amber-300">
+                        Credito d'imposta fino al 20%
+                      </Badge>
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-3">
+                      Rif: Allegato B – L. 232/2016 e L. 205/2017 | {" "}
+                      <a 
+                        href="https://www.mimit.gov.it/images/stories/documenti/Allegato_B_2016.pdf" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-amber-600 hover:underline"
+                      >
+                        Vedi Allegato B MiMIT →
+                      </a>
+                    </p>
+                  </div>
+
+                  {/* Nuova Sabatini */}
+                  <div className="p-4 bg-white dark:bg-background rounded-lg border border-amber-200 dark:border-amber-800">
+                    <h4 className="font-semibold text-amber-700 dark:text-amber-400 mb-2">
+                      Nuova Sabatini – Beni Strumentali
+                    </h4>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Contributo MiMIT a favore delle PMI per l'acquisto di beni strumentali, inclusi software e tecnologie digitali. 
+                      Agevola l'accesso al credito per investimenti in macchinari, impianti, attrezzature e software.
+                    </p>
+                    <div className="flex items-center gap-2 text-sm">
+                      <Badge variant="outline" className="bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300 border-amber-300">
+                        Contributo fino al 7,7%
+                      </Badge>
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-3">
+                      Rif: MiSE/MiMIT – Beni Strumentali | Finanziamenti fino a 4M€
+                    </p>
+                  </div>
+                </div>
+
+                <p className="text-xs text-center text-muted-foreground mt-4 pt-4 border-t border-amber-200/50">
+                  Le agevolazioni sopra indicate sono soggette a requisiti specifici. Contattaci per una consulenza personalizzata sulla tua situazione fiscale.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </main>
         
