@@ -8,7 +8,7 @@ import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Calculator, Check, CreditCard, Euro, HardDrive, Landmark, Percent, TrendingDown, Truck, Users } from "lucide-react";
+import { Calculator, Check, Clock, CreditCard, Euro, HardDrive, Landmark, Percent, Printer, TrendingDown, Truck, Users } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
@@ -342,6 +342,20 @@ export default function QuoteGGroup() {
   const monthlyFee = useMemo(() => {
     return fixedMonthlyFee + variableMonthlyFee.total;
   }, [fixedMonthlyFee, variableMonthlyFee.total]);
+
+  // Tempi di consegna (settimane) basati sui servizi selezionati
+  const deliveryWeeks = useMemo(() => {
+    const baseWeeks = 4; // Settimane base per setup
+    const serviceCount = selectedServices.length;
+    // Ogni servizio aggiunge circa 0.5 settimane, max 10 settimane totali
+    const additionalWeeks = Math.min(serviceCount * 0.5, 6);
+    return Math.round(baseWeeks + additionalWeeks);
+  }, [selectedServices.length]);
+
+  // Funzione per stampare il preventivo
+  const handlePrint = () => {
+    window.print();
+  };
 
   // Percentuale di sconto sulla fee mensile (rispetto al minimo 25%)
   const monthlyDiscount = useMemo(() => {
@@ -706,12 +720,25 @@ export default function QuoteGGroup() {
                         </div>
                       )}
 
+                      {/* Tempi di consegna */}
+                      <div className="flex items-center justify-between p-3 rounded-lg bg-muted/30 border border-border/30">
+                        <div className="flex items-center gap-2">
+                          <Clock className="h-4 w-4 text-tech-blue" />
+                          <span className="text-sm font-medium">Tempi di consegna</span>
+                        </div>
+                        <Badge variant="outline" className="font-mono">
+                          {deliveryWeeks} settimane
+                        </Badge>
+                      </div>
+
                       {/* CTA */}
                       <Button 
                         className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
                         size="lg"
                         disabled={selectedServices.length === 0}
+                        onClick={handlePrint}
                       >
+                        <Printer className="h-4 w-4 mr-2" />
                         Richiedi preventivo dettagliato
                       </Button>
                     </CardContent>
