@@ -9,7 +9,7 @@ import { DemoSection } from "@/components/DemoSection";
 import { LeadSection } from "@/components/LeadSection";
 import { Footer } from "@/components/Footer";
 import { FounderSection } from "@/components/FounderSection";
-import WhatsAppButton from "@/components/WhatsAppButton";
+
 import Index from "./pages/Index";
 import Audit from "./pages/Audit";
 
@@ -51,7 +51,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <WhatsAppButton />
+        
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
