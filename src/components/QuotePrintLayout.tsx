@@ -114,7 +114,7 @@ export function QuotePrintLayout({
   return (
     <div className="print-layout invisible print:visible bg-white text-black fixed inset-0 z-[-1] print:z-[99999] overflow-auto">
       {/* PAGE 1 */}
-      <div className="print-page w-[210mm] min-h-[297mm] mx-auto p-6 flex flex-col">
+      <div className="print-page w-[210mm] min-h-[297mm] mx-auto px-10 py-8 flex flex-col">
         <PrintHeader today={today} validUntil={validUntil} quoteRef={quoteRef} />
 
         {/* Client info */}
@@ -320,7 +320,7 @@ export function QuotePrintLayout({
 
       {/* PAGE 2 - Only if needed */}
       {needsSecondPage && (
-        <div className="print-page w-[210mm] min-h-[297mm] mx-auto p-6 flex flex-col print-page-break">
+        <div className="print-page w-[210mm] min-h-[297mm] mx-auto px-10 py-8 flex flex-col print-page-break">
           <PrintHeader today={today} validUntil={validUntil} quoteRef={quoteRef} />
 
           {/* Continue Services Table */}
