@@ -274,6 +274,31 @@ export function QuotePrintLayout({
               </section>
             )}
 
+            {/* Incentives Section */}
+            <section className="mb-3 p-2 bg-amber-50 rounded border border-amber-300 print-no-break">
+              <p className="font-semibold text-[10px] text-amber-800 mb-1 flex items-center gap-1">
+                <span className="text-amber-600">★</span> Agevolazioni e Incentivi Fiscali
+              </p>
+              <div className="grid grid-cols-2 gap-2 text-[8px]">
+                <div className="p-1.5 bg-white rounded border border-amber-200">
+                  <p className="font-bold text-amber-700 text-[9px] mb-0.5">Industria 4.0 – Iperammortamento 180%</p>
+                  <p className="text-gray-600 leading-tight">
+                    Software 4.0 funzionali alla trasformazione digitale (ERP, MES, APS). 
+                    Credito d'imposta fino al 20% per investimenti fino a 1M€.
+                  </p>
+                  <p className="text-[7px] text-gray-400 mt-0.5 italic">Rif: Allegato B – L. 232/2016 e L. 205/2017</p>
+                </div>
+                <div className="p-1.5 bg-white rounded border border-amber-200">
+                  <p className="font-bold text-amber-700 text-[9px] mb-0.5">Nuova Sabatini – Beni Strumentali</p>
+                  <p className="text-gray-600 leading-tight">
+                    Contributo MiMIT per acquisto di beni strumentali (software inclusi). 
+                    Agevolazione pari al 7,7% su finanziamenti fino a 4M€.
+                  </p>
+                  <p className="text-[7px] text-gray-400 mt-0.5 italic">Rif: MiSE/MiMIT – Beni Strumentali</p>
+                </div>
+              </div>
+            </section>
+
             {/* Terms */}
             <section className="mb-3 p-2 bg-gray-50 rounded border border-gray-200 print-no-break">
               <p className="font-semibold text-[9px] text-gray-700 mb-0.5">Note e Condizioni</p>
@@ -440,6 +465,31 @@ export function QuotePrintLayout({
               </div>
             </section>
           )}
+
+          {/* Incentives Section */}
+          <section className="mb-3 p-2 bg-amber-50 rounded border border-amber-300 print-no-break">
+            <p className="font-semibold text-[10px] text-amber-800 mb-1 flex items-center gap-1">
+              <span className="text-amber-600">★</span> Agevolazioni e Incentivi Fiscali
+            </p>
+            <div className="grid grid-cols-2 gap-2 text-[8px]">
+              <div className="p-1.5 bg-white rounded border border-amber-200">
+                <p className="font-bold text-amber-700 text-[9px] mb-0.5">Industria 4.0 – Iperammortamento 180%</p>
+                <p className="text-gray-600 leading-tight">
+                  Software 4.0 funzionali alla trasformazione digitale (ERP, MES, APS). 
+                  Credito d'imposta fino al 20% per investimenti fino a 1M€.
+                </p>
+                <p className="text-[7px] text-gray-400 mt-0.5 italic">Rif: Allegato B – L. 232/2016 e L. 205/2017</p>
+              </div>
+              <div className="p-1.5 bg-white rounded border border-amber-200">
+                <p className="font-bold text-amber-700 text-[9px] mb-0.5">Nuova Sabatini – Beni Strumentali</p>
+                <p className="text-gray-600 leading-tight">
+                  Contributo MiMIT per acquisto di beni strumentali (software inclusi). 
+                  Agevolazione pari al 7,7% su finanziamenti fino a 4M€.
+                </p>
+                <p className="text-[7px] text-gray-400 mt-0.5 italic">Rif: MiSE/MiMIT – Beni Strumentali</p>
+              </div>
+            </div>
+          </section>
 
           {/* Terms */}
           <section className="mb-3 p-2 bg-gray-50 rounded border border-gray-200 print-no-break">
