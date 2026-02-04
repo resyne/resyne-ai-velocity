@@ -10,7 +10,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { CalendarIcon, Clock, Phone, Video, MessageCircle } from "lucide-react";
+import { CalendarIcon, Clock, Phone, Video } from "lucide-react";
 import { format } from "date-fns";
 import { it, enUS } from "date-fns/locale";
 
@@ -22,8 +22,7 @@ const timeSlots = [
 
 const platforms = [
   { id: "google-meet", label: "Google Meet", icon: Video },
-  { id: "phone", label: "Cellulare", icon: Phone },
-  { id: "whatsapp", label: "WhatsApp Call", icon: MessageCircle }
+  { id: "phone", label: "Cellulare (+39 338 315 6161)", icon: Phone }
 ];
 
 export default function BookACall() {
@@ -157,7 +156,7 @@ export default function BookACall() {
                 <Label className="text-base md:text-lg">
                   {t('bookCall.form.selectPlatform')}
                 </Label>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                   {platforms.map((platform) => {
                     const Icon = platform.icon;
                     return (
