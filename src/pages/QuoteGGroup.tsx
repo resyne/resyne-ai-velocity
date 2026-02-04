@@ -12,6 +12,7 @@ import { Calculator, Check, Clock, CreditCard, Euro, HardDrive, Landmark, Percen
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import equipeResынеLogo from "@/assets/equipe-resyne-logo.png";
+import { QuotePrintLayout } from "@/components/QuotePrintLayout";
 
 // Opzioni storage
 const STORAGE_OPTIONS = [
@@ -757,6 +758,25 @@ export default function QuoteGGroup() {
         
         <Footer />
       </div>
+
+      {/* Print Layout - Hidden on screen, visible when printing */}
+      <QuotePrintLayout
+        selectedServices={selectedServices}
+        services={services}
+        grossTotal={grossTotal}
+        selectedTotal={selectedTotal}
+        volumeDiscountPercent={volumeDiscountPercent}
+        upfrontPercentage={upfrontPercentage}
+        upfrontAmount={upfrontAmount}
+        fixedMonthlyFee={fixedMonthlyFee}
+        monthlyFee={monthlyFee}
+        monthlyDiscount={monthlyDiscount}
+        variableMonthlyFee={variableMonthlyFee}
+        numVehicles={numVehicles}
+        numEmployees={numEmployees}
+        selectedStorage={selectedStorage}
+        deliveryWeeks={deliveryWeeks}
+      />
     </>
   );
 }
