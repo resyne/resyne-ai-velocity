@@ -8,7 +8,8 @@ import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Calculator, Check, Euro, Percent, TrendingDown } from "lucide-react";
+import { Calculator, Check, Euro, Percent, TrendingDown, Truck, Users } from "lucide-react";
+import { Input } from "@/components/ui/input";
 
 interface Service {
   id: string;
@@ -27,7 +28,7 @@ const defaultServices: Service[] = [
     name: "Dashboard",
     description: "Panoramica generale con KPI principali e accesso rapido alle informazioni",
     basePrice: 2500,
-    monthlyMultiplier: 0.02,
+    monthlyMultiplier: 0.008,
     category: "Moduli Core",
     features: [
       "Statistiche generali: cantieri, dipendenti, mezzi, scadenze",
@@ -43,7 +44,7 @@ const defaultServices: Service[] = [
     name: "Cantieri",
     description: "Gestione completa cantieri con SAL, budget, presenze, risorse e documenti",
     basePrice: 8000,
-    monthlyMultiplier: 0.035,
+    monthlyMultiplier: 0.012,
     category: "Moduli Core",
     features: [
       "Lista cantieri con filtri e ricerca",
@@ -61,7 +62,7 @@ const defaultServices: Service[] = [
     name: "Mezzi & Attrezzature",
     description: "Parco mezzi, tracking GPS real-time, scadenze e manutenzioni",
     basePrice: 6000,
-    monthlyMultiplier: 0.04,
+    monthlyMultiplier: 0.01,
     category: "Moduli Core",
     features: [
       "Parco mezzi con schede tecniche e stato",
@@ -77,7 +78,7 @@ const defaultServices: Service[] = [
     name: "Fornitori & Acquisti",
     description: "Anagrafica fornitori, listini, confronto prezzi e gestione ordini",
     basePrice: 4500,
-    monthlyMultiplier: 0.03,
+    monthlyMultiplier: 0.01,
     category: "Moduli Operativi",
     features: [
       "Anagrafica fornitori e categorie",
@@ -93,7 +94,7 @@ const defaultServices: Service[] = [
     name: "Magazzino",
     description: "Inventario multi-magazzino, DPI, movimenti e riordino automatico",
     basePrice: 5000,
-    monthlyMultiplier: 0.03,
+    monthlyMultiplier: 0.01,
     category: "Moduli Operativi",
     features: [
       "Gestione multi-magazzino con ubicazioni",
@@ -109,7 +110,7 @@ const defaultServices: Service[] = [
     name: "Personale",
     description: "Anagrafica dipendenti, presenze GPS, ferie e buste paga",
     basePrice: 5500,
-    monthlyMultiplier: 0.035,
+    monthlyMultiplier: 0.01,
     category: "Moduli Operativi",
     features: [
       "Anagrafica completa con contratti e qualifiche",
@@ -125,7 +126,7 @@ const defaultServices: Service[] = [
     name: "Sicurezza",
     description: "Scadenze critiche, visite mediche, formazione e documenti obbligatori",
     basePrice: 4000,
-    monthlyMultiplier: 0.025,
+    monthlyMultiplier: 0.008,
     category: "Moduli Operativi",
     features: [
       "Dashboard scadenze critiche e conformità",
@@ -141,7 +142,7 @@ const defaultServices: Service[] = [
     name: "Documenti",
     description: "Sistema documentale centralizzato con ricerca e controllo accessi",
     basePrice: 2000,
-    monthlyMultiplier: 0.02,
+    monthlyMultiplier: 0.006,
     category: "Moduli Accessori",
     features: [
       "Organizzazione gerarchica documenti",
@@ -156,7 +157,7 @@ const defaultServices: Service[] = [
     name: "Organigramma",
     description: "Struttura organizzativa con gerarchia ruoli e responsabilità",
     basePrice: 1500,
-    monthlyMultiplier: 0.015,
+    monthlyMultiplier: 0.005,
     category: "Moduli Accessori",
     features: [
       "Visualizzazione grafica struttura",
@@ -170,7 +171,7 @@ const defaultServices: Service[] = [
     name: "Centro Notifiche",
     description: "Notifiche centralizzate multi-canale con preferenze personalizzabili",
     basePrice: 1500,
-    monthlyMultiplier: 0.02,
+    monthlyMultiplier: 0.006,
     category: "Moduli Accessori",
     features: [
       "Notifiche email, push e SMS",
@@ -184,7 +185,7 @@ const defaultServices: Service[] = [
     name: "Impostazioni & Ruoli",
     description: "Configurazione sistema, gestione ruoli utenti e permessi granulari",
     basePrice: 3000,
-    monthlyMultiplier: 0.02,
+    monthlyMultiplier: 0.006,
     category: "Moduli Core",
     features: [
       "Gestione ruoli: Admin, Capo Cantiere, Operaio, Magazziniere, Contabile",
@@ -200,7 +201,7 @@ const defaultServices: Service[] = [
     name: "Interfaccia Mobile-First",
     description: "Ottimizzazione completa per dispositivi mobili e tablet",
     basePrice: 2000,
-    monthlyMultiplier: 0.01,
+    monthlyMultiplier: 0.004,
     category: "Funzionalità Trasversali",
     features: [
       "UI responsive per tutti i dispositivi",
@@ -213,13 +214,14 @@ const defaultServices: Service[] = [
     name: "Integrazione Mapbox GPS",
     description: "Tracking real-time mezzi e personale su mappa interattiva",
     basePrice: 3500,
-    monthlyMultiplier: 0.05,
+    monthlyMultiplier: 0,
     category: "Funzionalità Trasversali",
     features: [
       "Mappa interattiva con posizioni live",
       "Geolocalizzazione check-in/out",
       "Marker colorati per stato",
-      "Storico percorsi e posizioni"
+      "Storico percorsi e posizioni",
+      "Costo variabile: €8/mese per automezzo"
     ]
   },
   {
@@ -227,7 +229,7 @@ const defaultServices: Service[] = [
     name: "Sistema Alert Automatici",
     description: "Notifiche automatiche multi-canale per tutte le scadenze",
     basePrice: 2000,
-    monthlyMultiplier: 0.025,
+    monthlyMultiplier: 0.008,
     category: "Funzionalità Trasversali",
     features: [
       "Alert scadenze documenti e certificati",
@@ -242,6 +244,13 @@ export default function QuoteGGroup() {
   const [services] = useState<Service[]>(defaultServices);
   const [selectedServices, setSelectedServices] = useState<string[]>(["dashboard"]);
   const [upfrontPercentage, setUpfrontPercentage] = useState<number>(50);
+  
+  // Costi variabili: automezzi e dipendenti
+  const [numVehicles, setNumVehicles] = useState<number>(10);
+  const [numEmployees, setNumEmployees] = useState<number>(25);
+  
+  const VEHICLE_MONTHLY_COST = 8; // €8/mese per automezzo
+  const EMPLOYEE_MONTHLY_COST = 2; // €2/mese per dipendente
 
   // Calcola il totale lordo dei servizi selezionati (senza sconto)
   const grossTotal = useMemo(() => {
@@ -270,9 +279,29 @@ export default function QuoteGGroup() {
     return (selectedTotal * upfrontPercentage) / 100;
   }, [selectedTotal, upfrontPercentage]);
 
-  // Calcola la fee mensile con moltiplicatore basato su upfront
-  // Più upfront = meno mensile (sconto progressivo)
-  const monthlyFee = useMemo(() => {
+  // Costi variabili mensili (GPS tracking e timbrature)
+  const variableMonthlyFee = useMemo(() => {
+    const hasMapbox = selectedServices.includes("mapbox-integration");
+    const hasPersonale = selectedServices.includes("personale");
+    
+    let vehicleCost = 0;
+    let employeeCost = 0;
+    
+    // GPS tracking per automezzi (solo se Mapbox selezionato)
+    if (hasMapbox) {
+      vehicleCost = numVehicles * VEHICLE_MONTHLY_COST;
+    }
+    
+    // Timbratura dipendenti (solo se modulo Personale selezionato)
+    if (hasPersonale) {
+      employeeCost = numEmployees * EMPLOYEE_MONTHLY_COST;
+    }
+    
+    return { vehicleCost, employeeCost, total: vehicleCost + employeeCost };
+  }, [selectedServices, numVehicles, numEmployees]);
+
+  // Calcola la fee mensile fissa con moltiplicatore basato su upfront
+  const fixedMonthlyFee = useMemo(() => {
     const selectedServicesList = services.filter(s => selectedServices.includes(s.id));
     
     // Calcola la fee base mensile
@@ -281,11 +310,15 @@ export default function QuoteGGroup() {
     }, 0);
     
     // Moltiplicatore basato su upfront: 100% upfront = 0.5x fee, 0% upfront = 1.5x fee
-    // Formula: 1.5 - (upfrontPercentage / 100)
     const upfrontMultiplier = 1.5 - (upfrontPercentage / 100);
     
     return baseMonthlyFee * upfrontMultiplier;
   }, [services, selectedServices, upfrontPercentage]);
+
+  // Fee mensile totale (fissa + variabile)
+  const monthlyFee = useMemo(() => {
+    return fixedMonthlyFee + variableMonthlyFee.total;
+  }, [fixedMonthlyFee, variableMonthlyFee.total]);
 
   // Percentuale di sconto sulla fee mensile
   const monthlyDiscount = useMemo(() => {
@@ -461,6 +494,76 @@ export default function QuoteGGroup() {
                         </div>
                       </div>
 
+                      {/* Input automezzi e dipendenti */}
+                      <div className="space-y-4 p-4 rounded-lg border border-border/30 bg-muted/20">
+                        <h4 className="text-sm font-semibold flex items-center gap-2">
+                          <Users className="h-4 w-4 text-resyne-gold" />
+                          Costi variabili mensili
+                        </h4>
+                        
+                        {/* Automezzi */}
+                        <div className="space-y-2">
+                          <div className="flex items-center justify-between">
+                            <Label htmlFor="vehicles" className="text-sm flex items-center gap-2">
+                              <Truck className="h-4 w-4 text-muted-foreground" />
+                              N° Automezzi
+                            </Label>
+                            <span className="text-xs text-muted-foreground">€8/mese cad.</span>
+                          </div>
+                          <Input
+                            id="vehicles"
+                            type="number"
+                            min={0}
+                            max={500}
+                            value={numVehicles}
+                            onChange={(e) => setNumVehicles(Math.max(0, parseInt(e.target.value) || 0))}
+                            className="font-mono"
+                            disabled={!selectedServices.includes("mapbox-integration")}
+                          />
+                          {selectedServices.includes("mapbox-integration") && numVehicles > 0 && (
+                            <p className="text-xs text-resyne-gold">
+                              = €{(numVehicles * VEHICLE_MONTHLY_COST).toLocaleString('it-IT')}/mese
+                            </p>
+                          )}
+                          {!selectedServices.includes("mapbox-integration") && (
+                            <p className="text-xs text-muted-foreground">
+                              Attiva "Integrazione Mapbox GPS" per il tracking
+                            </p>
+                          )}
+                        </div>
+
+                        {/* Dipendenti */}
+                        <div className="space-y-2">
+                          <div className="flex items-center justify-between">
+                            <Label htmlFor="employees" className="text-sm flex items-center gap-2">
+                              <Users className="h-4 w-4 text-muted-foreground" />
+                              N° Dipendenti
+                            </Label>
+                            <span className="text-xs text-muted-foreground">€2/mese cad.</span>
+                          </div>
+                          <Input
+                            id="employees"
+                            type="number"
+                            min={0}
+                            max={1000}
+                            value={numEmployees}
+                            onChange={(e) => setNumEmployees(Math.max(0, parseInt(e.target.value) || 0))}
+                            className="font-mono"
+                            disabled={!selectedServices.includes("personale")}
+                          />
+                          {selectedServices.includes("personale") && numEmployees > 0 && (
+                            <p className="text-xs text-resyne-gold">
+                              = €{(numEmployees * EMPLOYEE_MONTHLY_COST).toLocaleString('it-IT')}/mese
+                            </p>
+                          )}
+                          {!selectedServices.includes("personale") && (
+                            <p className="text-xs text-muted-foreground">
+                              Attiva "Personale" per la timbratura
+                            </p>
+                          )}
+                        </div>
+                      </div>
+
                       {/* Importo upfront */}
                       <div className="p-4 rounded-lg bg-resyne-gold/10 border border-resyne-gold/20">
                         <div className="flex items-center gap-2 mb-2">
@@ -477,23 +580,37 @@ export default function QuoteGGroup() {
                         <div className="flex items-center justify-between mb-2">
                           <div className="flex items-center gap-2">
                             <TrendingDown className="h-4 w-4 text-tiffany" />
-                            <Label className="text-sm">Fee mensile</Label>
+                            <Label className="text-sm">Fee mensile totale</Label>
                           </div>
                           {monthlyDiscount > 0 && (
                             <Badge className="bg-accent/20 text-accent-foreground border-accent/30 text-xs">
-                              -{monthlyDiscount}%
+                              -{monthlyDiscount}% sulla fee fissa
                             </Badge>
                           )}
                         </div>
                         <p className="text-3xl font-bold font-mono text-tiffany">
                           €{Math.round(monthlyFee).toLocaleString('it-IT')}<span className="text-lg">/mese</span>
                         </p>
-                        <p className="text-xs text-muted-foreground mt-2">
-                          {upfrontPercentage < 100 
-                            ? `Più anticipo paghi, meno sarà la fee mensile`
-                            : `Con il 100% di anticipo hai la fee mensile minima`
-                          }
-                        </p>
+                        
+                        {/* Breakdown fee */}
+                        <div className="mt-3 pt-3 border-t border-tiffany/20 space-y-1 text-xs text-muted-foreground">
+                          <div className="flex justify-between">
+                            <span>Fee fissa piattaforma:</span>
+                            <span className="font-mono">€{Math.round(fixedMonthlyFee).toLocaleString('it-IT')}</span>
+                          </div>
+                          {variableMonthlyFee.vehicleCost > 0 && (
+                            <div className="flex justify-between">
+                              <span>GPS Automezzi ({numVehicles}×€8):</span>
+                              <span className="font-mono">€{variableMonthlyFee.vehicleCost.toLocaleString('it-IT')}</span>
+                            </div>
+                          )}
+                          {variableMonthlyFee.employeeCost > 0 && (
+                            <div className="flex justify-between">
+                              <span>Timbrature ({numEmployees}×€2):</span>
+                              <span className="font-mono">€{variableMonthlyFee.employeeCost.toLocaleString('it-IT')}</span>
+                            </div>
+                          )}
+                        </div>
                       </div>
 
                       {/* Lista servizi selezionati */}
