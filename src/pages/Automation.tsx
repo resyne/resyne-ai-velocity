@@ -17,6 +17,7 @@ import {
   Users,
   ShoppingCart
 } from "lucide-react";
+import automationHeroImage from "@/assets/automation-hero.jpg";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -93,8 +94,15 @@ export default function Automation() {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4">
-        <div className="container mx-auto max-w-6xl">
+      <section 
+        className="relative pt-32 pb-20 px-4"
+        style={{ 
+          backgroundImage: `linear-gradient(to bottom, rgba(31, 31, 31, 0.7), rgba(31, 31, 31, 0.95)), url(${automationHeroImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
+        <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center">
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-tiffany/10 border border-tiffany/30 mb-8">
               <Zap className="w-4 h-4 mr-2 text-tiffany" />
