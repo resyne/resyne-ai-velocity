@@ -136,3 +136,55 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
+
+/* Print Styles */
+@media print {
+  /* Hide everything except print layout */
+  body > *:not(.print-layout),
+  header,
+  footer,
+  nav,
+  .no-print,
+  button,
+  .sticky {
+    display: none !important;
+  }
+
+  /* Reset for print */
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+  }
+
+  .print-layout {
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    background: white !important;
+    color: black !important;
+    padding: 20mm !important;
+    margin: 0 !important;
+  }
+
+  /* Page breaks */
+  .print-page-break {
+    page-break-before: always;
+  }
+
+  /* Prevent page breaks inside elements */
+  table, tr, td, th, 
+  .print-no-break {
+    page-break-inside: avoid;
+  }
+
+  /* Print-specific sizing */
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+}
