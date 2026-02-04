@@ -15,6 +15,7 @@ import {
   Sparkles,
   Bot
 } from "lucide-react";
+import aiHeroImage from "@/assets/ai-solutions-hero.jpg";
 import { useNavigate } from "react-router-dom";
 
 export default function AISolutions() {
@@ -95,8 +96,15 @@ export default function AISolutions() {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4">
-        <div className="container mx-auto max-w-6xl">
+      <section 
+        className="relative pt-32 pb-20 px-4"
+        style={{ 
+          backgroundImage: `linear-gradient(to bottom, rgba(31, 31, 31, 0.7), rgba(31, 31, 31, 0.95)), url(${aiHeroImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
+        <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center">
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-tiffany/10 border border-tiffany/30 mb-8">
               <Brain className="w-4 h-4 mr-2 text-tiffany" />
