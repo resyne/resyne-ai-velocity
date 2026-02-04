@@ -323,7 +323,7 @@ export default function QuoteGGroup() {
 
   // Percentuale di sconto sulla fee mensile (rispetto al minimo 25%)
   const monthlyDiscount = useMemo(() => {
-    const baseMultiplier = 1.25; // Moltiplicatore al 25% di anticipo
+    const baseMultiplier = 1.3; // Moltiplicatore al 20% di anticipo
     const currentMultiplier = 1.5 - (upfrontPercentage / 100);
     if (currentMultiplier >= baseMultiplier) return 0;
     return Math.round(((baseMultiplier - currentMultiplier) / baseMultiplier) * 100);
@@ -484,13 +484,13 @@ export default function QuoteGGroup() {
                         <Slider
                           value={[upfrontPercentage]}
                           onValueChange={(value) => setUpfrontPercentage(value[0])}
-                          min={25}
+                          min={20}
                           max={100}
                           step={5}
                           className="cursor-pointer"
                         />
                         <div className="flex justify-between text-xs text-muted-foreground">
-                          <span>25%</span>
+                          <span>20%</span>
                           <span>50%</span>
                           <span>100%</span>
                         </div>
