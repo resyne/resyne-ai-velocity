@@ -15,7 +15,7 @@ export function HeroSection() {
 
   return (
     <section 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-16"
       style={{ 
         backgroundImage: `url(${heroBackground})`,
         backgroundSize: 'cover',
@@ -23,11 +23,11 @@ export function HeroSection() {
         backgroundRepeat: 'no-repeat'
       }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-8 sm:py-12">
         <div className="text-center max-w-5xl mx-auto">
 
           {/* Main Title */}
-          <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-6 px-2 leading-tight">
+          <h1 className="font-heading text-2xl sm:text-4xl md:text-5xl lg:text-7xl mb-3 sm:mb-6 px-2 leading-tight">
             <span className="text-foreground">{t('hero.title1')}</span>
             <br />
             <span className="gradient-text">{t('hero.title2')}</span>
@@ -78,18 +78,18 @@ export function HeroSection() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mt-12 sm:mt-20 px-4">
-            <div className="text-center py-4 sm:py-0">
-              <div className="text-3xl sm:text-4xl md:text-5xl font-heading text-tiffany mb-2">200+</div>
-              <div className="text-xs sm:text-sm font-body text-muted-foreground">{t('hero.stats.implementations')}</div>
+          <div className="grid grid-cols-3 gap-4 sm:gap-8 mt-8 sm:mt-20 px-2 sm:px-4">
+            <div className="text-center">
+              <div className="text-2xl sm:text-4xl md:text-5xl font-heading text-tiffany mb-1 sm:mb-2">200+</div>
+              <div className="text-[10px] sm:text-sm font-body text-muted-foreground leading-tight">{t('hero.stats.implementations')}</div>
             </div>
-            <div className="text-center py-4 sm:py-0">
-              <div className="text-3xl sm:text-4xl md:text-5xl font-heading text-foreground mb-2">95%</div>
-              <div className="text-xs sm:text-sm font-body text-muted-foreground">{t('hero.stats.reduction')}</div>
+            <div className="text-center">
+              <div className="text-2xl sm:text-4xl md:text-5xl font-heading text-foreground mb-1 sm:mb-2">95%</div>
+              <div className="text-[10px] sm:text-sm font-body text-muted-foreground leading-tight">{t('hero.stats.reduction')}</div>
             </div>
-            <div className="text-center py-4 sm:py-0">
-              <div className="text-3xl sm:text-4xl md:text-5xl font-heading text-tiffany mb-2">24/7</div>
-              <div className="text-xs sm:text-sm font-body text-muted-foreground">{t('hero.stats.support')}</div>
+            <div className="text-center">
+              <div className="text-2xl sm:text-4xl md:text-5xl font-heading text-tiffany mb-1 sm:mb-2">24/7</div>
+              <div className="text-[10px] sm:text-sm font-body text-muted-foreground leading-tight">{t('hero.stats.support')}</div>
             </div>
           </div>
         </div>
