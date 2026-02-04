@@ -15,65 +15,232 @@ interface Service {
   name: string;
   description: string;
   basePrice: number;
-  monthlyMultiplier: number; // Moltiplicatore per calcolo fee mensile (es. 0.05 = 5% del prezzo)
+  monthlyMultiplier: number;
   category: string;
+  features?: string[];
 }
 
-// Servizi placeholder - da caricare successivamente
 const defaultServices: Service[] = [
+  // 1. Dashboard
   {
-    id: "core-erp",
-    name: "Core ERP",
-    description: "Contabilità generale, gestione magazzino, ordini e fatturazione",
+    id: "dashboard",
+    name: "Dashboard",
+    description: "Panoramica generale con KPI principali e accesso rapido alle informazioni",
+    basePrice: 2500,
+    monthlyMultiplier: 0.02,
+    category: "Moduli Core",
+    features: [
+      "Statistiche generali: cantieri, dipendenti, mezzi, scadenze",
+      "Feed attività e cronologia aggiornamenti",
+      "Azioni rapide alle operazioni frequenti",
+      "Panoramica cantieri con avanzamento",
+      "Assistente AI per analisi e suggerimenti"
+    ]
+  },
+  // 2. Cantieri
+  {
+    id: "cantieri",
+    name: "Cantieri",
+    description: "Gestione completa cantieri con SAL, budget, presenze, risorse e documenti",
+    basePrice: 8000,
+    monthlyMultiplier: 0.035,
+    category: "Moduli Core",
+    features: [
+      "Lista cantieri con filtri e ricerca",
+      "Dettaglio 360°: SAL & Budget, Presenze GPS, Risorse",
+      "Gestione materiali e inventario cantiere",
+      "Documenti: contratti, progetti, permessi",
+      "Sicurezza e formazione cantiere",
+      "Diario cantiere con note e storico",
+      "Cronoprogrammi con Gantt e milestone"
+    ]
+  },
+  // 3. Mezzi & Attrezzature
+  {
+    id: "mezzi",
+    name: "Mezzi & Attrezzature",
+    description: "Parco mezzi, tracking GPS real-time, scadenze e manutenzioni",
+    basePrice: 6000,
+    monthlyMultiplier: 0.04,
+    category: "Moduli Core",
+    features: [
+      "Parco mezzi con schede tecniche e stato",
+      "Live Tracking GPS su mappa Mapbox",
+      "Scadenze: assicurazione, revisione, bollo",
+      "Registro manutenzioni e storico costi",
+      "Alert e promemoria automatici"
+    ]
+  },
+  // 4. Fornitori & Acquisti
+  {
+    id: "fornitori",
+    name: "Fornitori & Acquisti",
+    description: "Anagrafica fornitori, listini, confronto prezzi e gestione ordini",
+    basePrice: 4500,
+    monthlyMultiplier: 0.03,
+    category: "Moduli Operativi",
+    features: [
+      "Anagrafica fornitori e categorie",
+      "Listini prezzi con import/export",
+      "Confronto prezzi e analisi convenienza",
+      "Ordini acquisto e tracking consegne",
+      "Gestione DDT e valutazione fornitori"
+    ]
+  },
+  // 5. Magazzino
+  {
+    id: "magazzino",
+    name: "Magazzino",
+    description: "Inventario multi-magazzino, DPI, movimenti e riordino automatico",
     basePrice: 5000,
     monthlyMultiplier: 0.03,
-    category: "Base"
+    category: "Moduli Operativi",
+    features: [
+      "Gestione multi-magazzino con ubicazioni",
+      "Anagrafica articoli e giacenze",
+      "DPI e vestiario con assegnazione dipendenti",
+      "Movimenti carico/scarico e trasferimenti",
+      "Soglie riordino automatico"
+    ]
   },
+  // 6. Personale
   {
-    id: "hr-payroll",
-    name: "HR & Payroll",
-    description: "Gestione risorse umane, buste paga, presenze",
-    basePrice: 3000,
-    monthlyMultiplier: 0.04,
-    category: "Moduli"
-  },
-  {
-    id: "crm-marketing",
-    name: "CRM & Marketing",
-    description: "Gestione clienti, pipeline vendite, campagne marketing",
-    basePrice: 2500,
+    id: "personale",
+    name: "Personale",
+    description: "Anagrafica dipendenti, presenze GPS, ferie e buste paga",
+    basePrice: 5500,
     monthlyMultiplier: 0.035,
-    category: "Moduli"
+    category: "Moduli Operativi",
+    features: [
+      "Anagrafica completa con contratti e qualifiche",
+      "Presenze con mappa GPS per cantiere",
+      "Richieste ferie/permessi con approvazione",
+      "Archivio buste paga e cedolini",
+      "Assegnazioni cantiere e certificazioni"
+    ]
+  },
+  // 7. Sicurezza
+  {
+    id: "sicurezza",
+    name: "Sicurezza",
+    description: "Scadenze critiche, visite mediche, formazione e documenti obbligatori",
+    basePrice: 4000,
+    monthlyMultiplier: 0.025,
+    category: "Moduli Operativi",
+    features: [
+      "Dashboard scadenze critiche e conformità",
+      "Programmazione visite mediche e idoneità",
+      "Registro formazione e scadenze attestati",
+      "Documenti: DVR, DUVRI, POS, PSC",
+      "Verbali riunioni e nomine figure"
+    ]
+  },
+  // 8. Documenti
+  {
+    id: "documenti",
+    name: "Documenti",
+    description: "Sistema documentale centralizzato con ricerca e controllo accessi",
+    basePrice: 2000,
+    monthlyMultiplier: 0.02,
+    category: "Moduli Accessori",
+    features: [
+      "Organizzazione gerarchica documenti",
+      "Tag, metadati e ricerca full-text",
+      "Controllo accessi per ruolo",
+      "Upload/download con versioning"
+    ]
+  },
+  // 9. Organigramma
+  {
+    id: "organigramma",
+    name: "Organigramma",
+    description: "Struttura organizzativa con gerarchia ruoli e responsabilità",
+    basePrice: 1500,
+    monthlyMultiplier: 0.015,
+    category: "Moduli Accessori",
+    features: [
+      "Visualizzazione grafica struttura",
+      "Gerarchia ruoli e deleghe",
+      "Responsabilità e contatti"
+    ]
+  },
+  // 10. Notifiche
+  {
+    id: "notifiche",
+    name: "Centro Notifiche",
+    description: "Notifiche centralizzate multi-canale con preferenze personalizzabili",
+    basePrice: 1500,
+    monthlyMultiplier: 0.02,
+    category: "Moduli Accessori",
+    features: [
+      "Notifiche email, push e SMS",
+      "Filtri per tipologia",
+      "Azioni rapide e preferenze"
+    ]
+  },
+  // 11. Impostazioni & Ruoli
+  {
+    id: "impostazioni",
+    name: "Impostazioni & Ruoli",
+    description: "Configurazione sistema, gestione ruoli utenti e permessi granulari",
+    basePrice: 3000,
+    monthlyMultiplier: 0.02,
+    category: "Moduli Core",
+    features: [
+      "Gestione ruoli: Admin, Capo Cantiere, Operaio, Magazziniere, Contabile",
+      "Permessi granulari per sezione",
+      "Creazione ruoli personalizzati",
+      "Preferenze notifiche e sicurezza account",
+      "Impostazioni lingua, tema, fuso orario"
+    ]
+  },
+  // Funzionalità Trasversali
+  {
+    id: "mobile-first",
+    name: "Interfaccia Mobile-First",
+    description: "Ottimizzazione completa per dispositivi mobili e tablet",
+    basePrice: 2000,
+    monthlyMultiplier: 0.01,
+    category: "Funzionalità Trasversali",
+    features: [
+      "UI responsive per tutti i dispositivi",
+      "App-like experience su mobile",
+      "Timbratura mobile con GPS"
+    ]
   },
   {
-    id: "bi-analytics",
-    name: "Business Intelligence",
-    description: "Dashboard, reportistica avanzata, analytics",
+    id: "mapbox-integration",
+    name: "Integrazione Mapbox GPS",
+    description: "Tracking real-time mezzi e personale su mappa interattiva",
+    basePrice: 3500,
+    monthlyMultiplier: 0.05,
+    category: "Funzionalità Trasversali",
+    features: [
+      "Mappa interattiva con posizioni live",
+      "Geolocalizzazione check-in/out",
+      "Marker colorati per stato",
+      "Storico percorsi e posizioni"
+    ]
+  },
+  {
+    id: "alert-automatici",
+    name: "Sistema Alert Automatici",
+    description: "Notifiche automatiche multi-canale per tutte le scadenze",
     basePrice: 2000,
     monthlyMultiplier: 0.025,
-    category: "Moduli"
-  },
-  {
-    id: "formazione",
-    name: "Formazione",
-    description: "Training del personale e onboarding",
-    basePrice: 1500,
-    monthlyMultiplier: 0,
-    category: "Servizi"
-  },
-  {
-    id: "supporto-premium",
-    name: "Supporto Premium",
-    description: "Assistenza prioritaria 24/7",
-    basePrice: 500,
-    monthlyMultiplier: 0.10,
-    category: "Servizi"
+    category: "Funzionalità Trasversali",
+    features: [
+      "Alert scadenze documenti e certificati",
+      "Promemoria manutenzioni e visite",
+      "Notifiche sforamento budget",
+      "Escalation automatica"
+    ]
   }
 ];
 
 export default function QuoteGGroup() {
   const [services] = useState<Service[]>(defaultServices);
-  const [selectedServices, setSelectedServices] = useState<string[]>(["core-erp"]);
+  const [selectedServices, setSelectedServices] = useState<string[]>(["dashboard"]);
   const [upfrontPercentage, setUpfrontPercentage] = useState<number>(50);
 
   // Calcola il totale dei servizi selezionati
@@ -171,33 +338,45 @@ export default function QuoteGGroup() {
                       {categoryServices.map(service => (
                         <div 
                           key={service.id}
-                          className={`flex items-start gap-4 p-4 rounded-lg border transition-all cursor-pointer ${
+                          className={`p-4 rounded-lg border transition-all cursor-pointer ${
                             selectedServices.includes(service.id) 
                               ? 'border-resyne-gold/50 bg-resyne-gold/5' 
                               : 'border-border/30 hover:border-border/50'
                           }`}
                           onClick={() => toggleService(service.id)}
                         >
-                          <Checkbox
-                            checked={selectedServices.includes(service.id)}
-                            onCheckedChange={() => toggleService(service.id)}
-                            className="mt-1"
-                          />
-                          <div className="flex-1">
-                            <div className="flex items-center justify-between">
-                              <h3 className="font-subtitle font-semibold">{service.name}</h3>
-                              <span className="font-mono text-resyne-gold font-semibold">
-                                €{service.basePrice.toLocaleString('it-IT')}
-                              </span>
-                            </div>
-                            <p className="text-sm text-muted-foreground mt-1">
-                              {service.description}
-                            </p>
-                            {service.monthlyMultiplier > 0 && (
-                              <p className="text-xs text-muted-foreground/70 mt-2">
-                                Fee mensile base: €{Math.round(service.basePrice * service.monthlyMultiplier).toLocaleString('it-IT')}/mese
+                          <div className="flex items-start gap-4">
+                            <Checkbox
+                              checked={selectedServices.includes(service.id)}
+                              onCheckedChange={() => toggleService(service.id)}
+                              className="mt-1"
+                            />
+                            <div className="flex-1">
+                              <div className="flex items-center justify-between flex-wrap gap-2">
+                                <h3 className="font-subtitle font-semibold">{service.name}</h3>
+                                <span className="font-mono text-resyne-gold font-semibold">
+                                  €{service.basePrice.toLocaleString('it-IT')}
+                                </span>
+                              </div>
+                              <p className="text-sm text-muted-foreground mt-1">
+                                {service.description}
                               </p>
-                            )}
+                              {service.features && service.features.length > 0 && (
+                                <ul className="mt-3 space-y-1">
+                                  {service.features.map((feature, idx) => (
+                                    <li key={idx} className="text-xs text-muted-foreground flex items-start gap-2">
+                                      <Check className="h-3 w-3 text-resyne-gold mt-0.5 shrink-0" />
+                                      <span>{feature}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              )}
+                              {service.monthlyMultiplier > 0 && (
+                                <p className="text-xs text-muted-foreground/70 mt-3 pt-2 border-t border-border/20">
+                                  Fee mensile base: €{Math.round(service.basePrice * service.monthlyMultiplier).toLocaleString('it-IT')}/mese
+                                </p>
+                              )}
+                            </div>
                           </div>
                         </div>
                       ))}
@@ -271,7 +450,7 @@ export default function QuoteGGroup() {
                             <Label className="text-sm">Fee mensile</Label>
                           </div>
                           {monthlyDiscount > 0 && (
-                            <Badge className="bg-green-500/20 text-green-400 border-green-500/30 text-xs">
+                            <Badge className="bg-accent/20 text-accent-foreground border-accent/30 text-xs">
                               -{monthlyDiscount}%
                             </Badge>
                           )}
