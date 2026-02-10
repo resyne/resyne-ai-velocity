@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Phone, Send, CheckCircle } from "lucide-react";
+import { Phone, Send, CheckCircle, FileText } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 export default function Amitrano() {
@@ -60,7 +60,8 @@ export default function Amitrano() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-resyne-gold text-resyne-dark px-6 py-3 rounded-lg font-subtitle hover:bg-resyne-gold-light transition-colors"
             >
-              📄 Visualizza la Presentazione
+              <FileText className="h-5 w-5" />
+              Visualizza la Presentazione
             </a>
           </div>
         </div>
