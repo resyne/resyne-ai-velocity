@@ -47,19 +47,21 @@ export default function Amitrano() {
       {/* Presentation Section */}
       <section className="pt-24 pb-8 sm:pt-28 sm:pb-12">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl text-center mb-6 sm:mb-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl mb-6 sm:mb-8">
               Consulenza Strategica & <span className="text-resyne-gold">Sviluppo Software</span>
             </h1>
-            <div className="w-full rounded-xl overflow-hidden border border-border/30 shadow-lg">
-              <iframe
-                src="https://gamma.app/embed/wnl8f4ynndl3kze"
-                style={{ width: "100%", height: "min(70vh, 550px)" }}
-                allow="fullscreen"
-                title="Consulenza strategica e sviluppo software per digitalizzazione, automazione e integrazione AI nelle PMI"
-                className="block"
-              />
-            </div>
+            <p className="text-muted-foreground mb-6 text-sm sm:text-base">
+              Scopri come possiamo aiutare la tua PMI con digitalizzazione, automazione e integrazione AI.
+            </p>
+            <a
+              href="https://gamma.app/docs/Consulenza-strategica-e-sviluppo-software-per-digitalizzazione-au-wnl8f4ynndl3kze"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-resyne-gold text-resyne-dark px-6 py-3 rounded-lg font-subtitle hover:bg-resyne-gold-light transition-colors"
+            >
+              📄 Visualizza la Presentazione
+            </a>
           </div>
         </div>
       </section>
