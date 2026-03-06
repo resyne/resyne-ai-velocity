@@ -13,26 +13,45 @@ export default function ERPLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const { signIn } = useAuth();
+  const [isRegister, setIsRegister] = useState(false);
+  const { signIn, signUp } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim() || !password.trim()) return;
-    
-    setIsLoading(true);
-    const { error } = await signIn(email.trim(), password.trim());
-    setIsLoading(false);
 
-    if (error) {
-      toast({
-        title: "Errore di accesso",
-        description: "Credenziali non valide. Riprova.",
-        variant: "destructive",
-      });
+    setIsLoading(true);
+
+    if (isRegister) {
+      const { error } = await signUp(email.trim(), password.trim());
+      setIsLoading(false);
+      if (error) {
+        toast({
+          title: "Errore di registrazione",
+          description: error.message,
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Registrazione completata",
+          description: "Controlla la tua email per confermare l'account.",
+        });
+        setIsRegister(false);
+      }
     } else {
-      navigate("/erp");
+      const { error } = await signIn(email.trim(), password.trim());
+      setIsLoading(false);
+      if (error) {
+        toast({
+          title: "Errore di accesso",
+          description: "Credenziali non valide. Riprova.",
+          variant: "destructive",
+        });
+      } else {
+        navigate("/erp");
+      }
     }
   };
 
@@ -41,7 +60,9 @@ export default function ERPLogin() {
       <Card className="w-full max-w-md border-border/50">
         <CardHeader className="text-center space-y-4">
           <img src={resyneLogo} alt="Resyne" className="h-10 mx-auto" />
-          <CardTitle className="font-heading text-xl">Accesso ERP</CardTitle>
+          <CardTitle className="font-heading text-xl">
+            {isRegister ? "Registrazione ERP" : "Accesso ERP"}
+          </CardTitle>
           <p className="text-muted-foreground text-sm">Area riservata gestione progetti</p>
         </CardHeader>
         <CardContent>
@@ -73,13 +94,25 @@ export default function ERPLogin() {
                   onChange={(e) => setPassword(e.target.value)}
                   className="pl-10"
                   required
+                  minLength={6}
                 />
               </div>
             </div>
             <Button type="submit" className="w-full" disabled={isLoading}>
-              {isLoading ? "Accesso in corso..." : "Accedi"}
+              {isLoading
+                ? isRegister ? "Registrazione..." : "Accesso in corso..."
+                : isRegister ? "Registrati" : "Accedi"}
             </Button>
           </form>
+          <div className="mt-4 text-center">
+            <button
+              type="button"
+              onClick={() => setIsRegister(!isRegister)}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {isRegister ? "Hai già un account? Accedi" : "Non hai un account? Registrati"}
+            </button>
+          </div>
         </CardContent>
       </Card>
     </div>
