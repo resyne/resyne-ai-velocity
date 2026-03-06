@@ -30,37 +30,39 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={
-            <>
-              <Header />
-              <HeroSection />
-              <FounderSection />
-              <DemoSection />
-              <LeadSection />
-              <Footer />
-            </>
-          } />
-          <Route path="/audit" element={<Audit />} />
-          
-          <Route path="/book-a-call" element={<BookACall />} />
-          <Route path="/bando-pid" element={<BandoPID />} />
-          <Route path="/voucher-vda" element={<VoucherVdA />} />
-          <Route path="/digit-sicilia" element={<DigitSicilia />} />
-          <Route path="/automation" element={<Automation />} />
-          <Route path="/ai-solutions" element={<AISolutions />} />
-          <Route path="/quote-ggroup" element={<QuoteGGroup />} />
-          <Route path="/amitrano" element={<Amitrano />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        
-      </BrowserRouter>
-    </TooltipProvider>
+    <AuthProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={
+              <>
+                <Header />
+                <HeroSection />
+                <FounderSection />
+                <DemoSection />
+                <LeadSection />
+                <Footer />
+              </>
+            } />
+            <Route path="/audit" element={<Audit />} />
+            <Route path="/erp" element={<ERP />} />
+            <Route path="/erp/login" element={<ERPLogin />} />
+            <Route path="/book-a-call" element={<BookACall />} />
+            <Route path="/bando-pid" element={<BandoPID />} />
+            <Route path="/voucher-vda" element={<VoucherVdA />} />
+            <Route path="/digit-sicilia" element={<DigitSicilia />} />
+            <Route path="/automation" element={<Automation />} />
+            <Route path="/ai-solutions" element={<AISolutions />} />
+            <Route path="/quote-ggroup" element={<QuoteGGroup />} />
+            <Route path="/amitrano" element={<Amitrano />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </AuthProvider>
   </QueryClientProvider>
 );
 
