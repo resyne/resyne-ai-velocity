@@ -59,7 +59,17 @@ export default function CommesseView() {
         .from("erp_projects")
         .select("*")
         .order("created_at", { ascending: false });
-      setCommesse((data as Commessa[]) || []);
+      const items = ((data as Commessa[]) || []).map((c) => {
+        const pipelineKeys = PIPELINE_STAGES.map((s) => s.key);
+        if (!pipelineKeys.includes(c.status)) {
+          const mapped = LEGACY_STATUS_MAP[c.status] || "nuova";
+          // Auto-migrate legacy status
+          supabase.from("erp_projects").update({ status: mapped }).eq("id", c.id).then(() => {});
+          return { ...c, status: mapped };
+        }
+        return c;
+      });
+      setCommesse(items);
     } catch (err) {
       console.error("Fetch commesse error:", err);
     } finally {
