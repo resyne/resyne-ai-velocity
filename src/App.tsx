@@ -10,8 +10,11 @@ import { LeadSection } from "@/components/LeadSection";
 import { Footer } from "@/components/Footer";
 import { FounderSection } from "@/components/FounderSection";
 
+import { AuthProvider } from "@/hooks/useAuth";
 import Index from "./pages/Index";
 import Audit from "./pages/Audit";
+import ERP from "./pages/ERP";
+import ERPLogin from "./pages/ERPLogin";
 
 import BookACall from "./pages/BookACall";
 import BandoPID from "./pages/BandoPID";
