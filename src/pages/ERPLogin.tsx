@@ -24,34 +24,43 @@ export default function ERPLogin() {
 
     setIsLoading(true);
 
-    if (isRegister) {
-      const { error } = await signUp(email.trim(), password.trim());
-      setIsLoading(false);
-      if (error) {
-        toast({
-          title: "Errore di registrazione",
-          description: error.message,
-          variant: "destructive",
-        });
+    try {
+      if (isRegister) {
+        const { error } = await signUp(email.trim(), password.trim());
+        if (error) {
+          toast({
+            title: "Errore di registrazione",
+            description: error.message,
+            variant: "destructive",
+          });
+        } else {
+          toast({
+            title: "Registrazione completata",
+            description: "Controlla la tua email per confermare l'account.",
+          });
+          setIsRegister(false);
+        }
       } else {
-        toast({
-          title: "Registrazione completata",
-          description: "Controlla la tua email per confermare l'account.",
-        });
-        setIsRegister(false);
+        const { error } = await signIn(email.trim(), password.trim());
+        if (error) {
+          toast({
+            title: "Errore di accesso",
+            description: "Credenziali non valide. Riprova.",
+            variant: "destructive",
+          });
+        } else {
+          navigate("/erp");
+        }
       }
-    } else {
-      const { error } = await signIn(email.trim(), password.trim());
+    } catch (err) {
+      console.error("Auth error:", err);
+      toast({
+        title: "Errore",
+        description: "Si è verificato un errore imprevisto. Riprova.",
+        variant: "destructive",
+      });
+    } finally {
       setIsLoading(false);
-      if (error) {
-        toast({
-          title: "Errore di accesso",
-          description: "Credenziali non valide. Riprova.",
-          variant: "destructive",
-        });
-      } else {
-        navigate("/erp");
-      }
     }
   };
 
