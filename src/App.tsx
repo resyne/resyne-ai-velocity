@@ -13,8 +13,12 @@ import { FounderSection } from "@/components/FounderSection";
 import { AuthProvider } from "@/hooks/useAuth";
 import Index from "./pages/Index";
 import Audit from "./pages/Audit";
-import ERP from "./pages/ERP";
 import ERPLogin from "./pages/ERPLogin";
+import ERPLayout from "./components/erp/ERPLayout";
+import CommesseView from "./components/erp/CommesseView";
+import ClientiView from "./components/erp/ClientiView";
+import FatturazioneView from "./components/erp/FatturazioneView";
+import ScadenzeView from "./components/erp/ScadenzeView";
 
 import BookACall from "./pages/BookACall";
 import BandoPID from "./pages/BandoPID";
@@ -47,8 +51,13 @@ const App = () => (
               </>
             } />
             <Route path="/audit" element={<Audit />} />
-            <Route path="/erp" element={<ERP />} />
             <Route path="/erp/login" element={<ERPLogin />} />
+            <Route path="/erp" element={<ERPLayout />}>
+              <Route index element={<CommesseView />} />
+              <Route path="clienti" element={<ClientiView />} />
+              <Route path="fatturazione" element={<FatturazioneView />} />
+              <Route path="scadenze" element={<ScadenzeView />} />
+            </Route>
             <Route path="/book-a-call" element={<BookACall />} />
             <Route path="/bando-pid" element={<BandoPID />} />
             <Route path="/voucher-vda" element={<VoucherVdA />} />
