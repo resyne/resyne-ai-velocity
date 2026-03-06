@@ -34,6 +34,14 @@ const PIPELINE_STAGES = [
   { key: "approvata", label: "Approvate", color: "bg-green-500/10 text-green-600 border-green-500/30" },
 ];
 
+// Map legacy statuses to new pipeline
+const LEGACY_STATUS_MAP: Record<string, string> = {
+  active: "trattativa",
+  completed: "approvata",
+  on_hold: "qualificata",
+  cancelled: "nuova",
+};
+
 export default function CommesseView() {
   const { user } = useAuth();
   const { toast } = useToast();
