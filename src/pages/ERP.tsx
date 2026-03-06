@@ -81,23 +81,32 @@ export default function ERP() {
 
   const fetchProjects = useCallback(async () => {
     if (!user) return;
-    const { data } = await supabase
-      .from("erp_projects")
-      .select("*")
-      .order("created_at", { ascending: false });
-    setProjects((data as Project[]) || []);
-    setLoadingData(false);
+    try {
+      const { data } = await supabase
+        .from("erp_projects")
+        .select("*")
+        .order("created_at", { ascending: false });
+      setProjects((data as Project[]) || []);
+    } catch (err) {
+      console.error("Fetch projects error:", err);
+    } finally {
+      setLoadingData(false);
+    }
   }, [user]);
 
   useEffect(() => { fetchProjects(); }, [fetchProjects]);
 
   const fetchProjectDetails = useCallback(async (projectId: string) => {
-    const [expRes, fileRes] = await Promise.all([
-      supabase.from("erp_expenses").select("*").eq("project_id", projectId).order("date", { ascending: false }),
-      supabase.from("erp_files").select("*").eq("project_id", projectId).order("created_at", { ascending: false }),
-    ]);
-    setExpenses((expRes.data as Expense[]) || []);
-    setFiles((fileRes.data as ProjectFile[]) || []);
+    try {
+      const [expRes, fileRes] = await Promise.all([
+        supabase.from("erp_expenses").select("*").eq("project_id", projectId).order("date", { ascending: false }),
+        supabase.from("erp_files").select("*").eq("project_id", projectId).order("created_at", { ascending: false }),
+      ]);
+      setExpenses((expRes.data as Expense[]) || []);
+      setFiles((fileRes.data as ProjectFile[]) || []);
+    } catch (err) {
+      console.error("Fetch project details error:", err);
+    }
   }, []);
 
   const selectProject = (p: Project) => {
