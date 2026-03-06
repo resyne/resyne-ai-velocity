@@ -36,7 +36,7 @@ const PIPELINE_STAGES = [
 
 // Map legacy statuses to new pipeline
 const LEGACY_STATUS_MAP: Record<string, string> = {
-  active: "trattativa",
+  active: "approvata",
   completed: "approvata",
   on_hold: "qualificata",
   cancelled: "nuova",
