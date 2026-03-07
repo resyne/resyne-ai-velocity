@@ -1,0 +1,2 @@
+ALTER TABLE public.erp_projects DROP CONSTRAINT erp_projects_status_check;
+ALTER TABLE public.erp_projects ADD CONSTRAINT erp_projects_status_check CHECK (status = ANY (ARRAY['active', 'completed', 'on_hold', 'cancelled', 'nuova', 'qualificata', 'trattativa', 'approvata']));
