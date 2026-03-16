@@ -28,6 +28,7 @@ import Automation from "./pages/Automation";
 import AISolutions from "./pages/AISolutions";
 import QuoteGGroup from "./pages/QuoteGGroup";
 import Amitrano from "./pages/Amitrano";
+import QuotePegasoDesign from "./pages/QuotePegasoDesign";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
