@@ -28,6 +28,7 @@ import Automation from "./pages/Automation";
 import AISolutions from "./pages/AISolutions";
 import QuoteGGroup from "./pages/QuoteGGroup";
 import Amitrano from "./pages/Amitrano";
+import QuotePegasoDesign from "./pages/QuotePegasoDesign";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -66,6 +67,7 @@ const App = () => (
             <Route path="/ai-solutions" element={<AISolutions />} />
             <Route path="/quote-ggroup" element={<QuoteGGroup />} />
             <Route path="/amitrano" element={<Amitrano />} />
+            <Route path="/quote-pegasodesign" element={<QuotePegasoDesign />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
