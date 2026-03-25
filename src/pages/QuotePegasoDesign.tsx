@@ -447,16 +447,16 @@ export default function QuotePegasoDesign() {
                   </div>
                   <div className="p-4 bg-background rounded-lg border border-tiffany/20">
                     <h4 className="font-semibold text-tiffany mb-2">
-                      Nuova Sabatini – Beni Strumentali
+                      Bando ISI INAIL – Sicurezza sul Lavoro
                     </h4>
                     <p className="text-sm text-muted-foreground mb-3">
-                      Contributo MiMIT a favore delle PMI per l'acquisto di beni strumentali, inclusi software e tecnologie digitali.
+                      Implementazione di un Sistema Digitale di Gestione della Sicurezza sul Lavoro (SGSL) finalizzato alla riduzione del rischio operativo e al miglioramento continuo delle condizioni di sicurezza.
                     </p>
                     <Badge variant="outline" className="bg-tiffany/10 text-tiffany border-tiffany/30">
-                      Contributo fino al 7,7%
+                      Contributo a fondo perduto fino al 65%
                     </Badge>
                     <p className="text-xs text-muted-foreground mt-3">
-                      Rif: MiSE/MiMIT – Beni Strumentali | Finanziamenti fino a 4M€
+                      Rif: INAIL – Bando ISI | Investimenti per la sicurezza e prevenzione
                     </p>
                   </div>
                 </div>

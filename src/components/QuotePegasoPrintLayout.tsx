@@ -208,11 +208,11 @@ export function QuotePegasoPrintLayout({
               <p className="text-[7px] text-gray-400 mt-0.5 italic">Rif: Allegato B – L. 232/2016</p>
             </div>
             <div className="p-1.5 bg-white rounded border border-amber-200">
-              <p className="font-bold text-amber-700 text-[9px] mb-0.5">Nuova Sabatini – Beni Strumentali</p>
+              <p className="font-bold text-amber-700 text-[9px] mb-0.5">Bando ISI INAIL – Sicurezza sul Lavoro</p>
               <p className="text-gray-600 leading-tight">
-                Contributo MiMIT per acquisto beni strumentali (software inclusi). Agevolazione fino al 7,7%.
+                Sistema Digitale di Gestione della Sicurezza sul Lavoro (SGSL) per riduzione rischio operativo e miglioramento condizioni di sicurezza.
               </p>
-              <p className="text-[7px] text-gray-400 mt-0.5 italic">Rif: MiSE/MiMIT</p>
+              <p className="text-[7px] text-gray-400 mt-0.5 italic">Rif: INAIL – Bando ISI | Contributo a fondo perduto fino al 65%</p>
             </div>
           </div>
         </section>
