@@ -199,7 +199,7 @@ export function QuotePegasoPrintLayout({
           <p className="font-semibold text-[10px] text-amber-800 mb-1 flex items-center gap-1">
             <span className="text-amber-600">★</span> Agevolazioni e Incentivi Fiscali
           </p>
-          <div className="grid grid-cols-3 gap-2 text-[8px]">
+          <div className="grid grid-cols-2 gap-2 text-[8px]">
             <div className="p-1.5 bg-white rounded border border-amber-200">
               <p className="font-bold text-amber-700 text-[9px] mb-0.5">Industria 4.0 – Iperammortamento 180%</p>
               <p className="text-gray-600 leading-tight">
@@ -213,13 +213,6 @@ export function QuotePegasoPrintLayout({
                 Contributo MiMIT per acquisto beni strumentali (software inclusi). Agevolazione fino al 7,7%.
               </p>
               <p className="text-[7px] text-gray-400 mt-0.5 italic">Rif: MiSE/MiMIT</p>
-            </div>
-            <div className="p-1.5 bg-white rounded border border-amber-200">
-              <p className="font-bold text-amber-700 text-[9px] mb-0.5">Voucher Cloud & Cyber Security</p>
-              <p className="text-gray-600 leading-tight">
-                Contributo a fondo perduto 50% per servizi cloud e cyber security. Max €20.000 per soggetto.
-              </p>
-              <p className="text-[7px] text-gray-400 mt-0.5 italic">Rif: DM MIMIT 2025 – De Minimis</p>
             </div>
           </div>
         </section>
