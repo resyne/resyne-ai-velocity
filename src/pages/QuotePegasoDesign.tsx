@@ -174,8 +174,8 @@ const developmentItems: DevelopmentItem[] = [
 // Linear interpolation for monthly fee
 const MIN_ANTICIPO = 8000;
 const MAX_ANTICIPO = 10000;
-const MONTHLY_AT_MIN = 420;
-const MONTHLY_AT_MAX = 330;
+const MONTHLY_AT_MIN = 476;
+const MONTHLY_AT_MAX = 393;
 const DURATION_MONTHS = 24;
 
 export default function QuotePegasoDesign() {
@@ -426,7 +426,7 @@ export default function QuotePegasoDesign() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid md:grid-cols-3 gap-4">
                   <div className="p-4 bg-background rounded-lg border border-tiffany/20">
                     <h4 className="font-semibold text-tiffany mb-2">
                       Industria 4.0 – Iperammortamento 180%
@@ -457,6 +457,20 @@ export default function QuotePegasoDesign() {
                     </Badge>
                     <p className="text-xs text-muted-foreground mt-3">
                       Rif: MiSE/MiMIT – Beni Strumentali | Finanziamenti fino a 4M€
+                    </p>
+                  </div>
+                  <div className="p-4 bg-background rounded-lg border border-tiffany/20">
+                    <h4 className="font-semibold text-tiffany mb-2">
+                      Voucher Cloud & Cyber Security
+                    </h4>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Contributo a fondo perduto MIMIT pari al 50% delle spese ammissibili per servizi cloud (SaaS, ERP, storage) e cyber security. Fino a €20.000 per soggetto.
+                    </p>
+                    <Badge variant="outline" className="bg-tiffany/10 text-tiffany border-tiffany/30">
+                      50% a fondo perduto – max €20.000
+                    </Badge>
+                    <p className="text-xs text-muted-foreground mt-3">
+                      Rif: DM MIMIT 2025 – Regime De Minimis | Spesa minima €4.000
                     </p>
                   </div>
                 </div>
