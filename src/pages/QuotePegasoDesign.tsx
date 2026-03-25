@@ -459,20 +459,6 @@ export default function QuotePegasoDesign() {
                       Rif: MiSE/MiMIT – Beni Strumentali | Finanziamenti fino a 4M€
                     </p>
                   </div>
-                  <div className="p-4 bg-background rounded-lg border border-tiffany/20">
-                    <h4 className="font-semibold text-tiffany mb-2">
-                      Voucher Cloud & Cyber Security
-                    </h4>
-                    <p className="text-sm text-muted-foreground mb-3">
-                      Contributo a fondo perduto MIMIT pari al 50% delle spese ammissibili per servizi cloud (SaaS, ERP, storage) e cyber security. Fino a €20.000 per soggetto.
-                    </p>
-                    <Badge variant="outline" className="bg-tiffany/10 text-tiffany border-tiffany/30">
-                      50% a fondo perduto – max €20.000
-                    </Badge>
-                    <p className="text-xs text-muted-foreground mt-3">
-                      Rif: DM MIMIT 2025 – Regime De Minimis | Spesa minima €4.000
-                    </p>
-                  </div>
                 </div>
                 <p className="text-xs text-center text-muted-foreground mt-4 pt-4 border-t border-tiffany/20">
                   Le agevolazioni sopra indicate sono soggette a requisiti specifici. Contattaci per una consulenza personalizzata.
