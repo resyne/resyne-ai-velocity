@@ -1,4 +1,4 @@
-import { Check, Clock, CreditCard, Euro, Landmark } from "lucide-react";
+import { Check, Clock, CreditCard, Euro, Landmark, Building2 } from "lucide-react";
 import equipeResyneLogo from "@/assets/equipe-resyne-logo.png";
 
 interface DevelopmentItem {
@@ -179,6 +179,33 @@ export function QuotePegasoPrintLayout({
               </p>
             </div>
             <p className="text-xl font-bold font-mono">€{totalProject.toLocaleString('it-IT')}</p>
+          </div>
+        </section>
+
+        {/* Post 24 months + Affiliates */}
+        <section className="mb-3 grid grid-cols-2 gap-2 print-no-break">
+          <div className="p-2 bg-green-50 rounded border border-green-300">
+            <div className="flex items-center gap-1 mb-0.5">
+              <Clock className="h-3 w-3 text-green-600" />
+              <p className="font-semibold text-green-700 text-[9px] uppercase">Dopo i 24 mesi</p>
+            </div>
+            <p className="text-[8px] text-gray-600 mb-1">La fee mensile si riduce del 20%.</p>
+            <p className="text-lg font-bold font-mono text-green-700">
+              €{Math.round(monthlyFee * 0.8).toLocaleString('it-IT')}<span className="text-[10px] font-normal">/mese</span>
+            </p>
+            <p className="text-[7px] text-gray-500">invece di €{monthlyFee}/mese</p>
+          </div>
+          <div className="p-2 bg-gray-50 rounded border border-gray-200">
+            <div className="flex items-center gap-1 mb-0.5">
+              <Building2 className="h-3 w-3 text-gray-600" />
+              <p className="font-semibold text-gray-700 text-[9px] uppercase">Costo per affiliato</p>
+            </div>
+            <p className="text-[8px] text-gray-600 mb-1">Per azienda collegata (manutenzione, cloud).</p>
+            <div className="space-y-0.5 text-[8px]">
+              <div className="flex justify-between"><span>Fino a 30 aziende</span><span className="font-mono font-bold">€300/anno</span></div>
+              <div className="flex justify-between"><span>Fino a 60 aziende</span><span className="font-mono font-bold">€500/anno</span></div>
+              <div className="flex justify-between"><span>Fino a 100 aziende</span><span className="font-mono font-bold">€700/anno</span></div>
+            </div>
           </div>
         </section>
 

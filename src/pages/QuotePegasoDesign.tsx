@@ -391,6 +391,48 @@ export default function QuotePegasoDesign() {
                         </p>
                       </div>
 
+                      {/* Post 24 months */}
+                      <div className="p-4 rounded-lg bg-green-500/10 border border-green-500/20">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Clock className="h-4 w-4 text-green-500" />
+                          <Label className="text-sm font-semibold">Dopo i 24 mesi</Label>
+                        </div>
+                        <p className="text-xs text-muted-foreground mb-2">
+                          Al termine del periodo minimo contrattuale, la fee mensile si riduce del 20%.
+                        </p>
+                        <p className="text-2xl font-bold font-mono text-green-500">
+                          €{Math.round(monthlyFee * 0.8).toLocaleString('it-IT')}<span className="text-base">/mese</span>
+                        </p>
+                        <p className="text-xs text-muted-foreground mt-1">
+                          invece di €{monthlyFee}/mese · <span className="text-green-500 font-semibold">-20%</span>
+                        </p>
+                      </div>
+
+                      {/* Affiliate pricing */}
+                      <div className="p-4 rounded-lg bg-muted/30 border border-border/30">
+                        <div className="flex items-center gap-2 mb-3">
+                          <Building2 className="h-4 w-4 text-resyne-gold" />
+                          <Label className="text-sm font-semibold">Costo per azienda affiliata</Label>
+                        </div>
+                        <p className="text-xs text-muted-foreground mb-3">
+                          Per ciascuna azienda collegata nel sistema (manutenzione, cloud, assistenza).
+                        </p>
+                        <div className="space-y-2">
+                          <div className="flex items-center justify-between p-2 rounded bg-resyne-gold/5 border border-resyne-gold/10">
+                            <span className="text-xs">Fino a <strong>30</strong> aziende</span>
+                            <span className="font-mono font-semibold text-sm">€300<span className="text-xs font-normal text-muted-foreground">/anno per azienda</span></span>
+                          </div>
+                          <div className="flex items-center justify-between p-2 rounded bg-resyne-gold/5 border border-resyne-gold/10">
+                            <span className="text-xs">Fino a <strong>60</strong> aziende</span>
+                            <span className="font-mono font-semibold text-sm">€500<span className="text-xs font-normal text-muted-foreground">/anno per azienda</span></span>
+                          </div>
+                          <div className="flex items-center justify-between p-2 rounded bg-resyne-gold/5 border border-resyne-gold/10">
+                            <span className="text-xs">Fino a <strong>100</strong> aziende</span>
+                            <span className="font-mono font-semibold text-sm">€700<span className="text-xs font-normal text-muted-foreground">/anno per azienda</span></span>
+                          </div>
+                        </div>
+                      </div>
+
                       {/* Delivery */}
                       <div className="flex items-center justify-between p-3 rounded-lg bg-muted/30 border border-border/30">
                         <div className="flex items-center gap-2">
